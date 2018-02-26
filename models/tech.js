@@ -27,7 +27,7 @@ type: String,
 required: 'You must supply an icon!'
 },
 order: {
-type: String,
+type: Number,
 trim: true,
 required: 'Please enter a number!'
 }
