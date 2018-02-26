@@ -30,7 +30,7 @@ mongoose.connect(
 
 // load all models
 require('./models/ToDo')
-require('./models/userModels')
+require('./models/User')
 require('./models/UserProfile')
 require('./models/UserTech')
 
