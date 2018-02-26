@@ -7,7 +7,7 @@ type: String,
 trim: true,
 required: 'Please enter an ID!'
 },
-tech_name: String,
+name: String,
 description: {
 type: String,
 trim: true,
@@ -33,4 +33,3 @@ required: 'Please enter a number!'
 }
 
 module.exports = mongoose.model('Tech', techSchema);
-
