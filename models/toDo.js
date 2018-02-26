@@ -9,7 +9,7 @@ const toDoSchema = new mongoose.Schema({
         type: String,
         required: 'Please give an item'
     },
-    display: {
+    done: {
         type: Boolean,
         required: 'Please choose a display option'
     },
