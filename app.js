@@ -4,6 +4,7 @@ const https = require('https')
 const helmet = require('helmet')
 const express = require('express')
 const session = require('express-session')
+const passport = require('passport');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash')
@@ -11,6 +12,10 @@ const bodyParser = require('body-parser')
 const routes = require('./routes/web')
 const helpers = require('./helpers')
 const errorHandlers = require('./handlers/errorHandlers')
+
+// require passport
+
+require('./handlers/passport')
 
 // create the app
 const app = express()
@@ -63,11 +68,15 @@ app.use(errorHandlers.flashValidationErrors)
 // otherwise this was a really bad error we didn't expect!
 if (app.get('env') === 'development') {
   /* Development Error Handler - Prints stack trace */
-  app.use(errorHandlers.developmentErrors)  
+  app.use(errorHandlers.developmentErrors)
 }
 
 // production error handler
 app.use(errorHandlers.productionErrors)
+
+// // Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
 
 // export the app, that gets started by start.js
 module.exports = app
