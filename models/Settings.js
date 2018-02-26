@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const SettingsSchema = new mongoose.Schema({
+const Settings = new mongoose.Schema({
   tech_limit: {
     type: Number
 	}
