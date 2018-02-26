@@ -8,8 +8,14 @@ const userProfile = new mongoose.Schema({
     },
     avatar: String,
     photo: String,
-    bio: String,
-    website: String    
+    bio: {
+        type: String,
+        trim: true
+    },
+    website: {
+        type: String,
+        trim: true
+    }   
 })
 
 module.exports = mongoose.model('UserProfile', userProfile)
