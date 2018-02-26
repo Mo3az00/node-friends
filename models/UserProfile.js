@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const userProfile = new mongoose.Schema({
     user: mongoose.Schema.ObjectId,
     avatar: String,
