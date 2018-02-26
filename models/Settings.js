@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const Settings = new mongoose.Schema({
+const settingsSchema = new mongoose.Schema({
   tech_limit: {
     type: Number
-	}
+  }
 })
 
-module.exports = mongoose.model('Settings', Settings)
+module.exports = mongoose.model('Settings', settingsSchema)
