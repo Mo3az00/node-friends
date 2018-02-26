@@ -6,19 +6,19 @@ const userTechSchema = new mongoose.Schema({
     ref: 'User',
     required: 'You must supply a user'
   },
-  tech_name: {
+  name: {
     type: String,
     required: 'You must supply a title'
   },
-  tech_subtitle: {
+  subtitle: {
     type: String,
     required: 'You must supply a subtitle'
   },
-  tech_icon: {
+  icon: {
     type: String,
     required: 'You must supply a font-awesome icon'
   },
-  tech_name: {
+  description: {
     type: String,
     required: 'You must supply a description'
   },
