@@ -1,0 +1,22 @@
+mixin todoList(todos)
+    #todo-list
+        p
+            button.btn.btn-success.button-add-todo
+                i.fa.fa-plus
+                | &nbsp; Add item
+
+        .todo-error.alert.alert-danger.hidden
+
+        form.todo-form-new(action="#")
+            p
+                input.form-control(type="text", name="text", required)
+            p
+                button.btn.btn-primary(type="submit")
+                    i.fa.fa-save
+                    | &nbsp; save new item
+
+        #todo-list-loading
+            i.fa.fa-spin.fa-spinner
+            span Loading ...
+
+        #todo-list-display.list-group

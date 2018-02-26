@@ -1,0 +1,48 @@
+{
+  "name": "express-mongo-boilerplate",
+  "version": "1.0.0",
+  "description": "A simple boileplate for express websites with a mongodb database",
+  "main": "start.js",
+  "scripts": {
+    "start": "node ./start.js",
+    "watch": "nodemon ./start.js --ignore public/",
+    "assets": "webpack -w --display-max-modules 0",
+    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bootstrap": "^4.0.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "font-awesome": "^4.7.0",
+    "helmet": "^3.11.0",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.0.4",
+    "popper.js": "^1.13.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.12",
+    "postcss-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.11.0"
+  },
+  "author": "Dominik Hanke",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/noreading/expressjs-bootstrap-boilerplate"
+  }
+}
