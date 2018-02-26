@@ -5,30 +5,31 @@ const techSchema = new mongoose.Schema({
 user: {
 type: String,
 trim: true,
-required: 'Please enter a name!'
+required: 'Please enter an ID!'
 },
-title: String,
+tech_name: String,
 description: {
 type: String,
-trim: true
+trim: true,
+required: 'Please enter a name!'
 },
-subtitle: {
+Tech_subtitle: {
 type: {
 type: String,
+required: 'Please enter a Tech Subtitle' 
 },
-description: [{
+tech_description: [{
 type: String,
 required: 'You must supply a description!'
 }],
 icon: {
 type: String,
 required: 'You must supply an icon!'
-}
 },
 order: {
 type: String,
 trim: true,
-required: 'Please enter a name!'
+required: 'Please enter a number!'
 }
 
 module.exports = mongoose.model('Tech', techSchema);
