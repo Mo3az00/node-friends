@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const userTechSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
-    ref: 'UserModels'
+    ref: 'User',
+    required: 'You must supply a user'
   },
   tech_name: {
     type: String,
