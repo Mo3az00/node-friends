@@ -30,6 +30,10 @@ mongoose.connect(
 
 // load all models
 require('./models/ToDo')
+require('./models/userModels')
+require('./models/UserProfile')
+require('./models/UserTech')
+
 
 // load the app
 const app = require('./app')
