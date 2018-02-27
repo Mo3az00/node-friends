@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
-const toDoController = require('../controllers/ToDoController')
-const userController = require('../controllers/UserController')
+const ToDoController = require('../controllers/ToDoController')
+const UserController = require('../controllers/UserController')
 
 
 // The main route
