@@ -27,7 +27,7 @@ router.get('/todos/:id/delete', catchErrors(toDoController.deleteToDo))
 // USER CONTROLS
 
 // Login
-router.get('/login'), catchErrors(userController.login)
+router.get('/login', catchErrors(userController.login))
 
 // Edit profile
 router.get('/profile/edit-profile', catchErrors(userController.editProfile))
