@@ -93,3 +93,13 @@ main {
 .flash-messages {
   margin-top: 1rem;
 }
+
+// Dropdown on Hover
+
+.btn-link {
+  color:#333333;
+
+  &:hover {
+    color: #999999;
+  }
+}

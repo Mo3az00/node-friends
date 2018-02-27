@@ -9351,4 +9351,9 @@ main {
 .flash-messages {
   margin-top: 1rem; }
 
+.btn-link {
+  color: #333333; }
+  .btn-link:hover {
+    color: #999999; }
+
 /*# sourceMappingURL=style.css.map*/

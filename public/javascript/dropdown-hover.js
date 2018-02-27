@@ -1,4 +1,4 @@
-function dropdownHover(selector) {
+function dropDownHover(selector) {
 
     $(selector).each(function(item) {
         this.addEventListener('mouseover', function(e) {
@@ -11,4 +11,4 @@ function dropdownHover(selector) {
     })
 }
 
-export default dropdownHover
+export default dropDownHover

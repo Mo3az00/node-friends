@@ -18275,7 +18275,7 @@ module.exports = function spread(callback) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-function dropdownHover(selector) {
+function dropDownHover(selector) {
 
     $(selector).each(function (item) {
         this.addEventListener('mouseover', function (e) {
@@ -18288,7 +18288,7 @@ function dropdownHover(selector) {
     });
 }
 
-exports.default = dropdownHover;
+exports.default = dropDownHover;
 
 /***/ })
 /******/ ]);

@@ -6,5 +6,5 @@ import './todo-list'
 // This is where we write our own JavaScript for the website!
 // console.log('Hello stranger!')
 
-import dropdownHover from './dropdown-hover'
-dropdownHover('.dropdown-hover')
+import dropDownHover from './dropdown-hover'
+dropDownHover('.dropdown-hover')
