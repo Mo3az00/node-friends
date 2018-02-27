@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+  table.table
+    thead
+      tr
+        th(scope='col') #
+        th(scope='col') Project Name
+        th(scope='col') Link
+        th(scope='col') Options
+          button.btn.btn-link.btn-add(type='button')
+            i.fa.fa-plus
+    tbody
+      tr
+        th(scope='row') 1
+        td Demo1
+        td #
+        td
+          .dropdown
+            button#dropdownMenuButton.dropdown-hover.btn.btn-link(type='button', data-hover='dropdown', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              i.fa.fa-pencil-square-o
+              .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                a.dropdown-item(href='#') Edit
+                a.dropdown-item(href='#') Delete
+      tr
+        th(scope='row') 2
+        td Demo 2
+        td #
+        td
+          .dropdown
+            button#dropdownMenuButton.hover-toggle.btn.btn-link(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              i.fa.fa-pencil-square-o
+              .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                a.dropdown-item(href='#') Edit
+                a.dropdown-item(href='#') Delete
+      tr
+        th(scope='row') 3
+        td Demo 3
+        td #
+        td
+          .dropdown
+            button#dropdownMenuButton.dropdown-toggle.btn.btn-link(type='button', data-hover='dropdown', data-toggle='dropdown',aria-haspopup='true', aria-expanded='false')
+              i.fa.fa-pencil-square-o
+              ul.dropdown-menu(aria-labelledby='dropdownMenuButton')
+                li
+                  a.dropdown-item(href=`/admin/projects/projectID/edit`) Edit
+                li
+                  a.dropdown-item(href=`/admin/projects/projectID/delete`) Delete

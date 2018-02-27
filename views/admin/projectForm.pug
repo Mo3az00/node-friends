@@ -1,0 +1,13 @@
+extends ../../layout
+
+block content
+  form#project-form
+    .form-group
+      label(for='name') Project Name:
+      input#name.form-control(method='post', type='text', name='name')
+    .form-group
+      label(for='email') Link:
+      input#link.form-control(method='post',type='text', name='link')
+    .form-group
+      button.btn.btn-success(type='submit')
+        | Submit
