@@ -13,3 +13,7 @@ exports.editProfile = (request, response) => {
     })
 }
 
+// Dashboard
+exports.dashboard = (request, response) => {
+  response.render('dashboard')
+}
