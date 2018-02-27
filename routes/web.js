@@ -12,8 +12,8 @@ router.get('/', (request, response) => {
     })
 })
 
+router.get('/admin', userController.dashboard)
 
-// TO DO LIST MIXIN
 // Get all todo items
 router.get('/todos', catchErrors(toDoController.getToDoList))
 

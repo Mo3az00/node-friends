@@ -8,28 +8,28 @@ const userTechSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    required: 'You must supply a title',
-    trim: true
+    trim: true,
+    required: 'You must supply a title'
   },
   subtitle: {
     type: String,
-    required: 'You must supply a subtitle',
-    trim: true
+    trim: true,
+    required: 'You must supply a subtitle'
   },
   icon: {
     type: String,
-    required: 'You must supply a font-awesome icon',
-    trim: true
+    trim: true,
+    required: 'You must supply a font-awesome icon'
   },
   description: {
     type: String,
+    trim: true,
     required: 'You must supply a description',
-    trim: true
   },
   order: {
     type: Number,
     required: 'Please provide a number'
   }
-}) 
+})
 
 module.exports = mongoose.model('UserTech', userTechSchema)

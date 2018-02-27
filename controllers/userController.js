@@ -14,8 +14,14 @@ exports.editProfile = (request, response) => {
 }
 
 exports.absenceReport = (request, response) => {
-    response.render('user/absenceReport', {
+    response.render('admin/absenceReport', {
         title: 'add absence report'
     })
 }
 
+// Dashboard
+exports.dashboard = (request, response) => {
+  response.render('admin/layout', {
+      title: 'Admin'
+  })
+}
