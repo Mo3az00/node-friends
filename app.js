@@ -43,6 +43,7 @@ app.use(flash());
 // load helpers
 app.use((request, response, next) => {
   response.locals.helpers = helpers
+  response.locals.user = request.user || null;
   response.locals.currentPath = request.path
   response.locals.flashes = request.flash()
   next()
@@ -80,3 +81,4 @@ app.use(passport.session());
 
 // export the app, that gets started by start.js
 module.exports = app
+
