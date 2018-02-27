@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const toDoController = require('../controllers/toDoController')
+const userController = require('../controllers/userController')
 
 // The main route
 router.get('/', (request, response) => {
