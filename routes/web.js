@@ -11,6 +11,8 @@ router.get('/', (request, response) => {
     })
 })
 
+
+// TO DO LIST MIXIN
 // Get all todo items
 router.get('/todos', catchErrors(toDoController.getToDoList))
 
@@ -19,6 +21,16 @@ router.post('/todos/add', catchErrors(toDoController.createToDo))
 
 // Delete a todo item
 router.get('/todos/:id/delete', catchErrors(toDoController.deleteToDo))
+
+
+// USER CONTROLS
+
+// Login
+router.get('/login'), catchErrors(userController.login)
+
+// Edit profile
+router.get('/profile/edit-profile', catchErrors(userController.editProfile))
+
 
 // Export our router
 module.exports = router;
