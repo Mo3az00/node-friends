@@ -13,13 +13,14 @@ html(lang='en')
 
         // Search Engine Optimization
         meta(name="description", content=`${description  || 'An admin panel for the students and teacher of FBW-V'}`)
-        meta(name="robots", content=`${robots} || index, follow`)
+        meta(name="robots", content="noindex,nofollow")
 
         // Stylesheets
         link(rel='stylesheet', href='/dist/style.css')
 
         //Google Fonts
         link(href='https://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet')
+        link(href="https://fonts.googleapis.com/css?family=Indie+Flower" rel='stylesheet')
 
     body
       nav.navbar.navbar-expand-lg
