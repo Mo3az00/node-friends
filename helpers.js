@@ -35,3 +35,35 @@ exports.navigationMain = [
         ]
     }
 ]
+
+/*
+ * DASHBOARD
+ */
+
+exports.sidenav = [
+    {
+        href: '#',
+        icon: 'th-large',
+        title: 'Dashboard'
+    },
+    {
+        href: '#',
+        icon: 'users',
+        title: 'Students'
+    },
+    {
+        href: '#',
+        icon: 'envelope',
+        title: 'Absence Report'
+    },
+    {
+        href: '#',
+        icon: 'list',
+        title: 'Tech Favourites'
+    },
+    {
+        href: '#',
+        icon: 'code',
+        title: 'Projects'
+    },
+]
