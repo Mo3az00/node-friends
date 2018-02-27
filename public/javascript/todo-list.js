@@ -1,3 +1,5 @@
+// moved to modules folder
+
 import axios from 'axios'
 
 const buttonAddTodo = document.querySelector('.button-add-todo')

@@ -69,3 +69,17 @@ main {
   color: #000;
   background-color: transparent;
 }
+
+#todo-list-error {
+  margin-top: 1rem;
+}
+
+#todo-list {
+  .icon-remove {
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+}

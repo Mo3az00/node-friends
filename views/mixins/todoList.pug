@@ -1,4 +1,4 @@
-mixin todoList(todos)
+mixin todoList(todos = {})
     .main-todo.container
         .row
             .col-6.p-2.bg-light.p-3
@@ -10,17 +10,16 @@ mixin todoList(todos)
                         i.fa.fa-times(aria-hidden="true")
                         
                 br
+                #todo-list-error.alert.alert-danger.hidden
 
-                form(action="" method="POST").input-group.my-3
-                    input.form-control(type='text' placeholder="Please add to-do item...")
+                form(action="/admin/todos" method="POST")#todo-form.input-group.my-3
+                    input#todo-form.form-control(name="name" type='text' placeholder="Please add to-do item...")
                     .input-group-append
                         button.btn.btn-outline-secondary(type='submit')
                             i.fa.fa-plus(aria-hidden="true")  Add item
 
-                .lists-container.container.p-0.pl-2
-                    button(type="button")#move-todolist.btn.btn-sm.p-0.mr-2
-                        i.fa.fa-arrows(aria-hidden="true")
-                    .custom-control.custom-checkbox.d-inline-flex
-                        input#Check1.custom-control-input(type='checkbox')
-                        label.custom-control-label(for='Check1') Check this custom checkbox
-
+                if (todos)
+                    #todo-list-loading
+                        i.fa.fa-spin.fa-spinner
+                        | &nbsp; Loading ...
+                    #todo-list

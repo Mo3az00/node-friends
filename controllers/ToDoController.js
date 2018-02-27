@@ -5,19 +5,16 @@ const ToDo = mongoose.model('ToDo')
 exports.getToDoList = async (request, response) => {
     const todos = await ToDo.find().sort('_id')
 
-    response.json({
-        todos
-    })
+    response.json(todos)
 }
 
 // Store a new todo item and redirect
 exports.createToDo = async (request, response) => {
+    // @ToDo: Add logged-in user as soon as we have a working login
+    request.body.user = '5a957f9cc7d1a061d8d54438'
     const todo = await (new ToDo(request.body)).save()
 
-    response.json({
-        'message': 'Successfully created a new ToDo.',
-        todo
-    })
+    response.json(todo)
 }
 
 // Delete a todo item and redirect

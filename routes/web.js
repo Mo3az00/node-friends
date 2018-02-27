@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
-const toDoController = require('../controllers/toDoController')
-const userController = require('../controllers/userController')
+const ToDoController = require('../controllers/ToDoController')
+const UserController = require('../controllers/UserController')
 
 // The main route
 router.get('/', (request, response) => {
@@ -13,26 +13,36 @@ router.get('/', (request, response) => {
 })
 
 // Admin 
-router.get('/admin', userController.admin)
-router.get('/admin/students', userController.studentList)
+router.get('/admin', UserController.admin)
+router.get('/admin/students', UserController.studentList)
 
 // Get all todo items
-router.get('/todos', catchErrors(toDoController.getToDoList))
+router.get('/admin/todos', catchErrors(ToDoController.getToDoList))
 
 // Add a todo item
-router.post('/todos/add', catchErrors(toDoController.createToDo))
+router.post('/admin/todos/add', catchErrors(ToDoController.createToDo))
 
 // Delete a todo item
-router.get('/todos/:id/delete', catchErrors(toDoController.deleteToDo))
+router.get('/admin/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 
 
 // USER CONTROLS
 
 // Login
-router.get('/login'), catchErrors(userController.login)
+router.get('/login'), catchErrors(UserController.login)
 
 // Edit profile
-router.get('/profile/edit-profile', catchErrors(userController.editProfile))
+router.get('/profile/edit-profile', catchErrors(UserController.editProfile))
+
+
+
+// USER CONTROLS
+
+// Login
+router.get('/login'), catchErrors(UserController.login)
+
+// Edit profile
+router.get('/profile/edit-profile', catchErrors(UserController.editProfile))
 
 
 // Export our router
