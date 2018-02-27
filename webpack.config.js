@@ -44,8 +44,7 @@ const fontAwesome =        {
   }]
 };
 
-// Remove this loader if you don't want to expose jQuery to the global window object.
-// But: Don't forget to also remove it in the rules[] array then.
+// Expose jQuey to the global window object
 const expose = {
   test: require.resolve('jquery'),
   use: [

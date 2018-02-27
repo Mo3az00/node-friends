@@ -3,7 +3,10 @@ const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const toDoController = require('../controllers/toDoController')
 const userController = require('../controllers/userController')
+<<<<<<< HEAD
 const projectsController = require('../controllers/projectsController')
+=======
+>>>>>>> cb342b5e32eb10d02176fd9b59c8b7b4b1486e44
 
 // The main route
 router.get('/', (request, response) => {
