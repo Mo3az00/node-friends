@@ -25,7 +25,7 @@ nav {
 #sidenav {
   background-color: #1c2d47;
   padding: 0;
-  
+
   ul {
     padding: 0;
     list-style: none;
@@ -54,19 +54,4 @@ nav {
       }
     }
   }
-}
-
-@media (min-width: 576px) {
-  #sidenav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    z-index: -1;
-    
-    ul {
-      margin-top: 80px;
-    }
-  } 
 }
