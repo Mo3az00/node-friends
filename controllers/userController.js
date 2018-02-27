@@ -15,7 +15,7 @@ exports.editProfile = (request, response) => {
 
 // Dashboard
 exports.dashboard = (request, response) => {
-  response.render('dashboard', {
+  response.render('admin/layout', {
       title: 'Admin'
   })
 }
