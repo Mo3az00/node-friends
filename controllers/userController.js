@@ -2,12 +2,12 @@ const mongoose = require('mongoose')
 const User = mongoose.model('User')
 
 // Login
-exports.login = (request, response) => {
+exports.Login = (request, response) => {
     response.render('user/login', { title: 'Login' })
 }
 
 // Profile
-exports.editProfile = (request, response) => {
+exports.EditProfile = (request, response) => {
     response.render('user/edit-profile', {
         title: 'Edit your profile'
     })
