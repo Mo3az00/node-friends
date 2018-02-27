@@ -5,7 +5,7 @@ const promisify = require('es6-promisify')
 // LOGIN
 
 exports.login = (request, response) => {
-    response.render('users/user-login', { title: 'Login' })
+    response.render('user/login', { title: 'Login' })
 }
 
 // EDIT PROFILE
