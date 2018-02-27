@@ -3,6 +3,11 @@ const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const ToDoController = require('../controllers/ToDoController')
 const UserController = require('../controllers/UserController')
+const UserProjectsController = require('../controllers/UserProjectsController')
+const SettingsController = require('../controllers/SettingsController')
+const UserTechFavoritesController = require('../controllers/UserTechFavoritesController')
+const AbsenceReportController = require('../controllers/AbsenceReportController')
+const HomepageTechController = require('../controllers/HomepageTechController')
 
 
 // The main route
@@ -12,7 +17,6 @@ router.get('/', (request, response) => {
         description: 'My lovely first website with Node.js'
     })
 })
-
 
 // TO DO LIST MIXIN
 
@@ -82,22 +86,22 @@ router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesContr
 
 // ABSENCE REPORTS
 // Display the list of reports
-router.get('/admin/absence-reports', catchErrors(AbsenceReportsController.list))
+router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
 
 // Display the form to add new report
-router.get('/admin/absence-reports/add', catchErrors(AbsenceReportsController.reportForm))
+router.get('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
 
 // Validating data and saving the report, if okay
-router.post('/admin/absence-reports/add', catchErrors(AbsenceReportsController.createReport))
+router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.createReport))
 
 // Display a form to edit a report by ID
-router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportsController.reportForm))
+router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.reportForm))
 
 // Validate data and updating the report, if okay
-router.post('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportsController.updateReport))
+router.post('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.updateReport))
 
 // Display a report given by ID
-router.get('/admin/absence-reports/:id', catchErrors(AbsenceReportsController.displayReport))
+router.get('/admin/absence-reports/:id', catchErrors(AbsenceReportController.displayReport))
 
 // HOMEPAGE TECH CONTROLLER
 // Display the list of homepage technologies

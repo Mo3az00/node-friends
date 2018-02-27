@@ -1,6 +1,22 @@
+const mongoose = require('mongoose')
+const HomepageTech = mongoose.model('HomepageTech')
 
-// GET  /admin/homepage-technologies             HomepageTechController.list               Displaying the list of homepage technologies
-// GET  /admin/homepage-technologies/add         HomepageTechController.technologyForm     Displaying the form to add a technology
-// POST /admin/homepage-technologies/add         HomepageTechController.createTechnology   Validating data and saving the technology, if okay
-// GET  /admin/homepage-technologies/:id/edit    HomepageTechController.technologyForm     Displaying the form to edit a technology by ID
-// POST /admin/homepage-technologies/:id/edit    HomepageTechController.updateTechnology   Validating data and updateing the technology, if okay
+// Display the list of homepage technologies
+exports.list = (request, response) => {
+  response.send("Display the list of homepage technologies")
+}
+
+// Display the form to add a technology
+exports.technologyForm = (request, response) => {
+  response.send("Display the form to add a technology")
+}
+
+// Validate data and save the technology, if okay
+exports.createTechnology = (request, response) => {
+  response.send("Validate data nd save the technology, if okay")
+}
+
+// Validating and update the technology, if ok
+exports.updateTechnology = (request, response) => {
+  response.send("Validating data and updating the report, if okay")
+}

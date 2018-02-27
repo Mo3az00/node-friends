@@ -1,7 +1,23 @@
-// GET  /admin/tech-favorites                    UserTechFavoritesController.list              Displaying the list of the User's projects
-// GET  /admin/tech-favorites/add                UserTechFavoritesController.techFavorite      Displaying a form for adding a new project
-// POST /admin/tech-favorites/add                UserTechFavoritesController.createFavorite    Validate data and save project, if okay
-// GET  /admin/tech-favorites/:id/edit           UserTechFavoritesController.favoriteForm      Display the form for editing a project by ID
-// POST /admin/tech-favorites/:id/edit           UserTechFavoritesController.updateFavorite    Validating data and updating the profile, if okay
+const mongoose = require('mongoose')
+const Tech = mongoose.model('HomepageTech')
 
+// Display the list of the User's technologies
+exports.list = (request, response) => {
+  response.send("Display the list of the User's projects")
+}
+
+// Display a form for adding a new technology
+exports.techFavorite = (request, response) => {
+  response.send("Display a form for adding a new project")
+}
+
+// Validate data and save technology, if okay
+exports.createFavorite = (request, response) => {
+  response.send("Validate data and save project, if okay")
+}
+
+// Validate data and updating the technology, if okay
+exports.updateFavorite = (request, response) => {
+  response.send("Validate data and save project, if okay")
+}
 
