@@ -12,8 +12,10 @@ router.get('/', (request, response) => {
     })
 })
 
+// Admin 
 router.get('/admin', userController.admin)
 router.get('/admin/students', userController.studentList)
+
 // Get all todo items
 router.get('/todos', catchErrors(toDoController.getToDoList))
 
