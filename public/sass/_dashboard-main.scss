@@ -1,5 +1,7 @@
+@import "bootstrap-custom";
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-family-sans-serif;
 }
 
 nav {
