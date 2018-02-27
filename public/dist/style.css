@@ -9351,6 +9351,9 @@ main {
 .flash-messages {
   margin-top: 1rem; }
 
+#project-form {
+  width: 50%; }
+
 .btn-link {
   color: #333333; }
   .btn-link:hover {

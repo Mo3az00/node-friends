@@ -3,17 +3,14 @@ const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const toDoController = require('../controllers/toDoController')
 const userController = require('../controllers/userController')
-<<<<<<< HEAD
-const projectsController = require('../controllers/projectsController')
-=======
->>>>>>> cb342b5e32eb10d02176fd9b59c8b7b4b1486e44
+const usersProjectsController = require('../controllers/usersProjectsController')
 
 // The main route
 router.get('/', (request, response) => {
-    response.render('home', {
-        title: 'Home',
-        description: 'My lovely first website with Node.js'
-    })
+  response.render('home', {
+    title: 'Home',
+    description: 'My lovely first website with Node.js'
+  })
 })
 
 
@@ -36,8 +33,15 @@ router.get('/login'), catchErrors(userController.login)
 // Edit profile
 router.get('/profile/edit-profile', catchErrors(userController.editProfile))
 
+
+// ADMIN
+
 // Projects
-router.get('/admin/projects', projectsController.list)
+router.get('/admin/projects', usersProjectsController.list)
+router.get('/admin/projects/add', usersProjectsController.projectForm)
+router.post('/admin/projects/add', usersProjectsController.createProject)
+// router.get('/admin/projects/:id/edit', UsersProjectsController.projectForm)
+// router.post('/admin/projects/:id/edit', UsersProjectsController.updateProject)
 
 // Export our router
 module.exports = router;
