@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const UserProjects = mongoose.model('UserProjects')
 
 exports.list = (request, response) => {
   response.render('admin/projectList', {
@@ -16,9 +17,9 @@ exports.projectForm = (request, response) => {
 }
 
 
-exports.createProject = (request, response) => {
-  response.render('admin/createProject', {
-    title: 'Create Project',
-    projects: {}
-  })
+exports.createProject = async (request, response) => {
+  const userProjects = new UserProjects(request.body)
+  // response.json(request.body)
+  await userProjects.save()
+  response.redirect('/admin/projects')
 }

@@ -7004,17 +7004,6 @@ nav {
           padding: 1rem;
           margin-right: 1rem; }
 
-@media (min-width: 576px) {
-  #sidenav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    z-index: -1; }
-    #sidenav ul {
-      margin-top: 80px; } }
-
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

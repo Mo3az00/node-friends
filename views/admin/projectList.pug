@@ -1,6 +1,4 @@
-extends ../layout
-
-block header
+extends layout
 
 block content
   table.table
@@ -43,8 +41,6 @@ block content
           .dropdown
             button#dropdownMenuButton.dropdown-hover.btn.btn-link(type='button', data-hover='dropdown', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
               i.fa.fa-pencil-square-o
-              ul.dropdown-menu(aria-labelledby='dropdownMenuButton')
-                li
-                  a.dropdown-item(href=`/admin/projects/projectID/edit`) Edit
-                li
-                  a.dropdown-item(href=`/admin/projects/projectID/delete`) Delete
+              .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                a.dropdown-item(href='/admin/projects/projectID/edit') Edit
+                a.dropdown-item(href='/admin/projects/projectID/delete') Delete
