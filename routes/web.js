@@ -15,6 +15,7 @@ router.get('/', (request, response) => {
 
 
 // TO DO LIST MIXIN
+
 // Get all todo items
 router.get('/todos', catchErrors(ToDoController.getToDoList))
 
@@ -32,6 +33,20 @@ router.get('/login', catchErrors(UserController.login))
 
 // Edit profile
 router.get('/profile/edit-profile', catchErrors(UserController.editProfile))
+
+// Display student list
+
+router.get('admin/students', catchErrors(UserController.studentList))
+
+// SETTINGS
+
+// edit settings
+
+router.get('/admin/settings', catchErrors(SettingsController.form))
+
+// submit edited settings
+
+router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
 
 // Export our router

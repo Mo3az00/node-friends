@@ -13,6 +13,12 @@ exports.editProfile = (request, response) => {
   })
 }
 
+// Student list
+
+exports.studentList = (request, response) => {
+  response.render('this is where the student list will go')
+}
+
 // Logout
 exports.logout = (request, response) => {
   request.logout()

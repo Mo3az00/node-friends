@@ -16,8 +16,6 @@ POST /admin/tech-favorites/add                UserTechFavoritesController.create
 GET  /admin/tech-favorites/:id/edit           UserTechFavoritesController.favoriteForm      Display the form for editing a project by ID
 POST /admin/tech-favorites/:id/edit           UserTechFavoritesController.updateFavorite    Validating data and updating the profile, if okay
 
-GET  /admin/students                          UserController.studentList               Displaying the list of students
-
 GET  /admin/absence-reports                   AbsenceReportsController.list             Displaying the list of reports
 GET  /admin/absence-reports/add               AbsenceReportsController.reportForm       Displaying a form to add a report
 POST /admin/absence-reports/add               AbsenceReportsController.createReport     Validating data and saving the report, if okay
@@ -31,7 +29,7 @@ POST /admin/homepage-technologies/add         HomepageTechController.createTechn
 GET  /admin/homepage-technologies/:id/edit    HomepageTechController.technologyForm     Displaying the form to edit a technology by ID
 POST /admin/homepage-technologies/:id/edit    HomepageTechController.updateTechnology   Validating data and updateing the technology, if okay
 
-GET  /admin/settings                          SettingsController.form                   Displaying the form for all global settings
-POST /admin/settings/                         SettingsController.updateSettings         Validate data and save settings, if okay
+*GET  /admin/settings                          SettingsController.form                  Displaying the form for all global settings
+*POST /admin/settings/                         SettingsController.updateSettings        Validate data and save settings, if okay
 
-
+*GET  /admin/students                          UserController.studentList               Displaying the list of students
