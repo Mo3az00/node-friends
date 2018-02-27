@@ -33,6 +33,7 @@ require('./models/ToDo')
 require('./models/User')
 require('./models/UserProfile')
 require('./models/UserTech')
+require('./models/Tech')
 
 
 // load the app
