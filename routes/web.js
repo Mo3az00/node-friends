@@ -31,12 +31,90 @@ router.get('/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 // Login
 router.get('/login', catchErrors(UserController.login))
 
+// Enter admin interface
+router.get('/admin', catchErrors(UserController.dashboard))
+
+// Display profile
+router.get('/admin/User/profile/:id', catchErrors(UserController.profile))
+
 // Edit profile
-router.get('/profile/edit-profile', catchErrors(UserController.editProfile))
+
+router.get('/admin/User/profile/edit', catchErrors(UserController.editProfile))
+
+// Update profile
+router.post('/profile/edit-profile', catchErrors(UserController.updateProfile))
 
 // Display student list
 
 router.get('admin/students', catchErrors(UserController.studentList))
+
+// PROJECTS
+// Display user's projects
+router.get('/admin/projects', catchErrors(UserProjectsController.list))
+
+// Display a form for adding a new project
+router.get('/admin/projects/add', catchErrors(UserProjectsController.projectForm))
+
+// Validate data and save project, if okay
+router.post('/admin/projects/add', catchErrors(UserProjectsController.createProject))
+
+//Display the form for editing a project by ID
+router.get('/admin/projects/:id/edit', catchErrors(UserProjectsController.projectForm))
+
+//Validating data and updating the profile, if okay
+router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updateProject))
+
+// TECH FAVORITES
+// Display the list of the User's favorite technologies
+router.get('/admin/tech-favorites', catchErrors(UserTechFavoritesController.list))
+
+//  Displaying a form for adding a new favorite tech
+router.get('/admin/tech-favorites/add', catchErrors(UserTechFavoritesController.techFavorite))
+
+// Validate data and save project, if okay
+router.post('/admin/tech-favorites/add', catchErrors(UserTechFavoritesController.createFavorite))
+
+// Display the form for editing a project by ID
+router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.favoriteForm))
+
+// Validate data and updating the profile, if okay
+router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))
+
+// ABSENCE REPORTS
+// Display the list of reports
+router.get('/admin/absence-reports', catchErrors(AbsenceReportsController.list))
+
+// Display the form to add new report
+router.get('/admin/absence-reports/add', catchErrors(AbsenceReportsController.reportForm))
+
+// Validating data and saving the report, if okay
+router.post('/admin/absence-reports/add', catchErrors(AbsenceReportsController.createReport))
+
+// Display a form to edit a report by ID
+router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportsController.reportForm))
+
+// Validate data and updating the report, if okay
+router.post('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportsController.updateReport))
+
+// Display a report given by ID
+router.get('/admin/absence-reports/:id', catchErrors(AbsenceReportsController.displayReport))
+
+// HOMEPAGE TECH CONTROLLER
+// Display the list of homepage technologies
+router.get('/admin/homepage-technologies', catchErrors(HomepageTechController.list))
+
+// Display the form to add a technology
+router.get('/admin/homepage-technologies/add', catchErrors(HomepageTechController.technologyForm))
+
+//  Validate data and saving the technology, if okay
+router.post('/admin/homepage-technologies/add', catchErrors(HomepageTechController.createTechnology))
+
+// Display the form to edit a technology by ID
+router.get('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.technologyForm))
+
+// Validate data and update the technology, if okay
+router.post('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.updateTechnology))
+
 
 // SETTINGS
 

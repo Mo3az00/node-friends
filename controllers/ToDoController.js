@@ -29,4 +29,3 @@ exports.deleteToDo = async (request, response) => {
     })
 }
 
-// blahbbalah
