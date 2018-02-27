@@ -1,22 +1,26 @@
 mixin todoList(todos)
-    #todo-list
-        p
-            button.btn.btn-success.button-add-todo
-                i.fa.fa-plus
-                | &nbsp; Add item
+    .main-todo.container
+        .row
+            .col-6.p-2.bg-light.p-3
+                h5.float-left TODOLIST
+                .float-right
+                    button(type="button").btn.btn-sm.mr-2.p-0
+                        i.fa.fa-chevron-up(aria-hidden="true")
+                    button(type="button").btn.btn-sm.mr-1.p-0
+                        i.fa.fa-times(aria-hidden="true")
+                        
+                br
 
-        .todo-error.alert.alert-danger.hidden
+                form(action="" method="POST").input-group.my-3
+                    input.form-control(type='text' placeholder="Please add to-do item...")
+                    .input-group-append
+                        button.btn.btn-outline-secondary(type='submit')
+                            i.fa.fa-plus(aria-hidden="true")  Add item
 
-        form.todo-form-new(action="#")
-            p
-                input.form-control(type="text", name="text", required)
-            p
-                button.btn.btn-primary(type="submit")
-                    i.fa.fa-save
-                    | &nbsp; save new item
+                .lists-container.container.p-0.pl-2
+                    button(type="button")#move-todolist.btn.btn-sm.p-0.mr-2
+                        i.fa.fa-arrows(aria-hidden="true")
+                    .custom-control.custom-checkbox.d-inline-flex
+                        input#Check1.custom-control-input(type='checkbox')
+                        label.custom-control-label(for='Check1') Check this custom checkbox
 
-        #todo-list-loading
-            i.fa.fa-spin.fa-spinner
-            span Loading ...
-
-        #todo-list-display.list-group

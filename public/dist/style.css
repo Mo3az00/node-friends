@@ -9327,28 +9327,11 @@ main {
     display: block;
     width: 100%; }
 
-#todo-list-loading {
-  font-size: 2rem;
-  display: none; }
-  #todo-list-loading span {
-    margin-left: 0.5rem;
-    font-size: 1rem; }
-
-#todo-list-display {
-  line-height: 1.5rem; }
-  #todo-list-display .icon-remove {
-    color: #666;
-    cursor: pointer;
-    line-height: inherit;
-    margin-left: 0.25rem; }
-    #todo-list-display .icon-remove:hover {
-      color: #cc0000; }
-
-.todo-form-new {
-  display: none;
-  margin-top: 1rem; }
-
 .flash-messages {
   margin-top: 1rem; }
+
+.main-todo button {
+  color: #000;
+  background-color: transparent; }
 
 /*# sourceMappingURL=style.css.map*/
