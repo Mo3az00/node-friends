@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const toDoController = require('../controllers/toDoController')
+const userController = require('../controllers/userController')
 
 // The main route
 router.get('/', (request, response) => {
@@ -11,6 +12,8 @@ router.get('/', (request, response) => {
     })
 })
 
+
+// TO DO LIST MIXIN
 // Get all todo items
 router.get('/todos', catchErrors(toDoController.getToDoList))
 
@@ -19,6 +22,20 @@ router.post('/todos/add', catchErrors(toDoController.createToDo))
 
 // Delete a todo item
 router.get('/todos/:id/delete', catchErrors(toDoController.deleteToDo))
+
+
+// USER CONTROLS
+
+// Login
+router.get('/login'), catchErrors(userController.login)
+
+// Edit profile
+router.get('/profile/edit-profile', catchErrors(userController.editProfile))
+
+
+
+//  absence reporting
+router.get('/absenceReport', catchErrors(userController.absenceReport))
 
 // Export our router
 module.exports = router;
