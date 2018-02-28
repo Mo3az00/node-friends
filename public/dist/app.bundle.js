@@ -17386,6 +17386,8 @@ function toggleDone(e) {
 
   if (this.checked) {
     this.parentElement.querySelector('label').classList.add('done');
+  } else {
+    this.parentElement.querySelector('label').classList.remove('done');
   }
 
   _axios2.default.post('/admin/todos/update-done', {
