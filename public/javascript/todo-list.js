@@ -126,3 +126,42 @@ if (document.querySelector('#todo-list-display')) {
         error.classList.remove('hidden')
     }
 }
+
+function registerListEvents() {
+    todoList.querySelectorAll('.list-group-item .icon-remove').forEach(function(item) {
+        item.addEventListener('click', removeItem)
+    })
+}
+
+function removeListEvents() {
+    todoList.querySelectorAll('.list-group-item .icon-remove').forEach(function(item) {
+        item.removeEventListener('click', removeItem)
+    })
+}
+
+function registerButtonEvent() {
+    buttonAddTodo.addEventListener('click', function() {
+        console.log('foo')
+        todoFormNew.style.display = 'block'
+        todoFormNew.querySelector('input').focus()
+
+        this.setAttribute('disabled', 'disabled')
+    })
+}
+
+function registerFormEvent() {
+    todoFormNew.addEventListener('submit', function(e) {
+        e.preventDefault()
+
+        addItem(this.querySelector('[name="text"]').value)
+
+        this.querySelector('[name="text"]').value = ''
+        this.style.display = 'none'
+        buttonAddTodo.removeAttribute('disabled')
+    })
+}
+
+function todoError(message) {
+    error.innerHTML = message
+    error.classList.remove('hidden')
+}
