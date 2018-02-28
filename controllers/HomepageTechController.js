@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const HomepageTech = mongoose.model('HomepageTech')
 
 // Display the list of homepage technologies
-exports.list = (request, response) => {
+exports.list = async (request, response) => {
   response.send("Display the list of homepage technologies")
 }
 
@@ -12,11 +12,11 @@ exports.technologyForm = (request, response) => {
 }
 
 // Validate data and save the technology, if okay
-exports.createTechnology = (request, response) => {
+exports.createTechnology = async (request, response) => {
   response.send("Validate data nd save the technology, if okay")
 }
 
 // Validating and update the technology, if ok
-exports.updateTechnology = (request, response) => {
+exports.updateTechnology = async (request, response) => {
   response.send("Validating data and updating the report, if okay")
 }

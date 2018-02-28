@@ -47,7 +47,6 @@ app.use(flash());
 // pass variables to use in all requests + templates
 app.use((request, response, next) => {
   response.locals.helpers = helpers
-  response.locals.user = request.user || null;
   response.locals.currentPath = request.path
   response.locals.user = request.user || null
   response.locals.flashes = request.flash()
@@ -88,4 +87,3 @@ app.use(errorHandlers.productionErrors)
 
 // export the app, that gets started by start.js
 module.exports = app
-

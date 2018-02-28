@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 const UserProjects = mongoose.model('UserProjects')
-const passportLocalMongoose = require('passport-local-mongoose')
 
 // Display the list of the User's projects
-exports.list = (request, response) => {
+exports.list = async (request, response) => {
   response.send('Display the list of the user\'s projects')
 }
 
@@ -13,11 +12,11 @@ exports.projectForm = (request, response) => {
 }
 
 // Validate data and save project, if okay
-exports.createProject = (request, response) => {
+exports.createProject = async (request, response) => {
   response.send('Validate data and save project, if okay')
 }
 
 // Validate data and updating the profile, if okay
-exports.updateProject = (request, response) => {
+exports.updateProject = async (request, response) => {
   response.send('Validate data and save project, if okay')
 }

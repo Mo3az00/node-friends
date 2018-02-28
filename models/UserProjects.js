@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const mongodbErrorHandler = require('mongoose-mongodb-errors')
 
 const userProjectsSchema = new mongoose.Schema({
   user: {

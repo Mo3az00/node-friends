@@ -1,20 +1,18 @@
 const mongoose = require('mongoose')
 
-const AbsenceReport = new mongoose.Schema({
+const AbsenceReportSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: 'You must supply a user'
   },
-  form: {
+  fromDate: {
     type: Date,
-    required: 'You must supply a title',
-    trim: true
+    required: 'You must supply a date'
   },
   untilDate: {
     type: Date,
-    required: 'You must supply a Date',
-    trim: true
+    required: 'You must supply a Date'
   },
   description: {
     type: String,
@@ -27,4 +25,4 @@ const AbsenceReport = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('AbsenceReport', AbsenceReport)
+module.exports = mongoose.model('AbsenceReport', AbsenceReportSchema)

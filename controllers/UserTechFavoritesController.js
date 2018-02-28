@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-const Tech = mongoose.model('HomepageTech')
+const HomepageTech = mongoose.model('HomepageTech')
 
 // Display the list of the User's technologies
-exports.list = (request, response) => {
+exports.list = async (request, response) => {
   response.send("Display the list of the User's projects")
 }
 
@@ -12,12 +12,12 @@ exports.techFavorite = (request, response) => {
 }
 
 // Validate data and save technology, if okay
-exports.createFavorite = (request, response) => {
+exports.createFavorite = async (request, response) => {
   response.send("Validate data and save project, if okay")
 }
 
 // Validate data and updating the technology, if okay
-exports.updateFavorite = (request, response) => {
+exports.updateFavorite = async (request, response) => {
   response.send("Validate data and save project, if okay")
 }
 
