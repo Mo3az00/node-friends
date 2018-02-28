@@ -24,22 +24,43 @@ html(lang='en')
 
     body
       nav.navbar.navbar-expand-lg
-        a.navbar-brand(href='a') Node Friends
-        ul.navbar.navbar-nav.ml-auto
-          li.nav-item Name Namerson
-            img(src='https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX24426960.jpg') 
+        a.navbar-brand(href='/admin')
+          img(src="/images/node-friends-logo-white.png", height="35")
+        .navbar.navbar-nav.ml-auto
+          if user
+            .user-dropdown.dropdown
+              a#userDropdownButton.dropdown-toggle(data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                img.user-avatar(src=user.photo || 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX24426960.jpg', height="30")
+                | #{user.first_name} #{user.last_name}
+              .dropdown-menu(aria-labelledby="userDropdownButton")
+                a.dropdown-item(href="/admin/profile/edit")
+                  i.fa.fa-user
+                  | &nbsp; Your Profile
+                a.dropdown-item(href="/admin/logout")
+                  i.fa.fa-sign-in
+                  | &nbsp; Logout
 
-      .container-fluid
-        .row
-          .col-12.col-sm-5.col-md-3.col-lg-2#sidenav
+      .container-fluid.h-100
+        #main.row.h-100
+          #sidebar.h-100.col-12.col-sm-5.col-md-3.col-lg-2
             ul
-              each item in helpers.sidenav
-                a(href=`${item.href}`)
-                  li.nav-item
+              each item in helpers.adminSidebarNavigation(user)
+                li.nav-item(class=(currentPath === item.href ? 'active' : ''))
+                  a(href=`${item.href}`)
                     i(class=`fa fa-${item.icon}` aria-hidden='true') 
                     | #{item.title}
 
-          .col-12.col-sm-7.col-md-9.col-lg-10
-          //- EVERYTHING YOU NEED TO ADD =>> ADD UNDER THIS DIV (IT DIVIDES THE PAGE)
+          #content.col-12.col-sm-7.col-md-9.col-lg-10
+            block messages
+              if Object.keys(locals.flashes).length != 0
+                .flash-messages
+                  - const categories = Object.keys(locals.flashes)
+                  each category in categories
+                    each message in flashes[category]
+                      .alert.alert-dismissible.fade.show(class=`alert-${category}`)
+                        | #{message}
+                        button.close(type="button" data-dismiss="alert" aria-label="Close")
+                          span(aria-hidden="true") | &times;
+            block content
 
-          
+      script(src="/dist/app.bundle.js")
