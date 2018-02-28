@@ -1,0 +1,24 @@
+extends ../layout
+block content
+
+  h1 Add a new favorite technology
+
+  form.favorite-technologies(action='/admin/tech-favorites/add' method='POST')
+    .form-group
+      label(for='technology-title') Tech Name
+      input(type='text' class='form-control' placeholder='name of your favorite tech' name='name')
+
+      label(for='technology-description') Tech Description
+      input(type='text' class='form-control' placeholder='small description of your favorite tech' name='des')
+
+      label(for='technology-use') Tech Usage
+      textarea(class='form-control' rows='3' placeholder='what you like about this technology / how do you use this technology' name='name')
+
+      label(for="icon")
+            | Icon (
+            a(href="https://fontawesome.com/v4.7.0/icons/") see all icons
+            | )
+      input(type='text' class='form-control' placeholder='')
+
+
+      button(type='submit' class='btn btn-primary') Submit
