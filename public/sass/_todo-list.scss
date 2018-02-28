@@ -1,0 +1,31 @@
+
+.main-todo button {
+  color: #000;
+  background-color: transparent;
+}
+
+#todo-list-error {
+  margin-top: 1rem;
+}
+
+#todo-list {
+  .icon-remove {
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.lists-container {
+  &:hover {
+    background-color: #E3E3E3;
+    border-left: 2px solid #000;
+    padding-right: 1rem;
+  }
+
+  label.done {
+    text-decoration: line-through;
+  }
+}

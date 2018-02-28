@@ -3,15 +3,12 @@ const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const ToDoController = require('../controllers/ToDoController')
 const UserController = require('../controllers/UserController')
-<<<<<<< HEAD
-=======
 const UserProjectsController = require('../controllers/UserProjectsController')
 const SettingsController = require('../controllers/SettingsController')
 const UserTechFavoritesController = require('../controllers/UserTechFavoritesController')
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
 const AuthController = require('../controllers/AuthController')
->>>>>>> 1ab50649babf8689488f7f27f9de9e6933bf574a
 
 // The main route
 router.get('/', (request, response) => {
@@ -30,6 +27,9 @@ router.get('/admin/todos', catchErrors(ToDoController.getToDoList))
 
 // Add a todo item
 router.post('/admin/todos/add', catchErrors(ToDoController.createToDo))
+
+// Toggle done status of a todo item
+router.post('/admin/todos/update-done', catchErrors(ToDoController.updateDone))
 
 // Delete a todo item
 router.get('/admin/todos/:id/delete', catchErrors(ToDoController.deleteToDo))

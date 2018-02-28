@@ -1,4 +1,5 @@
 extends ./layout
+include ../mixins/todoList
 
 block content
-    p Admin Dashboard => Coming soon!
+    +todoList()

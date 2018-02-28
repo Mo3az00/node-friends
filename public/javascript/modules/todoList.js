@@ -2,7 +2,9 @@ import axios from 'axios'
 
 const todoList = document.querySelector('#todo-list')
 const loading = document.querySelector('#todo-list-loading')
+const form = document.querySelector('#todo-form')
 const error = document.querySelector('#todo-list-error')
+const input = form.querySelector('input')
 
 function addToDo (todo) {
   if (todo.item.length === 0) {
@@ -15,7 +17,11 @@ function addToDo (todo) {
   axios
     .post('/admin/todos/add', todo)
     .then((response) => {
+      removeListEvents()
       todoList.innerHTML += buildToDoListItem(response.data)
+      registerListEvents()
+      input.value = ''
+      
     })
     .catch((error) => {
       console.error(error)
@@ -36,15 +42,15 @@ function loadToDoList() {
 
 function buildToDoListItem(todo) {
   return `
-  <div class="lists-container container p-0 pl-2" data-id="${todo._id}">
+  <div class="lists-container container p-0 px-2" data-id="${todo._id}">
     <button class="btn btn-sm p-0 mr-2" type="button" id="move-todolist">
       <i class="fa fa-arrows" aria-hidden="true"></i>
     </button>
     <div class="custom-control custom-checkbox d-inline-flex">
-      <input class="custom-control-input" id="todo-${todo._id}" type="checkbox">
-      <label class="custom-control-label" for="todo-${todo._id}">${todo.item}</label>
+      <input class="custom-control-input checkbox" value="1" id="todo-${todo._id}" type="checkbox" ${todo.done ? 'checked' : ''}>
+      <label class="custom-control-label ${todo.done ? 'done' : ''}" for="todo-${todo._id}">${todo.item}</label>
     </div>
-    <i class="icon-remove fa fa-remove float-right"></i>
+    <i class="icon-remove fa fa-remove my-auto float-right"></i>
   </div>
   ` 
 }
@@ -78,9 +84,34 @@ function removeItem(e) {
   }
 }
 
+function toggleDone(e) {
+  const toDoId = this.closest('.lists-container').getAttribute('data-id')
+  this.setAttribute('disabled', 'disabled')
+
+  if (this.checked) {
+    this.parentElement.querySelector('label').classList.add('done')
+  }
+
+  axios
+    .post('/admin/todos/update-done', {
+      id: toDoId,
+      done: this.checked
+    })
+    .then((response) => {
+      this.removeAttribute('disabled')
+    })
+    .catch((error) => {
+      this.removeAttribute('disabled')
+    })
+}
+
 function registerListEvents() {
   todoList.querySelectorAll('.lists-container .icon-remove').forEach(function(item) {
       item.addEventListener('click', removeItem)
+  })
+
+  todoList.querySelectorAll('.lists-container .checkbox').forEach(function(item) {
+    item.addEventListener('click', toggleDone)
   })
 }
 
@@ -102,16 +133,13 @@ function todoError(message) {
 function initToDoList() {
   loadToDoList()
 
-  const form = document.querySelector('#todo-form')
-  const input = form.querySelector('input')
-
   form.addEventListener('submit', function(e) {
     e.preventDefault()
+    console.log('submitted', input.value)
 
     addToDo({
       'item': input.value.trim(),
       'done': false,
-      'order': 0
     })
   })
 }
