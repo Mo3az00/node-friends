@@ -9407,12 +9407,9 @@ main {
 .flash-messages {
   margin-top: 1rem; }
 
-#project-form {
-  width: 50%; }
-
-.btn-link {
-  color: #333333; }
-  .btn-link:hover {
-    color: #999999; }
+td.actions a {
+  color: inherit;
+  font-size: 1rem;
+  padding: 0.25rem; }
 
 /*# sourceMappingURL=style.css.map*/

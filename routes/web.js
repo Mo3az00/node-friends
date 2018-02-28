@@ -9,7 +9,6 @@ const UserTechFavoritesController = require('../controllers/UserTechFavoritesCon
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
 const AuthController = require('../controllers/AuthController')
-const usersProjectsController = require('../controllers/usersProjectsController')
 
 // The main route
 router.get('/', (request, response) => {
@@ -35,7 +34,7 @@ router.get('/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 
 // USER CONTROLS
 
-// Authentication 
+// Authentication
 
 router.get('/admin/login', AuthController.loginForm)
 router.post('/admin/login', AuthController.login)
@@ -43,10 +42,7 @@ router.get('/admin/logout', AuthController.logout)
 router.get('/admin/password-forgot', AuthController.passwordForgotten)
 router.post('/admin/password-forgot', catchErrors(AuthController.passwordResetMail))
 router.get('/admin/password-reset/:token', catchErrors(AuthController.passwordResetForm))
-router.post('/admin/password-reset/:token',
-    AuthController.confirmPasswords,
-    catchErrors(AuthController.update)
-)
+router.post('/admin/password-reset/:token',AuthController.confirmPasswords,catchErrors(AuthController.update))
 
 
 // Enter admin interface
@@ -142,16 +138,6 @@ router.get('/admin/settings', catchErrors(SettingsController.form))
 // submit edited settings
 
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
-
-
-// ADMIN
-
-// Projects
-router.get('/admin/projects', usersProjectsController.list)
-router.get('/admin/projects/add', usersProjectsController.projectForm)
-router.post('/admin/projects/add', usersProjectsController.createProject)
-// router.get('/admin/projects/:id/edit', UsersProjectsController.projectForm)
-// router.post('/admin/projects/:id/edit', UsersProjectsController.updateProject)
 
 // Export our router
 module.exports = router;

@@ -1,24 +1,23 @@
 extends layout
 
 block content
-  <br>
-  h2.text-center Add Project
-  <br>
-  form#project-form.container(action='/admin/projects/add', method='POST')
-    .form-group
-      label(for='title') Project Title
-      input#name.form-control(method='POST', type='text', name='title')
-    .form-group
-      label(for='link') Link
-      input#link.form-control(method='POST',type='text', name='link')
-    .form-group
-      label(for='description') Description
-      textarea#exampleFormControlTextarea1.form-control(name='description', rows='3')
-    .form-group
-      label(for='image') Upload a photo
-      input#exampleFormControlFile1.form-control-file(type='file', accept="image/gif, image/png, image/jpeg")
-    .form-group
-      button.btn.btn-success.btn-block(type='submit') Add
+  .col-12.col-sm-10.col-md-9.col-lg-6
+    h2.text-center Add Project
+    form#project-form.container(action='/admin/projects/add', method='POST')
+      .form-group
+        label(for='title') Project Title
+        input#name.form-control(method='POST', type='text', name='title')
+      .form-group
+        label(for='link') Link
+        input#link.form-control(method='POST',type='text', name='link')
+      .form-group
+        label(for='description') Description
+        textarea#exampleFormControlTextarea1.form-control(name='description', rows='3')
+      .form-group
+        label(for='image') Upload a photo
+        input#exampleFormControlFile1.form-control-file(type='file', accept="image/gif, image/png, image/jpeg")
+      .form-group
+        button.btn.btn-success.btn-block(type='submit') Add
 
 
 
