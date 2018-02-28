@@ -68,7 +68,7 @@ app.use('/.well-known', express.static(path.join(__dirname, '.well-known'), {}))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(/\/admin\/((?!login).)+/, AuthController.isLoggedIn)
+app.use(/\/admin\/((?!login|password-forgot|password-reset).)+/, AuthController.isLoggedIn)
 app.use('/', routes)
 
 // if above routes didnt work, we 404 them and forward to error handler
