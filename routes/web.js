@@ -46,7 +46,7 @@ router.get('/admin/profile/edit', catchErrors(UserController.editProfile))
 
 
 //  absence reporting
-router.get('/absenceReport', catchErrors(userController.absenceReport))
+router.get('/admin/absence-reports', catchErrors(UserController.absenceReport))
 
 // Export our router
 module.exports = router;

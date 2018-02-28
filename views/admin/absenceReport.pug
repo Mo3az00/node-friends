@@ -1,30 +1,33 @@
 extends ./layout
 
 block content
-    .contact-us.text-center
-        .fields
+    section.contact-us.text-center
+      .fields
         .container
-            i.fa.fa-headphones.fa-5x
-            h1 Absence Reporting
-            .row
+          i.fa.fa-headphones.fa-5x
+          h1 Absence Reporting
+          .row
             .col-12.col-sm-12.col-md-6
-                .form-group
-                input.form-control.form-control-lg(type="text" placeholder="Name")
-                .form-group
+              .form-group
+                label(for="name") Name
+                input.form-control.form-control-lg(type="text" placeholder="Name" )
+              .form-group
+                label(for="email") Email Address
                 input.form-control.form-control-lg(type="text" placeholder="Email")
-                .form-group
+              .form-group
+                label(for="phone") phone
                 input.form-control.form-control-lg(type="text" placeholder="Phone")
+              .form-group
+                label(for="start-absence") Start absence:
+                input.form-control.form-control-lg(type="date" name="bday")
+                label(for="end-absence") End absence:
+                input.form-control.form-control-lg(type="date" name="bday")
             .col-12.col-sm-12.col-md-6
-                .input-group.mb-3
-                .input-group-prepend
-                    button.btn.btn-outline-secondary(type="button") Button
-                .custom-file
-                    input#inputGroupFile03.custom-file-input(type="file")
-                    label.custom-file-label(for="inputGroupFile03") Choose file
-                .form-group
-                textarea.form-control.form-control-lg(placeholder="Your Message")
-
-            button.btn.btn-secondary.btn-lg.btn-block(type="button") Block level button
+              .form-group
+                input#inputGroupFile03.custom-file-input.form-control.form-control-lg(type="file")
+                label.custom-file-label(for="inputGroupFile03") Choose file
+                textarea.form-control.form-control-lg(placeholder="Discription")
+              button.btn.btn-dark.btn-lg.btn-block(type="button")  Send =>
 
       
 

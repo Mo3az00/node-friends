@@ -6,9 +6,9 @@ const absenceReport = new mongoose.Schema({
     ref: 'User',
     required: 'You must supply a user'
   },
-  form: {
+  startDate: {
     type: Date,
-    required: 'You must supply a title',
+    required: 'You must supply a Date',
     trim: true
   },
   untilDate: {
