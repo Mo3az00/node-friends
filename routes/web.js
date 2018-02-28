@@ -8,7 +8,7 @@ const SettingsController = require('../controllers/SettingsController')
 const UserTechFavoritesController = require('../controllers/UserTechFavoritesController')
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
-
+const AuthController = require('../controllers/AuthController')
 
 // The main route
 router.get('/', (request, response) => {
@@ -18,7 +18,9 @@ router.get('/', (request, response) => {
     })
 })
 
-// TO DO LIST MIXIN
+// Admin 
+router.get('/admin', UserController.dashboard)
+router.get('/admin/students', UserController.studentList)
 
 // Get all todo items
 router.get('/todos', catchErrors(ToDoController.getToDoList))
@@ -32,8 +34,21 @@ router.get('/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 
 // USER CONTROLS
 
-// Login
-router.get('/login', catchErrors(UserController.login))
+// Authentication 
+
+router.get('/admin/login', AuthController.loginForm)
+router.post('/admin/login', AuthController.login)
+router.get('/admin/logout', AuthController.logout)
+router.get('/admin/password-forgot', AuthController.passwordForgotten)
+router.post('/admin/password-forgot', catchErrors(AuthController.passwordResetMail))
+router.get('/admin/password-reset/:token', catchErrors(AuthController.passwordResetForm))
+router.post('/admin/password-reset/:token',
+    AuthController.confirmPasswords,
+    catchErrors(AuthController.update)
+)
+
+// Edit profile
+router.get('/admin/profile/edit', catchErrors(UserController.editProfile))
 
 // Enter admin interface
 router.get('/admin', catchErrors(UserController.dashboard))

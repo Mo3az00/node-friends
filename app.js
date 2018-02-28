@@ -9,12 +9,12 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash')
 const bodyParser = require('body-parser')
+const promisify = require('es6-promisify')
 const routes = require('./routes/web')
 const helpers = require('./helpers')
 const errorHandlers = require('./handlers/errorHandlers')
 
 // require passport
-
 require('./handlers/passport')
 
 // create the app
@@ -37,17 +37,28 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
+// // Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
+
 // the flash middleware let's us use req.flash('error', 'Message'), which will then pass that message to the next page the user requests
 app.use(flash());
 
-// load helpers
+// pass variables to use in all requests + templates
 app.use((request, response, next) => {
   response.locals.helpers = helpers
   response.locals.user = request.user || null;
   response.locals.currentPath = request.path
+  response.locals.user = request.user || null
   response.locals.flashes = request.flash()
   next()
 })
+
+// promisify some callback based APIs
+app.use((req, res, next) => {
+  req.login = promisify(req.login, req);
+  next();
+});
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
 app.use(express.static(path.join(__dirname, 'public')))
@@ -74,10 +85,6 @@ if (app.get('env') === 'development') {
 
 // production error handler
 app.use(errorHandlers.productionErrors)
-
-// // Passport JS is what we use to handle our logins
-app.use(passport.initialize());
-app.use(passport.session());
 
 // export the app, that gets started by start.js
 module.exports = app
