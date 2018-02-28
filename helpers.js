@@ -71,19 +71,6 @@ exports.adminSidebarNavigation = (user) => {
     if (user.role === 'teacher') {
         navigation = navigation.concat([
             {
-                href: '/admin/tech-favorites',
-                icon: 'list',
-                title: 'Tech Favorites'
-            },
-            {
-                href: '/admin/projects',
-                icon: 'code',
-                title: 'Projects'
-            },
-        ])
-    } else {
-        navigation = navigation.concat([
-            {
                 href: '/admin/homepage-technologies',
                 icon: 'code',
                 title: 'Technologies'
@@ -92,6 +79,19 @@ exports.adminSidebarNavigation = (user) => {
                 href: '#',
                 icon: 'cog',
                 title: 'Settings'
+            },
+        ])
+    } else {
+        navigation = navigation.concat([
+            {
+                href: '/admin/tech-favorites',
+                icon: 'list',
+                title: 'Tech Favorites'
+            },
+            {
+                href: '/admin/projects',
+                icon: 'code',
+                title: 'Projects'
             },
         ])
     }
