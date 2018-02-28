@@ -18,9 +18,8 @@ exports.reportForm = async (request, response) => {
 exports.createReport = async (request, response) => {
   request.body.user = request.user._id;
   const Absence = await (new AbsenceReport(request.body)).save();
-  request.flash('info', `Successfully Created ${AbsenceReport.title}. Care to leave a review?`);
+  request.flash('seccess', `Successfully Created . Care to leave a review?`);
   response.redirect(`/admin/absence-reports/add`);
-  return;
 }
 
 // Validating data and updating the report, if okay

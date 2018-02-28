@@ -10,20 +10,20 @@ block content
             .col-12.col-sm-12.col-md-6
                 .form-group
                   label(for="name") Name
-                  input.form-control.form-control-lg(type="text" placeholder="Name" )
+                  input.form-control.form-control-lg(type="text" placeholder="Name" required)
                   label(for="email") Email Address
-                  input.form-control.form-control-lg(type="text" placeholder="Email")
+                  input.form-control.form-control-lg(type="text" placeholder="Email" required)
                   label(for="start-absence") Start absence:
-                  input.form-control.form-control-lg(type="date" name="startDate")
+                  input.form-control.form-control-lg(type="date" name="startDate" required)
                   label(for="end-absence") End absence:
-                  input.form-control.form-control-lg(type="date" name="untilDate")
+                  input.form-control.form-control-lg(type="date" name="untilDate" required)
             .col-12.col-sm-12.col-md-6
                 .input-group.mb-3
                 .custom-file
-                  input#inputGroupFile03.custom-file-input(type="file" name="photo")
+                  input.custom-file-input(type="file" name="photo")
                   label.custom-file-label(for="photo") Choose file
                   textarea.form-control.form-control-lg(placeholder="Discription" name="description")
-                  button.btn.btn-dark.btn-lg.btn-block(type="submit")  Send
+                  button.btn.btn-dark.btn-lg.btn-block(type="submit" value="Save →") Save 
 
       
 

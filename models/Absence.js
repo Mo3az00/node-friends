@@ -20,8 +20,7 @@ const AbsenceReportSchema = new mongoose.Schema({
     trim: true
   },
   photo: {
-    type: String,
-    required: true
+    type: String
   }
 })
 
