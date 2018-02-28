@@ -6,7 +6,7 @@ block content
         .container
           i.fa.fa-headphones.fa-5x
           h1 Absence Reporting
-          form.row(action="/admin/absence-reports/add" method="POST" )
+          form.row(action="/admin/absence-reports/add" method="POST" nctype="multipart/form-data")
             .col-12.col-sm-12.col-md-6
                 .form-group
                   label(for="name") Name
@@ -18,10 +18,10 @@ block content
                   label(for="end-absence") End absence:
                   input.form-control.form-control-lg(type="date" name="untilDate")
             .col-12.col-sm-12.col-md-6
-                label(for="photo") Photo
-                  input(class=".custom-file-input.form-control.form-control-lg" type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
-                  if absenceReport.photo
-                    img(src=`/public/images/slide${absence.photo}`, alt=absence.name width=200)
+                .input-group.mb-3
+                .custom-file
+                  input#inputGroupFile03.custom-file-input(type="file" name="photo")
+                  label.custom-file-label(for="photo") Choose file
                   textarea.form-control.form-control-lg(placeholder="Discription" name="description")
                   button.btn.btn-dark.btn-lg.btn-block(type="submit")  Send
 
