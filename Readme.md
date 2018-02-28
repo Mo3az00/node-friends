@@ -1,4 +1,4 @@
-# Node Friends
+    # Node Friends
 
 This is the website of the Node Friends team, which started as a course at the [Digital Career Institute](https://digitalcareerinstitute.org/).
 
@@ -6,7 +6,7 @@ The ```npm run dev``` command will not only start the application, but also watc
 
 ## Installation
 
-1. Download the repository as .zip-file or clone it.
+1. Download the repository as .zip-file or clone it.    
 1. Run ```npm install``` in your terminal to get all needed packages.
 1. Copy __the variables.env.sample__ file to __variables.env__.
 2. Edit the configuration to fit your setup and needs.

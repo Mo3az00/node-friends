@@ -9,7 +9,6 @@ const UserTechFavoritesController = require('../controllers/UserTechFavoritesCon
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
 const AuthController = require('../controllers/AuthController')
-const favTechController = require('../controllers/UserFavoriteTechController')
 
 // The main route
 router.get('/', (request, response) => {
@@ -43,8 +42,8 @@ router.get('/admin/password-forgot', AuthController.passwordForgotten)
 router.post('/admin/password-forgot', catchErrors(AuthController.passwordResetMail))
 router.get('/admin/password-reset/:token', catchErrors(AuthController.passwordResetForm))
 router.post('/admin/password-reset/:token',
-    AuthController.confirmPasswords,
-    catchErrors(AuthController.update)
+AuthController.confirmPasswords,
+catchErrors(AuthController.update)
 )
 
 
@@ -142,12 +141,6 @@ router.get('/admin/settings', catchErrors(SettingsController.form))
 
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
-// Favorite Technologies
-router.get('/admin/tech-favorites', catchErrors(favTechController.list)) // Displaying the list of the user's projects
-router.get('/admin/tech-favorites/add', favTechController.techFavorite) //Displaying a form for adding a new project
-router.post('/admin/tech-favorites/add', catchErrors(favTechController.createFavorite)) // Validate data and save project, if okay
-router.get('/admin/tech-favorites/id:/edit', catchErrors(favTechController.favoriteForm)) // Display the form for editing a project by ID
-router.post('/admin/tech-favorites/:id/edit', catchErrors(favTechController.updateFavorite)) // Validating data and updating the profile, if okay
 
 // Export our router
 module.exports = router;

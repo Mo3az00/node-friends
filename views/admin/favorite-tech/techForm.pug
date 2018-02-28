@@ -6,19 +6,19 @@ block content
   form.favorite-technologies(action='/admin/tech-favorites/add' method='POST')
     .form-group
       label(for='technology-title') Tech Name
-      input(type='text' class='form-control' placeholder='name of your favorite tech' name='name')
+      input(type='text' class='form-control' placeholder='name of your favorite tech' name='title')
 
       label(for='technology-description') Tech Description
-      input(type='text' class='form-control' placeholder='small description of your favorite tech' name='des')
+      input(type='text' class='form-control' placeholder='small description of your favorite tech' name='subtitle')
 
       label(for='technology-use') Tech Usage
-      textarea(class='form-control' rows='3' placeholder='what you like about this technology / how do you use this technology' name='name')
+      textarea(class='form-control' rows='3' placeholder='what you like about this technology / how do you use this technology' name='description')
 
       label(for="icon")
             | Icon (
             a(href="https://fontawesome.com/v4.7.0/icons/") see all icons
             | )
-      input(type='text' class='form-control' placeholder='')
+      input(type='text' class='form-control' placeholder='choose an icon for your favorite tech' name='icon')
 
 
       button(type='submit' class='btn btn-primary') Submit
