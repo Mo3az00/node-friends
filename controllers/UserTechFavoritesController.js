@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const HomepageTech = mongoose.model('HomepageTech')
+const UserTechFavorites = mongoose.model('UserTechFavorites')
 
 // Display the list of the User's technologies
 exports.list = async (request, response) => {
