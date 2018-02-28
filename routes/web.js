@@ -47,8 +47,6 @@ router.post('/admin/password-reset/:token',
     catchErrors(AuthController.update)
 )
 
-// Edit profile
-router.get('/admin/profile/edit', catchErrors(UserController.editProfile))
 
 // Enter admin interface
 router.get('/admin', catchErrors(UserController.dashboard))
@@ -64,7 +62,6 @@ router.get('/admin/User/profile/edit', catchErrors(UserController.editProfile))
 router.post('/profile/edit-profile', catchErrors(UserController.updateProfile))
 
 // Display student list
-
 router.get('admin/students', catchErrors(UserController.studentList))
 
 // PROJECTS
@@ -72,7 +69,7 @@ router.get('admin/students', catchErrors(UserController.studentList))
 router.get('/admin/projects', catchErrors(UserProjectsController.list))
 
 // Display a form for adding a new project
-router.get('/admin/projects/add', catchErrors(UserProjectsController.projectForm))
+router.get('/admin/projects/add', UserProjectsController.projectForm)
 
 // Validate data and save project, if okay
 router.post('/admin/projects/add', catchErrors(UserProjectsController.createProject))
@@ -88,7 +85,7 @@ router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updat
 router.get('/admin/tech-favorites', catchErrors(UserTechFavoritesController.list))
 
 //  Displaying a form for adding a new favorite tech
-router.get('/admin/tech-favorites/add', catchErrors(UserTechFavoritesController.techFavorite))
+router.get('/admin/tech-favorites/add', UserTechFavoritesController.techFavorite)
 
 // Validate data and save project, if okay
 router.post('/admin/tech-favorites/add', catchErrors(UserTechFavoritesController.createFavorite))
@@ -104,7 +101,7 @@ router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesContr
 router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
 
 // Display the form to add new report
-router.get('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
+router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
 
 // Validating data and saving the report, if okay
 router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.createReport))
@@ -123,7 +120,7 @@ router.get('/admin/absence-reports/:id', catchErrors(AbsenceReportController.dis
 router.get('/admin/homepage-technologies', catchErrors(HomepageTechController.list))
 
 // Display the form to add a technology
-router.get('/admin/homepage-technologies/add', catchErrors(HomepageTechController.technologyForm))
+router.get('/admin/homepage-technologies/add', HomepageTechController.technologyForm)
 
 //  Validate data and saving the technology, if okay
 router.post('/admin/homepage-technologies/add', catchErrors(HomepageTechController.createTechnology))
