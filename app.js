@@ -13,6 +13,7 @@ const promisify = require('es6-promisify')
 const routes = require('./routes/web')
 const helpers = require('./helpers')
 const errorHandlers = require('./handlers/errorHandlers')
+const AuthController = require('./controllers/AuthController')
 
 // require passport
 require('./handlers/passport')
@@ -67,7 +68,7 @@ app.use('/.well-known', express.static(path.join(__dirname, '.well-known'), {}))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// set route handling
+app.use(/\/admin\/((?!login|password-forgot|password-reset).)+/, AuthController.isLoggedIn)
 app.use('/', routes)
 
 // if above routes didnt work, we 404 them and forward to error handler
