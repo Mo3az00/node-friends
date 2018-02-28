@@ -31,12 +31,16 @@ mongoose.connect(
 	})
 
 // load all models
+require('./models/Settings')
+require('./models/HomepageTech')
 require('./models/ToDo')
 require('./models/User')
 require('./models/UserProfile')
 require('./models/UserProjects')
-require('./models/UserTech')
-require('./models/Tech')
+require('./models/UserTechFavorites')
+require('./models/Absence')
+
+
 
 
 // load the app

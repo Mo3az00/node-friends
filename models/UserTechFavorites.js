@@ -32,4 +32,4 @@ const userTechSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('UserTech', userTechSchema)
+module.exports = mongoose.model('UserTechFavorites', userTechSchema)
