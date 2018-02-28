@@ -27,8 +27,4 @@ exports.studentList = (request, response) => {
   })
 }
 
-exports.absenceReport = (request, response) => {
-  response.render('admin/absenceReport', {
-      title: 'add absence report'
-  })
-}
+

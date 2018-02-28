@@ -17,7 +17,6 @@ exports.absenceReport = async (request, response) => {
     response.render('/absenceReport', {
         title: 'add absence report'
     })
-response.json('it works')
 
 
 // Dashboard

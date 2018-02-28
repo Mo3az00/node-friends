@@ -6,28 +6,22 @@ block content
         .container
           i.fa.fa-headphones.fa-5x
           h1 Absence Reporting
-          .row
+          form.row(action="/admin/absence-reports/add" method="POST" )
             .col-12.col-sm-12.col-md-6
-              .form-group
-                label(for="name") Name
-                input.form-control.form-control-lg(type="text" placeholder="Name" )
-              .form-group
-                label(for="email") Email Address
-                input.form-control.form-control-lg(type="text" placeholder="Email")
-              .form-group
-                label(for="phone") phone
-                input.form-control.form-control-lg(type="text" placeholder="Phone")
-              .form-group
-                label(for="start-absence") Start absence:
-                input.form-control.form-control-lg(type="date" name="bday")
-                label(for="end-absence") End absence:
-                input.form-control.form-control-lg(type="date" name="bday")
+                .form-group
+                  label(for="name") Name
+                  input.form-control.form-control-lg(type="text" placeholder="Name" )
+                  label(for="email") Email Address
+                  input.form-control.form-control-lg(type="text" placeholder="Email")
+                  label(for="start-absence") Start absence:
+                  input.form-control.form-control-lg(type="date" name="startDate")
+                  label(for="end-absence") End absence:
+                  input.form-control.form-control-lg(type="date" name="untilDate")
             .col-12.col-sm-12.col-md-6
-              .form-group
-                input#inputGroupFile03.custom-file-input.form-control.form-control-lg(type="file")
-                label.custom-file-label(for="inputGroupFile03") Choose file
-                textarea.form-control.form-control-lg(placeholder="Discription")
-              button.btn.btn-dark.btn-lg.btn-block(type="button")  Send =>
+                  input#inputGroupFile03.custom-file-input.form-control.form-control-lg(type="file")
+                  label.custom-file-label(for="inputGroupFile03") Choose file
+                  textarea.form-control.form-control-lg(placeholder="Discription" name="description")
+                  button.btn.btn-dark.btn-lg.btn-block(type="submit")  Send
 
       
 

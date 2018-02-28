@@ -39,4 +39,4 @@ const techSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Tech', techSchema);
+module.exports = mongoose.model('HomepageTech', techSchema);
