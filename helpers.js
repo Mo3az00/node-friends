@@ -39,31 +39,62 @@ exports.navigationMain = [
 /*
  * DASHBOARD
  */
+exports.adminSidebarNavigation = (user) => {
+    if (!user) {
+        return [
+            {
+                href: '/admin/login',
+                icon: 'sign-in',
+                title: 'Please login'
+            }
+        ]
+    }
 
-exports.sidenav = [
-    {
-        href: '#',
-        icon: 'th-large',
-        title: 'Dashboard'
-    },
-    {
-        href: '#',
-        icon: 'users',
-        title: 'Students'
-    },
-    {
-        href: '#',
-        icon: 'envelope',
-        title: 'Absence Report'
-    },
-    {
-        href: '#',
-        icon: 'list',
-        title: 'Tech Favourites'
-    },
-    {
-        href: '#',
-        icon: 'code',
-        title: 'Projects'
-    },
-]
+    let navigation = [
+        {
+            href: '/admin',
+            icon: 'th-large',
+            title: 'Dashboard'
+        },
+        {
+            href: '/admin/students',
+            icon: 'users',
+            title: 'Students'
+        },
+        {
+            href: '/admin/absence-reports',
+            icon: 'envelope',
+            title: 'Absence Reports'
+        }
+    ]
+    
+    if (user.role === 'teacher') {
+        navigation = navigation.concat([
+            {
+                href: '/admin/tech-favorites',
+                icon: 'list',
+                title: 'Tech Favorites'
+            },
+            {
+                href: '/admin/projects',
+                icon: 'code',
+                title: 'Projects'
+            },
+        ])
+    } else {
+        navigation = navigation.concat([
+            {
+                href: '/admin/homepage-technologies',
+                icon: 'code',
+                title: 'Technologies'
+            },
+            {
+                href: '#',
+                icon: 'cog',
+                title: 'Settings'
+            },
+        ])
+    }
+
+    return navigation
+}

@@ -1,22 +1,22 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
 
-// Login
-exports.login = (request, response) => {
-  response.render('user/login', { title: 'Login' })
-}
+// Dashboard
+exports.dashboard = (request, response) => {
+  if (!request.user) {
+    return response.redirect('/admin/login')
+  }
 
-// Profile
-exports.editProfile = (request, response) => {
-  response.render('user/edit-profile', {
-    title: 'Edit your profile'
+  response.render('admin/dashboard', {
+    title: 'Admin'
   })
 }
 
-// Admin
-exports.admin = (request, response) => {
-  response.render('admin/layout', {
-    title: 'Admin'
+
+// Profile
+exports.editProfile = (request, response) => {
+  response.render('admin/users/edit-profile', {
+    title: 'Edit your profile'
   })
 }
 
