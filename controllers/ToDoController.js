@@ -23,8 +23,9 @@ exports.createToDo = async (request, response) => {
 // Delete a todo item and redirect
 exports.deleteToDo = async (request, response) => {
     const todo = await ToDo.findOneAndRemove({ _id: request.params.id })
-    
+
     response.json({
         'message': 'Successfully deleted the ToDo.'
     })
 }
+
