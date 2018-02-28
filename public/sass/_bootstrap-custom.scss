@@ -1,3 +1,8 @@
-// override any variables you like
-
 $font-family-sans-serif: 'Roboto', sans-serif;
+
+$primary: #3D9970;
+
+$link-color:                #777;
+$link-decoration:           underline;
+$link-hover-color:          darken($link-color, 15%);
+$link-hover-decoration:     underline;

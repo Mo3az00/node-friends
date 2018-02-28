@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
-const toDoController = require('../controllers/toDoController')
-const userController = require('../controllers/userController')
+const ToDoController = require('../controllers/ToDoController')
+const UserController = require('../controllers/UserController')
+const AuthController = require('../controllers/AuthController')
 const favTechController = require('../controllers/UserFavoriteTechController')
 
 // The main route
@@ -13,22 +14,34 @@ router.get('/', (request, response) => {
   })
 })
 
-router.get('/admin', userController.dashboard)
+// Admin 
+router.get('/admin', UserController.dashboard)
+router.get('/admin/students', UserController.studentList)
 
 // Get all todo items
-router.get('/todos', catchErrors(toDoController.getToDoList))
+router.get('/todos', catchErrors(ToDoController.getToDoList))
 
 // Add a todo item
-router.post('/todos/add', catchErrors(toDoController.createToDo))
+router.post('/todos/add', catchErrors(ToDoController.createToDo))
 
 // Delete a todo item
-router.get('/todos/:id/delete', catchErrors(toDoController.deleteToDo))
+router.get('/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 
-// Login
-router.get('/login'), catchErrors(userController.login)
+// USER CONTROLS
+
+router.get('/admin/login', AuthController.loginForm)
+router.post('/admin/login', AuthController.login)
+router.get('/admin/logout', AuthController.logout)
+router.get('/admin/password-forgot', AuthController.passwordForgotten)
+router.post('/admin/password-forgot', catchErrors(AuthController.passwordResetMail))
+router.get('/admin/password-reset/:token', catchErrors(AuthController.passwordResetForm))
+router.post('/admin/password-reset/:token',
+    AuthController.confirmPasswords,
+    catchErrors(AuthController.update)
+)
 
 // Edit profile
-router.get('/profile/edit-profile', catchErrors(userController.editProfile))
+router.get('/admin/profile/edit', catchErrors(UserController.editProfile))
 
 // Favorite Technologies
 router.get('/admin/tech-favorites', catchErrors(favTechController.list)) // Displaying the list of the user's projects
