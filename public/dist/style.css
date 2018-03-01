@@ -6971,6 +6971,9 @@ a.text-dark:hover, a.text-dark:focus {
 html, body {
   height: 100%; }
 
+a.btn {
+  text-decoration: none; }
+
 /* Header
 ------------------------------------------------*/
 /* Navbar with background */

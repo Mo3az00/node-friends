@@ -35,5 +35,10 @@ exports.favoriteForm = async (request, response) => {
 // Validating data and updating the profile, if okay
 
 exports.updateFavorite = async (request, response) => {
-  await response.send('WORKS!')
+     // 1. Find the store given the ID
+    const store = await Store.findOne({ _id: request.params.id });
+    // 2. confirm they are the owner of the store
+    confirmOwner(store, req.user);
+    // 3. Render out the edit form so the user can update their store
+    response.render('editStore', { title: `Edit ${store.name}`, store });
 }
