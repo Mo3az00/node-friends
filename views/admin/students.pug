@@ -3,26 +3,30 @@ extends ./layout
 block content
   .container-fluid.mt-3
     h2 Student List
-    table.table
-      thead
-        tr
-          th(scope='col') #
-          th(scope='col') First Name
-          th(scope='col') Last Name
-          th(scope='col') Email
-          th(scope='col') Phone Number
-          th(scope='col') Portfolio
-      tbody
-        each student, index in students
-          - if (student.role === 'student')
-            tr
-              th(scope='row') #{index}
-                td #{student.first_name}
-                td #{student.last_name}
-                td #{student.email}
-                td #{student.phone}                
-                td: a(href=`${student.website}`) #{student.website}
-                
+    .container-fluid
+      .row
+        .col-12.d-flex.justifty-content-start
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th(scope='col') #
+                  th(scope='col') First Name
+                  th(scope='col') Last Name
+                  th(scope='col') Email
+                  th(scope='col') Phone Number
+                  th(scope='col') Portfolio
+              tbody
+                each student, index in students
+                  - if (student.role === 'student')
+                    tr
+                      th(scope='row') #{index}
+                        td #{student.first_name}
+                        td #{student.last_name}
+                        td #{student.email}
+                        td #{student.phone}                
+                        td: a(href=`${student.website}`) #{student.website}
+                        
 
 
 

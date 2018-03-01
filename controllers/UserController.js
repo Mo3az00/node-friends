@@ -32,3 +32,12 @@ exports.studentList = async (request, response) => {
     students
   })
 }
+
+//Frontend Page 
+exports.frontendPage = async (request, response) => {
+
+  response.render('layout', {
+    title: 'Main',
+
+  })
+}
