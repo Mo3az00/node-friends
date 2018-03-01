@@ -18,7 +18,7 @@
         "last_name": "Sørensen",
         "role": "student",
         "phone": "0175 - 436 356 24",
-        "website": "bjarne-soerensen.de"
+        "website": "https://bjarne-soerensen.de"
     },
     {
         "_id":"5a95eee661ede91e5309cbf7",
@@ -29,7 +29,7 @@
         "last_name": "Fedyakin",
         "role": "student",
         "phone": "0121 -565 075 78",
-        "website": "misslild.de"
+        "website": "https://misslild.de"
     },
     {
         "_id":"5a95ef3f61ede91e5309cbf8",
@@ -40,7 +40,7 @@
         "last_name": "Degaitas",
         "role": "student",
         "phone": "0154 - 745 098 76",
-        "website": "kostasdegaitas.de"
+        "website": "https://kostasdegaitas.de"
     },
     {
         "_id":"5a95ef8261ede91e5309cbf9",
@@ -51,7 +51,7 @@
         "last_name": "Issa",
         "role": "student",
         "phone": "0165 - 674 235 67",
-        "website": "majd-issa.de"
+        "website": "https://majd-issa.de"
     },
     {
         "_id":"5a95efc261ede91e5309cbfa",
@@ -62,7 +62,7 @@
         "last_name": "Meda",
         "role": "student",
         "phone": "0161 - 786 134 22",
-        "website": "mouaz.de"
+        "website": "https://mouaz.de"
     },
     {
         "_id":"5a95f00361ede91e5309cbfb",
@@ -73,7 +73,7 @@
         "last_name": "Rashid",
         "role": "student",
         "phone": "0154 - 577 234 75",
-        "website": "osama-fayoni.com.de"
+        "website": "https://osama-fayoni.com"
     },
     {
         "_id":"5a95f03961ede91e5309cbfc",
@@ -84,6 +84,6 @@
         "last_name": "Kory",
         "role": "student",
         "phone": "0241 - 555 667 90",
-        "website": "ronit.eu"
+        "website": "https://ronit.eu"
     }
 ]
