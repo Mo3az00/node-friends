@@ -16,7 +16,9 @@
         "email":"bryesoerensen@gmail.com",
         "first_name":"Bjarne",
         "last_name": "Sørensen",
-        "role": "student"
+        "role": "student",
+        "phone": "0175 - 436 356 24",
+        "website": "bjarne-soerensen.de"
     },
     {
         "_id":"5a95eee661ede91e5309cbf7",
@@ -25,7 +27,9 @@
         "email":"danielafedyakin@gmail.com",
         "first_name":"Daniela",
         "last_name": "Fedyakin",
-        "role": "student"
+        "role": "student",
+        "phone": "0121 -565 075 78",
+        "website": "misslild.de"
     },
     {
         "_id":"5a95ef3f61ede91e5309cbf8",
@@ -34,7 +38,9 @@
         "email":"degaitas@yahoo.com",
         "first_name":"Kostas",
         "last_name": "Degaitas",
-        "role": "student"
+        "role": "student",
+        "phone": "0154 - 745 098 76",
+        "website": "kostasdegaitas.de"
     },
     {
         "_id":"5a95ef8261ede91e5309cbf9",
@@ -43,7 +49,9 @@
         "email":"majdissa0@gmail.com",
         "first_name":"Majd",
         "last_name": "Issa",
-        "role": "student"
+        "role": "student",
+        "phone": "0165 - 674 235 67",
+        "website": "majd-issa.de"
     },
     {
         "_id":"5a95efc261ede91e5309cbfa",
@@ -52,7 +60,9 @@
         "email":"mouaz.meda@hotmail.com",
         "first_name":"Mouaz",
         "last_name": "Meda",
-        "role": "student"
+        "role": "student",
+        "phone": "0161 - 786 134 22",
+        "website": "mouaz.de"
     },
     {
         "_id":"5a95f00361ede91e5309cbfb",
@@ -61,7 +71,9 @@
         "email":"enlil96rashid@gmail.com",
         "first_name":"Osama",
         "last_name": "Rashid",
-        "role": "student"
+        "role": "student",
+        "phone": "0154 - 577 234 75",
+        "website": "osama-fayoni.com.de"
     },
     {
         "_id":"5a95f03961ede91e5309cbfc",
@@ -70,6 +82,8 @@
         "email":"ronitronitronit@gmail.com",
         "first_name":"Ronit",
         "last_name": "Kory",
-        "role": "student"
+        "role": "student",
+        "phone": "0241 - 555 667 90",
+        "website": "ronit.eu"
     }
 ]

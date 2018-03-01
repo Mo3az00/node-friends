@@ -21,8 +21,14 @@ exports.editProfile = (request, response) => {
 }
 
 // Students
-exports.studentList = (request, response) => {
+exports.studentList = async (request, response) => {
+
+  const students = await User.find()
+
+  // response.json(students)
+
   response.render('admin/students', {
-    title: 'Student List'
+    title: 'Student List',
+    students
   })
 }
