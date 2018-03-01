@@ -1,5 +1,14 @@
 extends ./layout
 include ../mixins/todoList
+include ./calendar
 
 block content
-    +todoList()
+    .main-dashboard.container-fluid.mx-0.mb-2.p-2
+        .row
+            .col-12.mx-0.p-3
+                h3 DASHBOARD
+        .row.my-3
+            .container-fluid.mx-0
+                .row
+                    +calendar()
+                    +todoList()
