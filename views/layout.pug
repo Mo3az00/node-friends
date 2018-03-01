@@ -24,7 +24,7 @@ html(lang='en')
 
   body
     block header
-      include partials/navbar
+      include frontend-partials/navbar
 
     block messages
       if locals.flashes
@@ -39,7 +39,7 @@ html(lang='en')
                     span(aria-hidden='true') ×
 
     block content
-      include partials/main
+      include frontend-partials/main
     
     block footer
 
