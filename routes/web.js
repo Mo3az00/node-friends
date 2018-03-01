@@ -66,13 +66,17 @@ router.get('admin/students', catchErrors(UserController.studentList))
 router.get('/admin/projects', catchErrors(UserProjectsController.list))
 
 // Display a form for adding a new project
-router.get('/admin/projects/add', UserProjectsController.projectForm)
+router.get('/admin/projects/add', UserProjectsController.addForm)
 
 // Validate data and save project, if okay
-router.post('/admin/projects/add', catchErrors(UserProjectsController.createProject))
+router.post('/admin/projects/add',
+  UserProjectsController.upload,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.createProject)
+)
 
 //Display the form for editing a project by ID
-router.get('/admin/projects/:id/edit', catchErrors(UserProjectsController.projectForm))
+router.get('/admin/projects/:id/edit', UserProjectsController.editForm)
 
 //Validating data and updating the profile, if okay
 router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updateProject))

@@ -19,7 +19,7 @@ const userProjectsSchema = new mongoose.Schema({
   },
   image:{
     type: String,
-    //required: 'Please upload a photo',
+    // required: 'Please upload a photo',
     trim: true
   },
   link:{
@@ -27,7 +27,10 @@ const userProjectsSchema = new mongoose.Schema({
     required: 'Please enter a link',
     trim: true,
   },
-  order: Number,
+  order:{
+    type: Number,
+    // required: 'Order required'
+  }
 })
 
 module.exports = mongoose.model('UserProjects', userProjectsSchema)

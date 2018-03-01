@@ -1,1 +1,25 @@
 extends layout
+
+block content
+  p
+    a.btn.btn-primary(href='/admin/projects/add')
+      i.fa.fa-plus Add project
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        th(scope='col') #
+        th(scope='col') Project Name
+        th(scope='col') Link
+        th(scope='col') Options
+    tbody
+      each project in projects
+        tr
+          th(scope='row') 1
+          td= project.title
+          td
+            a(href=`${project.link}` target="_blank") #{project.link}
+          td.actions
+            a(href=`/admin/projects/${project._id}/edit`)
+              i.fa.fa-edit(title='Edit', data-toggle='tooltip', data-placement='top')
+            a(href=`/admin/projects/${project._id}/delete`)
+              i.fa.fa-remove(title='Delete', data-toggle='tooltip', data-placement='top')
