@@ -1,4 +1,40 @@
 extends ../layout
 
 block content
-    h1 edit profile page coming soon
+	.col-12.col-sm-10.col-md-9.col-lg-6
+		h2.text-center Edit Profile
+		form#project-form.container(method='POST', enctype="multipart/form-data")
+			p
+				img(src=`/uploads/users/avatar/${profile.avatar || 'avatar.png'}`, width=200)
+
+			.form-group
+				label(for="avatar")
+				input(
+					type="file",
+					name="avatar",
+					id="avatar",
+					accept="image/gif, image/png, image/jpeg"
+				)
+
+			p
+				img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, width=400)
+
+			.form-group
+				label(for="photo")
+				input(
+					type="file",
+					name="photo",
+					id="photo",
+					accept="image/gif, image/png, image/jpeg"
+				)
+
+			.form-group
+				label(for='webpage') Webpage
+				input#webpage.form-control(method='POST',type='text', name='webpage', value=(profile.webpage || ''))
+
+			.form-group
+				label(for='bio') Biography
+				textarea#exampleFormControlTextarea1.form-control(name='bio', rows='6')=(profile.bio || '')
+
+			.form-group
+				button.btn.btn-success.btn-block(type='submit') Update Profile

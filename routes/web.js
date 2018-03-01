@@ -12,10 +12,10 @@ const AuthController = require('../controllers/AuthController')
 
 // The main route
 router.get('/', (request, response) => {
-  response.render('home', {
-    title: 'Home',
-    description: 'My lovely first website with Node.js'
-  })
+    response.render('home', {
+        title: 'Home',
+        description: 'My lovely first website with Node.js'
+    })
 })
 
 // Admin
@@ -42,21 +42,26 @@ router.get('/admin/logout', AuthController.logout)
 router.get('/admin/password-forgot', AuthController.passwordForgotten)
 router.post('/admin/password-forgot', catchErrors(AuthController.passwordResetMail))
 router.get('/admin/password-reset/:token', catchErrors(AuthController.passwordResetForm))
-router.post('/admin/password-reset/:token',AuthController.confirmPasswords,catchErrors(AuthController.update))
+router.post('/admin/password-reset/:token', AuthController.confirmPasswords, catchErrors(AuthController.update))
 
 
 // Enter admin interface
 router.get('/admin', catchErrors(UserController.dashboard))
 
+// PROFILE
 // Display profile
-router.get('/admin/User/profile/:id', catchErrors(UserController.profile))
-
-// Edit profile
-
-router.get('/admin/User/profile/edit', catchErrors(UserController.editProfile))
+router.get('/admin/user/profile/edit', catchErrors(UserController.editProfile))
 
 // Update profile
-router.post('/profile/edit-profile', catchErrors(UserController.updateProfile))
+router.post('/admin/user/profile/edit',
+    UserController.upload,
+    UserController.resize,
+    catchErrors(UserController.updateProfile)
+)
+
+// STUDENT LIST
+// Display student list
+router.get('admin/students', catchErrors(UserController.studentList))
 
 // Display student list
 router.get('admin/students', catchErrors(UserController.studentList))

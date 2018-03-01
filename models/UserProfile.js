@@ -12,7 +12,7 @@ const userProfile = new mongoose.Schema({
 		type: String,
 		trim: true
 	},
-	website: {
+	webpage: {
 		type: String,
 		trim: true
 	}
