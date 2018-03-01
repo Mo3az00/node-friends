@@ -84,13 +84,13 @@ router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updat
 router.get('/admin/tech-favorites', catchErrors(UserTechFavoritesController.list))
 
 //  Displaying a form for adding a new favorite tech
-router.get('/admin/tech-favorites/add', UserTechFavoritesController.techFavorite)
+router.get('/admin/tech-favorites/add', UserTechFavoritesController.addForm)
 
 // Validate data and save project, if okay
 router.post('/admin/tech-favorites/add', catchErrors(UserTechFavoritesController.createFavorite))
 
 // Display the form for editing a project by ID
-router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.favoriteForm))
+router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.editForm))
 
 // Validate data and updating the profile, if okay
 router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))

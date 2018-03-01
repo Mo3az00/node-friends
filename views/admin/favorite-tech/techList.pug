@@ -1,6 +1,25 @@
 extends ../layout
 block content
 
-  h1 List of favorite Technologies
+  h1 Favorite Technologies
 
-  a(href='/admin/tech-favorites/add' class="btn btn-primary" role="button") Add Favorite Technology
+  table.table.table-striped
+    thead
+      tr
+        th(scope='col') Title
+        th(scope='col') Subtitle
+        th(scope='col') Icon
+        th(scope='col') Description
+        th(scope='col')
+    tbody
+    each favorite in techFavorites
+      tr
+        td= favorite.title
+        td= favorite.subtitle
+        td
+          i(class=`fa fa-${favorite.icon}` aria-hidden='true')
+        td= favorite.description
+        td
+          a(href=`/admin/tech-favorites/${favorite._id}/edit` class='btn btn-outline-primary' role='button') Edit
+
+  a(href='/admin/tech-favorites/add' class='btn btn-primary' role='button') Add a Technology
