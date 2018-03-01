@@ -17,7 +17,10 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     birthday: { type: Date },
-    phone: String,
+    phone: {
+        type: String,
+        trim: true
+    },
     email: {
         type: String,
         unique: true,
@@ -25,6 +28,10 @@ const userSchema = new mongoose.Schema({
         trim: true,
         validate: [validator.isEmail, 'Invalid email address'],
         required: 'Please supply an email address'
+    },
+    website: {
+        type: String,
+        trim: true
     },
     resetPasswordToken: String,
     resetPasswordExpires: Date
