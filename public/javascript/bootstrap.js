@@ -2,6 +2,6 @@
 // Important: Don't confuse => this is not the Bootstrap framework file
 
 import 'bootstrap'
-import '../sass/style.scss'
 import 'bootstrap-datepicker'
+import '../sass/style.scss'
 

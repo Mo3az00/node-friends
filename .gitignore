@@ -2,4 +2,9 @@
 .log
 .idea
 node_modules
+<<<<<<< HEAD
 variables.env
+=======
+variables.env
+variables.env.sample
+>>>>>>> f23ea01ed73cc0446257551959576b5a5f25d75f
