@@ -20,7 +20,6 @@ router.get('/', (request, response) => {
 
 // Admin 
 router.get('/admin', UserController.dashboard)
-router.get('/admin/students', UserController.studentList)
 
 // Get all todo items
 router.get('/todos', catchErrors(ToDoController.getToDoList))
@@ -62,7 +61,7 @@ router.get('/admin/User/profile/edit', catchErrors(UserController.editProfile))
 router.post('/profile/edit-profile', catchErrors(UserController.updateProfile))
 
 // Display student list
-router.get('admin/students', catchErrors(UserController.studentList))
+router.get('/admin/students', catchErrors(UserController.studentList))
 
 // PROJECTS
 // Display user's projects
