@@ -11,6 +11,7 @@
 @import "bootstrap-custom";
 @import "~bootstrap/scss/bootstrap";
 @import "dashboard-main";
+@import "absence-reports";
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
@@ -95,39 +96,3 @@ main {
 .flash-messages {
   margin-top: 1rem;
 }
-
-//  Start absence-report Form
-
-.absence-report .fields
-{
-    background:#333333;
-    min-height: 300px;
-    color:#ddd;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.absence-report textarea
-{
-    height: 108px;
-}
-
-.absence-report input[type="text"],
-.absence-report input[type="date"],
-.absence-report textarea,
-.form-control-lg,
-.input-group-lg > .form-control,
-.input-group-lg > .input-group-prepend > .input-group-text,
-.input-group-lg > .input-group-append > .input-group-text
-{
-  display: inline-block;
-  padding: 10px;
-  background: rgba(80,78,78,0.7);
-  font-family: Helvetica, Arial, sans-serif;
-  color: #ddd;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  border: none;
-}
-
-// End absence-report Form

@@ -29,7 +29,7 @@ exports.send = async (options) => {
 
     const mailOptions = {
         from: 'Node Friends <noreply@node-friends.com>',
-        to: options.Absence.email,
+        to: options.to,
         subject: options.subject,
         html,
         text

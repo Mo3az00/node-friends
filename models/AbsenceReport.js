@@ -1,0 +1,30 @@
+const mongoose = require('mongoose')
+const validator = require('validator');
+
+const AbsenceReportSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must supply a user!'
+  },
+  date_begin: {
+      type: Date,
+      require: 'You must supply a date of the end.'
+  },
+  date_end: {
+      type: Date,
+      require: 'You must supply a date of the begin.'
+  },
+  date_created: {
+    type: Date,
+    default: Date.now
+  },
+  message: {
+    type: String,
+    required: 'You must supply a message',
+    trim: true
+  },
+  photo: String
+})
+
+module.exports = mongoose.model('AbsenceReport', AbsenceReportSchema)

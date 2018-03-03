@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+    section.absence-report
+      h1
+        i.fa.fa-sticky-note
+        |  Absence Report
+      
+      form.row( method="POST" enctype="multipart/form-data")
+        .col-12.col-sm-12.col-md-6
+          .form-group
+            label(for="photo") Scanned Document
+            input.form-control(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+
+          .form-group
+            label(for="date_begin") Date Begin
+            input.form-control(type="date" name="date_start" id="date_start" value="")
+
+          .form-group
+            label(for="date_end") Date End
+            input.form-control(type="date" name="EndDate" value="")
+
+          .form-group
+            label(for="description") Message
+            textarea.form-control(name="message" id="message")
+
+          button.btn.btn-primary.btn-lg.btn-block(type="submit" value="Send →") Send

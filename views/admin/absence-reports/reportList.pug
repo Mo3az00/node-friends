@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  h2= title
+
+  p
+    a.btn.btn-primary(href="/admin/absence-reports/add") Add new Report
+
+  if reports.length
+    table.table.table-hover.table-striped
+      thead
+        tr
+          if user.role == 'teacher'
+            th(scope='col') First Name
+            th(scope='col') Last Name
+
+          th(scope='col') Created at
+          th(scope='col') Begin
+          th(scope='col') End
+      tbody
+      each report in reports
+        tr
+          if user.role == 'teacher'
+            td #{report.user.first_name}
+            td= report.user.last_name
+          
+          td= helpers.moment(report.created_at).format('YYYY-MM-DD')
+          td= helpers.moment(report.date_begin).format('YYYY-MM-DD')
+          td= helpers.moment(report.date_end).format('YYYY-MM-DD')
