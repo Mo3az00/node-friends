@@ -39,8 +39,6 @@ require('./models/UserTechFavorites')
 require('./models/Absence')
 
 
-
-
 // load the app
 const app = require('./app')
 

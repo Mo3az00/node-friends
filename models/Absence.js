@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator = require('validator');
 
 const AbsenceReportSchema = new mongoose.Schema({
   user: {
@@ -6,22 +7,36 @@ const AbsenceReportSchema = new mongoose.Schema({
     ref: 'User',
     required: 'You must supply a user'
   },
-  fromDate: {
-    type: Date,
-    required: 'You must supply a date'
+  firstName: {
+    type:String,
+    required: 'You must supply a user'
   },
-  untilDate: {
-    type: Date,
-    required: 'You must supply a Date'
+  lastName: {
+    type:String,
+    required: 'You must supply a user'
+  },
+  email: {
+    type: String,
+    unique: true,
+    lowercase: true,
+    trim: true,
+    validate: [validator.isEmail, 'Invalid Email Address'],
+    required: 'Please Supply an email address'
+  },
+  StartDate: {
+      type: Date,
+      default: Date.now
+  },
+  EndDate: {
+      type: Date,
+      default: Date.now
   },
   description: {
     type: String,
     required: 'You must supply a description',
     trim: true
   },
-  photo: {
-    type: String
-  }
+  photo:String
 })
 
 module.exports = mongoose.model('AbsenceReport', AbsenceReportSchema)

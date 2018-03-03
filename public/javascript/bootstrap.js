@@ -3,3 +3,5 @@
 
 import 'bootstrap'
 import '../sass/style.scss'
+import 'bootstrap-datepicker'
+

@@ -102,18 +102,15 @@ router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
 
 // Display the form to add new report
 router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
-
+// router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
 // Validating data and saving the report, if okay
-router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.createReport))
+router.post('/admin/absence-reports/add',
+AbsenceReportController.upload,
+catchErrors(AbsenceReportController.resize),
+catchErrors(AbsenceReportController.createReport))
 
 // Display a form to edit a report by ID
 router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.reportForm))
-
-// Validate data and updating the report, if okay
-router.post('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.updateReport))
-
-// Display a report given by ID
-router.get('/admin/absence-reports/:id', catchErrors(AbsenceReportController.displayReport))
 
 // HOMEPAGE TECH CONTROLLER
 // Display the list of homepage technologies
