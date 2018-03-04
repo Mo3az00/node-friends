@@ -10,12 +10,12 @@
 
 @import "bootstrap-custom";
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
 @import "dashboard-main";
 @import "absence-reports";
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
-@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
 
 /* 2. Starter Template
 -------------------------------------------*/
