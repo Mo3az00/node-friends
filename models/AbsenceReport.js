@@ -24,7 +24,14 @@ const AbsenceReportSchema = new mongoose.Schema({
     required: 'You must supply a message',
     trim: true
   },
-  photo: String
+  attachment: {
+    mimetype: {
+      type: String
+    },
+    filename: {
+      type: String
+    }
+  }
 })
 
 module.exports = mongoose.model('AbsenceReport', AbsenceReportSchema)

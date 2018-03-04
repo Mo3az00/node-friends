@@ -5,35 +5,7 @@ const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
 const moment = require('moment')
-
-// Uploading image and filtering by type
-exports.upload = multer({
-  storage: multer.memoryStorage(),
-  fileFilter(req, file, next) {
-    if(file.mimetype.startsWith('image/')) {
-      next(null, true)
-    } else {
-      next({ message: `That filetype isn't allowed!` }, false)
-    }
-  }
-})
-.single('photo')
-
-// Resizing the uploaded image
-exports.resize = async (request, response, next) => {
-  if (!request.file) {
-    return next()
-  }
-
-  const extension = request.file.mimetype.split('/')[1]
-  request.body.photo = `${uuid.v4()}.${extension}`
-  
-  const photo = await jimp.read(request.file.buffer)
-  await photo.resize(800, jimp.AUTO)
-  await photo.write(`./public/uploads/absence-reports/${request.body.photo}`)
-
-  next()
-}
+const fs = require('fs')
 
 // Display the list of the reports
 exports.list = async (request, response) => {
@@ -62,9 +34,82 @@ exports.reportForm = async (request, response) => {
   })
 }
 
+// Uploading attachment and filtering by type
+const storage = multer.diskStorage({
+  destination: function(request, file, next) {
+    next(null, './temp')
+  },
+  filename: function(request, file, next) {
+    next(null, uuid(4))
+  }
+})
+
+exports.upload = multer({
+  storage,
+  limits: {
+    fileSize: 10000000, // 10 MB
+  },
+  fileFilter(request, file, next) {
+    if(file.mimetype.startsWith('image/') || file.mimetype.search('pdf') !== -1) {
+      next(null, true)
+    } else {
+      next({code: 'FILETYPE_NOT_ALLOWED', message: 'That filetype is not allowed!'}, false)
+    }
+  }
+})
+.single('attachment')
+
+// Upload error handling
+exports.uploadError = function(error, request, response, next) {
+  if (error) {
+    let message = 'Error during file upload. Please try again later.'
+
+    switch (error.code) {
+      case 'LIMIT_FILE_SIZE':
+        message = 'The file is too large. Max. 10 MB allowed!'
+        break;
+
+      case 'FILETYPE_NOT_ALLOWED':
+        message = 'The file type is not allowed. Only images and PDF!'
+        break;
+    }
+
+    request.flash('danger', message)
+    return response.redirect('back')
+  }
+
+  next()
+}
+
+// Successfull upload handling and file movement
+exports.uploadSuccess = function(request, response, next) {
+  if (!request.file) {
+    return next()
+  }
+
+  try {
+    const extension = request.file.mimetype.split('/')[1]
+    const pathTemp = `./temp/${request.file.filename}`
+    const filename = `${request.file.filename}.${extension}`
+    const path = `./public/uploads/absence-reports/${filename}`
+
+    fs.renameSync(pathTemp, path)
+
+    request.body.attachment = {
+      mimetype: request.file.mimetype,
+      filename
+    }
+  } catch (error) {
+    return next(new Error('The file upload failed!'))
+  }
+  
+  next()
+}
+
 // Validate data and save the report
 exports.createReport = async (request, response, next) => {
   request.body.user = request.user._id;
+
   const report = await (new AbsenceReport(request.body)).save();
 
   if(!report){
@@ -74,10 +119,10 @@ exports.createReport = async (request, response, next) => {
 
   try {
     const dateNow = moment().format('YYYY-MM-DD HH:mm')
-    let imageUrl = null
+    let attachmentUrl = null
     
-    if (report.photo) {
-      imageUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}/uploads/absence-reports/${report.photo}`
+    if (report.attachment) {
+      attachmentUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}/uploads/absence-reports/${report.attachment.filename}`
     }
 
     await mail.send({
@@ -88,14 +133,12 @@ exports.createReport = async (request, response, next) => {
         'carl.neuberger@devugees.org'
       ],
       report,
-      imageUrl,
+      attachmentUrl,
       user: request.user,
       moment
     });
   } catch (error) {
-    console.error(error)
     report.remove()
-
     request.flash('danger', 'The report could not be send. Please try again later.')
     return response.redirect('back')
   }
