@@ -4,7 +4,7 @@ const juice = require('juice')
 const htmlToText = require('html-to-text')
 const promisify = require('es6-promisify')
 
-const transport = new nodemailer.createTransport({
+const transport = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,
     auth: {
@@ -29,7 +29,7 @@ exports.send = async (options) => {
 
     const mailOptions = {
         from: 'Node Friends <noreply@node-friends.com>',
-        to: options.user.email,
+        to: options.to,
         subject: options.subject,
         html,
         text

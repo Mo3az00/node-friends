@@ -22,9 +22,9 @@ if (process.env.DATABASE_USERNAME &&
 
 mongoose.Promise = global.Promise
 mongoose.connect(
-		`mongodb://${process.env.DATABASE_HOST || localhost}:${process.env.DATABASE_PORT || 27017}/${process.env.DATABASE_NAME || 'express-mongo-boilerplate'}`,
-		mongooseOptions
-	)
+	`mongodb://${process.env.DATABASE_HOST || localhost}:${process.env.DATABASE_PORT || 27017}/${process.env.DATABASE_NAME || 'express-mongo-boilerplate'}`,
+	mongooseOptions
+)
 	.catch((error) => {
 		console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${error.message}`)
 		process.exit(1)
@@ -38,9 +38,7 @@ require('./models/User')
 require('./models/UserProfile')
 require('./models/UserProjects')
 require('./models/UserTechFavorites')
-require('./models/Absence')
-
-
+require('./models/AbsenceReport')
 
 
 // load the app

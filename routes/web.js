@@ -20,7 +20,6 @@ router.get('/', (request, response) => {
 
 // Admin
 router.get('/admin', UserController.dashboard)
-router.get('/admin/students', UserController.studentList)
 
 // Get all todo items
 router.get('/todos', catchErrors(ToDoController.getToDoList))
@@ -64,7 +63,7 @@ router.post('/admin/profile/edit',
 router.get('admin/students', catchErrors(UserController.studentList))
 
 // Display student list
-router.get('admin/students', catchErrors(UserController.studentList))
+router.get('/admin/students', catchErrors(UserController.studentList))
 
 // PROJECTS
 // Display user's projects
@@ -104,18 +103,17 @@ router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
 
 // Display the form to add new report
 router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
-
+// router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
 // Validating data and saving the report, if okay
-router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.createReport))
+router.post('/admin/absence-reports/add',
+    AbsenceReportController.upload,
+    AbsenceReportController.uploadError,
+    AbsenceReportController.uploadSuccess,
+    catchErrors(AbsenceReportController.createReport)
+)
 
 // Display a form to edit a report by ID
 router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.reportForm))
-
-// Validate data and updating the report, if okay
-router.post('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.updateReport))
-
-// Display a report given by ID
-router.get('/admin/absence-reports/:id', catchErrors(AbsenceReportController.displayReport))
 
 // HOMEPAGE TECH CONTROLLER
 // Display the list of homepage technologies
@@ -143,6 +141,7 @@ router.get('/admin/settings', catchErrors(SettingsController.form))
 // submit edited settings
 
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
+
 
 // Export our router
 module.exports = router;
