@@ -64,7 +64,7 @@
 
   #frontnavlinks {
     li {
-      color: rgb(3, 53, 7);
+      color: #8b8b8b;
       font-weight: 400;
       margin: .3rem .8rem;
       transition: 2s;
@@ -75,7 +75,7 @@
         display: block;
         width: 0;
         height: 1px;
-        background: rgb(85, 85, 85);
+        background:#3e863d;
         transition: width .3s ease-in;
         box-shadow: 0 0 1px grey;
       }
@@ -90,6 +90,7 @@
         text-decoration: none;
   
         &:hover {
+          color: #3e863d;
           text-decoration: none;
           font-weight: 400;
         }
