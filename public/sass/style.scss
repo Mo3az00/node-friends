@@ -11,15 +11,11 @@
 
 @import "bootstrap-custom";
 @import "~bootstrap/scss/bootstrap";
-<<<<<<< HEAD
+@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
 @import "~fullcalendar/dist/fullcalendar.css";
 @import "dashboard-main";
 @import 'todo-list';
-=======
-@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
-@import "dashboard-main";
 @import "absence-reports";
->>>>>>> 9757814088eb1866834cb58cd2cc8278d5200a7f
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
