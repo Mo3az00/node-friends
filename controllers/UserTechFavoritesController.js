@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
 const UserTechFavorites = mongoose.model('UserTechFavorites')
 
 // Displaying the list of the user's favorite technologies
@@ -82,4 +83,56 @@ exports.updateFavorite = async (request, response) => {
 
     request.flash('success', `Successfully updated <strong>${techFavorite.title}</strong>`)
     response.redirect(`/admin/tech-favorites`)
+}
+
+exports.updateSortOrder = async (request, response) => {
+  // Converting the new order to comparable format with the ID as property name
+  const newOrder = {}
+
+  request.body.order.forEach((id, order) => {
+      newOrder[id] = order
+  })
+
+  // Get all favorites and their positions and build comparable object, too
+  const getOldOrder = await UserTechFavorites.find({user: request.user._id}).sort({'order': 1})
+  const oldOrders = {}
+
+  getOldOrder.forEach((favorite) => {
+      oldOrders[favorite._id.toString()] = favorite.order
+  })
+
+  // Check which order values are changed, after sorting and only update those entries
+  const updates = []
+
+  for (id in oldOrders) {
+      if (oldOrders[id] !== newOrder[id]) {
+          updates.push({
+              id,
+              order: newOrder[id]
+          })
+      }
+  }
+
+  const updatePromises = []
+
+  updates.forEach((item) => {
+      // update in the database
+      updatePromises.push(
+          UserTechFavorites.update({_id: item.id}, {order: item.order})
+      )
+  })
+
+  Promise.all(updatePromises)
+    .then((data) => {
+      return response.json({
+        code: 200,
+        message: 'OK'
+      })
+    })
+    .catch((error) => {
+      return response.json({
+        code: 500,
+        error: error.response
+      })
+    })
 }

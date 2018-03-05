@@ -94,6 +94,9 @@ router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesContro
 // Validate data and updating the profile, if okay
 router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))
 
+// Update tech favorites order
+router.post('/admin/tech-favorites/update-order', catchErrors(UserTechFavoritesController.updateSortOrder))
+
 // ABSENCE REPORTS
 // Display the list of reports
 router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
