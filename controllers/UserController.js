@@ -103,7 +103,7 @@ exports.updateProfile = async (request, response) => {
     .exec()
 
   request.flash('success', `successfully updated your profile.`)
-  response.redirect('/admin/user/profile/edit')
+  response.redirect('/admin/profile/edit')
 }
 
 

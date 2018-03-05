@@ -9871,4 +9871,23 @@ td.actions a {
   font-size: 1rem;
   padding: 0.25rem; }
 
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block; }
+
+.the-button {
+  border: 1px solid gray;
+  color: gray;
+  background-color: white !important;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem; }
+
+.upload-btn-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0; }
+
 /*# sourceMappingURL=style.css.map*/

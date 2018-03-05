@@ -51,6 +51,7 @@ router.get('/admin', catchErrors(UserController.dashboard))
 // Display profile
 router.get('/admin/profile/edit', catchErrors(UserController.editProfile))
 
+
 // Update profile
 router.post('/admin/profile/edit',
     UserController.upload,
