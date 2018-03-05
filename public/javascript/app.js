@@ -7,6 +7,13 @@ initToDoList()
 // Enable boostrap dropdowns
 $('.dropdown-toggle').dropdown()
 
-// Dashboard calendar
+// Loading FullCalendar for all .calendar elements
 import calendar from './modules/calendar'
 calendar()
+
+// Enableing dropdown elements
+$('.dropdown-toggle').dropdown()
+
+// Enabling a date range picker
+import datepicker from './modules/datepicker'
+datepicker()
