@@ -62,10 +62,11 @@ exports.passwordResetMail = async (request, response) => {
     const resetURL = `${request.secure ? 'https://' : 'http://'}${request.headers.host}/admin/password-reset/${user.resetPasswordToken}`
   
     await mail.send({
-        user,
+        filename: 'password-reset',
         subject: 'Password Reset',
-        resetURL,
-        filename: 'password-reset'
+        to: request.user.email,
+        user,
+        resetURL
     })
   
     request.flash('success', message)

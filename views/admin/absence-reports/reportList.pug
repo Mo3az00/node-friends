@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+  .container-fluid.mt-3
+    h2.page-title= title
+    p
+      a.btn.btn-secondary(href="/admin/absence-reports/add")
+        i.fa.fa-plus-circle
+        |  Add new Report
+
+    if reports.length
+      table.table.table-bordered.table-striped.table-hover.absence-reports-table
+        thead
+          tr
+            if user.role == 'teacher'
+              th(scope='col') First Name
+              th(scope='col') Last Name
+
+            th(scope='col') Begin
+            th(scope='col') End
+            th(scope='col') Sent at
+            th(scope='col') Attachment
+        tbody
+        each report in reports
+          tr
+            if user.role == 'teacher'
+              td #{report.user.first_name}
+              td= report.user.last_name
+            
+            td= helpers.moment(report.created_at).format('YYYY-MM-DD')
+            td= helpers.moment(report.date_begin).format('YYYY-MM-DD')
+            td= helpers.moment(report.date_end).format('YYYY-MM-DD')
+            td
+              if report.attachment && report.attachment.filename
+                a(href=`/uploads/absence-reports/${report.attachment.filename}` target="_blank")
+                  if report.attachment.mimetype.endsWith('pdf')
+                    i.fa.fa-file-pdf-o
+                  else if report.attachment.mimetype.startsWith('image')
+                    i.fa.fa-file-image-o
+                  else
+                    i.fa.fa-file-o
+                | 
+                a(href=`/uploads/absence-reports/${report.attachment.filename}` target="_blank") Open in new tab
+              else
+                | -

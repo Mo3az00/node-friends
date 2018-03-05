@@ -1,4 +1,5 @@
 import './bootstrap'
+import datepicker from './modules/datepicker'
 
-console.log('toggle')
 $('.dropdown-toggle').dropdown()
+datepicker()

@@ -1,0 +1,15 @@
+.absence-report {
+  textarea {
+    height: 150px;
+  }
+}
+
+.absence-reports-table {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
