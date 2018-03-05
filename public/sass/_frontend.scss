@@ -20,8 +20,7 @@
 }
 
 #frontnavlinks {
-  margin: 1rem 0 0 0;
-  padding: 0;
+  padding-top: .5rem;
   list-style: none;
   
   li {
@@ -58,6 +57,47 @@
   }
 }
 
+.scrolled {
+  #frontnav {
+    background-color: white;
+  }
+
+  #frontnavlinks {
+    li {
+      color: rgb(3, 53, 7);
+      font-weight: 400;
+      margin: .3rem .8rem;
+      transition: 2s;
+      text-shadow: 0 0 1px grey;
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 1px;
+        background: rgb(85, 85, 85);
+        transition: width .3s ease-in;
+        box-shadow: 0 0 1px grey;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      a {
+        color: inherit;
+        display: block;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: none;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
 // MAIN
 
 #bg-main {
@@ -81,6 +121,27 @@
 }
 
 #jumbotron-footer {
-  background-color: #000;
+  background-color: rgb(30, 30, 30);
   color: #fff;
+  padding: .7rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+// TECHNOLOGIES
+
+#favouritetech {
+  >.row {
+    margin: 5rem auto;
+  }
+
+  .card {
+    margin: 1.3rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 10px rgb(91, 92, 92);
+
+    &:hover {
+      box-shadow: 0 0 10px rgb(0, 255, 21);
+    }
+  }
 }

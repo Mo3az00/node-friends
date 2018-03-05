@@ -38,10 +38,14 @@ html(lang='en')
                   button.close(type='button', data-dismiss='alert', aria-label='Close')
                     span(aria-hidden='true') ×
 
-    block content
+    block main
       include frontend-partials/main
+
+    block tech
+      include frontend-partials/favourite-tech
     
     block footer
 
     block scripts
       script(src="/dist/app.bundle.js")
+      script(src="javascript/frontend-page.js")
