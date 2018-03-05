@@ -101,18 +101,17 @@ router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
 
 // Display the form to add new report
 router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
-
+// router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
 // Validating data and saving the report, if okay
-router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.createReport))
+router.post('/admin/absence-reports/add',
+    AbsenceReportController.upload,
+    AbsenceReportController.uploadError,
+    AbsenceReportController.uploadSuccess,
+    catchErrors(AbsenceReportController.createReport)
+)
 
 // Display a form to edit a report by ID
 router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.reportForm))
-
-// Validate data and updating the report, if okay
-router.post('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.updateReport))
-
-// Display a report given by ID
-router.get('/admin/absence-reports/:id', catchErrors(AbsenceReportController.displayReport))
 
 // HOMEPAGE TECH CONTROLLER
 // Display the list of homepage technologies
@@ -141,6 +140,10 @@ router.get('/admin/settings', catchErrors(SettingsController.form))
 
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
+
+
+//  absence reporting
+router.get('/admin/absence-reports', catchErrors(UserController.absenceReport))
 
 // Export our router
 module.exports = router;

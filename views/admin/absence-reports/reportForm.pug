@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+  .container-fluid.mt-3
+    section.absence-report
+      h1
+        i.fa.fa-sticky-note
+        |  Absence Report
+      
+      form.row( method="POST" enctype="multipart/form-data")
+        .col-12.col-sm-12.col-md-6
+          - const dateNow = helpers.moment().format('MM/DD/YYYY')
+
+          .form-group
+            label(for="date_begin") Date Range:
+
+            .input-group.input-daterange
+              input.form-control(type="text" name="date_begin" id="date_begin" value=`${dateNow}`)
+              .input-group-prepend
+                span.input-group-text to
+              input.form-control(type="text" name="date_end" id="date_end" value=`${dateNow}`)
+
+          .form-group
+            label(for="description") Message:
+            textarea.form-control(name="message" id="message")
+
+          .form-group
+            label(for="attachment")
+              | Attachment: &nbsp; 
+              span.text-muted (PDF / Image with max. 10 MB)
+
+            input.form-control(type="file" name="attachment" id="attachment" accept="image/gif, image/png, image/jpeg, application/pdf")
+
+          button.btn.btn-primary.btn-lg.btn-block(type="submit") Send Report
