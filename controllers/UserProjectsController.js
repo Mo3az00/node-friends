@@ -88,8 +88,8 @@ exports.updateProject = async (request, response) => {
   response.redirect('/admin/projects')
 }
 
+// deleting a project
 exports.deleteProject = async (request, response) => {
-  // response.render('/admin/projects/:id/deleteProject')
   const project = await UserProjects.findOne({'_id': request.params.id}).remove()
   request.flash('success', `Successfully deleted` )
   response.redirect('/admin/projects')
