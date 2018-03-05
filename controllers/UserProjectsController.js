@@ -4,34 +4,34 @@ const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
 
-const multerOptions = {
+exports.upload = multer({
   storage: multer.memoryStorage(),
   fileFilter(request, file, next) {
-    const isPhoto = file.mimetype.startsWith('image/')
-    if(isPhoto) {
+    const isImage = file.mimetype.startsWith('image/')
+    if(isImage) {
       next(null, true)
     } else {
       next({ message: 'That filetype is not allowed!'}, false)
     }
   }
-}
-
-exports.upload = multer(multerOptions).single('image')
+})
+.single('image')
 
 exports.resize = async (request, response, next) => {
   if (!request.file) {
     next()
     return
   }
+
   const extension = request.file.mimetype.split('/'[1])
   request.body.image = `${uuid.v4()}.${extension}`
-  const photo = await jimp.read(request.file.buffer)
-  await photo.resize(800, jimp.AUTO)
-  await photo.write(`./public/uploads/${request.body.image}`)
+
+  const image = await jimp.read(request.file.buffer)
+  await image.resize(800, jimp.AUTO)
+  await image.write(`./public/uploads/${request.body.image}`)
+
   next()
 }
-
-
 
 // Display the list of the User's projects
 exports.list = async (request, response) => {
@@ -42,8 +42,6 @@ exports.list = async (request, response) => {
   })
 }
 
-
-
 // Display a form for adding a new project
 exports.projectForm = (request, response) => {
   response.render('admin/projects/projectForm', {
@@ -51,8 +49,6 @@ exports.projectForm = (request, response) => {
     project: {}
   })
 }
-
-
 
 // Validate data and save project, if okay
 exports.createProject = async (request, response) => {
@@ -68,7 +64,6 @@ exports.createProject = async (request, response) => {
   response.redirect('/admin/projects')
 }
 
-
 // Display form for editing a project
 exports.editForm = async (request, response) => {
   const project = await UserProjects.findOne({ '_id': request.params.id })
@@ -83,14 +78,17 @@ exports.updateProject = async (request, response) => {
   const project = await UserProjects.findOneAndUpdate(
     { _id: request.params.id },
     request.body,
-    { new: true, runValidators: true }).exec()
+    { new: true, runValidators: true }
+  ).exec()
+
   request.flash('success', `Successfully updated "${project.title}"` )
-  response.redirect('/admin/projects')
+  return response.redirect('/admin/projects')
 }
 
 // deleting a project
 exports.deleteProject = async (request, response) => {
   const project = await UserProjects.findOne({'_id': request.params.id}).remove()
+
   request.flash('success', `Successfully deleted` )
-  response.redirect('/admin/projects')
+  return response.redirect('/admin/projects')
 }
