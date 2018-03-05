@@ -34,7 +34,7 @@ exports.isLoggedIn = (request, response, next) => {
         return
     }
 
-    request.flash('error', 'Ooops! You must be logged in to do that!')
+    request.flash('danger', 'Ooops! You must be logged in to do that!')
     response.redirect('/admin/login') 
 }
 
@@ -62,10 +62,11 @@ exports.passwordResetMail = async (request, response) => {
     const resetURL = `${request.secure ? 'https://' : 'http://'}${request.headers.host}/admin/password-reset/${user.resetPasswordToken}`
   
     await mail.send({
-        user,
+        filename: 'password-reset',
         subject: 'Password Reset',
-        resetURL,
-        filename: 'password-reset'
+        to: request.user.email,
+        user,
+        resetURL
     })
   
     request.flash('success', message)
@@ -79,7 +80,7 @@ exports.passwordResetMail = async (request, response) => {
     })
 
     if (!user) {
-        request.flash('error', 'Password reset is invalid or has expired.')
+        request.flash('danger', 'Password reset is invalid or has expired.')
         return response.redirect('/admin/login')
     }
 
@@ -91,7 +92,7 @@ exports.passwordResetMail = async (request, response) => {
   // Check if password + confirmation are identical
   exports.confirmPasswords = (request, response, next) => {
     if (!request.body.password  || !request.body['password-confirm']) {
-        request.flash('error', 'Please fill in both fields!')
+        request.flash('danger', 'Please fill in both fields!')
         return response.redirect('back')
     }
 
@@ -100,7 +101,7 @@ exports.passwordResetMail = async (request, response) => {
         return
     }
 
-    request.flash('error', 'Passwords do not match.')
+    request.flash('danger', 'Passwords do not match.')
     response.redirect('back')
 }
 

@@ -38,9 +38,7 @@ require('./models/User')
 require('./models/UserProfile')
 require('./models/UserProjects')
 require('./models/UserTechFavorites')
-require('./models/Absence')
-
-
+require('./models/AbsenceReport')
 
 
 // load the app
@@ -87,7 +85,7 @@ if (tlsEnabled === true) {
 		console.log(`Express running with TLS → PORT ${server.address().port}`)
 	})
 } else {
-	const server = app.listen(app.get('port'), () => {
-		console.log(`Express running → PORT ${server.address().port}`)
-	})
-}
+    const server = app.listen(app.get('port'), () => {
+      console.log(`Express running → PORT ${server.address().port}`)
+    })
+	}
