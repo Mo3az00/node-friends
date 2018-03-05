@@ -104,9 +104,11 @@ router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
 // router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
 // Validating data and saving the report, if okay
 router.post('/admin/absence-reports/add',
-AbsenceReportController.upload,
-catchErrors(AbsenceReportController.resize),
-catchErrors(AbsenceReportController.createReport))
+    AbsenceReportController.upload,
+    AbsenceReportController.uploadError,
+    AbsenceReportController.uploadSuccess,
+    catchErrors(AbsenceReportController.createReport)
+)
 
 // Display a form to edit a report by ID
 router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportController.reportForm))

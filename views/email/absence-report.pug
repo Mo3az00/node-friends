@@ -1,0 +1,23 @@
+extends email-layout
+
+block content
+  h2 Absence Report
+  
+  b From
+  p #{user.first_name} #{user.last_name}
+    
+  b Begin
+  p #{moment(report.date_begin).format('YYYY-MM-DD')}
+
+  b End
+  p #{moment(report.date_end).format('YYYY-MM-DD')}
+
+  b Message
+
+  pre #{report.message}
+
+  if attachmentUrl !== null
+    p
+      b Attachment
+    p
+      a(href=`${attachmentUrl}` target="_blank") Open in your browser
