@@ -15,6 +15,8 @@
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
 
+@import "projects";
+
 /* 2. Starter Template
 -------------------------------------------*/
 
@@ -94,12 +96,3 @@ main {
 .flash-messages {
   margin-top: 1rem;
 }
-
-// PROJECTS
-
-td.actions a {
-  color: inherit;
-  font-size: 1rem;
-  padding: 0.25rem;
-}
-

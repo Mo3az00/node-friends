@@ -1,27 +1,27 @@
-extends layout
+extends ../layout
 
 block content
   .col-12.col-sm-10.col-md-9.col-lg-6
-    h2.text-center Add Project
+    h2.text-center #{title}
     form#project-form.container(method='POST', enctype='multipart/form-data')
       .form-group
         label(for='title') Project Title
-        input#name.form-control(method='POST', type='text', name='title', value=(project.title || ''))
+        input#name.form-control(method='POST', type='text', name='title', required, value=(project.title || ''))
 
       .form-group
         label(for='link') Link
-        input#link.form-control(method='POST',type='text', name='link', value=(project.link || ''))
+        input#link.form-control(method='POST',type='text', name='link', required, value=(project.link || ''))
 
       .form-group
         label(for='description') Description
-        textarea.form-control(name='description', rows='3')=(project.description || '')
+        textarea.form-control(name='description', rows='3', required)=(project.description || '')
 
       .form-group
         p
           label(for='image') Upload a photo:
         p
-          img(src=`/uploads/${project.image || 'project.png'}`, alt=project.title  width=200)
+          img(src=`/uploads/${project.image || 'project.jpeg'}`, alt=project.title  width=200)
         p
           input.form-control-file(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg")
       .form-group
-        button.btn.btn-success.btn-block(type='submit') Add
+        button.btn.btn-success.btn-block(type='submit') Save

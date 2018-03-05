@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 
 block content
   p
@@ -7,14 +7,14 @@ block content
   table.table.table-striped.table-bordered
     thead
       tr
-        th(scope='col') #
+        //- th(scope='col') #
         th(scope='col') Project Name
         th(scope='col') Link
         th(scope='col') Options
     tbody
       each project in projects
         tr
-          th(scope='row') 1
+          //- th(scope='row')
           td= project.title
           td
             a(href=`${project.link}` target="_blank") #{project.link}

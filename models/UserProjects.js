@@ -19,7 +19,7 @@ const userProjectsSchema = new mongoose.Schema({
   },
   image:{
     type: String,
-    // required: 'Please upload a photo',
+    required: 'Please upload a photo',
     trim: true
   },
   link:{

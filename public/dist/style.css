@@ -9352,6 +9352,11 @@ html, body {
   overflow: visible;
   clip: auto; }
 
+td.actions a {
+  color: inherit;
+  font-size: 1rem;
+  padding: 0.25rem; }
+
 /* 2. Starter Template
 -------------------------------------------*/
 main {
@@ -9406,10 +9411,5 @@ main {
 
 .flash-messages {
   margin-top: 1rem; }
-
-td.actions a {
-  color: inherit;
-  font-size: 1rem;
-  padding: 0.25rem; }
 
 /*# sourceMappingURL=style.css.map*/

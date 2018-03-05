@@ -66,7 +66,7 @@ router.get('admin/students', catchErrors(UserController.studentList))
 router.get('/admin/projects', catchErrors(UserProjectsController.list))
 
 // Display a form for adding a new project
-router.get('/admin/projects/add', UserProjectsController.addForm)
+router.get('/admin/projects/add', UserProjectsController.projectForm)
 
 // Validate data and save project, if okay
 router.post('/admin/projects/add',
@@ -79,7 +79,14 @@ router.post('/admin/projects/add',
 router.get('/admin/projects/:id/edit', UserProjectsController.editForm)
 
 //Validating data and updating the profile, if okay
-router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updateProject))
+router.post('/admin/projects/:id/edit',
+  UserProjectsController.upload,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.updateProject)
+)
+
+router.get('/admin/projects/:id/delete', UserProjectsController.deleteProject)
+router.post('/admin/projects/:id/delete', catchErrors(UserProjectsController.deleteProject) )
 
 // TECH FAVORITES
 // Display the list of the User's favorite technologies
