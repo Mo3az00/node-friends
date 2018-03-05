@@ -2,7 +2,7 @@ extends ../layout
 
 block content
 	.col-12.col-sm-10.col-md-9.col-lg-6
-		h2.text-center EDIT PROFILE
+		h2.text-center #{title}
 		br
 		form#project-form.container(method='POST', enctype="multipart/form-data")
 			.row
@@ -47,5 +47,3 @@ block content
 
 			.form-group
 				button.btn.btn-success.btn-block(type='submit') Update Profile
-
-		script(src="/javascript/showFileName.js")

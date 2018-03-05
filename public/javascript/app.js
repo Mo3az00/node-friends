@@ -7,6 +7,10 @@ import './todo-list'
 // Enable bootstrap dropdowns
 $('.dropdown-toggle').dropdown()
 
+// Enable showing file names in Profile update page
+import showFileNames from './modules/showFileName'
+showFileNames()
+
 // Enable bootstrap dropdowns with hover effect
 import dropDownHover from './dropdown-hover'
 dropDownHover('.dropdown-hover')

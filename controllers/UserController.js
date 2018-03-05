@@ -18,9 +18,7 @@ exports.dashboard = (request, response) => {
 
 
 // PROFILE
-// image
-// on installing multer, get message:
-//ajv-keywords@3.1.0 requires a peer of ajv@^6.0.0 but none is installed. You must install peer dependencies yourself."???????
+// imagenpm run
 const multerOptions = {
   storage: multer.memoryStorage(),
   fileFilter(req, file, next) {
