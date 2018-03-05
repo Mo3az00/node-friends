@@ -50,10 +50,10 @@ router.get('/admin', catchErrors(UserController.dashboard))
 
 // PROFILE
 // Display profile
-router.get('/admin/user/profile/edit', catchErrors(UserController.editProfile))
+router.get('/admin/profile/edit', catchErrors(UserController.editProfile))
 
 // Update profile
-router.post('/admin/user/profile/edit',
+router.post('/admin/profile/edit',
     UserController.upload,
     UserController.resize,
     catchErrors(UserController.updateProfile)
