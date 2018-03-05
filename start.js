@@ -36,9 +36,7 @@ require('./models/User')
 require('./models/UserProfile')
 require('./models/UserProjects')
 require('./models/UserTechFavorites')
-require('./models/Absence')
-
-
+require('./models/AbsenceReport')
 
 
 // load the app
