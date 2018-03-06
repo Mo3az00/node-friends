@@ -1,10 +1,9 @@
 import './bootstrap'
 import datepicker from './modules/datepicker'
 import sortable from './modules/sortable'
-
-// This is needed for the ToDo List demo
-import './todo-list'
+import showFileNames from './modules/showFileName'
 
 $('.dropdown-toggle').dropdown()
 datepicker()
 sortable()
+showFileNames()

@@ -149,7 +149,7 @@ exports.updateSortOrder = async (request, response) => {
   const newOrder = {}
 
   request.body.order.forEach((id, order) => {
-      newOrder[id] = order
+    newOrder[id] = order
   })
 
   // Get all projects and their positions and build comparable object, too
@@ -157,28 +157,28 @@ exports.updateSortOrder = async (request, response) => {
   const oldOrders = {}
 
   getOldOrder.forEach((project) => {
-      oldOrders[project._id.toString()] = project.order
+    oldOrders[project._id.toString()] = project.order
   })
 
   // Check which order values are changed, after sorting and only update those entries
   const updates = []
 
   for (id in oldOrders) {
-      if (oldOrders[id] !== newOrder[id]) {
-          updates.push({
-              id,
-              order: newOrder[id]
-          })
-      }
+    if (oldOrders[id] !== newOrder[id]) {
+      updates.push({
+        id,
+        order: newOrder[id]
+      })
+    }
   }
 
   const updatePromises = []
 
   updates.forEach((item) => {
-      // update in the database
-      updatePromises.push(
-          UserProjects.update({_id: item.id}, {order: item.order})
-      )
+    // update in the database
+    updatePromises.push(
+      UserProjects.update({_id: item.id}, {order: item.order})
+    )
   })
 
   Promise.all(updatePromises)
