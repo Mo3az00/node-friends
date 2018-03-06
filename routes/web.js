@@ -41,8 +41,8 @@ router.get('/admin/password-forgot', AuthController.passwordForgotten)
 router.post('/admin/password-forgot', catchErrors(AuthController.passwordResetMail))
 router.get('/admin/password-reset/:token', catchErrors(AuthController.passwordResetForm))
 router.post('/admin/password-reset/:token',
-AuthController.confirmPasswords,
-catchErrors(AuthController.update)
+  AuthController.confirmPasswords,
+  catchErrors(AuthController.update)
 )
 
 
