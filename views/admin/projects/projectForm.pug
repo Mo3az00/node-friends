@@ -22,6 +22,6 @@ block content
         p
           img(src=`/uploads/${project.image || 'project.jpeg'}`, alt=project.title  width=200)
         p
-          input.form-control-file(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg")
+          input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg")
       .form-group
-        button.btn.btn-success.btn-block(type='submit') Save
+        button.btn.btn-primary.btn-lg.btn-block(type='submit') Save

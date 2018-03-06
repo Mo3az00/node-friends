@@ -4,7 +4,6 @@ const userProjectsSchema = new mongoose.Schema({
   user:{
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    //required: 'Please Supply a user ID',
     trim: true
   },
   title:{
@@ -29,7 +28,6 @@ const userProjectsSchema = new mongoose.Schema({
   },
   order:{
     type: Number,
-    // required: 'Order required'
   }
 })
 
