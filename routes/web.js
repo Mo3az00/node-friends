@@ -30,7 +30,6 @@ router.post('/todos/add', catchErrors(ToDoController.createToDo))
 // Delete a todo item
 router.get('/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 
-
 // USER CONTROLS
 
 // Authentication
@@ -41,7 +40,10 @@ router.get('/admin/logout', AuthController.logout)
 router.get('/admin/password-forgot', AuthController.passwordForgotten)
 router.post('/admin/password-forgot', catchErrors(AuthController.passwordResetMail))
 router.get('/admin/password-reset/:token', catchErrors(AuthController.passwordResetForm))
-router.post('/admin/password-reset/:token',AuthController.confirmPasswords,catchErrors(AuthController.update))
+router.post('/admin/password-reset/:token',
+  AuthController.confirmPasswords,
+  catchErrors(AuthController.update)
+)
 
 
 // Enter admin interface
@@ -92,16 +94,19 @@ router.post('/admin/projects/:id/delete', catchErrors(UserProjectsController.del
 router.get('/admin/tech-favorites', catchErrors(UserTechFavoritesController.list))
 
 //  Displaying a form for adding a new favorite tech
-router.get('/admin/tech-favorites/add', UserTechFavoritesController.techFavorite)
+router.get('/admin/tech-favorites/add', UserTechFavoritesController.addForm)
 
 // Validate data and save project, if okay
 router.post('/admin/tech-favorites/add', catchErrors(UserTechFavoritesController.createFavorite))
 
 // Display the form for editing a project by ID
-router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.favoriteForm))
+router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.editForm))
 
 // Validate data and updating the profile, if okay
 router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))
+
+// Update tech favorites order
+router.post('/admin/tech-favorites/update-order', catchErrors(UserTechFavoritesController.updateSortOrder))
 
 // ABSENCE REPORTS
 // Display the list of reports
