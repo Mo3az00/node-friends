@@ -3,7 +3,8 @@
   *
   *   1. Imports
   *   2. Global Styles
-  *   3. Datepicker Optimization
+  *   3. Datepicker
+  *   4. Sortable
   */
 
 /* 1. Imports
@@ -33,7 +34,7 @@ h2.page-title {
   margin-bottom: 1rem;
 }
 
-/* 3. Datepicker Optimization
+/* 3. Datepicker
 -------------------------------------------*/
 
 .datepicker.datepicker-dropdown {
@@ -52,43 +53,13 @@ h2.page-title {
   }
 }
 
-.todo-form-new {
-  display: none;
-  margin-top: 1rem;
+/* 4. Sortable
+-------------------------------------------*/
+
+.sortable-handle {
+  cursor: move;
 }
 
-.flash-messages {
-  margin-top: 1rem;
-}
-
-// PROJECTS
-
-td.actions a {
-  color: inherit;
-  font-size: 1rem;
-  padding: 0.25rem;
-}
-
-// update profile
-
-.upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.the-button {
-  border: 1px solid gray;
-  color: gray;
-  background-color: white!important;
-  padding: .5rem 1rem;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.upload-btn-wrapper input[type=file] {
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+.sortable-ghost {
+  border-left: 3px solid $primary;
 }

@@ -1,5 +1,6 @@
 import './bootstrap'
 import datepicker from './modules/datepicker'
+import sortable from './modules/sortable'
 
 // This is needed for the ToDo List demo
 import './todo-list'
@@ -16,6 +17,5 @@ import dropDownHover from './dropdown-hover'
 dropDownHover('.dropdown-hover')
 
 $('.dropdown-toggle').dropdown()
-
-// Load date range pickers
 datepicker()
+sortable()
