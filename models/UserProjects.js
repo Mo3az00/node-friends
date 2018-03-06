@@ -4,30 +4,28 @@ const userProjectsSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    //required: 'Please Supply a user ID',
-    trim: true
+    required: 'You must supply a user'
   },
   title: {
     type: String,
-    required: 'Please enter a title',
-    trim: true
+    trim: true,
+    required: 'You must supply a title'
+  },
+  icon: {
+    type: String,
+    trim: true,
+    required: 'You must supply a font-awesome icon'
   },
   description: {
     type: String,
-    required: 'Please enter a description',
     trim: true,
+    required: 'You must supply a description',
   },
-  image: {
-    type: String,
-    //required: 'Please upload a photo',
-    trim: true
-  },
-  link: {
-    type: String,
-    required: 'Please enter a link',
-    trim: true,
-  },
-  order: Number,
+  order: {
+    type: Number,
+    required: 'Please provide a number'
+  }
 })
+
 
 module.exports = mongoose.model('UserProjects', userProjectsSchema)

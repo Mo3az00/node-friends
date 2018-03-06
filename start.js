@@ -1,17 +1,15 @@
 const mongoose = require('mongoose')
 
 // import environmental variables
-require('dotenv').config({
-	path: 'variables.env'
-})
+require('dotenv').config({ path: 'variables.env' })
 
 // connect to our database and handle any bad connections
 let mongooseOptions = {}
 
-if (process.env.DATABASE_USERNAME &&
-	process.env.DATABASE_PASSWORD &&
-	process.env.DATABASE_USERNAME.trim() !== '' &&
-	process.env.DATABASE_PASSWORD.trim() !== '') {
+if (process.env.DATABASE_USERNAME
+	&& process.env.DATABASE_PASSWORD
+	&& process.env.DATABASE_USERNAME.trim() !== ''
+	&& process.env.DATABASE_PASSWORD.trim() !== '') {
 	mongooseOptions = {
 		auth: {
 			user: process.env.DATABASE_USERNAME,
