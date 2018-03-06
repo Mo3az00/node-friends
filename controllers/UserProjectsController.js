@@ -7,17 +7,17 @@ const uuid = require('uuid')
 
 
 // uploading images and resizing
-const storage = multer.diskStorage({
-  destination: function(request, file, next) {
-    next(null, './temp')
-  },
-  filename: function(request, file, next) {
-    next(null, uuid(4))
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: function(request, file, next) {
+//     next(null, './temp')
+//   },
+//   filename: function(request, file, next) {
+//     next(null, uuid(4))
+//   }
+// })
 
 exports.upload = multer({
-  storage,
+  storage: multer.memoryStorage(),
   limits: {
     fileSize: 10000000, // 10 MB
   },
@@ -55,7 +55,7 @@ exports.uploadError = function(error, request, response, next) {
   next()
 }
 
-
+// resize an image
 exports.resize = async (request, response, next) => {
   if (!request.file) {
     next()
@@ -67,7 +67,7 @@ exports.resize = async (request, response, next) => {
 
   const image = await jimp.read(request.file.buffer)
   await image.resize(800, jimp.AUTO)
-  await image.write(`./public/uploads/${request.body.image}`)
+  await image.write(`./public/uploads/projects/${request.body.image}`)
 
   next()
 }
