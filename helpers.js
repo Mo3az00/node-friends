@@ -7,7 +7,7 @@ exports.dump = (obj) => JSON.stringify(obj, null, 2)
 exports.moment = moment
 
 // Generate an image placeholder
-exports.placeholderImage = function(width, height, icon) {
+exports.placeholderImage = function (width, height, icon) {
 	return `
 		<div class="placeholder-image" style="width: ${width}px; height: ${height}px;">
 			<i class="placeholder-image-icon fa fa-${icon}"></i>
@@ -16,36 +16,38 @@ exports.placeholderImage = function(width, height, icon) {
 }
 
 // Main navigation (currently supports max. 1 sub-level)
-exports.navigationMain = [{
-	name: 'Home',
-	href: '/'
-},
-{
-	name: 'Link',
-	href: '#'
-},
-{
-	name: 'Disabled',
-	href: '#',
-	class: 'disabled'
-},
-{
-	name: 'Dropdown',
-	href: '#',
-	childs: [{
-		name: 'Action',
+exports.navigationMain = [
+	{
+		name: 'Home',
+		href: '/'
+	},
+	{
+		name: 'Link',
 		href: '#'
 	},
 	{
-		name: 'Another Action',
-		href: '#'
+		name: 'Disabled',
+		href: '#',
+		class: 'disabled'
 	},
 	{
-		name: 'Something else here',
-		href: '#'
-	},
-	]
-}
+		name: 'Dropdown',
+		href: '#',
+		childs: [
+			{
+				name: 'Action',
+				href: '#'
+			},
+			{
+				name: 'Another Action',
+				href: '#'
+			},
+			{
+				name: 'Something else here',
+				href: '#'
+			},
+		]
+	}
 ]
 
 /*
