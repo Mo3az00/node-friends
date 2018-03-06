@@ -1,4 +1,4 @@
-    # Node Friends
+# Node Friends
 
 This is the website of the Node Friends team, which started as a course at the [Digital Career Institute](https://digitalcareerinstitute.org/).
 
