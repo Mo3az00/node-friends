@@ -3,9 +3,6 @@ import datepicker from './modules/datepicker'
 import sortable from './modules/sortable'
 import showFileNames from './modules/showFileName'
 
-// This is needed for the ToDo List demo
-import './todo-list'
-
 $('.dropdown-toggle').dropdown()
 datepicker()
 sortable()
