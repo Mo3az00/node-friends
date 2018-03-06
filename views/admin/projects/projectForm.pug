@@ -25,7 +25,7 @@ block content
           if project.image
             img(src=`/uploads/projects/${project.image}`, alt=project.title  width=200)
           else
-            helpers.placeholderImage(250, 150, 'image')
+            != helpers.placeholderImage(250, 150, 'picture-o')
         p
           input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg")
       .form-group
