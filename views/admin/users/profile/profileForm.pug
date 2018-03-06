@@ -10,7 +10,7 @@ block content
 					h4 Avatar Image
 					p
 						if profile.avatar
-							img(src=`/uploads/users/avatar/${profile.avatar}`, height=150)
+							img(src=`/uploads/users/avatar/${profile.avatar}`, width=250)
 						else
 							!= helpers.placeholderImage(250, 150, 'user-circle-o')
 
@@ -29,7 +29,7 @@ block content
 					h4 Profile Image
 					p
 						if profile.photo
-							img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, height=150)
+							img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, width=285)
 						else
 							!= helpers.placeholderImage(285, 197, 'image')
 

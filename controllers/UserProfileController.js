@@ -53,10 +53,10 @@ exports.resizeImages = async (request, response, next) => {
 
     switch (file.fieldname) {
       case 'avatar':
-        await image.resize(200, jimp.AUTO)
+        await image.cover(250, 150)
         break
       case 'photo':
-        await image.resize(400, jimp.AUTO)
+        await image.cover(285, 197)
         break
     }
 
