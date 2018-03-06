@@ -1,0 +1,29 @@
+extends ../layout
+block content
+
+  h1= title
+
+  form.favorite-technologies(method='POST')
+    .form-group
+      label(for='technology-title') Title
+      input(type='text' class='form-control' placeholder='name of your favorite tech' name='title' value=(techFavorite.title || ''))
+
+    .form-group
+      label(for='technology-description') Subtitle
+      input(type='text' class='form-control' placeholder='small description of your favorite tech' name='subtitle' value=(techFavorite.subtitle || ''))
+
+    .form-group
+      label(for='technology-use') Description
+      textarea(class='form-control' rows='3' placeholder='what you like about this technology / how do you use this technology' name='description')=(techFavorite.description || '')
+
+    .form-group
+      label(for="icon")
+            | Icon (
+            a(href='https://fontawesome.com/v4.7.0/icons/' target='_blank') see all icons
+            | )
+      input(type='text' class='form-control' placeholder='choose an icon for your favorite tech' name='icon' value=(techFavorite.icon || ''))
+
+    .form-group
+      button(type='submit' class='btn btn-primary') Submit
+
+

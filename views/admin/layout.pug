@@ -58,7 +58,7 @@ html(lang='en')
                   each category in categories
                     each message in flashes[category]
                       .alert.alert-dismissible.fade.show(class=`alert-${category}`)
-                        | #{message}
+                        !=message
                         button.close(type="button" data-dismiss="alert" aria-label="Close")
                           span(aria-hidden="true") | &times;
             block content
