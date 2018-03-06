@@ -12,7 +12,7 @@ block content
 						if profile.avatar
 							img(src=`/uploads/users/avatar/${profile.avatar}`, height=150)
 						else
-							!= helpers.placeholderImage(250, 150, 'user')
+							!= helpers.placeholderImage(250, 150, 'user-circle-o')
 
 					.form-group.filename-button
 						label(for="avatar")
@@ -31,7 +31,7 @@ block content
 						if profile.photo
 							img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, height=150)
 						else
-							!= helpers.placeholderImage(285, 197, 'user')
+							!= helpers.placeholderImage(285, 197, 'image')
 
 					.form-group.filename-button
 						label(for="photo")
