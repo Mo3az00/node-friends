@@ -62,10 +62,6 @@ router.post('/admin/profile/edit',
   catchErrors(UserProfileController.updateProfile)
 )
 
-// STUDENT LIST
-// Display student list
-router.get('admin/students', catchErrors(UserController.studentList))
-
 // Display student list
 router.get('/admin/students', catchErrors(UserController.studentList))
 
@@ -110,13 +106,13 @@ router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
 
 // Display the form to add new report
 router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
-// router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
+
 // Validating data and saving the report, if okay
 router.post('/admin/absence-reports/add',
-  AbsenceReportController.upload,
-  AbsenceReportController.uploadError,
-  AbsenceReportController.uploadSuccess,
-  catchErrors(AbsenceReportController.createReport)
+    AbsenceReportController.upload,
+    AbsenceReportController.uploadError,
+    AbsenceReportController.uploadSuccess,
+    catchErrors(AbsenceReportController.createReport)
 )
 
 // Display a form to edit a report by ID
