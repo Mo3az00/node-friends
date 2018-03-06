@@ -26,8 +26,7 @@ exports.profileForm = async (request, response) => {
 exports.uploadImages = multer({
   storage: multer.memoryStorage(),
   fileFilter(req, file, next) {
-    const isPhoto = file.mimetype.startsWith('image/')
-    if (isPhoto) {
+    if (file.mimetype.startsWith('image/')) {
       next(null, true)
     } else {
       next({ message: 'That filetype is not allowed!' }, false)
@@ -50,18 +49,18 @@ exports.resizeImages = async (request, response, next) => {
     const extension = file.mimetype.split('/')[1]
     request.body[file.fieldname] = `${request.user._id}.${extension}`
 
-    const photo = await jimp.read(file.buffer)
+    const image = await jimp.read(file.buffer)
 
     switch (file.fieldname) {
       case 'avatar':
-        await photo.resize(200, jimp.AUTO)
+        await image.resize(200, jimp.AUTO)
         break
       case 'photo':
-        await photo.resize(400, jimp.AUTO)
+        await image.resize(400, jimp.AUTO)
         break
     }
 
-    await photo.write(`./public/uploads/users/${file.fieldname}/${request.body[file.fieldname]}`)
+    await image.write(`./public/uploads/users/${file.fieldname}/${request.body[file.fieldname]}`)
   }
 
   next()
