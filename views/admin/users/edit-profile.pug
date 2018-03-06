@@ -11,10 +11,10 @@ block content
 					p
 						img(src=`/uploads/users/avatar/${profile.avatar || 'avatar.png'}`, height=150)
 
-					.form-group
+					.form-group.filename-button
 						label(for="avatar")
 						.upload-btn-wrapper 
-							button.the-button#avatar-button Choose File
+							button.upload-button Choose File
 							input(
 								type="file",
 								name="avatar",
@@ -26,10 +26,10 @@ block content
 					p
 						img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, height=150)
 
-					.form-group
+					.form-group.filename-button
 						label(for="photo")
 						.upload-btn-wrapper 
-							button.the-button#photo-button Choose File
+							button.upload-button Choose File
 							input(
 								type="file",
 								name="photo",

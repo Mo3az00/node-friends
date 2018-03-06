@@ -1,14 +1,11 @@
 function showFileNames() {
-  const photoInput = window.document.querySelector('#photo')
-  const photoName = window.document.querySelector('#photo-button')
-  photoInput.addEventListener("change", function () {
-    photoName.innerHTML = this.value.replace(/^.*\\/, "")
-  })
+  document.querySelectorAll('.filename-button').forEach((item) => {
+    const input = item.querySelector('input')
+    const button = item.querySelector('button')
 
-  const avatarInput = window.document.querySelector('#avatar')
-  const avatarName = window.document.querySelector('#avatar-button')
-  avatarInput.addEventListener("change", function () {
-    avatarName.innerHTML = this.value.replace(/^.*\\/, "")
+    input.addEventListener('change', function (e) {
+      button.innerText = this.value.replace(/^.*\\/, "")
+    })
   })
 }
 

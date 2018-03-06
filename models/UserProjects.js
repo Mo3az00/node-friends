@@ -1,28 +1,28 @@
 const mongoose = require('mongoose')
 
 const userProjectsSchema = new mongoose.Schema({
-  user:{
+  user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     //required: 'Please Supply a user ID',
     trim: true
   },
-  title:{
+  title: {
     type: String,
     required: 'Please enter a title',
     trim: true
   },
-  description:{
+  description: {
     type: String,
     required: 'Please enter a description',
     trim: true,
   },
-  image:{
+  image: {
     type: String,
     //required: 'Please upload a photo',
     trim: true
   },
-  link:{
+  link: {
     type: String,
     required: 'Please enter a link',
     trim: true,
