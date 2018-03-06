@@ -33,6 +33,14 @@ h2.page-title {
   margin-bottom: 1rem;
 }
 
+.sortable-handle {
+  cursor: move;
+}
+
+.sortable-ghost {
+  border-left: 3px solid $primary;
+}
+
 /* 3. Datepicker Optimization
 -------------------------------------------*/
 

@@ -3,20 +3,23 @@ block content
 
   h1 Favorite Technologies
 
-  table.table.table-striped
+  table.table.table-striped.table-sortable(
+    data-sortable-url="/admin/tech-favorites/update-order",
+    data-sortable-group="favorites"
+  )
     thead
       tr
-        th(scope='col') Sort
+        th(scope='col' class="text-center") Sort
         th(scope='col') Title
         th(scope='col') Subtitle
         th(scope='col') Icon
         th(scope='col') Description
         th(scope='col')
-    tbody#listWithHandle
+    tbody
       each favorite in techFavorites
         tr(data-id=favorite._id)
           td.text-center
-            i.fa.fa-bars
+            i.fa.fa-bars.sortable-handle
           td= favorite.title
           td= favorite.subtitle
           td
