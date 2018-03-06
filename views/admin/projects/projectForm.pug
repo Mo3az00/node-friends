@@ -18,9 +18,11 @@ block content
 
       .form-group
         p
-          label(for='image') Upload an Image:
+          label(for='image')
+            | Upload an Image: &nbsp;
+            span.text-muted (max. 10 MB)
         p
-          img(src=`/uploads/${project.image || 'project.jpeg'}`, alt=project.title  width=200)
+          img(src=`/uploads/projects/${project.image || 'project.jpeg'}`, alt=project.title  width=200)
         p
           input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg")
       .form-group
