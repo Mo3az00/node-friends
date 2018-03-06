@@ -22,7 +22,10 @@ block content
             | Upload an Image: &nbsp;
             span.text-muted (max. 10 MB)
         p
-          img(src=`/uploads/projects/${project.image || 'project.jpeg'}`, alt=project.title  width=200)
+          if project.image
+            img(src=`/uploads/projects/${project.image}`, alt=project.title  width=200)
+          else
+            helpers.placeholderImage(250, 150, 'image')
         p
           input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg")
       .form-group

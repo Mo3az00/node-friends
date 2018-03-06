@@ -4,20 +4,20 @@ const UserProjects = mongoose.model('UserProjects')
 const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
-
+const fs = require('fs')
 
 // uploading images and resizing
-// const storage = multer.diskStorage({
-//   destination: function(request, file, next) {
-//     next(null, './temp')
-//   },
-//   filename: function(request, file, next) {
-//     next(null, uuid(4))
-//   }
-// })
+const storage = multer.diskStorage({
+  destination: function(request, file, next) {
+    next(null, './temp')
+  },
+  filename: function(request, file, next) {
+    next(null, uuid(4))
+  }
+})
 
 exports.upload = multer({
-  storage: multer.memoryStorage(),
+  storage,
   limits: {
     fileSize: 10000000, // 10 MB
   },
@@ -31,7 +31,6 @@ exports.upload = multer({
   }
 })
 .single('image')
-
 
 // Upload error handling
 exports.uploadError = function(error, request, response, next) {
@@ -62,12 +61,13 @@ exports.resize = async (request, response, next) => {
     return
   }
 
-  const extension = request.file.mimetype.split('/'[1])
+  const extension = request.file.mimetype.split('/')[1]
   request.body.image = `${uuid.v4()}.${extension}`
 
-  const image = await jimp.read(request.file.buffer)
+  const image = await jimp.read(request.file.path)
   await image.resize(800, jimp.AUTO)
   await image.write(`./public/uploads/projects/${request.body.image}`)
+  fs.unlink(request.file.path)
 
   next()
 }
@@ -143,13 +143,7 @@ exports.deleteProject = async (request, response) => {
 }
 
 
-
-
-
-
-
 // make it sortable
-
 exports.updateSortOrder = async (request, response) => {
   // Converting the new order to comparable format with the ID as property name
   const newOrder = {}
