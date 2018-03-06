@@ -3,7 +3,8 @@
   *
   *   1. Imports
   *   2. Global Styles
-  *   3. Datepicker Optimization
+  *   3. Datepicker
+  *   4. Sortable
   */
 
 /* 1. Imports
@@ -34,7 +35,7 @@ h2.page-title {
   margin-bottom: 1rem;
 }
 
-/* 3. Datepicker Optimization
+/* 3. Datepicker
 -------------------------------------------*/
 
 .datepicker.datepicker-dropdown {
@@ -51,4 +52,15 @@ h2.page-title {
       }
     }
   }
+}
+
+/* 4. Sortable
+-------------------------------------------*/
+
+.sortable-handle {
+  cursor: move;
+}
+
+.sortable-ghost {
+  border-left: 3px solid $primary;
 }
