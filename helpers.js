@@ -6,6 +6,15 @@ exports.dump = (obj) => JSON.stringify(obj, null, 2)
 // Date and time formatting
 exports.moment = moment
 
+// Generate an image placeholder
+exports.placeholderImage = function(width, height, icon) {
+	return `
+		<div class="placeholder-image" style="width: ${width}px; height: ${height}px;">
+			<i class="placeholder-image-icon fa fa-${icon}"></i>
+		</div>
+	`
+}
+
 // Main navigation (currently supports max. 1 sub-level)
 exports.navigationMain = [{
 	name: 'Home',

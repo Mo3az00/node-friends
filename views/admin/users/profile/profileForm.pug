@@ -1,15 +1,18 @@
-extends ../layout
+extends ../../layout
 
 block content
-	.col-12.col-sm-10.col-md-9.col-lg-6
-		h2.text-center #{title}
-		br
-		form#project-form.container(method='POST', enctype="multipart/form-data")
+	.col-12.col-sm-10.col-md-9.col-lg-8
+		h2= title
+		
+		form#project-form(method='POST', enctype="multipart/form-data")
 			.row
-				.col-7
-					h4 Edit Avatar Image
+				.col-12.col-lg-6
+					h4 Avatar Image
 					p
-						img(src=`/uploads/users/avatar/${profile.avatar || 'avatar.png'}`, height=150)
+						if profile.avatar
+							img(src=`/uploads/users/avatar/${profile.avatar}`, height=150)
+						else
+							!= helpers.placeholderImage(250, 150, 'user')
 
 					.form-group.filename-button
 						label(for="avatar")
@@ -21,10 +24,14 @@ block content
 								id="avatar",
 								accept="image/gif, image/png, image/jpeg"
 							)
-				.col-5
-					h4 Edit Profile Image
+
+				.col-12.col-lg-6
+					h4 Profile Image
 					p
-						img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, height=150)
+						if profile.photo
+							img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, height=150)
+						else
+							!= helpers.placeholderImage(285, 197, 'user')
 
 					.form-group.filename-button
 						label(for="photo")

@@ -3,6 +3,7 @@ const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const ToDoController = require('../controllers/ToDoController')
 const UserController = require('../controllers/UserController')
+const UserProfileController = require('../controllers/UserProfileController')
 const UserProjectsController = require('../controllers/UserProjectsController')
 const SettingsController = require('../controllers/SettingsController')
 const UserTechFavoritesController = require('../controllers/UserTechFavoritesController')
@@ -50,14 +51,14 @@ router.post('/admin/password-reset/:token',
 router.get('/admin', catchErrors(UserController.dashboard))
 
 // PROFILE
-// Display profile
-router.get('/admin/profile/edit', catchErrors(UserController.editProfile))
 
+// Edit profile form
+router.get('/admin/profile/edit', catchErrors(UserProfileController.profileForm))
 
 // Update profile
 router.post('/admin/profile/edit',
-  UserController.upload,
-  UserController.resize,
+  UserProfileController.uploadImages,
+  UserProfileController.resizeImages,
   catchErrors(UserController.updateProfile)
 )
 
