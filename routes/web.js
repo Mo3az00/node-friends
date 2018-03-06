@@ -59,7 +59,7 @@ router.get('/admin/profile/edit', catchErrors(UserProfileController.profileForm)
 router.post('/admin/profile/edit',
   UserProfileController.uploadImages,
   UserProfileController.resizeImages,
-  catchErrors(UserController.updateProfile)
+  catchErrors(UserProfileController.updateProfile)
 )
 
 // STUDENT LIST

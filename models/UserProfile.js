@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator = require('validator');
 
 const userProfile = new mongoose.Schema({
 	user: {
@@ -14,7 +15,8 @@ const userProfile = new mongoose.Schema({
 	},
 	webpage: {
 		type: String,
-		trim: true
+		trim: true,
+		validate: [validator.isURL, 'Please supply a valid URL for your website!'],
 	}
 })
 

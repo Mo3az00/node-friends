@@ -71,10 +71,13 @@ exports.updateProfile = async (request, response) => {
   const profile = await UserProfile.findOneAndUpdate(
     { user: request.user._id },
     request.body,
-    { new: true }
+    {
+      new: true,
+      runValidators: true
+    }
   )
   .exec()
 
-  request.flash('success', `successfully updated your profile.`)
+  request.flash('success', `Successfully updated your profile.`)
   response.redirect('/admin/profile/edit')
 }
