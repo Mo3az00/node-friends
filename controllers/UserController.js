@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
+const moment = require('moment')
 
 // Dashboard
 exports.dashboard = (request, response) => {
@@ -35,9 +36,17 @@ exports.studentList = async (request, response) => {
 
 //Frontend Page 
 exports.frontendPage = async (request, response) => {
+  
+  const now = moment()
+  const courseEnd = moment([2018, 8, 16])
+  const daysLeft = courseEnd.diff(now, 'days')
+
+  const courseStart = moment([2017, 9, 4])
+  const daysLearned = now.diff(courseStart, 'days')
 
   response.render('layout', {
     title: 'Main',
-
+    daysLearned,
+    daysLeft
   })
 }

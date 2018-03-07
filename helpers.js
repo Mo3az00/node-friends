@@ -14,15 +14,15 @@ exports.navigationMain = [
     },
     {
         name: 'About Us',
-        href: '#about'
+        href: '#about-us'
     },
     {
         name: 'Tecnologies',
-        href: '#tech'
+        href: '#technologies'
     },
     {
         name: 'The Team',
-        href: '#team'
+        href: '#the-team'
     },
     {
         name: 'Contact',
