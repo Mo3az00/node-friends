@@ -35,7 +35,7 @@ require('./models/ToDo')
 require('./models/User')
 require('./models/UserProfile')
 require('./models/UserProject')
-require('./models/UserTechFavorites')
+require('./models/UserTechFavorite')
 require('./models/AbsenceReport')
 
 

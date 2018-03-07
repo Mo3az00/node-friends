@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
-const UserTechFavorites = mongoose.model('UserTechFavorites')
+const UserTechFavorite = mongoose.model('UserTechFavorite')
 
 // Displaying the list of the user's favorite technologies
 
 exports.list = async (request, response) => {
-  const techFavorites = await UserTechFavorites.find({ user: request.user._id }).sort({ order: 1 })
+  const techFavorites = await UserTechFavorite.find({ user: request.user._id }).sort({ order: 1 })
 
   response.render(
     'admin/favorite-tech/techList', 
@@ -32,7 +32,7 @@ exports.addForm = (request, response) => {
 
 exports.createFavorite = async (request, response) => {
   request.body.user = request.user._id
-  const max = await UserTechFavorites.findOne().sort({ order: -1 }).limit(1)
+  const max = await UserTechFavorite.findOne().sort({ order: -1 }).limit(1)
   let order = 0
 
   if (max) {
@@ -40,7 +40,7 @@ exports.createFavorite = async (request, response) => {
   }
 
   request.body.order = order
-  const techFavorite = await (new UserTechFavorites(request.body)).save()
+  const techFavorite = await (new UserTechFavorite(request.body)).save()
   request.flash('success', `Successfully added favorite technology: ${request.body.title}`)
   response.redirect('/admin/tech-favorites')
   return
@@ -55,7 +55,7 @@ const confirmOwner = (techFavorite, user) => {
 }
 
 exports.editForm = async (request, response) => {
-  const techFavorite = await UserTechFavorites.findOne({ _id: request.params.id })
+  const techFavorite = await UserTechFavorite.findOne({ _id: request.params.id })
  
   confirmOwner(techFavorite, request.user)
 
@@ -72,7 +72,7 @@ exports.editForm = async (request, response) => {
 exports.updateFavorite = async (request, response) => {
     request.body.user = request.user._id
     
-    const techFavorite = await UserTechFavorites.findOneAndUpdate(
+    const techFavorite = await UserTechFavorite.findOneAndUpdate(
       { _id: request.params.id },
       request.body,
       {
@@ -94,7 +94,7 @@ exports.updateSortOrder = async (request, response) => {
   })
 
   // Get all favorites and their positions and build comparable object, too
-  const getOldOrder = await UserTechFavorites.find({user: request.user._id}).sort({'order': 1})
+  const getOldOrder = await UserTechFavorite.find({user: request.user._id}).sort({'order': 1})
   const oldOrders = {}
 
   getOldOrder.forEach((favorite) => {
@@ -118,7 +118,7 @@ exports.updateSortOrder = async (request, response) => {
   updates.forEach((item) => {
       // update in the database
       updatePromises.push(
-          UserTechFavorites.update({_id: item.id}, {order: item.order})
+          UserTechFavorite.update({_id: item.id}, {order: item.order})
       )
   })
 
