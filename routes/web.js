@@ -91,8 +91,8 @@ router.post('/admin/projects/:id/edit',
   catchErrors(UserProjectsController.updateProject)
 )
 
-router.get('/admin/projects/:id/delete', UserProjectsController.deleteProject)
-router.post('/admin/projects/:id/delete', catchErrors(UserProjectsController.deleteProject) )
+// deleting a project
+router.get('/admin/projects/:id/delete', catchErrors(UserProjectsController.deleteProject))
 
 // Update Projects order
 router.post('/admin/projects/update-order', catchErrors(UserProjectsController.updateSortOrder))
@@ -160,8 +160,6 @@ router.get('/admin/settings', catchErrors(SettingsController.form))
 // submit edited settings
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
-//  absence reporting
-router.get('/admin/absence-reports', catchErrors(UserController.absenceReport))
 
 // Export our router
 module.exports = router;

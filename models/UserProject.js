@@ -1,10 +1,9 @@
 const mongoose = require('mongoose')
 
-const userProjectsSchema = new mongoose.Schema({
+const userProjectSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    trim: true,
     required: 'You must supply a user'
   },
   title: {
@@ -32,4 +31,4 @@ const userProjectsSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('UserProjects', userProjectsSchema)
+module.exports = mongoose.model('UserProject', userProjectSchema)
