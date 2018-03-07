@@ -39,3 +39,11 @@ exports.frontendPage = async (request, response) => {
     daysLeft
   })
 }
+
+//studentuserprofile
+exports.studentProfile = async (request, response) => {
+
+  response.render('studentProfile', {
+    title: 'Student profile',
+  })
+}

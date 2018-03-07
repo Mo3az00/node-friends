@@ -1,42 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
+const validator = require('validator')
+mongoose.Promise = global.Promise
 
-const techSchema = new mongoose.Schema({
+const homepageTechSchema = new mongoose.Schema({
   user: {
-    type: String,
-    trim: true,
-    required: 'You must supply an ID!'
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must supply a user'
   },
-  name: {
+  title: {
     type: String,
     trim: true,
-    required: 'You must supply a name!'
+    required: 'You must supply a title'
+  },
+  image: {
+    type: String
   },
   description: {
     type: String,
     trim: true,
-    required: 'You must supply a name!'
-  },
-  subtitle: {
-    type: {
-      type: String,
-      trim: true,
-      required: 'You must supply asubtitle!'
-    }
-  },
-  description: [{
-    type: String,
-    trim: true,
-    required: 'You must supply a description!'
-  }],
-  icon: {
-    type: String,
-    trim: true,
-    required: 'You must supply an icon!'
+    required: 'You must supply a description',
   },
   order: {
     type: Number,
-    required: 'Please enter a number!'
+    required: 'Please provide a number'
   }
 })
 
-module.exports = mongoose.model('HomepageTech', techSchema);
+module.exports = mongoose.model('HomepageTech', homepageTechSchema)
