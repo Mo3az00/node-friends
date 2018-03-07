@@ -23,13 +23,16 @@ router.get('/', (request, response) => {
 router.get('/admin', UserController.dashboard)
 
 // Get all todo items
-router.get('/todos', catchErrors(ToDoController.getToDoList))
+router.get('/admin/todos', catchErrors(ToDoController.getToDoList))
 
 // Add a todo item
-router.post('/todos/add', catchErrors(ToDoController.createToDo))
+router.post('/admin/todos/add', catchErrors(ToDoController.createToDo))
+
+// Toggle done status of a todo item
+router.post('/admin/todos/update-done', catchErrors(ToDoController.updateDone))
 
 // Delete a todo item
-router.get('/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
+router.get('/admin/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 
 // USER CONTROLS
 

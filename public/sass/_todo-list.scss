@@ -1,0 +1,28 @@
+.bg-color {
+  background-color: #F2F2F2;
+}
+
+.main-todo button {
+  color: #000;
+  background-color: transparent;
+}
+
+#todo-list-error {
+  margin-top: 1rem;
+}
+
+#todo-list {
+  .icon-remove {
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.lists-container {
+label.done {
+    text-decoration: line-through;
+  }
+}

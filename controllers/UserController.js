@@ -2,13 +2,17 @@ const mongoose = require('mongoose')
 const User = mongoose.model('User')
 
 // Dashboard
-exports.dashboard = (request, response) => {
+exports.dashboard = async (request, response) => {
+
   if (!request.user) {
     return response.redirect('/admin/login')
   }
 
+  const students = await User.find({ role: 'student' }).sort({ first_name: 1 })
+
   response.render('admin/dashboard', {
-    title: 'Admin Portal'
+    title: 'Dashboard',
+    students
   })
 }
 

@@ -1,4 +1,36 @@
 extends ./layout
 
+include ../mixins/todoList
+include ./calendar
+
 block content
-    p Admin Dashboard => Coming soon!
+    .main-dashboard.container-fluid.mx-0.mb-2.p-2
+        .row
+            .col-12.mx-0.p-3
+                h2 Dashboard
+        .row.my-3
+            .container-fluid.mx-0
+                .row
+                    +calendar().widget
+                    +todoList().widget
+                .row.p-3
+                    .container-fluid.mt-4.bg-color
+                        h3.mt-3 Students
+                        table.table.table-striped.table-hover
+                            thead
+                                tr
+                                    th(scope='col') #
+                                    th(scope='col') First Name
+                                    th(scope='col') Last Name
+                                    th(scope='col') Email
+                                    th(scope='col') Phone Number
+                                    th(scope='col') Portfolio
+                            tbody
+                                each student, index in students
+                                    tr
+                                        th(scope='row') #{index + 1}
+                                            td #{student.first_name}
+                                            td #{student.last_name}
+                                            td #{student.email}
+                                            td #{student.phone}
+                                            td: a(href=`${student.website}`) #{student.website}
