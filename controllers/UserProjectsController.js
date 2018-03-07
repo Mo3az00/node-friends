@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
-const UserProjects = mongoose.model('UserProjects')
+const UserProject = mongoose.model('UserProject')
 const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
@@ -43,7 +43,7 @@ exports.uploadError = function(error, request, response, next) {
         break;
 
       case 'FILETYPE_NOT_ALLOWED':
-        message = 'The file type is not allowed. Only images and PDF!'
+        message = 'The file type is not allowed. Only file types "JPEG, PNG, GIF" allowed!'
         break;
     }
 
@@ -65,17 +65,17 @@ exports.resize = async (request, response, next) => {
   request.body.image = `${uuid.v4()}.${extension}`
 
   const image = await jimp.read(request.file.path)
-  await image.resize(800, jimp.AUTO)
+  await image.cover(254, 130)
   await image.write(`./public/uploads/projects/${request.body.image}`)
-  fs.unlink(request.file.path)
+  fs.unlinkSync(request.file.path)
 
   next()
 }
 
 // Display the list of the User's projects
 exports.list = async (request, response) => {
-  const projects = await UserProjects.find({ user: request.user._id }).sort({ order: 1 })
-  response.render('admin/projects/projects', {
+  const projects = await UserProject.find({ user: request.user._id }).sort({ order: 1 })
+  response.render('admin/projects/projectList', {
     title: 'Projects',
     projects
   })
@@ -91,14 +91,9 @@ exports.projectForm = (request, response) => {
 
 // Validate data and save project, if okay
 exports.createProject = async (request, response) => {
-  const newProject = {
-    user: request.user._id,
-    title: request.body.title,
-    link: request.body.link,
-    description: request.body.description,
-    image: request.body.image
-  }
-  const project = await (new UserProjects(newProject)).save()
+  request.body.user = request.user._id
+
+  const project = await (new UserProject(request.body)).save()
   request.flash('success', `Successfully created "${project.title}"`)
   response.redirect('/admin/projects')
 }
@@ -112,7 +107,7 @@ const confirmOwner = (project, user) => {
 }
 
 exports.editForm = async (request, response) => {
-  const project = await UserProjects.findOne({ '_id': request.params.id })
+  const project = await UserProject.findOne({ '_id': request.params.id })
 
   confirmOwner(project, request.user)
 
@@ -124,7 +119,7 @@ exports.editForm = async (request, response) => {
 
 // Validate data and updating the profile, if okay
 exports.updateProject = async (request, response) => {
-  const project = await UserProjects.findOneAndUpdate(
+  const project = await UserProject.findOneAndUpdate(
     { _id: request.params.id },
     request.body,
     { new: true, runValidators: true }
@@ -136,7 +131,7 @@ exports.updateProject = async (request, response) => {
 
 // deleting a project
 exports.deleteProject = async (request, response) => {
-  const project = await UserProjects.findOne({'_id': request.params.id}).remove()
+  const project = await UserProject.findOne({'_id': request.params.id}).remove()
 
   request.flash('success', `Successfully deleted` )
   return response.redirect('/admin/projects')
@@ -149,36 +144,36 @@ exports.updateSortOrder = async (request, response) => {
   const newOrder = {}
 
   request.body.order.forEach((id, order) => {
-      newOrder[id] = order
+    newOrder[id] = order
   })
 
   // Get all projects and their positions and build comparable object, too
-  const getOldOrder = await UserProjects.find({user: request.user._id}).sort({'order': 1})
+  const getOldOrder = await UserProject.find({user: request.user._id}).sort({'order': 1})
   const oldOrders = {}
 
   getOldOrder.forEach((project) => {
-      oldOrders[project._id.toString()] = project.order
+    oldOrders[project._id.toString()] = project.order
   })
 
   // Check which order values are changed, after sorting and only update those entries
   const updates = []
 
   for (id in oldOrders) {
-      if (oldOrders[id] !== newOrder[id]) {
-          updates.push({
-              id,
-              order: newOrder[id]
-          })
-      }
+    if (oldOrders[id] !== newOrder[id]) {
+      updates.push({
+        id,
+        order: newOrder[id]
+      })
+    }
   }
 
   const updatePromises = []
 
   updates.forEach((item) => {
-      // update in the database
-      updatePromises.push(
-          UserProjects.update({_id: item.id}, {order: item.order})
-      )
+    // update in the database
+    updatePromises.push(
+      UserProject.update({_id: item.id}, {order: item.order})
+    )
   })
 
   Promise.all(updatePromises)
