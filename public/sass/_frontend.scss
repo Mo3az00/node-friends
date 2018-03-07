@@ -126,6 +126,10 @@
     margin: 5rem auto 2rem auto;
   }
 
+  h2 {
+    margin: 3rem;
+  }
+
   .card {
     margin: 1.3rem;
     border-radius: .3rem;
@@ -201,6 +205,10 @@
   }
 }
 
+.h2 {
+  margin: 3rem 0 2rem 0;
+}
+
 #technologies {
   width: 80%;
   margin: 4rem auto 6rem auto;
@@ -209,7 +217,7 @@
     margin: 5rem auto 2rem auto;
   }
 
-  h2 {
+  h2, .h2 {
     margin: 3rem 0 2rem 0;
   }
 
@@ -344,6 +352,58 @@
 
 }
 
+.section {
+  margin-bottom: 2rem;
+
+  >.row {
+    margin: 5rem auto 2rem auto;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    margin: 1.3rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 10px rgb(91, 92, 92);
+
+      h5 {
+        color: black;
+        font-weight: 600;
+      }
+  
+      p {
+        color: grey;
+        font-size: .85rem;
+      }
+
+    &:hover {
+      box-shadow: 0 0 10px $primary;
+      
+      h5 {
+        color: $primary;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+
+  a.btn.btn-success {
+    background-color: $primary;
+    color: white;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.margin-top {
+  margin-top: 60px;
+}
 
 // MEDIA QUERIES
 

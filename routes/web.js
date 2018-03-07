@@ -12,6 +12,7 @@ const AuthController = require('../controllers/AuthController')
 
 // The main route
 router.get('/', catchErrors(UserController.frontendPage))
+router.get('/profile', catchErrors(UserController.studentProfile))
 
 // Admin 
 router.get('/admin', UserController.dashboard)
