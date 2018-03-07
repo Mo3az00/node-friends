@@ -297,7 +297,7 @@
 
 #contact {
   width: 80%;
-  margin: 4rem auto 6rem auto;
+  margin: 4rem auto 2rem auto;
 
   >.row {
     margin: 5rem auto 2rem auto;
@@ -327,13 +327,21 @@
 
 #footer {
   background-color: $primary;
-  margin-bottom: 0;
   padding: 1rem;
   color: white;
+  margin: 0 auto;
 
-  p {
-    margin-bottom: 0;
+  .row {
+    width: 85%;
+    margin: 0 auto;
   }
+
+  a {
+    margin-left: 2rem;
+    color: white;
+    font-size: 1rem; 
+  }
+
 }
 
 
@@ -392,10 +400,6 @@
     .card {
       margin: 1.3rem auto;
     }
-  }
-
-  #becomestudent {
-    
   }
 }
 // Profile pic : 272px X 337px
