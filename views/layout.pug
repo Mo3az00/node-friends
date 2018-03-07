@@ -1,42 +1,70 @@
 doctype html
-html
-    head
-        meta(charset="utf-8")
+html(lang='en')
+  head
+    meta(charset="utf-8")
 
-        title= `${title || 'Home'} | My little website`
+    title= `${title || 'Home'} | Node Friends`
 
-        // Always force latest IE rendering engine (even in intranet) & Chrome Frame
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    //- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        // Ensure proper rendering and zooming on touch devices
-        meta(name="viewport", content="width=device-width, initial-scale=1")
+    //- Ensure proper rendering and zooming on touch devices
+    meta(name="viewport", content="width=device-width, initial-scale=1")
 
-        // Search Engine Optimization
-        meta(name="description", content=`${description  || 'Just a tiny little website'}`)
-        meta(name="robots", content=`${robots} || index, follow`)
+    //- Search Engine Optimization
+    meta(name="description", content=`${description  || 'Just a tiny little website of aspiring web developers'}`)
+    meta(name="robots", content=`${robots} || index, follow`)
 
-        // Stylesheets
-        link(rel='stylesheet', href='/dist/style.css')
+    //- Stylesheets
+    link(rel='stylesheet', href='/dist/style.css')
 
-    body
-        block header
-            include partials/navbar
+    //- Google fonts
+    link(href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet")
 
-        block messages
-            if locals.flashes
-                .container
-                    .flash-messages
-                        - const categories = Object.keys(locals.flashes)
-                        each category in categories
-                            each message in flashes[category]
-                                .flash(class=`alert alert-${category}`)
-                                    != message
-                                    button.close(type='button', data-dismiss='alert', aria-label='Close')
-                                        span(aria-hidden='true') ×
 
-        block content
+  body
+    block header
+      include frontend-partials/navbar
 
-        block footer
+    block messages
+      if locals.flashes
+        .container
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`alert alert-${category}`)
+                  != message
+                  button.close(type='button', data-dismiss='alert', aria-label='Close')
+                    span(aria-hidden='true') ×
 
-        block scripts
-            script(src="/dist/app.bundle.js")
+    block main
+      include frontend-partials/main
+
+    block tech
+      include frontend-partials/favourite-tech
+
+    block about-us
+      include frontend-partials/about-us
+
+    block numbers
+      include frontend-partials/numbers
+
+    block technologies 
+      include frontend-partials/technologies
+
+    block technologies 
+      include frontend-partials/becomestudent
+
+    block team 
+      include frontend-partials/the-team
+
+    block contact 
+      include frontend-partials/contact
+    
+    block footer
+      include frontend-partials/footer
+
+    block scripts
+      script(src="/dist/app.bundle.js")
+      script(src="javascript/frontend-page.js")

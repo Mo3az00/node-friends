@@ -1,0 +1,11 @@
+nav.navbar.navbar-expand-lg.navbar-light.fixed-top#frontnav
+  .container
+    a.navbar-brand(href="/"): img#logo-image(src=``)
+    button.navbar-toggler(type="button" data-toggle="collapse" data-target="#frontnavlinks"  aria-expanded="false" aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+    
+    .collapse.navbar-collapse#frontnavlinks
+      ul.navbar-nav.ml-auto
+        each item in helpers.navigationMain
+          li.nav-item
+            a.nav-link(href=`${item.href}`) #{item.name}
