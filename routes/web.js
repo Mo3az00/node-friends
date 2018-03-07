@@ -73,13 +73,30 @@ router.get('/admin/projects', catchErrors(UserProjectsController.list))
 router.get('/admin/projects/add', UserProjectsController.projectForm)
 
 // Validate data and save project, if okay
-router.post('/admin/projects/add', catchErrors(UserProjectsController.createProject))
+router.post('/admin/projects/add',
+  UserProjectsController.upload,
+  UserProjectsController.uploadError,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.createProject)
+)
 
 //Display the form for editing a project by ID
-router.get('/admin/projects/:id/edit', catchErrors(UserProjectsController.projectForm))
+router.get('/admin/projects/:id/edit', UserProjectsController.editForm)
 
 //Validating data and updating the profile, if okay
-router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updateProject))
+router.post('/admin/projects/:id/edit',
+  UserProjectsController.upload,
+  UserProjectsController.uploadError,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.updateProject)
+)
+
+// deleting a project
+router.get('/admin/projects/:id/delete', catchErrors(UserProjectsController.deleteProject))
+
+// Update Projects order
+router.post('/admin/projects/update-order', catchErrors(UserProjectsController.updateSortOrder))
+
 
 // TECH FAVORITES
 // Display the list of the User's favorite technologies
@@ -157,11 +174,9 @@ router.post('/admin/homepage-technologies/update-order', catchErrors(HomepageTec
 // SETTINGS
 
 // edit settings
-
 router.get('/admin/settings', catchErrors(SettingsController.form))
 
 // submit edited settings
-
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
 

@@ -10,34 +10,34 @@ block content
   if technologies.length
     table.table.table-striped.table-sortable(
       data-sortable-url='/admin/homepage-technologies/update-order',
-      data-sortable-group='favorites'
+      data-sortable-group='technologies'
     )
       thead
         tr
           th(scope='col' class='text-center') Sort
+          th(scope='col') Picture
           th(scope='col') Title
           th(scope='col') Description
-          th(scope='col') Picture
-          th(scope='col')
+          th(scope='col') Options
       tbody
         each technology in technologies
           tr(data-id=technology._id)
             td.text-center
               i.fa.fa-bars.sortable-handle
-            td= technology.title
-            td= technology.description
             td
               if technology.image
-                img(src=`/uploads/homepage-technologies/${technology.image}`, alt=technology.title  width=200)
+                img(src=`/uploads/homepage-technologies/${technology.image}`, alt=technology.title  width=200 height=102)
               else
-                != helpers.placeholderImage(250, 150, 'image')
-            td
+                != helpers.placeholderImage(200, 102, 'image')
+            td= technology.title
+            td= technology.description
+            td.actions
               a(href=`/admin/homepage-technologies/${technology._id}/edit` 
                 class='btn btn-outline-primary' 
                 role='button')
                 i.fa.fa-cog 
                 |  Edit
-            td
+              | &nbsp;
               a(href=`/admin/homepage-technologies/${technology._id}/delete` 
                 class='btn btn-outline-primary' 
                 role='button'

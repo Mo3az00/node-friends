@@ -5,27 +5,30 @@ block content
 
   form.favorite-technologies(method='POST' enctype="multipart/form-data")
     .form-group
-      label(for='technology-title') Title
+      label(for='title') Title
       input(type='text' class='form-control' 
             placeholder='technology name' 
-            name='title' 
+            name='title'
+            id='title' 
             value=(technology.title || '')
             )
 
     .form-group
-      label(for='technology-use') Description
+      label(for='description') Description
       textarea( class='form-control' 
                 rows='3' 
                 placeholder='what you like about this technology / how do you use this technology' 
-                name='description')=(technology.description || '')
+                name='description'
+                id='description'
+                )=(technology.description || '')
 
     .form-group
       label(for='image')
         | Upload an Image:
         if technology.image
-          img(src=`/uploads/homepage-technologies/${technology.image}`, alt=technology.title  width=200)
+          img(src=`/uploads/homepage-technologies/${technology.image}`, alt=technology.title  width=200 height=102)
         else
-          != helpers.placeholderImage(250, 150, 'image')
+          != helpers.placeholderImage(200, 102, 'image')
 
         input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg, image/jpg")
 
