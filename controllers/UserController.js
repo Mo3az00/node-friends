@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
+const UserProfile = mongoose.model('UserProfile')
+const HomepageTech = mongoose.model('HomepageTech')
 const moment = require('moment')
 
 // Dashboard
@@ -23,9 +25,10 @@ exports.studentList = async (request, response) => {
   })
 }
 
-//Frontend Page 
+// Frontend Page 
 exports.frontendPage = async (request, response) => {
 
+  // Countdown
   const now = moment()
   const courseEnd = moment([2018, 8, 16])
   const daysLeft = courseEnd.diff(now, 'days')
@@ -33,20 +36,25 @@ exports.frontendPage = async (request, response) => {
   const courseStart = moment([2017, 9, 4])
   const daysLearned = now.diff(courseStart, 'days')
 
+  // Loading data
+
+  const technologies = await HomepageTech.find().sort({ 'order': 1 })
+
+  const students = await UserProfile.find().populate('user').sort({ 'first_name': 1 })
+
   response.render('layout', {
     title: 'Main',
     daysLearned,
-    daysLeft
+    daysLeft,
+    technologies,
+    students
   })
 }
-<<<<<<< HEAD
-=======
 
 //studentuserprofile
 exports.studentProfile = async (request, response) => {
-  
+
   response.render('studentProfile', {
     title: 'Student profile',
   })
 }
->>>>>>> dd49a3d03decee2cc64f3a0ad99990afc9e0facf
