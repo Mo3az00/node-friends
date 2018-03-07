@@ -28,6 +28,14 @@ exports.addForm = (request, response) => {
   )
 }
 
+// Deleting a favorite
+exports.deleteTechFavorite = async (request, response) => {
+  const techFavorite = await UserTechFavorite.findOne({'_id': request.params.id})
+  request.flash('success', `Successfully deleted <strong>${techFavorite.title}</strong>` )
+  await techFavorite.remove()
+  return response.redirect('/admin/tech-favorites')
+}
+
 // Validate data and save favorite technology, if okay
 
 exports.createFavorite = async (request, response) => {

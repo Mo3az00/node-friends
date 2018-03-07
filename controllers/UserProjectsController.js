@@ -43,7 +43,7 @@ exports.uploadError = function(error, request, response, next) {
         break;
 
       case 'FILETYPE_NOT_ALLOWED':
-        message = 'The file type is not allowed. Only images and PDF!'
+        message = 'The file type is not allowed. Only file types "JPEG, PNG, GIF" allowed!'
         break;
     }
 

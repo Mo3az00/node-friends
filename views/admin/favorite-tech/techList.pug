@@ -1,35 +1,44 @@
 extends ../layout
 block content
 
-  h1 Favorite Technologies
+  h1= title
+  p
+    a(href='/admin/tech-favorites/add' class='btn btn-primary' role='button')
+      i.fa.fa-plus-circle
+      |  Add a Technology
 
-  table.table.table-striped.table-sortable(
-    data-sortable-url="/admin/tech-favorites/update-order",
-    data-sortable-group="favorites"
-  )
-    thead
-      tr
-        th(scope='col' class="text-center") Sort
-        th(scope='col') Title
-        th(scope='col') Subtitle
-        th(scope='col') Icon
-        th(scope='col') Description
-        th(scope='col')
-    tbody
-      each favorite in techFavorites
-        tr(data-id=favorite._id)
-          td.text-center
-            i.fa.fa-bars.sortable-handle
-          td= favorite.title
-          td= favorite.subtitle
-          td
-            i(class=`fa fa-${favorite.icon}` aria-hidden='true')
-          td= favorite.description
-          td
-            a(href=`/admin/tech-favorites/${favorite._id}/edit` class='btn btn-outline-primary' role='button')
-              i.fa.fa-cog 
-              |  Edit
-
-  a(href='/admin/tech-favorites/add' class='btn btn-primary' role='button')
-    i.fa.fa-plus-circle
-    |  Add a Technology
+  if techFavorites.length
+    table.table.table-striped.table-sortable(
+      data-sortable-url="/admin/tech-favorites/update-order",
+      data-sortable-group="favorites"
+    )
+      thead
+        tr
+          th(scope='col' class="text-center") Sort
+          th(scope='col' class="text-center") Icon
+          th(scope='col') Title
+          th(scope='col') Subtitle
+          th(scope='col') Description
+          th(scope='col') Options
+      tbody
+        each favorite in techFavorites
+          tr(data-id=favorite._id)
+            td.text-center
+              i.fa.fa-bars.sortable-handle
+            td.text-center
+              i(class=`fa fa-${favorite.icon}` aria-hidden='true')
+            td= favorite.title
+            td= favorite.subtitle
+            td= favorite.description
+            td.actions
+              a(href=`/admin/tech-favorites/${favorite._id}/edit` class='btn btn-outline-primary' role='button')
+                i.fa.fa-cog 
+                |  Edit
+              | &nbsp;
+              a(href=`/admin/homepage-technologies/${favorite._id}/delete` 
+                class='btn btn-outline-primary' 
+                role='button'
+                onclick="return confirm('Are you sure you want delete this technology?')"
+                )
+                i.fa.fa-remove
+                |  Delete
