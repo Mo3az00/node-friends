@@ -44,7 +44,7 @@ const fontAwesome =        {
   }]
 };
 
-// Expose jQuery to the global window object.
+// Expose jQuery to the global window object
 const expose = {
   test: require.resolve('jquery'),
   use: [

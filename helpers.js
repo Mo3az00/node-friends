@@ -6,6 +6,15 @@ exports.dump = (obj) => JSON.stringify(obj, null, 2)
 // Date and time formatting
 exports.moment = moment
 
+// Generate an image placeholder
+exports.placeholderImage = function (width, height, icon) {
+    return `
+    <div class="placeholder-image" style="width: ${width}px; height: ${height}px;">
+      <i class="placeholder-image-icon fa fa-${icon}"></i>
+    </div>
+  `
+}
+
 // Main navigation (currently supports max. 1 sub-level)
 exports.navigationMain = [
     {
@@ -13,20 +22,31 @@ exports.navigationMain = [
         href: '/'
     },
     {
-        name: 'About Us',
-        href: '#about-us'
+        name: 'Link',
+        href: '#'
     },
     {
-        name: 'Tecnologies',
-        href: '#technologies'
+        name: 'Disabled',
+        href: '#',
+        class: 'disabled'
     },
     {
-        name: 'The Team',
-        href: '#the-team'
-    },
-    {
-        name: 'Contact',
-        href: '#contact'
+        name: 'Dropdown',
+        href: '#',
+        childs: [
+            {
+                name: 'Action',
+                href: '#'
+            },
+            {
+                name: 'Another Action',
+                href: '#'
+            },
+            {
+                name: 'Something else here',
+                href: '#'
+            },
+        ]
     }
 ]
 
@@ -61,7 +81,7 @@ exports.adminSidebarNavigation = (user) => {
             title: 'Absence Reports'
         }
     ]
-    
+
     if (user.role === 'teacher') {
         navigation = navigation.concat([
             {

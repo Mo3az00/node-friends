@@ -1,66 +1,66 @@
 doctype html
 html(lang='en')
-    head
-        meta(charset="utf-8")
+  head
+    meta(charset="utf-8")
 
-        title= `${title || ''} | Node Friends`
+    title= `${title || ''} | Node Friends`
 
-        //- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    // Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        //- Ensure proper rendering and zooming on touch devices
-        meta(name="viewport", content="width=device-width, initial-scale=1")
+    // Ensure proper rendering and zooming on touch devices
+    meta(name="viewport", content="width=device-width, initial-scale=1")
 
-        //- Search Engine Optimization
-        meta(name="description", content=`${description  || 'An admin panel for the students and teacher of FBW-V'}`)
-        meta(name="robots", content="noindex,nofollow")
+    // Search Engine Optimization
+    meta(name="description", content=`${description  || 'An admin panel for the students and teacher of FBW-V'}`)
+    meta(name="robots", content="noindex,nofollow")
 
-        //- Stylesheets
-        link(rel='stylesheet', href='/dist/style.css')
+    // Stylesheets
+    link(rel='stylesheet', href='/dist/style.css')
 
-        //- Google Fonts
-        link(href='https://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet')
-        link(href="https://fonts.googleapis.com/css?family=Indie+Flower" rel='stylesheet')
+    //Google Fonts
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Indie+Flower" rel='stylesheet')
 
-    body
-      nav.navbar.navbar-expand-lg
-        a.navbar-brand(href='/admin')
-          img(src="/images/node-friends-logo-white.png", height="35")
-        .navbar.navbar-nav.ml-auto
-          if user
-            .user-dropdown.dropdown
-              a#userDropdownButton.dropdown-toggle(data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-                img.user-avatar(src=user.photo || 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX24426960.jpg', height="30")
-                | #{user.first_name} #{user.last_name}
-              .dropdown-menu(aria-labelledby="userDropdownButton")
-                a.dropdown-item(href="/admin/profile/edit")
-                  i.fa.fa-user
-                  | &nbsp; Your Profile
-                a.dropdown-item(href="/admin/logout")
-                  i.fa.fa-sign-in
-                  | &nbsp; Logout
+  body
+    nav.navbar.navbar-expand-lg
+      a.navbar-brand(href='/admin')
+        img(src="/images/node-friends-logo-white.png", height="35")
+      .navbar.navbar-nav.ml-auto
+        if user
+          .user-dropdown.dropdown
+            a#userDropdownButton.dropdown-toggle(data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+              img.user-avatar(src=user.photo || 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX24426960.jpg', height="30")
+              | #{user.first_name} #{user.last_name}
+            .dropdown-menu(aria-labelledby="userDropdownButton")
+              a.dropdown-item(href="/admin/profile/edit")
+                i.fa.fa-user
+                | &nbsp; Your Profile
+              a.dropdown-item(href="/admin/logout")
+                i.fa.fa-sign-in
+                | &nbsp; Logout
 
-      .container-fluid.h-100
-        #main.row.h-100
-          #sidebar.h-100.col-12.col-sm-5.col-md-3.col-lg-2
-            ul
-              each item in helpers.adminSidebarNavigation(user)
-                li.nav-item(class=(currentPath === item.href ? 'active' : ''))
-                  a(href=`${item.href}`)
-                    i(class=`fa fa-${item.icon}` aria-hidden='true') 
-                    | #{item.title}
+    .container-fluid.h-100
+      #main.row.h-100
+        #sidebar.h-100.col-12.col-sm-5.col-md-3.col-lg-2
+          ul
+            each item in helpers.adminSidebarNavigation(user)
+              li.nav-item(class=(currentPath === item.href ? 'active' : ''))
+                a(href=`${item.href}`)
+                  i(class=`fa fa-${item.icon}` aria-hidden='true') 
+                  | #{item.title}
 
-          #content.col-12.col-sm-7.col-md-9.col-lg-10
-            block messages
-              if Object.keys(locals.flashes).length != 0
-                .flash-messages
-                  - const categories = Object.keys(locals.flashes)
-                  each category in categories
-                    each message in flashes[category]
-                      .alert.alert-dismissible.fade.show(class=`alert-${category}`)
-                        !=message
-                        button.close(type="button" data-dismiss="alert" aria-label="Close")
-                          span(aria-hidden="true") | &times;
-            block content
+        #content.col-12.col-sm-7.col-md-9.col-lg-10
+          block messages
+            if Object.keys(locals.flashes).length != 0
+              .flash-messages
+                - const categories = Object.keys(locals.flashes)
+                each category in categories
+                  each message in flashes[category]
+                    .alert.alert-dismissible.fade.show(class=`alert-${category}`)
+                      !=message
+                      button.close(type="button" data-dismiss="alert" aria-label="Close")
+                        span(aria-hidden="true") | &times;
+          block content
 
-      script(src="/dist/app.bundle.js")
+    script(src="/dist/app.bundle.js")

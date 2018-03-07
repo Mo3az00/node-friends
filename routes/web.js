@@ -3,6 +3,7 @@ const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers')
 const ToDoController = require('../controllers/ToDoController')
 const UserController = require('../controllers/UserController')
+const UserProfileController = require('../controllers/UserProfileController')
 const UserProjectsController = require('../controllers/UserProjectsController')
 const SettingsController = require('../controllers/SettingsController')
 const UserTechFavoritesController = require('../controllers/UserTechFavoritesController')
@@ -13,7 +14,7 @@ const AuthController = require('../controllers/AuthController')
 // The main route
 router.get('/', catchErrors(UserController.frontendPage))
 
-// Admin 
+// Admin
 router.get('/admin', UserController.dashboard)
 
 // Get all todo items
@@ -27,7 +28,7 @@ router.get('/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
 
 // USER CONTROLS
 
-// Authentication 
+// Authentication
 
 router.get('/admin/login', AuthController.loginForm)
 router.post('/admin/login', AuthController.login)
@@ -44,15 +45,17 @@ router.post('/admin/password-reset/:token',
 // Enter admin interface
 router.get('/admin', catchErrors(UserController.dashboard))
 
-// Display profile
-router.get('/admin/User/profile/:id', catchErrors(UserController.profile))
+// PROFILE
 
-// Edit profile
-
-router.get('/admin/User/profile/edit', catchErrors(UserController.editProfile))
+// Edit profile form
+router.get('/admin/profile/edit', catchErrors(UserProfileController.profileForm))
 
 // Update profile
-router.post('/profile/edit-profile', catchErrors(UserController.updateProfile))
+router.post('/admin/profile/edit',
+  UserProfileController.uploadImages,
+  UserProfileController.resizeImages,
+  catchErrors(UserProfileController.updateProfile)
+)
 
 // Display student list
 router.get('/admin/students', catchErrors(UserController.studentList))
@@ -65,13 +68,30 @@ router.get('/admin/projects', catchErrors(UserProjectsController.list))
 router.get('/admin/projects/add', UserProjectsController.projectForm)
 
 // Validate data and save project, if okay
-router.post('/admin/projects/add', catchErrors(UserProjectsController.createProject))
+router.post('/admin/projects/add',
+  UserProjectsController.upload,
+  UserProjectsController.uploadError,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.createProject)
+)
 
 //Display the form for editing a project by ID
-router.get('/admin/projects/:id/edit', catchErrors(UserProjectsController.projectForm))
+router.get('/admin/projects/:id/edit', UserProjectsController.editForm)
 
 //Validating data and updating the profile, if okay
-router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updateProject))
+router.post('/admin/projects/:id/edit',
+  UserProjectsController.upload,
+  UserProjectsController.uploadError,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.updateProject)
+)
+
+// deleting a project
+router.get('/admin/projects/:id/delete', catchErrors(UserProjectsController.deleteProject))
+
+// Update Projects order
+router.post('/admin/projects/update-order', catchErrors(UserProjectsController.updateSortOrder))
+
 
 // TECH FAVORITES
 // Display the list of the User's favorite technologies
@@ -98,7 +118,7 @@ router.get('/admin/absence-reports', catchErrors(AbsenceReportController.list))
 
 // Display the form to add new report
 router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
-// router.post('/admin/absence-reports/add', catchErrors(AbsenceReportController.reportForm))
+
 // Validating data and saving the report, if okay
 router.post('/admin/absence-reports/add',
     AbsenceReportController.upload,
@@ -130,17 +150,11 @@ router.post('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechCon
 // SETTINGS
 
 // edit settings
-
 router.get('/admin/settings', catchErrors(SettingsController.form))
 
 // submit edited settings
-
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
-
-
-//  absence reporting
-router.get('/admin/absence-reports', catchErrors(UserController.absenceReport))
 
 // Export our router
 module.exports = router;
