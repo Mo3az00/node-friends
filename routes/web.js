@@ -97,6 +97,9 @@ router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesContro
 // Validate data and updating the profile, if okay
 router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))
 
+// Delete a Technology
+router.get('/admin/homepage-technologies/:id/delete', catchErrors(UserTechFavoritesController.deleteTechFavorite))
+
 // Update tech favorites order
 router.post('/admin/tech-favorites/update-order', catchErrors(UserTechFavoritesController.updateSortOrder))
 
