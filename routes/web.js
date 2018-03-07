@@ -12,12 +12,8 @@ const HomepageTechController = require('../controllers/HomepageTechController')
 const AuthController = require('../controllers/AuthController')
 
 // The main route
-router.get('/', (request, response) => {
-  response.render('home', {
-    title: 'Home',
-    description: 'My lovely first website with Node.js'
-  })
-})
+router.get('/', catchErrors(UserController.frontendPage))
+router.get('/profile', catchErrors(UserController.studentProfile))
 
 // Admin
 router.get('/admin', UserController.dashboard)

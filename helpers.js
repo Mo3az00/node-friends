@@ -17,37 +17,26 @@ exports.placeholderImage = function (width, height, icon) {
 
 // Main navigation (currently supports max. 1 sub-level)
 exports.navigationMain = [
-  {
-    name: 'Home',
-    href: '/'
-  },
-  {
-    name: 'Link',
-    href: '#'
-  },
-  {
-    name: 'Disabled',
-    href: '#',
-    class: 'disabled'
-  },
-  {
-    name: 'Dropdown',
-    href: '#',
-    childs: [
-      {
-        name: 'Action',
-        href: '#'
-      },
-      {
-        name: 'Another Action',
-        href: '#'
-      },
-      {
-        name: 'Something else here',
-        href: '#'
-      },
-    ]
-  }
+    {
+        name: 'Home',
+        href: '/'
+    },
+    {
+        name: 'About Us',
+        href: '#about-us'
+    },
+    {
+        name: 'Tecnologies',
+        href: '#technologies'
+    },
+    {
+        name: 'The Team',
+        href: '#the-team'
+    },
+    {
+        name: 'Contact',
+        href: '#contact'
+    }
 ]
 
 /*
