@@ -6,11 +6,11 @@ block content
     form#project-form.container(method='POST', enctype='multipart/form-data')
       .form-group
         label(for='title') Title
-        input#name.form-control(type='text', name='title',  id='title', required, value=(project.title || ''))
+        input#title.form-control(type='text', name='title', required, value=(project.title || ''))
 
       .form-group
         label(for='link') Link
-        input#link.form-control(type='text', name='link',id='link', required, value=(project.link || ''))
+        input#link.form-control(type='text', name='link', required, value=(project.link || ''))
 
       .form-group
         label(for='description') Description
