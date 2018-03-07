@@ -15,26 +15,26 @@ block content
       thead
         tr
           th(scope='col' class="text-center") Sort
+          th(scope='col' class="text-center") Icon
           th(scope='col') Title
           th(scope='col') Subtitle
-          th(scope='col') Icon
           th(scope='col') Description
-          th(scope='col')
+          th(scope='col') Options
       tbody
         each favorite in techFavorites
           tr(data-id=favorite._id)
             td.text-center
               i.fa.fa-bars.sortable-handle
+            td.text-center
+              i(class=`fa fa-${favorite.icon}` aria-hidden='true')
             td= favorite.title
             td= favorite.subtitle
-            td
-              i(class=`fa fa-${favorite.icon}` aria-hidden='true')
             td= favorite.description
-            td
+            td.actions
               a(href=`/admin/tech-favorites/${favorite._id}/edit` class='btn btn-outline-primary' role='button')
                 i.fa.fa-cog 
                 |  Edit
-            td
+              | &nbsp;
               a(href=`/admin/homepage-technologies/${favorite._id}/delete` 
                 class='btn btn-outline-primary' 
                 role='button'
