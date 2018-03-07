@@ -1,16 +1,20 @@
 import { duration } from "moment";
 
-function calenderFunction () {
+function calendarFunction () {
   $('.calendar').fullCalendar({
     events: '/javascript/data/calendar.json',
     contentHeight: 300,
     handleWindowResize: true,
     defaultView: 'listMonth',
-      header: {
-        left: 'promptResource prev,next,today',
-        center: 'title',
-        right: 'agendaWeek,listMonth'
-      },
+    titleFormat: 'MMM YYYY',
+    header: {
+      left: 'addEventButton, prev,next,today',
+      center: '',
+      right: 'title'
+    },
+    footer: {
+      right: 'agendaWeek,listMonth'
+    },
     navLinks: true,
     weekends: true,
     minTime: "09:00:00",
@@ -23,28 +27,25 @@ function calenderFunction () {
       $('.calendar').fullCalendar('updateEvent', event);
   
     },
-
-    customButtons: {
-      promptResource: {
-        text: '+ Event',
-        click: function() {
-          var title = prompt('Enter Event');
-          if (title) {
-            $('.calendar').fullCalendar(
-              'addResource',
-              { title: title },
-              true // scroll to the new resource?
-            );
+      customButtons: {
+        promptResource: {
+          text: '+ Event',
+          click: function() {
+            const title = prompt('Enter Event');
+            if (title) {
+              $('.calendar').fullCalendar('addEventSource',
+                { title: title },
+                true // scroll to the new resource?
+              );
+            }
           }
         }
       }
-    },
-    resourceLabelText: 'Events',
-    resources: [
-      { id: 'Event', title: 'Event 1' },
-    ],
-    
-  })
-};
-
-export default calenderFunction
+    })
+    // resourceLabelText: 'Events',
+    // resources: [
+    //   { id: 'Event', title: 'Event 1' },
+    // ]
+  
+}
+export default calendarFunction

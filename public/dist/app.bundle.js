@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 136);
+/******/ 	return __webpack_require__(__webpack_require__.s = 137);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1898,7 +1898,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(141)("./" + name);
+                __webpack_require__(142)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4484,8 +4484,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var bind = __webpack_require__(130);
-var isBuffer = __webpack_require__(147);
+var bind = __webpack_require__(131);
+var isBuffer = __webpack_require__(149);
 
 /*global toString:true*/
 
@@ -4787,7 +4787,7 @@ module.exports = {
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(139);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(140);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
@@ -4858,7 +4858,7 @@ module.exports = function (module) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var normalizeHeaderName = __webpack_require__(149);
+var normalizeHeaderName = __webpack_require__(151);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -4874,10 +4874,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(132);
+    adapter = __webpack_require__(133);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(132);
+    adapter = __webpack_require__(133);
   }
   return adapter;
 }
@@ -4941,7 +4941,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(131)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(132)))
 
 /***/ }),
 /* 6 */
@@ -21246,6 +21246,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 "use strict";
 
 
+module.exports = __webpack_require__(148);
+
+/***/ }),
+/* 131 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 module.exports = function bind(fn, thisArg) {
   return function wrap() {
     var args = new Array(arguments.length);
@@ -21257,7 +21266,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21450,19 +21459,19 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var settle = __webpack_require__(150);
-var buildURL = __webpack_require__(152);
-var parseHeaders = __webpack_require__(153);
-var isURLSameOrigin = __webpack_require__(154);
-var createError = __webpack_require__(133);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(155);
+var settle = __webpack_require__(152);
+var buildURL = __webpack_require__(154);
+var parseHeaders = __webpack_require__(155);
+var isURLSameOrigin = __webpack_require__(156);
+var createError = __webpack_require__(134);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(157);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -21555,7 +21564,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(156);
+      var cookies = __webpack_require__(158);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -21628,16 +21637,16 @@ module.exports = function xhrAdapter(config) {
     request.send(requestData);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(131)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(132)))
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(151);
+var enhanceError = __webpack_require__(153);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -21655,7 +21664,7 @@ module.exports = function createError(message, config, code, request, response) 
 };
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21666,7 +21675,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21692,25 +21701,29 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(137);
+__webpack_require__(138);
 
-var _todoList = __webpack_require__(144);
-
-var _todoList2 = _interopRequireDefault(_todoList);
-
-var _calendar = __webpack_require__(164);
-
-var _calendar2 = _interopRequireDefault(_calendar);
-
-var _datepicker = __webpack_require__(165);
+var _datepicker = __webpack_require__(145);
 
 var _datepicker2 = _interopRequireDefault(_datepicker);
+
+var _sortable = __webpack_require__(146);
+
+var _sortable2 = _interopRequireDefault(_sortable);
+
+var _showFileName = __webpack_require__(166);
+
+var _showFileName2 = _interopRequireDefault(_showFileName);
+
+var _todoList = __webpack_require__(167);
+
+var _todoList2 = _interopRequireDefault(_todoList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21721,37 +21734,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import './todo-list'
 $('.dropdown-toggle').dropdown();
-
-// Loading FullCalendar for all .calendar elements
-
-(0, _calendar2.default)();
-
-// Enableing dropdown elements
-$('.dropdown-toggle').dropdown();
-
-// Enabling a date range picker
-
 (0, _datepicker2.default)();
+(0, _sortable2.default)();
+(0, _showFileName2.default)();
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(138);
+__webpack_require__(139);
 
 __webpack_require__(7);
 
 __webpack_require__(0);
 
-__webpack_require__(142);
-
 __webpack_require__(143);
 
+__webpack_require__(144);
+
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25645,14 +25650,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //# sourceMappingURL=bootstrap.js.map
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(140);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(141);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35581,7 +35586,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -35844,15 +35849,15 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 141;
+webpackContext.id = 142;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};/*!
- * FullCalendar v3.9.0
+ * FullCalendar v3.8.2
  * Docs & License: https://fullcalendar.io/
  * (c) 2018 Adam Shaw
  */(function webpackUniversalModuleDefinition(root,factory){if(( false?'undefined':_typeof(exports))==='object'&&( false?'undefined':_typeof(module))==='object')module.exports=factory(__webpack_require__(0),__webpack_require__(2));else if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0),__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
@@ -36019,7 +36024,7 @@ UnzonedRange.prototype.getStart=function(){if(this.startMs!=null){return moment_
 UnzonedRange.prototype.getEnd=function(){if(this.endMs!=null){return moment_ext_1.default.utc(this.endMs).stripZone();}return null;};UnzonedRange.prototype.as=function(unit){return moment.utc(this.endMs).diff(moment.utc(this.startMs),unit,true);};return UnzonedRange;}();exports.default=UnzonedRange;/*
 Only works for non-open-ended ranges.
 */function compareUnzonedRanges(range1,range2){return range1.startMs-range2.startMs;// earlier ranges go first
-}/***/},/* 6 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var ParsableModelMixin_1=__webpack_require__(208);var Class_1=__webpack_require__(33);var EventDefParser_1=__webpack_require__(49);var EventSource=/** @class */function(_super){tslib_1.__extends(EventSource,_super);// can we do away with calendar? at least for the abstract?
+}/***/},/* 6 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var ParsableModelMixin_1=__webpack_require__(208);var Class_1=__webpack_require__(32);var EventDefParser_1=__webpack_require__(49);var EventSource=/** @class */function(_super){tslib_1.__extends(EventSource,_super);// can we do away with calendar? at least for the abstract?
 // useful for buildEventDef
 function EventSource(calendar){var _this=_super.call(this)||this;_this.calendar=calendar;_this.className=[];_this.uid=String(EventSource.uuid++);return _this;}/*
     rawInput can be any data type!
@@ -36184,7 +36189,7 @@ Meant to be immutable
 */var ComponentFootprint=/** @class */function(){function ComponentFootprint(unzonedRange,isAllDay){this.isAllDay=false;// component can choose to ignore this
 this.unzonedRange=unzonedRange;this.isAllDay=isAllDay;}/*
     Only works for non-open-ended ranges.
-    */ComponentFootprint.prototype.toLegacy=function(calendar){return{start:calendar.msToMoment(this.unzonedRange.startMs,this.isAllDay),end:calendar.msToMoment(this.unzonedRange.endMs,this.isAllDay)};};return ComponentFootprint;}();exports.default=ComponentFootprint;/***/},/* 13 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var EventDef_1=__webpack_require__(34);var EventInstance_1=__webpack_require__(209);var EventDateProfile_1=__webpack_require__(17);var SingleEventDef=/** @class */function(_super){tslib_1.__extends(SingleEventDef,_super);function SingleEventDef(){return _super!==null&&_super.apply(this,arguments)||this;}/*
+    */ComponentFootprint.prototype.toLegacy=function(calendar){return{start:calendar.msToMoment(this.unzonedRange.startMs,this.isAllDay),end:calendar.msToMoment(this.unzonedRange.endMs,this.isAllDay)};};return ComponentFootprint;}();exports.default=ComponentFootprint;/***/},/* 13 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var EventDef_1=__webpack_require__(33);var EventInstance_1=__webpack_require__(209);var EventDateProfile_1=__webpack_require__(17);var SingleEventDef=/** @class */function(_super){tslib_1.__extends(SingleEventDef,_super);function SingleEventDef(){return _super!==null&&_super.apply(this,arguments)||this;}/*
     Will receive start/end params, but will be ignored.
     */SingleEventDef.prototype.buildInstances=function(){return[this.buildInstance()];};SingleEventDef.prototype.buildInstance=function(){return new EventInstance_1.default(this,// definition
 this.dateProfile);};SingleEventDef.prototype.isAllDay=function(){return this.dateProfile.isAllDay();};SingleEventDef.prototype.clone=function(){var def=_super.prototype.clone.call(this);def.dateProfile=this.dateProfile;return def;};SingleEventDef.prototype.rezone=function(){var calendar=this.source.calendar;var dateProfile=this.dateProfile;this.dateProfile=new EventDateProfile_1.default(calendar.moment(dateProfile.start),dateProfile.end?calendar.moment(dateProfile.end):null,calendar);};/*
@@ -36197,10 +36202,10 @@ SingleEventDef.defineStandardProps({start:false,date:false,end:false,allDay:fals
     will override existing methods
     TODO: remove! not used anymore
     */Mixin.mixOver=function(destClass){var _this=this;Object.getOwnPropertyNames(this.prototype).forEach(function(name){destClass.prototype[name]=_this.prototype[name];});};return Mixin;}();exports.default=Mixin;/***/},/* 15 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});var Interaction=/** @class */function(){function Interaction(component){this.view=component._getView();this.component=component;}Interaction.prototype.opt=function(name){return this.view.opt(name);};Interaction.prototype.end=function(){// subclasses can implement
-};return Interaction;}();exports.default=Interaction;/***/},/* 16 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});exports.version='3.9.0';// When introducing internal API incompatibilities (where fullcalendar plugins would break),
+};return Interaction;}();exports.default=Interaction;/***/},/* 16 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});exports.version='3.8.2';// When introducing internal API incompatibilities (where fullcalendar plugins would break),
 // the minor version of the calendar should be upped (ex: 2.7.2 -> 2.8.0)
 // and the below integer should be incremented.
-exports.internalApiVersion=12;var util_1=__webpack_require__(4);exports.applyAll=util_1.applyAll;exports.debounce=util_1.debounce;exports.isInt=util_1.isInt;exports.htmlEscape=util_1.htmlEscape;exports.cssToStr=util_1.cssToStr;exports.proxy=util_1.proxy;exports.capitaliseFirstLetter=util_1.capitaliseFirstLetter;exports.getOuterRect=util_1.getOuterRect;exports.getClientRect=util_1.getClientRect;exports.getContentRect=util_1.getContentRect;exports.getScrollbarWidths=util_1.getScrollbarWidths;exports.preventDefault=util_1.preventDefault;exports.parseFieldSpecs=util_1.parseFieldSpecs;exports.compareByFieldSpecs=util_1.compareByFieldSpecs;exports.compareByFieldSpec=util_1.compareByFieldSpec;exports.flexibleCompare=util_1.flexibleCompare;exports.computeGreatestUnit=util_1.computeGreatestUnit;exports.divideRangeByDuration=util_1.divideRangeByDuration;exports.divideDurationByDuration=util_1.divideDurationByDuration;exports.multiplyDuration=util_1.multiplyDuration;exports.durationHasTime=util_1.durationHasTime;exports.log=util_1.log;exports.warn=util_1.warn;exports.removeExact=util_1.removeExact;exports.intersectRects=util_1.intersectRects;var date_formatting_1=__webpack_require__(47);exports.formatDate=date_formatting_1.formatDate;exports.formatRange=date_formatting_1.formatRange;exports.queryMostGranularFormatUnit=date_formatting_1.queryMostGranularFormatUnit;var locale_1=__webpack_require__(31);exports.datepickerLocale=locale_1.datepickerLocale;exports.locale=locale_1.locale;var moment_ext_1=__webpack_require__(10);exports.moment=moment_ext_1.default;var EmitterMixin_1=__webpack_require__(11);exports.EmitterMixin=EmitterMixin_1.default;var ListenerMixin_1=__webpack_require__(7);exports.ListenerMixin=ListenerMixin_1.default;var Model_1=__webpack_require__(48);exports.Model=Model_1.default;var Constraints_1=__webpack_require__(207);exports.Constraints=Constraints_1.default;var UnzonedRange_1=__webpack_require__(5);exports.UnzonedRange=UnzonedRange_1.default;var ComponentFootprint_1=__webpack_require__(12);exports.ComponentFootprint=ComponentFootprint_1.default;var BusinessHourGenerator_1=__webpack_require__(212);exports.BusinessHourGenerator=BusinessHourGenerator_1.default;var EventDef_1=__webpack_require__(34);exports.EventDef=EventDef_1.default;var EventDefMutation_1=__webpack_require__(37);exports.EventDefMutation=EventDefMutation_1.default;var EventSourceParser_1=__webpack_require__(38);exports.EventSourceParser=EventSourceParser_1.default;var EventSource_1=__webpack_require__(6);exports.EventSource=EventSource_1.default;var ThemeRegistry_1=__webpack_require__(51);exports.defineThemeSystem=ThemeRegistry_1.defineThemeSystem;var EventInstanceGroup_1=__webpack_require__(18);exports.EventInstanceGroup=EventInstanceGroup_1.default;var ArrayEventSource_1=__webpack_require__(52);exports.ArrayEventSource=ArrayEventSource_1.default;var FuncEventSource_1=__webpack_require__(215);exports.FuncEventSource=FuncEventSource_1.default;var JsonFeedEventSource_1=__webpack_require__(216);exports.JsonFeedEventSource=JsonFeedEventSource_1.default;var EventFootprint_1=__webpack_require__(36);exports.EventFootprint=EventFootprint_1.default;var Class_1=__webpack_require__(33);exports.Class=Class_1.default;var Mixin_1=__webpack_require__(14);exports.Mixin=Mixin_1.default;var CoordCache_1=__webpack_require__(53);exports.CoordCache=CoordCache_1.default;var DragListener_1=__webpack_require__(54);exports.DragListener=DragListener_1.default;var Promise_1=__webpack_require__(20);exports.Promise=Promise_1.default;var TaskQueue_1=__webpack_require__(217);exports.TaskQueue=TaskQueue_1.default;var RenderQueue_1=__webpack_require__(218);exports.RenderQueue=RenderQueue_1.default;var Scroller_1=__webpack_require__(39);exports.Scroller=Scroller_1.default;var Theme_1=__webpack_require__(19);exports.Theme=Theme_1.default;var DateComponent_1=__webpack_require__(219);exports.DateComponent=DateComponent_1.default;var InteractiveDateComponent_1=__webpack_require__(40);exports.InteractiveDateComponent=InteractiveDateComponent_1.default;var Calendar_1=__webpack_require__(220);exports.Calendar=Calendar_1.default;var View_1=__webpack_require__(41);exports.View=View_1.default;var ViewRegistry_1=__webpack_require__(22);exports.defineView=ViewRegistry_1.defineView;exports.getViewConfig=ViewRegistry_1.getViewConfig;var DayTableMixin_1=__webpack_require__(55);exports.DayTableMixin=DayTableMixin_1.default;var BusinessHourRenderer_1=__webpack_require__(56);exports.BusinessHourRenderer=BusinessHourRenderer_1.default;var EventRenderer_1=__webpack_require__(42);exports.EventRenderer=EventRenderer_1.default;var FillRenderer_1=__webpack_require__(57);exports.FillRenderer=FillRenderer_1.default;var HelperRenderer_1=__webpack_require__(58);exports.HelperRenderer=HelperRenderer_1.default;var ExternalDropping_1=__webpack_require__(222);exports.ExternalDropping=ExternalDropping_1.default;var EventResizing_1=__webpack_require__(223);exports.EventResizing=EventResizing_1.default;var EventPointing_1=__webpack_require__(59);exports.EventPointing=EventPointing_1.default;var EventDragging_1=__webpack_require__(224);exports.EventDragging=EventDragging_1.default;var DateSelecting_1=__webpack_require__(225);exports.DateSelecting=DateSelecting_1.default;var StandardInteractionsMixin_1=__webpack_require__(60);exports.StandardInteractionsMixin=StandardInteractionsMixin_1.default;var AgendaView_1=__webpack_require__(226);exports.AgendaView=AgendaView_1.default;var TimeGrid_1=__webpack_require__(227);exports.TimeGrid=TimeGrid_1.default;var DayGrid_1=__webpack_require__(61);exports.DayGrid=DayGrid_1.default;var BasicView_1=__webpack_require__(62);exports.BasicView=BasicView_1.default;var MonthView_1=__webpack_require__(229);exports.MonthView=MonthView_1.default;var ListView_1=__webpack_require__(230);exports.ListView=ListView_1.default;/***/},/* 17 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var UnzonedRange_1=__webpack_require__(5);/*
+exports.internalApiVersion=12;var util_1=__webpack_require__(4);exports.applyAll=util_1.applyAll;exports.debounce=util_1.debounce;exports.isInt=util_1.isInt;exports.htmlEscape=util_1.htmlEscape;exports.cssToStr=util_1.cssToStr;exports.proxy=util_1.proxy;exports.capitaliseFirstLetter=util_1.capitaliseFirstLetter;exports.getOuterRect=util_1.getOuterRect;exports.getClientRect=util_1.getClientRect;exports.getContentRect=util_1.getContentRect;exports.getScrollbarWidths=util_1.getScrollbarWidths;exports.preventDefault=util_1.preventDefault;exports.parseFieldSpecs=util_1.parseFieldSpecs;exports.compareByFieldSpecs=util_1.compareByFieldSpecs;exports.compareByFieldSpec=util_1.compareByFieldSpec;exports.flexibleCompare=util_1.flexibleCompare;exports.computeGreatestUnit=util_1.computeGreatestUnit;exports.divideRangeByDuration=util_1.divideRangeByDuration;exports.divideDurationByDuration=util_1.divideDurationByDuration;exports.multiplyDuration=util_1.multiplyDuration;exports.durationHasTime=util_1.durationHasTime;exports.log=util_1.log;exports.warn=util_1.warn;exports.removeExact=util_1.removeExact;exports.intersectRects=util_1.intersectRects;var date_formatting_1=__webpack_require__(47);exports.formatDate=date_formatting_1.formatDate;exports.formatRange=date_formatting_1.formatRange;exports.queryMostGranularFormatUnit=date_formatting_1.queryMostGranularFormatUnit;var locale_1=__webpack_require__(30);exports.datepickerLocale=locale_1.datepickerLocale;exports.locale=locale_1.locale;var moment_ext_1=__webpack_require__(10);exports.moment=moment_ext_1.default;var EmitterMixin_1=__webpack_require__(11);exports.EmitterMixin=EmitterMixin_1.default;var ListenerMixin_1=__webpack_require__(7);exports.ListenerMixin=ListenerMixin_1.default;var Model_1=__webpack_require__(48);exports.Model=Model_1.default;var Constraints_1=__webpack_require__(207);exports.Constraints=Constraints_1.default;var UnzonedRange_1=__webpack_require__(5);exports.UnzonedRange=UnzonedRange_1.default;var ComponentFootprint_1=__webpack_require__(12);exports.ComponentFootprint=ComponentFootprint_1.default;var BusinessHourGenerator_1=__webpack_require__(212);exports.BusinessHourGenerator=BusinessHourGenerator_1.default;var EventDef_1=__webpack_require__(33);exports.EventDef=EventDef_1.default;var EventDefMutation_1=__webpack_require__(36);exports.EventDefMutation=EventDefMutation_1.default;var EventSourceParser_1=__webpack_require__(37);exports.EventSourceParser=EventSourceParser_1.default;var EventSource_1=__webpack_require__(6);exports.EventSource=EventSource_1.default;var ThemeRegistry_1=__webpack_require__(51);exports.defineThemeSystem=ThemeRegistry_1.defineThemeSystem;var EventInstanceGroup_1=__webpack_require__(18);exports.EventInstanceGroup=EventInstanceGroup_1.default;var ArrayEventSource_1=__webpack_require__(52);exports.ArrayEventSource=ArrayEventSource_1.default;var FuncEventSource_1=__webpack_require__(215);exports.FuncEventSource=FuncEventSource_1.default;var JsonFeedEventSource_1=__webpack_require__(216);exports.JsonFeedEventSource=JsonFeedEventSource_1.default;var EventFootprint_1=__webpack_require__(35);exports.EventFootprint=EventFootprint_1.default;var Class_1=__webpack_require__(32);exports.Class=Class_1.default;var Mixin_1=__webpack_require__(14);exports.Mixin=Mixin_1.default;var CoordCache_1=__webpack_require__(53);exports.CoordCache=CoordCache_1.default;var DragListener_1=__webpack_require__(54);exports.DragListener=DragListener_1.default;var Promise_1=__webpack_require__(19);exports.Promise=Promise_1.default;var TaskQueue_1=__webpack_require__(217);exports.TaskQueue=TaskQueue_1.default;var RenderQueue_1=__webpack_require__(218);exports.RenderQueue=RenderQueue_1.default;var Scroller_1=__webpack_require__(39);exports.Scroller=Scroller_1.default;var Theme_1=__webpack_require__(38);exports.Theme=Theme_1.default;var DateComponent_1=__webpack_require__(219);exports.DateComponent=DateComponent_1.default;var InteractiveDateComponent_1=__webpack_require__(40);exports.InteractiveDateComponent=InteractiveDateComponent_1.default;var Calendar_1=__webpack_require__(220);exports.Calendar=Calendar_1.default;var View_1=__webpack_require__(41);exports.View=View_1.default;var ViewRegistry_1=__webpack_require__(21);exports.defineView=ViewRegistry_1.defineView;exports.getViewConfig=ViewRegistry_1.getViewConfig;var DayTableMixin_1=__webpack_require__(55);exports.DayTableMixin=DayTableMixin_1.default;var BusinessHourRenderer_1=__webpack_require__(56);exports.BusinessHourRenderer=BusinessHourRenderer_1.default;var EventRenderer_1=__webpack_require__(42);exports.EventRenderer=EventRenderer_1.default;var FillRenderer_1=__webpack_require__(57);exports.FillRenderer=FillRenderer_1.default;var HelperRenderer_1=__webpack_require__(58);exports.HelperRenderer=HelperRenderer_1.default;var ExternalDropping_1=__webpack_require__(222);exports.ExternalDropping=ExternalDropping_1.default;var EventResizing_1=__webpack_require__(223);exports.EventResizing=EventResizing_1.default;var EventPointing_1=__webpack_require__(59);exports.EventPointing=EventPointing_1.default;var EventDragging_1=__webpack_require__(224);exports.EventDragging=EventDragging_1.default;var DateSelecting_1=__webpack_require__(225);exports.DateSelecting=DateSelecting_1.default;var StandardInteractionsMixin_1=__webpack_require__(60);exports.StandardInteractionsMixin=StandardInteractionsMixin_1.default;var AgendaView_1=__webpack_require__(226);exports.AgendaView=AgendaView_1.default;var TimeGrid_1=__webpack_require__(227);exports.TimeGrid=TimeGrid_1.default;var DayGrid_1=__webpack_require__(61);exports.DayGrid=DayGrid_1.default;var BasicView_1=__webpack_require__(62);exports.BasicView=BasicView_1.default;var MonthView_1=__webpack_require__(229);exports.MonthView=MonthView_1.default;var ListView_1=__webpack_require__(230);exports.ListView=ListView_1.default;/***/},/* 17 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var UnzonedRange_1=__webpack_require__(5);/*
 Meant to be immutable
 */var EventDateProfile=/** @class */function(){function EventDateProfile(start,end,calendar){this.start=start;this.end=end||null;this.unzonedRange=this.buildUnzonedRange(calendar);}/*
     Needs an EventSource object
@@ -36209,11 +36214,11 @@ Meant to be immutable
     */EventDateProfile.prototype.buildUnzonedRange=function(calendar){var startMs=this.start.clone().stripZone().valueOf();var endMs=this.getEnd(calendar).stripZone().valueOf();return new UnzonedRange_1.default(startMs,endMs);};/*
     Needs a Calendar object
     */EventDateProfile.prototype.getEnd=function(calendar){return this.end?this.end.clone():// derive the end from the start and allDay. compute allDay if necessary
-calendar.getDefaultEventEnd(this.isAllDay(),this.start);};return EventDateProfile;}();exports.default=EventDateProfile;/***/},/* 18 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var UnzonedRange_1=__webpack_require__(5);var util_1=__webpack_require__(35);var EventRange_1=__webpack_require__(211);/*
+calendar.getDefaultEventEnd(this.isAllDay(),this.start);};return EventDateProfile;}();exports.default=EventDateProfile;/***/},/* 18 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var UnzonedRange_1=__webpack_require__(5);var util_1=__webpack_require__(34);var EventRange_1=__webpack_require__(211);/*
 It's expected that there will be at least one EventInstance,
 OR that an explicitEventDef is assigned.
 */var EventInstanceGroup=/** @class */function(){function EventInstanceGroup(eventInstances){this.eventInstances=eventInstances||[];}EventInstanceGroup.prototype.getAllEventRanges=function(constraintRange){if(constraintRange){return this.sliceNormalRenderRanges(constraintRange);}else{return this.eventInstances.map(util_1.eventInstanceToEventRange);}};EventInstanceGroup.prototype.sliceRenderRanges=function(constraintRange){if(this.isInverse()){return this.sliceInverseRenderRanges(constraintRange);}else{return this.sliceNormalRenderRanges(constraintRange);}};EventInstanceGroup.prototype.sliceNormalRenderRanges=function(constraintRange){var eventInstances=this.eventInstances;var i;var eventInstance;var slicedRange;var slicedEventRanges=[];for(i=0;i<eventInstances.length;i++){eventInstance=eventInstances[i];slicedRange=eventInstance.dateProfile.unzonedRange.intersect(constraintRange);if(slicedRange){slicedEventRanges.push(new EventRange_1.default(slicedRange,eventInstance.def,eventInstance));}}return slicedEventRanges;};EventInstanceGroup.prototype.sliceInverseRenderRanges=function(constraintRange){var unzonedRanges=this.eventInstances.map(util_1.eventInstanceToUnzonedRange);var ownerDef=this.getEventDef();unzonedRanges=UnzonedRange_1.default.invertRanges(unzonedRanges,constraintRange);return unzonedRanges.map(function(unzonedRange){return new EventRange_1.default(unzonedRange,ownerDef);// don't give an EventInstance
-});};EventInstanceGroup.prototype.isInverse=function(){return this.getEventDef().hasInverseRendering();};EventInstanceGroup.prototype.getEventDef=function(){return this.explicitEventDef||this.eventInstances[0].def;};return EventInstanceGroup;}();exports.default=EventInstanceGroup;/***/},/* 19 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var Theme=/** @class */function(){function Theme(optionsManager){this.optionsManager=optionsManager;this.processIconOverride();}Theme.prototype.processIconOverride=function(){if(this.iconOverrideOption){this.setIconOverride(this.optionsManager.get(this.iconOverrideOption));}};Theme.prototype.setIconOverride=function(iconOverrideHash){var iconClassesCopy;var buttonName;if($.isPlainObject(iconOverrideHash)){iconClassesCopy=$.extend({},this.iconClasses);for(buttonName in iconOverrideHash){iconClassesCopy[buttonName]=this.applyIconOverridePrefix(iconOverrideHash[buttonName]);}this.iconClasses=iconClassesCopy;}else if(iconOverrideHash===false){this.iconClasses={};}};Theme.prototype.applyIconOverridePrefix=function(className){var prefix=this.iconOverridePrefix;if(prefix&&className.indexOf(prefix)!==0){className=prefix+className;}return className;};Theme.prototype.getClass=function(key){return this.classes[key]||'';};Theme.prototype.getIconClass=function(buttonName){var className=this.iconClasses[buttonName];if(className){return this.baseIconClass+' '+className;}return'';};Theme.prototype.getCustomButtonIconClass=function(customButtonProps){var className;if(this.iconOverrideCustomButtonOption){className=customButtonProps[this.iconOverrideCustomButtonOption];if(className){return this.baseIconClass+' '+this.applyIconOverridePrefix(className);}}return'';};return Theme;}();exports.default=Theme;Theme.prototype.classes={};Theme.prototype.iconClasses={};Theme.prototype.baseIconClass='';Theme.prototype.iconOverridePrefix='';/***/},/* 20 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var PromiseStub={construct:function construct(executor){var deferred=$.Deferred();var promise=deferred.promise();if(typeof executor==='function'){executor(function(val){deferred.resolve(val);attachImmediatelyResolvingThen(promise,val);},function(){deferred.reject();attachImmediatelyRejectingThen(promise);});}return promise;},resolve:function resolve(val){var deferred=$.Deferred().resolve(val);var promise=deferred.promise();attachImmediatelyResolvingThen(promise,val);return promise;},reject:function reject(){var deferred=$.Deferred().reject();var promise=deferred.promise();attachImmediatelyRejectingThen(promise);return promise;}};exports.default=PromiseStub;function attachImmediatelyResolvingThen(promise,val){promise.then=function(onResolve){if(typeof onResolve==='function'){return PromiseStub.resolve(onResolve(val));}return promise;};}function attachImmediatelyRejectingThen(promise){promise.then=function(onResolve,onReject){if(typeof onReject==='function'){onReject();}return promise;};}/***/},/* 21 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var exportHooks=__webpack_require__(16);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);exportHooks.touchMouseIgnoreWait=500;var globalEmitter=null;var neededCount=0;/*
+});};EventInstanceGroup.prototype.isInverse=function(){return this.getEventDef().hasInverseRendering();};EventInstanceGroup.prototype.getEventDef=function(){return this.explicitEventDef||this.eventInstances[0].def;};return EventInstanceGroup;}();exports.default=EventInstanceGroup;/***/},/* 19 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var PromiseStub={construct:function construct(executor){var deferred=$.Deferred();var promise=deferred.promise();if(typeof executor==='function'){executor(function(val){deferred.resolve(val);attachImmediatelyResolvingThen(promise,val);},function(){deferred.reject();attachImmediatelyRejectingThen(promise);});}return promise;},resolve:function resolve(val){var deferred=$.Deferred().resolve(val);var promise=deferred.promise();attachImmediatelyResolvingThen(promise,val);return promise;},reject:function reject(){var deferred=$.Deferred().reject();var promise=deferred.promise();attachImmediatelyRejectingThen(promise);return promise;}};exports.default=PromiseStub;function attachImmediatelyResolvingThen(promise,val){promise.then=function(onResolve){if(typeof onResolve==='function'){return PromiseStub.resolve(onResolve(val));}return promise;};}function attachImmediatelyRejectingThen(promise){promise.then=function(onResolve,onReject){if(typeof onReject==='function'){onReject();}return promise;};}/***/},/* 20 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var exportHooks=__webpack_require__(16);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);exportHooks.touchMouseIgnoreWait=500;var globalEmitter=null;var neededCount=0;/*
 Listens to document and window-level user-interaction events, like touch events and mouse events,
 and fires these events as-is to whoever is observing a GlobalEmitter.
 Best when used as a singleton via GlobalEmitter.get()
@@ -36247,7 +36252,7 @@ GlobalEmitter.prototype.handleMouseDown=function(ev){if(!this.shouldIgnoreMouse(
 // -----------------------------------------------------------------------------------------------------------------
 GlobalEmitter.prototype.handleSelectStart=function(ev){this.trigger('selectstart',ev);};GlobalEmitter.prototype.handleContextMenu=function(ev){this.trigger('contextmenu',ev);};GlobalEmitter.prototype.handleScroll=function(ev){this.trigger('scroll',ev);};// Utils
 // -----------------------------------------------------------------------------------------------------------------
-GlobalEmitter.prototype.stopTouch=function(ev,skipMouseIgnore){if(skipMouseIgnore===void 0){skipMouseIgnore=false;}if(this.isTouching){this.isTouching=false;this.trigger('touchend',ev);if(!skipMouseIgnore){this.startTouchMouseIgnore();}}};GlobalEmitter.prototype.startTouchMouseIgnore=function(){var _this=this;var wait=exportHooks.touchMouseIgnoreWait;if(wait){this.mouseIgnoreDepth++;setTimeout(function(){_this.mouseIgnoreDepth--;},wait);}};GlobalEmitter.prototype.shouldIgnoreMouse=function(){return this.isTouching||Boolean(this.mouseIgnoreDepth);};return GlobalEmitter;}();exports.default=GlobalEmitter;ListenerMixin_1.default.mixInto(GlobalEmitter);EmitterMixin_1.default.mixInto(GlobalEmitter);/***/},/* 22 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var exportHooks=__webpack_require__(16);exports.viewHash={};exportHooks.views=exports.viewHash;function defineView(viewName,viewConfig){exports.viewHash[viewName]=viewConfig;}exports.defineView=defineView;function getViewConfig(viewName){return exports.viewHash[viewName];}exports.getViewConfig=getViewConfig;/***/},/* 23 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);var DragListener_1=__webpack_require__(54);/* Tracks mouse movements over a component and raises events about which hit the mouse is over.
+GlobalEmitter.prototype.stopTouch=function(ev,skipMouseIgnore){if(skipMouseIgnore===void 0){skipMouseIgnore=false;}if(this.isTouching){this.isTouching=false;this.trigger('touchend',ev);if(!skipMouseIgnore){this.startTouchMouseIgnore();}}};GlobalEmitter.prototype.startTouchMouseIgnore=function(){var _this=this;var wait=exportHooks.touchMouseIgnoreWait;if(wait){this.mouseIgnoreDepth++;setTimeout(function(){_this.mouseIgnoreDepth--;},wait);}};GlobalEmitter.prototype.shouldIgnoreMouse=function(){return this.isTouching||Boolean(this.mouseIgnoreDepth);};return GlobalEmitter;}();exports.default=GlobalEmitter;ListenerMixin_1.default.mixInto(GlobalEmitter);EmitterMixin_1.default.mixInto(GlobalEmitter);/***/},/* 21 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var exportHooks=__webpack_require__(16);exports.viewHash={};exportHooks.views=exports.viewHash;function defineView(viewName,viewConfig){exports.viewHash[viewName]=viewConfig;}exports.defineView=defineView;function getViewConfig(viewName){return exports.viewHash[viewName];}exports.getViewConfig=getViewConfig;/***/},/* 22 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);var DragListener_1=__webpack_require__(54);/* Tracks mouse movements over a component and raises events about which hit the mouse is over.
 ------------------------------------------------------------------------------------------------------------------------
 options:
 - subjectEl
@@ -36281,7 +36286,7 @@ HitDragListener.prototype.queryHit=function(left,top){if(this.coordAdjust){left+
 // Two null values will be considered equal, as two "out of the component" states are the same.
 function isHitsEqual(hit0,hit1){if(!hit0&&!hit1){return true;}if(hit0&&hit1){return hit0.component===hit1.component&&isHitPropsWithin(hit0,hit1)&&isHitPropsWithin(hit1,hit0);// ensures all props are identical
 }return false;}// Returns true if all of subHit's non-standard properties are within superHit
-function isHitPropsWithin(subHit,superHit){for(var propName in subHit){if(!/^(component|left|right|top|bottom)$/.test(propName)){if(subHit[propName]!==superHit[propName]){return false;}}}return true;}/***/},,,,,,,,/* 24 *//* 25 *//* 26 *//* 27 *//* 28 *//* 29 *//* 30 *//* 31 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var moment=__webpack_require__(0);var exportHooks=__webpack_require__(16);var options_1=__webpack_require__(32);var util_1=__webpack_require__(4);exports.localeOptionHash={};exportHooks.locales=exports.localeOptionHash;// NOTE: can't guarantee any of these computations will run because not every locale has datepicker
+function isHitPropsWithin(subHit,superHit){for(var propName in subHit){if(!/^(component|left|right|top|bottom)$/.test(propName)){if(subHit[propName]!==superHit[propName]){return false;}}}return true;}/***/},,,,,,,,/* 23 *//* 24 *//* 25 *//* 26 *//* 27 *//* 28 *//* 29 *//* 30 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var moment=__webpack_require__(0);var exportHooks=__webpack_require__(16);var options_1=__webpack_require__(31);var util_1=__webpack_require__(4);exports.localeOptionHash={};exportHooks.locales=exports.localeOptionHash;// NOTE: can't guarantee any of these computations will run because not every locale has datepicker
 // configs, so make sure there are English fallbacks for these in the defaults file.
 var dpComputableOptions={buttonText:function buttonText(dpOptions){return{// the translations sometimes wrongly contain HTML entities
 prev:util_1.stripHtmlEntities(dpOptions.prevText),next:util_1.stripHtmlEntities(dpOptions.nextText),today:util_1.stripHtmlEntities(dpOptions.currentText)};},// Produces format strings like "MMMM YYYY" -> "September 2014"
@@ -36334,7 +36339,7 @@ $.each(momComputableOptions,function(name,func){if(fcOptions[name]==null){fcOpti
 options_1.globalDefaults.locale=localeCode;}exports.locale=locale;// Returns moment's internal locale data. If doesn't exist, returns English.
 function getMomentLocaleData(localeCode){return moment.localeData(localeCode)||moment.localeData('en');}exports.getMomentLocaleData=getMomentLocaleData;// Initialize English by forcing computation of moment-derived options.
 // Also, sets it as the default.
-locale('en',options_1.englishDefaults);/***/},/* 32 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var util_1=__webpack_require__(4);exports.globalDefaults={titleRangeSeparator:' \u2013 ',monthYearFormat:'MMMM YYYY',defaultTimedEventDuration:'02:00:00',defaultAllDayEventDuration:{days:1},forceEventDuration:false,nextDayThreshold:'09:00:00',// display
+locale('en',options_1.englishDefaults);/***/},/* 31 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var util_1=__webpack_require__(4);exports.globalDefaults={titleRangeSeparator:' \u2013 ',monthYearFormat:'MMMM YYYY',defaultTimedEventDuration:'02:00:00',defaultAllDayEventDuration:{days:1},forceEventDuration:false,nextDayThreshold:'09:00:00',// display
 columnHeader:true,defaultView:'month',aspectRatio:1.35,header:{left:'title',center:'',right:'today prev,next'},weekends:true,weekNumbers:false,weekNumberTitle:'W',weekNumberCalculation:'local',// editable: false,
 // nowIndicator: false,
 scrollTime:'06:00:00',minTime:'00:00:00',maxTime:'24:00:00',showNonCurrentDates:true,// event ajax
@@ -36349,12 +36354,12 @@ dragOpacity:.75,dragRevertDuration:500,dragScroll:true,// selectable: false,
 unselectAuto:true,// selectMinDistance: 0,
 dropAccept:'*',eventOrder:'title',// eventRenderWait: null,
 eventLimit:false,eventLimitText:'more',eventLimitClick:'popover',dayPopoverFormat:'LL',handleWindowResize:true,windowResizeDelay:100,longPressDelay:1000};exports.englishDefaults={dayPopoverFormat:'dddd, MMMM D'};exports.rtlDefaults={header:{left:'next,prev today',center:'',right:'title'},buttonIcons:{prev:'right-single-arrow',next:'left-single-arrow',prevYear:'right-double-arrow',nextYear:'left-double-arrow'},themeButtonIcons:{prev:'circle-triangle-e',next:'circle-triangle-w',nextYear:'seek-prev',prevYear:'seek-next'}};var complexOptions=['header','footer','buttonText','buttonIcons','themeButtonIcons'];// Merges an array of option objects into a single object
-function mergeOptions(optionObjs){return util_1.mergeProps(optionObjs,complexOptions);}exports.mergeOptions=mergeOptions;/***/},/* 33 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);// Class that all other classes will inherit from
+function mergeOptions(optionObjs){return util_1.mergeProps(optionObjs,complexOptions);}exports.mergeOptions=mergeOptions;/***/},/* 32 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);// Class that all other classes will inherit from
 var Class=/** @class */function(){function Class(){}// Called on a class to create a subclass.
 // LIMITATION: cannot provide a constructor!
 Class.extend=function(members){var SubClass=/** @class */function(_super){tslib_1.__extends(SubClass,_super);function SubClass(){return _super!==null&&_super.apply(this,arguments)||this;}return SubClass;}(this);util_1.copyOwnProps(members,SubClass.prototype);return SubClass;};// Adds new member variables/methods to the class's prototype.
 // Can be called with another class, or a plain object hash containing new members.
-Class.mixin=function(members){util_1.copyOwnProps(members,this.prototype);};return Class;}();exports.default=Class;/***/},/* 34 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var ParsableModelMixin_1=__webpack_require__(208);var EventDef=/** @class */function(){function EventDef(source){this.source=source;this.className=[];this.miscProps={};}EventDef.parse=function(rawInput,source){var def=new this(source);if(def.applyProps(rawInput)){return def;}return false;};EventDef.normalizeId=function(id){return String(id);};EventDef.generateId=function(){return'_fc'+EventDef.uuid++;};EventDef.prototype.clone=function(){var copy=new this.constructor(this.source);copy.id=this.id;copy.rawId=this.rawId;copy.uid=this.uid;// not really unique anymore :(
+Class.mixin=function(members){util_1.copyOwnProps(members,this.prototype);};return Class;}();exports.default=Class;/***/},/* 33 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var ParsableModelMixin_1=__webpack_require__(208);var EventDef=/** @class */function(){function EventDef(source){this.source=source;this.className=[];this.miscProps={};}EventDef.parse=function(rawInput,source){var def=new this(source);if(def.applyProps(rawInput)){return def;}return false;};EventDef.normalizeId=function(id){return String(id);};EventDef.generateId=function(){return'_fc'+EventDef.uuid++;};EventDef.prototype.clone=function(){var copy=new this.constructor(this.source);copy.id=this.id;copy.rawId=this.rawId;copy.uid=this.uid;// not really unique anymore :(
 EventDef.copyVerbatimStandardProps(this,copy);copy.className=this.className.slice();// copy
 copy.miscProps=$.extend({},this.miscProps);return copy;};EventDef.prototype.hasInverseRendering=function(){return this.getRendering()==='inverse-background';};EventDef.prototype.hasBgRendering=function(){var rendering=this.getRendering();return rendering==='inverse-background'||rendering==='background';};EventDef.prototype.getRendering=function(){if(this.rendering!=null){return this.rendering;}return this.source.rendering;};EventDef.prototype.getConstraint=function(){if(this.constraint!=null){return this.constraint;}if(this.source.constraint!=null){return this.source.constraint;}return this.source.calendar.opt('eventConstraint');// what about View option?
 };EventDef.prototype.getOverlap=function(){if(this.overlap!=null){return this.overlap;}if(this.source.overlap!=null){return this.source.overlap;}return this.source.calendar.opt('eventOverlap');// what about View option?
@@ -36362,9 +36367,9 @@ copy.miscProps=$.extend({},this.miscProps);return copy;};EventDef.prototype.hasI
 obj.allDay=this.isAllDay();if(this.rawId!=null){obj.id=this.rawId;}EventDef.copyVerbatimStandardProps(this,obj);return obj;};EventDef.prototype.applyManualStandardProps=function(rawProps){if(rawProps.id!=null){this.id=EventDef.normalizeId(this.rawId=rawProps.id);}else{this.id=EventDef.generateId();}if(rawProps._id!=null){this.uid=String(rawProps._id);}else{this.uid=EventDef.generateId();}// TODO: converge with EventSource
 if($.isArray(rawProps.className)){this.className=rawProps.className;}if(typeof rawProps.className==='string'){this.className=rawProps.className.split(/\s+/);}return true;};EventDef.prototype.applyMiscProps=function(rawProps){$.extend(this.miscProps,rawProps);};EventDef.uuid=0;EventDef.defineStandardProps=ParsableModelMixin_1.default.defineStandardProps;EventDef.copyVerbatimStandardProps=ParsableModelMixin_1.default.copyVerbatimStandardProps;return EventDef;}();exports.default=EventDef;ParsableModelMixin_1.default.mixInto(EventDef);EventDef.defineStandardProps({// not automatically assigned (`false`)
 _id:false,id:false,className:false,source:false,// automatically assigned (`true`)
-title:true,url:true,rendering:true,constraint:true,overlap:true,editable:true,startEditable:true,durationEditable:true,color:true,backgroundColor:true,borderColor:true,textColor:true});/***/},/* 35 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var EventRange_1=__webpack_require__(211);var EventFootprint_1=__webpack_require__(36);var ComponentFootprint_1=__webpack_require__(12);function eventDefsToEventInstances(eventDefs,unzonedRange){var eventInstances=[];var i;for(i=0;i<eventDefs.length;i++){eventInstances.push.apply(eventInstances,// append
+title:true,url:true,rendering:true,constraint:true,overlap:true,editable:true,startEditable:true,durationEditable:true,color:true,backgroundColor:true,borderColor:true,textColor:true});/***/},/* 34 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var EventRange_1=__webpack_require__(211);var EventFootprint_1=__webpack_require__(35);var ComponentFootprint_1=__webpack_require__(12);function eventDefsToEventInstances(eventDefs,unzonedRange){var eventInstances=[];var i;for(i=0;i<eventDefs.length;i++){eventInstances.push.apply(eventInstances,// append
 eventDefs[i].buildInstances(unzonedRange));}return eventInstances;}exports.eventDefsToEventInstances=eventDefsToEventInstances;function eventInstanceToEventRange(eventInstance){return new EventRange_1.default(eventInstance.dateProfile.unzonedRange,eventInstance.def,eventInstance);}exports.eventInstanceToEventRange=eventInstanceToEventRange;function eventRangeToEventFootprint(eventRange){return new EventFootprint_1.default(new ComponentFootprint_1.default(eventRange.unzonedRange,eventRange.eventDef.isAllDay()),eventRange.eventDef,eventRange.eventInstance// might not exist
-);}exports.eventRangeToEventFootprint=eventRangeToEventFootprint;function eventInstanceToUnzonedRange(eventInstance){return eventInstance.dateProfile.unzonedRange;}exports.eventInstanceToUnzonedRange=eventInstanceToUnzonedRange;function eventFootprintToComponentFootprint(eventFootprint){return eventFootprint.componentFootprint;}exports.eventFootprintToComponentFootprint=eventFootprintToComponentFootprint;/***/},/* 36 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});var EventFootprint=/** @class */function(){function EventFootprint(componentFootprint,eventDef,eventInstance){this.componentFootprint=componentFootprint;this.eventDef=eventDef;if(eventInstance){this.eventInstance=eventInstance;}}EventFootprint.prototype.getEventLegacy=function(){return(this.eventInstance||this.eventDef).toLegacy();};return EventFootprint;}();exports.default=EventFootprint;/***/},/* 37 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var util_1=__webpack_require__(4);var EventDateProfile_1=__webpack_require__(17);var EventDef_1=__webpack_require__(34);var EventDefDateMutation_1=__webpack_require__(50);var SingleEventDef_1=__webpack_require__(13);var EventDefMutation=/** @class */function(){function EventDefMutation(){}EventDefMutation.createFromRawProps=function(eventInstance,rawProps,largeUnit){var eventDef=eventInstance.def;var dateProps={};var standardProps={};var miscProps={};var verbatimStandardProps={};var eventDefId=null;var className=null;var propName;var dateProfile;var dateMutation;var defMutation;for(propName in rawProps){if(EventDateProfile_1.default.isStandardProp(propName)){dateProps[propName]=rawProps[propName];}else if(eventDef.isStandardProp(propName)){standardProps[propName]=rawProps[propName];}else if(eventDef.miscProps[propName]!==rawProps[propName]){miscProps[propName]=rawProps[propName];}}dateProfile=EventDateProfile_1.default.parse(dateProps,eventDef.source);if(dateProfile){dateMutation=EventDefDateMutation_1.default.createFromDiff(eventInstance.dateProfile,dateProfile,largeUnit);}if(standardProps.id!==eventDef.id){eventDefId=standardProps.id;// only apply if there's a change
+);}exports.eventRangeToEventFootprint=eventRangeToEventFootprint;function eventInstanceToUnzonedRange(eventInstance){return eventInstance.dateProfile.unzonedRange;}exports.eventInstanceToUnzonedRange=eventInstanceToUnzonedRange;function eventFootprintToComponentFootprint(eventFootprint){return eventFootprint.componentFootprint;}exports.eventFootprintToComponentFootprint=eventFootprintToComponentFootprint;/***/},/* 35 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});var EventFootprint=/** @class */function(){function EventFootprint(componentFootprint,eventDef,eventInstance){this.componentFootprint=componentFootprint;this.eventDef=eventDef;if(eventInstance){this.eventInstance=eventInstance;}}EventFootprint.prototype.getEventLegacy=function(){return(this.eventInstance||this.eventDef).toLegacy();};return EventFootprint;}();exports.default=EventFootprint;/***/},/* 36 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var util_1=__webpack_require__(4);var EventDateProfile_1=__webpack_require__(17);var EventDef_1=__webpack_require__(33);var EventDefDateMutation_1=__webpack_require__(50);var SingleEventDef_1=__webpack_require__(13);var EventDefMutation=/** @class */function(){function EventDefMutation(){}EventDefMutation.createFromRawProps=function(eventInstance,rawProps,largeUnit){var eventDef=eventInstance.def;var dateProps={};var standardProps={};var miscProps={};var verbatimStandardProps={};var eventDefId=null;var className=null;var propName;var dateProfile;var dateMutation;var defMutation;for(propName in rawProps){if(EventDateProfile_1.default.isStandardProp(propName)){dateProps[propName]=rawProps[propName];}else if(eventDef.isStandardProp(propName)){standardProps[propName]=rawProps[propName];}else if(eventDef.miscProps[propName]!==rawProps[propName]){miscProps[propName]=rawProps[propName];}}dateProfile=EventDateProfile_1.default.parse(dateProps,eventDef.source);if(dateProfile){dateMutation=EventDefDateMutation_1.default.createFromDiff(eventInstance.dateProfile,dateProfile,largeUnit);}if(standardProps.id!==eventDef.id){eventDefId=standardProps.id;// only apply if there's a change
 }if(!util_1.isArraysEqual(standardProps.className,eventDef.className)){className=standardProps.className;// only apply if there's a change
 }EventDef_1.default.copyVerbatimStandardProps(standardProps,// src
 verbatimStandardProps// dest
@@ -36379,8 +36384,8 @@ if(this.className){eventDef.className=this.className;}// can't undo
 if(this.verbatimStandardProps){SingleEventDef_1.default.copyVerbatimStandardProps(this.verbatimStandardProps,// src
 eventDef// dest
 );}// can't undo
-if(this.miscProps){eventDef.applyMiscProps(this.miscProps);}if(origDateProfile){return function(){eventDef.dateProfile=origDateProfile;};}else{return function(){};}};EventDefMutation.prototype.setDateMutation=function(dateMutation){if(dateMutation&&!dateMutation.isEmpty()){this.dateMutation=dateMutation;}else{this.dateMutation=null;}};EventDefMutation.prototype.isEmpty=function(){return!this.dateMutation;};return EventDefMutation;}();exports.default=EventDefMutation;/***/},/* 38 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});exports.default={sourceClasses:[],registerClass:function registerClass(EventSourceClass){this.sourceClasses.unshift(EventSourceClass);// give highest priority
-},parse:function parse(rawInput,calendar){var sourceClasses=this.sourceClasses;var i;var eventSource;for(i=0;i<sourceClasses.length;i++){eventSource=sourceClasses[i].parse(rawInput,calendar);if(eventSource){return eventSource;}}}};/***/},/* 39 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Class_1=__webpack_require__(33);/*
+if(this.miscProps){eventDef.applyMiscProps(this.miscProps);}if(origDateProfile){return function(){eventDef.dateProfile=origDateProfile;};}else{return function(){};}};EventDefMutation.prototype.setDateMutation=function(dateMutation){if(dateMutation&&!dateMutation.isEmpty()){this.dateMutation=dateMutation;}else{this.dateMutation=null;}};EventDefMutation.prototype.isEmpty=function(){return!this.dateMutation;};return EventDefMutation;}();exports.default=EventDefMutation;/***/},/* 37 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});exports.default={sourceClasses:[],registerClass:function registerClass(EventSourceClass){this.sourceClasses.unshift(EventSourceClass);// give highest priority
+},parse:function parse(rawInput,calendar){var sourceClasses=this.sourceClasses;var i;var eventSource;for(i=0;i<sourceClasses.length;i++){eventSource=sourceClasses[i].parse(rawInput,calendar);if(eventSource){return eventSource;}}}};/***/},/* 38 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var Theme=/** @class */function(){function Theme(optionsManager){this.optionsManager=optionsManager;this.processIconOverride();}Theme.prototype.processIconOverride=function(){if(this.iconOverrideOption){this.setIconOverride(this.optionsManager.get(this.iconOverrideOption));}};Theme.prototype.setIconOverride=function(iconOverrideHash){var iconClassesCopy;var buttonName;if($.isPlainObject(iconOverrideHash)){iconClassesCopy=$.extend({},this.iconClasses);for(buttonName in iconOverrideHash){iconClassesCopy[buttonName]=this.applyIconOverridePrefix(iconOverrideHash[buttonName]);}this.iconClasses=iconClassesCopy;}else if(iconOverrideHash===false){this.iconClasses={};}};Theme.prototype.applyIconOverridePrefix=function(className){var prefix=this.iconOverridePrefix;if(prefix&&className.indexOf(prefix)!==0){className=prefix+className;}return className;};Theme.prototype.getClass=function(key){return this.classes[key]||'';};Theme.prototype.getIconClass=function(buttonName){var className=this.iconClasses[buttonName];if(className){return this.baseIconClass+' '+className;}return'';};Theme.prototype.getCustomButtonIconClass=function(customButtonProps){var className;if(this.iconOverrideCustomButtonOption){className=customButtonProps[this.iconOverrideCustomButtonOption];if(className){return this.baseIconClass+' '+this.applyIconOverridePrefix(className);}}return'';};return Theme;}();exports.default=Theme;Theme.prototype.classes={};Theme.prototype.iconClasses={};Theme.prototype.baseIconClass='';Theme.prototype.iconOverridePrefix='';/***/},/* 39 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Class_1=__webpack_require__(32);/*
 Embodies a div that has potential scrollbars
 */var Scroller=/** @class */function(_super){tslib_1.__extends(Scroller,_super);function Scroller(options){var _this=_super.call(this)||this;options=options||{};_this.overflowX=options.overflowX||options.overflow||'auto';_this.overflowY=options.overflowY||options.overflow||'auto';return _this;}Scroller.prototype.render=function(){this.el=this.renderEl();this.applyOverflow();};Scroller.prototype.renderEl=function(){return this.scrollEl=$('<div class="fc-scroller"></div>');};// sets to natural height, unlocks overflow
 Scroller.prototype.clear=function(){this.setHeight('auto');this.applyOverflow();};Scroller.prototype.destroy=function(){this.el.remove();};// Overflow
@@ -36394,7 +36399,7 @@ this.scrollEl[0].scrollWidth-1>this.scrollEl[0].clientWidth?'scroll':'hidden';}i
 // OR scrolling pane with massless scrollbars?
 this.scrollEl[0].scrollHeight-1>this.scrollEl[0].clientHeight?'scroll':'hidden';}this.scrollEl.css({'overflow-x':overflowX,'overflow-y':overflowY});};// Getters / Setters
 // -----------------------------------------------------------------------------------------------------------------
-Scroller.prototype.setHeight=function(height){this.scrollEl.height(height);};Scroller.prototype.getScrollTop=function(){return this.scrollEl.scrollTop();};Scroller.prototype.setScrollTop=function(top){this.scrollEl.scrollTop(top);};Scroller.prototype.getClientWidth=function(){return this.scrollEl[0].clientWidth;};Scroller.prototype.getClientHeight=function(){return this.scrollEl[0].clientHeight;};Scroller.prototype.getScrollbarWidths=function(){return util_1.getScrollbarWidths(this.scrollEl);};return Scroller;}(Class_1.default);exports.default=Scroller;/***/},/* 40 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var DateComponent_1=__webpack_require__(219);var GlobalEmitter_1=__webpack_require__(21);var InteractiveDateComponent=/** @class */function(_super){tslib_1.__extends(InteractiveDateComponent,_super);function InteractiveDateComponent(_view,_options){var _this=_super.call(this,_view,_options)||this;// self-config, overridable by subclasses
+Scroller.prototype.setHeight=function(height){this.scrollEl.height(height);};Scroller.prototype.getScrollTop=function(){return this.scrollEl.scrollTop();};Scroller.prototype.setScrollTop=function(top){this.scrollEl.scrollTop(top);};Scroller.prototype.getClientWidth=function(){return this.scrollEl[0].clientWidth;};Scroller.prototype.getClientHeight=function(){return this.scrollEl[0].clientHeight;};Scroller.prototype.getScrollbarWidths=function(){return util_1.getScrollbarWidths(this.scrollEl);};return Scroller;}(Class_1.default);exports.default=Scroller;/***/},/* 40 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var DateComponent_1=__webpack_require__(219);var GlobalEmitter_1=__webpack_require__(20);var InteractiveDateComponent=/** @class */function(_super){tslib_1.__extends(InteractiveDateComponent,_super);function InteractiveDateComponent(_view,_options){var _this=_super.call(this,_view,_options)||this;// self-config, overridable by subclasses
 _this.segSelector='.fc-event-container > *';// what constitutes an event element?
 if(_this.dateSelectingClass){_this.dateClicking=new _this.dateClickingClass(_this);}if(_this.dateSelectingClass){_this.dateSelecting=new _this.dateSelectingClass(_this);}if(_this.eventPointingClass){_this.eventPointing=new _this.eventPointingClass(_this);}if(_this.eventDraggingClass&&_this.eventPointing){_this.eventDragging=new _this.eventDraggingClass(_this,_this.eventPointing);}if(_this.eventResizingClass&&_this.eventPointing){_this.eventResizing=new _this.eventResizingClass(_this,_this.eventPointing);}if(_this.externalDroppingClass){_this.externalDropping=new _this.externalDroppingClass(_this);}return _this;}// Sets the container element that the view should render inside of, does global DOM-related initializations,
 // and renders all the non-date-related content inside.
@@ -36437,7 +36442,7 @@ InteractiveDateComponent.prototype.isExternalInstanceGroupAllowed=function(event
 // TODO: pass in eventInstanceGroup instead
 //  because we don't want calendar's constraint system to depend on a component's
 //  determination of footprints.
-if(!view.calendar.constraints.isSelectionFootprintAllowed(eventFootprints[i].componentFootprint)){return false;}}return true;};return InteractiveDateComponent;}(DateComponent_1.default);exports.default=InteractiveDateComponent;/***/},/* 41 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var util_1=__webpack_require__(4);var RenderQueue_1=__webpack_require__(218);var DateProfileGenerator_1=__webpack_require__(221);var InteractiveDateComponent_1=__webpack_require__(40);var GlobalEmitter_1=__webpack_require__(21);var UnzonedRange_1=__webpack_require__(5);/* An abstract class from which other views inherit from
+if(!view.calendar.constraints.isSelectionFootprintAllowed(eventFootprints[i].componentFootprint)){return false;}}return true;};return InteractiveDateComponent;}(DateComponent_1.default);exports.default=InteractiveDateComponent;/***/},/* 41 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var util_1=__webpack_require__(4);var RenderQueue_1=__webpack_require__(218);var DateProfileGenerator_1=__webpack_require__(221);var InteractiveDateComponent_1=__webpack_require__(40);var GlobalEmitter_1=__webpack_require__(20);var UnzonedRange_1=__webpack_require__(5);/* An abstract class from which other views inherit from
 ----------------------------------------------------------------------------------------------------------------------*/var View=/** @class */function(_super){tslib_1.__extends(View,_super);function View(calendar,viewSpec){var _this=_super.call(this,null,viewSpec.options)||this;_this.batchRenderDepth=0;_this.isSelected=false;// boolean whether a range of time is user-selected or not
 _this.calendar=calendar;_this.viewSpec=viewSpec;// shortcuts
 _this.type=viewSpec.type;// .name is deprecated
@@ -36700,7 +36705,7 @@ Accepts an almost-finally-formatted string and processes the "maybe" control cha
 // -------------------------------------------------------------------------------------------------
 /*
 Returns a unit string, either 'year', 'month', 'day', or null for the most granular formatting token in the string.
-*/function queryMostGranularFormatUnit(formatStr){var chunks=chunkFormatString(formatStr);var i;var chunk;var candidate;var best;for(i=0;i<chunks.length;i++){chunk=chunks[i];if(chunk.token){candidate=largeTokenMap[chunk.token.charAt(0)];if(candidate){if(!best||candidate.value>best.value){best=candidate;}}}}if(best){return best.unit;}return null;}exports.queryMostGranularFormatUnit=queryMostGranularFormatUnit;/***/},/* 48 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Class_1=__webpack_require__(33);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);var Model=/** @class */function(_super){tslib_1.__extends(Model,_super);function Model(){var _this=_super.call(this)||this;_this._watchers={};_this._props={};_this.applyGlobalWatchers();_this.constructed();return _this;}Model.watch=function(name){var args=[];for(var _i=1;_i<arguments.length;_i++){args[_i-1]=arguments[_i];}// subclasses should make a masked-copy of the superclass's map
+*/function queryMostGranularFormatUnit(formatStr){var chunks=chunkFormatString(formatStr);var i;var chunk;var candidate;var best;for(i=0;i<chunks.length;i++){chunk=chunks[i];if(chunk.token){candidate=largeTokenMap[chunk.token.charAt(0)];if(candidate){if(!best||candidate.value>best.value){best=candidate;}}}}if(best){return best.unit;}return null;}exports.queryMostGranularFormatUnit=queryMostGranularFormatUnit;/***/},/* 48 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Class_1=__webpack_require__(32);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);var Model=/** @class */function(_super){tslib_1.__extends(Model,_super);function Model(){var _this=_super.call(this)||this;_this._watchers={};_this._props={};_this.applyGlobalWatchers();_this.constructed();return _this;}Model.watch=function(name){var args=[];for(var _i=1;_i<arguments.length;_i++){args[_i-1]=arguments[_i];}// subclasses should make a masked-copy of the superclass's map
 // TODO: write test
 if(!this.prototype.hasOwnProperty('_globalWatchArgs')){this.prototype._globalWatchArgs=Object.create(this.prototype._globalWatchArgs);}this.prototype._globalWatchArgs[name]=args;};Model.prototype.constructed=function(){// useful for monkeypatching. TODO: BaseClass?
 };Model.prototype.applyGlobalWatchers=function(){var map=this._globalWatchArgs;var name;for(name in map){this.watch.apply(this,[name].concat(map[name]));}};Model.prototype.has=function(name){return name in this._props;};Model.prototype.get=function(name){if(name===undefined){return this._props;}return this._props[name];};Model.prototype.set=function(name,val){var newProps;if(typeof name==='string'){newProps={};newProps[name]=val===undefined?null:val;}else{newProps=name;}this.setProps(newProps);};Model.prototype.reset=function(newProps){var oldProps=this._props;var changeset={};// will have undefined's to signal unsets
@@ -36731,7 +36736,7 @@ endDiff=subtractDates(dateProfile1.unzonedRange.getEnd(),dateProfile0.unzonedRan
     returns an undo function.
     */EventDefDateMutation.prototype.buildNewDateProfile=function(eventDateProfile,calendar){var start=eventDateProfile.start.clone();var end=null;var shouldRezone=false;if(eventDateProfile.end&&!this.clearEnd){end=eventDateProfile.end.clone();}else if(this.endDelta&&!end){end=calendar.getDefaultEventEnd(eventDateProfile.isAllDay(),start);}if(this.forceTimed){shouldRezone=true;if(!start.hasTime()){start.time(0);}if(end&&!end.hasTime()){end.time(0);}}else if(this.forceAllDay){if(start.hasTime()){start.stripTime();}if(end&&end.hasTime()){end.stripTime();}}if(this.dateDelta){shouldRezone=true;start.add(this.dateDelta);if(end){end.add(this.dateDelta);}}// do this before adding startDelta to start, so we can work off of start
 if(this.endDelta){shouldRezone=true;end.add(this.endDelta);}if(this.startDelta){shouldRezone=true;start.add(this.startDelta);}if(shouldRezone){start=calendar.applyTimezone(start);if(end){end=calendar.applyTimezone(end);}}// TODO: okay to access calendar option?
-if(!end&&calendar.opt('forceEventDuration')){end=calendar.getDefaultEventEnd(eventDateProfile.isAllDay(),start);}return new EventDateProfile_1.default(start,end,calendar);};EventDefDateMutation.prototype.setDateDelta=function(dateDelta){if(dateDelta&&dateDelta.valueOf()){this.dateDelta=dateDelta;}else{this.dateDelta=null;}};EventDefDateMutation.prototype.setStartDelta=function(startDelta){if(startDelta&&startDelta.valueOf()){this.startDelta=startDelta;}else{this.startDelta=null;}};EventDefDateMutation.prototype.setEndDelta=function(endDelta){if(endDelta&&endDelta.valueOf()){this.endDelta=endDelta;}else{this.endDelta=null;}};EventDefDateMutation.prototype.isEmpty=function(){return!this.clearEnd&&!this.forceTimed&&!this.forceAllDay&&!this.dateDelta&&!this.startDelta&&!this.endDelta;};return EventDefDateMutation;}();exports.default=EventDefDateMutation;/***/},/* 51 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var StandardTheme_1=__webpack_require__(213);var JqueryUiTheme_1=__webpack_require__(214);var themeClassHash={};function defineThemeSystem(themeName,themeClass){themeClassHash[themeName]=themeClass;}exports.defineThemeSystem=defineThemeSystem;function getThemeSystemClass(themeSetting){if(!themeSetting){return StandardTheme_1.default;}else if(themeSetting===true){return JqueryUiTheme_1.default;}else{return themeClassHash[themeSetting];}}exports.getThemeSystemClass=getThemeSystemClass;/***/},/* 52 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Promise_1=__webpack_require__(20);var EventSource_1=__webpack_require__(6);var SingleEventDef_1=__webpack_require__(13);var ArrayEventSource=/** @class */function(_super){tslib_1.__extends(ArrayEventSource,_super);function ArrayEventSource(calendar){var _this=_super.call(this,calendar)||this;_this.eventDefs=[];// for if setRawEventDefs is never called
+if(!end&&calendar.opt('forceEventDuration')){end=calendar.getDefaultEventEnd(eventDateProfile.isAllDay(),start);}return new EventDateProfile_1.default(start,end,calendar);};EventDefDateMutation.prototype.setDateDelta=function(dateDelta){if(dateDelta&&dateDelta.valueOf()){this.dateDelta=dateDelta;}else{this.dateDelta=null;}};EventDefDateMutation.prototype.setStartDelta=function(startDelta){if(startDelta&&startDelta.valueOf()){this.startDelta=startDelta;}else{this.startDelta=null;}};EventDefDateMutation.prototype.setEndDelta=function(endDelta){if(endDelta&&endDelta.valueOf()){this.endDelta=endDelta;}else{this.endDelta=null;}};EventDefDateMutation.prototype.isEmpty=function(){return!this.clearEnd&&!this.forceTimed&&!this.forceAllDay&&!this.dateDelta&&!this.startDelta&&!this.endDelta;};return EventDefDateMutation;}();exports.default=EventDefDateMutation;/***/},/* 51 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var StandardTheme_1=__webpack_require__(213);var JqueryUiTheme_1=__webpack_require__(214);var themeClassHash={};function defineThemeSystem(themeName,themeClass){themeClassHash[themeName]=themeClass;}exports.defineThemeSystem=defineThemeSystem;function getThemeSystemClass(themeSetting){if(!themeSetting){return StandardTheme_1.default;}else if(themeSetting===true){return JqueryUiTheme_1.default;}else{return themeClassHash[themeSetting];}}exports.getThemeSystemClass=getThemeSystemClass;/***/},/* 52 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Promise_1=__webpack_require__(19);var EventSource_1=__webpack_require__(6);var SingleEventDef_1=__webpack_require__(13);var ArrayEventSource=/** @class */function(_super){tslib_1.__extends(ArrayEventSource,_super);function ArrayEventSource(calendar){var _this=_super.call(this,calendar)||this;_this.eventDefs=[];// for if setRawEventDefs is never called
 return _this;}ArrayEventSource.parse=function(rawInput,calendar){var rawProps;// normalize raw input
 if($.isArray(rawInput.events)){rawProps=rawInput;}else if($.isArray(rawInput)){rawProps={events:rawInput};}if(rawProps){return EventSource_1.default.parse.call(this,rawProps,calendar);}return false;};ArrayEventSource.prototype.setRawEventDefs=function(rawEventDefs){this.rawEventDefs=rawEventDefs;this.eventDefs=this.parseEventDefs(rawEventDefs);};ArrayEventSource.prototype.fetch=function(start,end,timezone){var eventDefs=this.eventDefs;var i;if(this.currentTimezone!=null&&this.currentTimezone!==timezone){for(i=0;i<eventDefs.length;i++){if(eventDefs[i]instanceof SingleEventDef_1.default){eventDefs[i].rezone();}}}this.currentTimezone=timezone;return Promise_1.default.resolve(eventDefs);};ArrayEventSource.prototype.addEventDef=function(eventDef){this.eventDefs.push(eventDef);};/*
     eventDefId already normalized to a string
@@ -36775,7 +36780,7 @@ CoordCache.prototype.getHeight=function(topIndex){this.ensureBuilt();return this
 // Compute and return what the elements' bounding rectangle is, from the user's perspective.
 // Right now, only returns a rectangle if constrained by an overflow:scroll element.
 // Returns null if there are no elements
-CoordCache.prototype.queryBoundingRect=function(){var scrollParentEl;if(this.els.length>0){scrollParentEl=util_1.getScrollParent(this.els.eq(0));if(!scrollParentEl.is(document)){return util_1.getClientRect(scrollParentEl);}}return null;};CoordCache.prototype.isPointInBounds=function(leftOffset,topOffset){return this.isLeftInBounds(leftOffset)&&this.isTopInBounds(topOffset);};CoordCache.prototype.isLeftInBounds=function(leftOffset){return!this.boundingRect||leftOffset>=this.boundingRect.left&&leftOffset<this.boundingRect.right;};CoordCache.prototype.isTopInBounds=function(topOffset){return!this.boundingRect||topOffset>=this.boundingRect.top&&topOffset<this.boundingRect.bottom;};return CoordCache;}();exports.default=CoordCache;/***/},/* 54 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(4);var ListenerMixin_1=__webpack_require__(7);var GlobalEmitter_1=__webpack_require__(21);/* Tracks a drag's mouse movement, firing various handlers
+CoordCache.prototype.queryBoundingRect=function(){var scrollParentEl;if(this.els.length>0){scrollParentEl=util_1.getScrollParent(this.els.eq(0));if(!scrollParentEl.is(document)){return util_1.getClientRect(scrollParentEl);}}return null;};CoordCache.prototype.isPointInBounds=function(leftOffset,topOffset){return this.isLeftInBounds(leftOffset)&&this.isTopInBounds(topOffset);};CoordCache.prototype.isLeftInBounds=function(leftOffset){return!this.boundingRect||leftOffset>=this.boundingRect.left&&leftOffset<this.boundingRect.right;};CoordCache.prototype.isTopInBounds=function(topOffset){return!this.boundingRect||topOffset>=this.boundingRect.top&&topOffset<this.boundingRect.bottom;};return CoordCache;}();exports.default=CoordCache;/***/},/* 54 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(4);var ListenerMixin_1=__webpack_require__(7);var GlobalEmitter_1=__webpack_require__(20);/* Tracks a drag's mouse movement, firing various handlers
 ----------------------------------------------------------------------------------------------------------------------*/// TODO: use Emitter
 var DragListener=/** @class */function(){function DragListener(options){this.isInteracting=false;this.isDistanceSurpassed=false;this.isDelayEnded=false;this.isDragging=false;this.isTouch=false;this.isGeneric=false;// initiated by 'dragstart' (jqui)
 this.shouldCancelTouchScroll=true;this.scrollAlwaysKills=false;this.isAutoScroll=false;// defaults
@@ -36937,11 +36942,11 @@ if(el.is(_this.fillSegTag)){seg.el=el;renderedSegs.push(seg);}}});}return render
 FillRenderer.prototype.buildSegHtml=function(type,seg,props){// custom hooks per-type
 var classes=props.getClasses?props.getClasses(seg):[];var css=util_1.cssToStr(props.getCss?props.getCss(seg):{});return'<'+this.fillSegTag+(classes.length?' class="'+classes.join(' ')+'"':'')+(css?' style="'+css+'"':'')+' />';};// Should return wrapping DOM structure
 FillRenderer.prototype.attachSegEls=function(type,segs){// subclasses must implement
-};FillRenderer.prototype.reportEls=function(type,nodes){if(this.elsByFill[type]){this.elsByFill[type]=this.elsByFill[type].add(nodes);}else{this.elsByFill[type]=$(nodes);}};return FillRenderer;}();exports.default=FillRenderer;/***/},/* 58 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var SingleEventDef_1=__webpack_require__(13);var EventFootprint_1=__webpack_require__(36);var EventSource_1=__webpack_require__(6);var HelperRenderer=/** @class */function(){function HelperRenderer(component,eventRenderer){this.view=component._getView();this.component=component;this.eventRenderer=eventRenderer;}HelperRenderer.prototype.renderComponentFootprint=function(componentFootprint){this.renderEventFootprints([this.fabricateEventFootprint(componentFootprint)]);};HelperRenderer.prototype.renderEventDraggingFootprints=function(eventFootprints,sourceSeg,isTouch){this.renderEventFootprints(eventFootprints,sourceSeg,'fc-dragging',isTouch?null:this.view.opt('dragOpacity'));};HelperRenderer.prototype.renderEventResizingFootprints=function(eventFootprints,sourceSeg,isTouch){this.renderEventFootprints(eventFootprints,sourceSeg,'fc-resizing');};HelperRenderer.prototype.renderEventFootprints=function(eventFootprints,sourceSeg,extraClassNames,opacity){var segs=this.component.eventFootprintsToSegs(eventFootprints);var classNames='fc-helper '+(extraClassNames||'');var i;// assigns each seg's el and returns a subset of segs that were rendered
+};FillRenderer.prototype.reportEls=function(type,nodes){if(this.elsByFill[type]){this.elsByFill[type]=this.elsByFill[type].add(nodes);}else{this.elsByFill[type]=$(nodes);}};return FillRenderer;}();exports.default=FillRenderer;/***/},/* 58 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var SingleEventDef_1=__webpack_require__(13);var EventFootprint_1=__webpack_require__(35);var EventSource_1=__webpack_require__(6);var HelperRenderer=/** @class */function(){function HelperRenderer(component,eventRenderer){this.view=component._getView();this.component=component;this.eventRenderer=eventRenderer;}HelperRenderer.prototype.renderComponentFootprint=function(componentFootprint){this.renderEventFootprints([this.fabricateEventFootprint(componentFootprint)]);};HelperRenderer.prototype.renderEventDraggingFootprints=function(eventFootprints,sourceSeg,isTouch){this.renderEventFootprints(eventFootprints,sourceSeg,'fc-dragging',isTouch?null:this.view.opt('dragOpacity'));};HelperRenderer.prototype.renderEventResizingFootprints=function(eventFootprints,sourceSeg,isTouch){this.renderEventFootprints(eventFootprints,sourceSeg,'fc-resizing');};HelperRenderer.prototype.renderEventFootprints=function(eventFootprints,sourceSeg,extraClassNames,opacity){var segs=this.component.eventFootprintsToSegs(eventFootprints);var classNames='fc-helper '+(extraClassNames||'');var i;// assigns each seg's el and returns a subset of segs that were rendered
 segs=this.eventRenderer.renderFgSegEls(segs);for(i=0;i<segs.length;i++){segs[i].el.addClass(classNames);}if(opacity!=null){for(i=0;i<segs.length;i++){segs[i].el.css('opacity',opacity);}}this.helperEls=this.renderSegs(segs,sourceSeg);};/*
     Must return all mock event elements
     */HelperRenderer.prototype.renderSegs=function(segs,sourceSeg){// Subclasses must implement
-};HelperRenderer.prototype.unrender=function(){if(this.helperEls){this.helperEls.remove();this.helperEls=null;}};HelperRenderer.prototype.fabricateEventFootprint=function(componentFootprint){var calendar=this.view.calendar;var eventDateProfile=calendar.footprintToDateProfile(componentFootprint);var dummyEvent=new SingleEventDef_1.default(new EventSource_1.default(calendar));var dummyInstance;dummyEvent.dateProfile=eventDateProfile;dummyInstance=dummyEvent.buildInstance();return new EventFootprint_1.default(componentFootprint,dummyEvent,dummyInstance);};return HelperRenderer;}();exports.default=HelperRenderer;/***/},/* 59 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var GlobalEmitter_1=__webpack_require__(21);var Interaction_1=__webpack_require__(15);var EventPointing=/** @class */function(_super){tslib_1.__extends(EventPointing,_super);function EventPointing(){return _super!==null&&_super.apply(this,arguments)||this;}/*
+};HelperRenderer.prototype.unrender=function(){if(this.helperEls){this.helperEls.remove();this.helperEls=null;}};HelperRenderer.prototype.fabricateEventFootprint=function(componentFootprint){var calendar=this.view.calendar;var eventDateProfile=calendar.footprintToDateProfile(componentFootprint);var dummyEvent=new SingleEventDef_1.default(new EventSource_1.default(calendar));var dummyInstance;dummyEvent.dateProfile=eventDateProfile;dummyInstance=dummyEvent.buildInstance();return new EventFootprint_1.default(componentFootprint,dummyEvent,dummyInstance);};return HelperRenderer;}();exports.default=HelperRenderer;/***/},/* 59 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var GlobalEmitter_1=__webpack_require__(20);var Interaction_1=__webpack_require__(15);var EventPointing=/** @class */function(_super){tslib_1.__extends(EventPointing,_super);function EventPointing(){return _super!==null&&_super.apply(this,arguments)||this;}/*
     component must implement:
       - publiclyTrigger
     */EventPointing.prototype.bindToEl=function(el){var component=this.component;component.bindSegHandlerToEl(el,'click',this.handleClick.bind(this));component.bindSegHandlerToEl(el,'mouseenter',this.handleMouseover.bind(this));component.bindSegHandlerToEl(el,'mouseleave',this.handleMouseout.bind(this));};EventPointing.prototype.handleClick=function(seg,ev){var res=this.component.publiclyTrigger('eventClick',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev,this.view]});if(res===false){ev.preventDefault();}};// Updates internal state and triggers handlers for when an event element is moused over
@@ -36949,7 +36954,7 @@ EventPointing.prototype.handleMouseover=function(seg,ev){if(!GlobalEmitter_1.def
 if(this.view.isEventDefResizable(seg.footprint.eventDef)){seg.el.addClass('fc-allow-mouse-resize');}this.component.publiclyTrigger('eventMouseover',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev,this.view]});}};// Updates internal state and triggers handlers for when an event element is moused out.
 // Can be given no arguments, in which case it will mouseout the segment that was previously moused over.
 EventPointing.prototype.handleMouseout=function(seg,ev){if(this.mousedOverSeg){this.mousedOverSeg=null;// TODO: move to EventSelecting's responsibility
-if(this.view.isEventDefResizable(seg.footprint.eventDef)){seg.el.removeClass('fc-allow-mouse-resize');}this.component.publiclyTrigger('eventMouseout',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev||{},this.view]});}};EventPointing.prototype.end=function(){if(this.mousedOverSeg){this.handleMouseout(this.mousedOverSeg);}};return EventPointing;}(Interaction_1.default);exports.default=EventPointing;/***/},/* 60 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Mixin_1=__webpack_require__(14);var DateClicking_1=__webpack_require__(245);var DateSelecting_1=__webpack_require__(225);var EventPointing_1=__webpack_require__(59);var EventDragging_1=__webpack_require__(224);var EventResizing_1=__webpack_require__(223);var ExternalDropping_1=__webpack_require__(222);var StandardInteractionsMixin=/** @class */function(_super){tslib_1.__extends(StandardInteractionsMixin,_super);function StandardInteractionsMixin(){return _super!==null&&_super.apply(this,arguments)||this;}return StandardInteractionsMixin;}(Mixin_1.default);exports.default=StandardInteractionsMixin;StandardInteractionsMixin.prototype.dateClickingClass=DateClicking_1.default;StandardInteractionsMixin.prototype.dateSelectingClass=DateSelecting_1.default;StandardInteractionsMixin.prototype.eventPointingClass=EventPointing_1.default;StandardInteractionsMixin.prototype.eventDraggingClass=EventDragging_1.default;StandardInteractionsMixin.prototype.eventResizingClass=EventResizing_1.default;StandardInteractionsMixin.prototype.externalDroppingClass=ExternalDropping_1.default;/***/},/* 61 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var CoordCache_1=__webpack_require__(53);var Popover_1=__webpack_require__(249);var UnzonedRange_1=__webpack_require__(5);var ComponentFootprint_1=__webpack_require__(12);var EventFootprint_1=__webpack_require__(36);var BusinessHourRenderer_1=__webpack_require__(56);var StandardInteractionsMixin_1=__webpack_require__(60);var InteractiveDateComponent_1=__webpack_require__(40);var DayTableMixin_1=__webpack_require__(55);var DayGridEventRenderer_1=__webpack_require__(250);var DayGridHelperRenderer_1=__webpack_require__(251);var DayGridFillRenderer_1=__webpack_require__(252);/* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
+if(this.view.isEventDefResizable(seg.footprint.eventDef)){seg.el.removeClass('fc-allow-mouse-resize');}this.component.publiclyTrigger('eventMouseout',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev||{},this.view]});}};EventPointing.prototype.end=function(){if(this.mousedOverSeg){this.handleMouseout(this.mousedOverSeg);}};return EventPointing;}(Interaction_1.default);exports.default=EventPointing;/***/},/* 60 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Mixin_1=__webpack_require__(14);var DateClicking_1=__webpack_require__(245);var DateSelecting_1=__webpack_require__(225);var EventPointing_1=__webpack_require__(59);var EventDragging_1=__webpack_require__(224);var EventResizing_1=__webpack_require__(223);var ExternalDropping_1=__webpack_require__(222);var StandardInteractionsMixin=/** @class */function(_super){tslib_1.__extends(StandardInteractionsMixin,_super);function StandardInteractionsMixin(){return _super!==null&&_super.apply(this,arguments)||this;}return StandardInteractionsMixin;}(Mixin_1.default);exports.default=StandardInteractionsMixin;StandardInteractionsMixin.prototype.dateClickingClass=DateClicking_1.default;StandardInteractionsMixin.prototype.dateSelectingClass=DateSelecting_1.default;StandardInteractionsMixin.prototype.eventPointingClass=EventPointing_1.default;StandardInteractionsMixin.prototype.eventDraggingClass=EventDragging_1.default;StandardInteractionsMixin.prototype.eventResizingClass=EventResizing_1.default;StandardInteractionsMixin.prototype.externalDroppingClass=ExternalDropping_1.default;/***/},/* 61 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var CoordCache_1=__webpack_require__(53);var Popover_1=__webpack_require__(249);var UnzonedRange_1=__webpack_require__(5);var ComponentFootprint_1=__webpack_require__(12);var EventFootprint_1=__webpack_require__(35);var BusinessHourRenderer_1=__webpack_require__(56);var StandardInteractionsMixin_1=__webpack_require__(60);var InteractiveDateComponent_1=__webpack_require__(40);var DayTableMixin_1=__webpack_require__(55);var DayGridEventRenderer_1=__webpack_require__(250);var DayGridHelperRenderer_1=__webpack_require__(251);var DayGridFillRenderer_1=__webpack_require__(252);/* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
 ----------------------------------------------------------------------------------------------------------------------*/var DayGrid=/** @class */function(_super){tslib_1.__extends(DayGrid,_super);function DayGrid(view){var _this=_super.call(this,view)||this;_this.cellWeekNumbersVisible=false;// display week numbers in day cell?
 _this.bottomCoordPadding=0;// hack for extending the hit area for the last row of the coordinate grid
 // isRigid determines whether the individual rows should ignore the contents and be a constant height.
@@ -37105,7 +37110,7 @@ SubClass.prototype.renderNumberIntroHtml=function(row){var view=this.view;var we
 )+'</td>';}return'';};// Generates the HTML that goes before the day bg cells for each day-row
 SubClass.prototype.renderBgIntroHtml=function(){var view=this.view;if(this.colWeekNumbersVisible){return'<td class="fc-week-number '+view.calendar.theme.getClass('widgetContent')+'" '+view.weekNumberStyleAttr()+'></td>';}return'';};// Generates the HTML that goes before every other type of row generated by DayGrid.
 // Affects helper-skeleton and highlight-skeleton rows.
-SubClass.prototype.renderIntroHtml=function(){var view=this.view;if(this.colWeekNumbersVisible){return'<td class="fc-week-number" '+view.weekNumberStyleAttr()+'></td>';}return'';};SubClass.prototype.getIsNumbersVisible=function(){return DayGrid_1.default.prototype.getIsNumbersVisible.apply(this,arguments)||this.colWeekNumbersVisible;};return SubClass;}(SuperClass));}/***/},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,/* 63 *//* 64 *//* 65 *//* 66 *//* 67 *//* 68 *//* 69 *//* 70 *//* 71 *//* 72 *//* 73 *//* 74 *//* 75 *//* 76 *//* 77 *//* 78 *//* 79 *//* 80 *//* 81 *//* 82 *//* 83 *//* 84 *//* 85 *//* 86 *//* 87 *//* 88 *//* 89 *//* 90 *//* 91 *//* 92 *//* 93 *//* 94 *//* 95 *//* 96 *//* 97 *//* 98 *//* 99 *//* 100 *//* 101 *//* 102 *//* 103 *//* 104 *//* 105 *//* 106 *//* 107 *//* 108 *//* 109 *//* 110 *//* 111 *//* 112 *//* 113 *//* 114 *//* 115 *//* 116 *//* 117 *//* 118 *//* 119 *//* 120 *//* 121 *//* 122 *//* 123 *//* 124 *//* 125 *//* 126 *//* 127 *//* 128 *//* 129 *//* 130 *//* 131 *//* 132 *//* 133 *//* 134 *//* 135 *//* 136 *//* 137 *//* 138 *//* 139 *//* 140 *//* 141 *//* 142 *//* 143 *//* 144 *//* 145 *//* 146 *//* 147 *//* 148 *//* 149 *//* 150 *//* 151 *//* 152 *//* 153 *//* 154 *//* 155 *//* 156 *//* 157 *//* 158 *//* 159 *//* 160 *//* 161 *//* 162 *//* 163 *//* 164 *//* 165 *//* 166 *//* 167 *//* 168 *//* 169 *//* 170 *//* 171 *//* 172 *//* 173 *//* 174 *//* 175 *//* 176 *//* 177 *//* 178 *//* 179 *//* 180 *//* 181 *//* 182 *//* 183 *//* 184 *//* 185 *//* 186 *//* 187 *//* 188 *//* 189 *//* 190 *//* 191 *//* 192 *//* 193 *//* 194 *//* 195 *//* 196 *//* 197 *//* 198 *//* 199 *//* 200 *//* 201 *//* 202 *//* 203 *//* 204 *//* 205 *//* 206 *//* 207 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var UnzonedRange_1=__webpack_require__(5);var ComponentFootprint_1=__webpack_require__(12);var EventDefParser_1=__webpack_require__(49);var EventSource_1=__webpack_require__(6);var util_1=__webpack_require__(35);var Constraints=/** @class */function(){function Constraints(eventManager,_calendar){this.eventManager=eventManager;this._calendar=_calendar;}Constraints.prototype.opt=function(name){return this._calendar.opt(name);};/*
+SubClass.prototype.renderIntroHtml=function(){var view=this.view;if(this.colWeekNumbersVisible){return'<td class="fc-week-number" '+view.weekNumberStyleAttr()+'></td>';}return'';};SubClass.prototype.getIsNumbersVisible=function(){return DayGrid_1.default.prototype.getIsNumbersVisible.apply(this,arguments)||this.colWeekNumbersVisible;};return SubClass;}(SuperClass));}/***/},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,/* 63 *//* 64 *//* 65 *//* 66 *//* 67 *//* 68 *//* 69 *//* 70 *//* 71 *//* 72 *//* 73 *//* 74 *//* 75 *//* 76 *//* 77 *//* 78 *//* 79 *//* 80 *//* 81 *//* 82 *//* 83 *//* 84 *//* 85 *//* 86 *//* 87 *//* 88 *//* 89 *//* 90 *//* 91 *//* 92 *//* 93 *//* 94 *//* 95 *//* 96 *//* 97 *//* 98 *//* 99 *//* 100 *//* 101 *//* 102 *//* 103 *//* 104 *//* 105 *//* 106 *//* 107 *//* 108 *//* 109 *//* 110 *//* 111 *//* 112 *//* 113 *//* 114 *//* 115 *//* 116 *//* 117 *//* 118 *//* 119 *//* 120 *//* 121 *//* 122 *//* 123 *//* 124 *//* 125 *//* 126 *//* 127 *//* 128 *//* 129 *//* 130 *//* 131 *//* 132 *//* 133 *//* 134 *//* 135 *//* 136 *//* 137 *//* 138 *//* 139 *//* 140 *//* 141 *//* 142 *//* 143 *//* 144 *//* 145 *//* 146 *//* 147 *//* 148 *//* 149 *//* 150 *//* 151 *//* 152 *//* 153 *//* 154 *//* 155 *//* 156 *//* 157 *//* 158 *//* 159 *//* 160 *//* 161 *//* 162 *//* 163 *//* 164 *//* 165 *//* 166 *//* 167 *//* 168 *//* 169 *//* 170 *//* 171 *//* 172 *//* 173 *//* 174 *//* 175 *//* 176 *//* 177 *//* 178 *//* 179 *//* 180 *//* 181 *//* 182 *//* 183 *//* 184 *//* 185 *//* 186 *//* 187 *//* 188 *//* 189 *//* 190 *//* 191 *//* 192 *//* 193 *//* 194 *//* 195 *//* 196 *//* 197 *//* 198 *//* 199 *//* 200 *//* 201 *//* 202 *//* 203 *//* 204 *//* 205 *//* 206 *//* 207 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var UnzonedRange_1=__webpack_require__(5);var ComponentFootprint_1=__webpack_require__(12);var EventDefParser_1=__webpack_require__(49);var EventSource_1=__webpack_require__(6);var util_1=__webpack_require__(34);var Constraints=/** @class */function(){function Constraints(eventManager,_calendar){this.eventManager=eventManager;this._calendar=_calendar;}Constraints.prototype.opt=function(name){return this._calendar.opt(name);};/*
     determines if eventInstanceGroup is allowed,
     in relation to other EVENTS and business hours.
     */Constraints.prototype.isEventInstanceGroupAllowed=function(eventInstanceGroup){var eventDef=eventInstanceGroup.getEventDef();var eventFootprints=this.eventRangesToEventFootprints(eventInstanceGroup.getAllEventRanges());var i;var peerEventInstances=this.getPeerEventInstances(eventDef);var peerEventRanges=peerEventInstances.map(util_1.eventInstanceToEventRange);var peerEventFootprints=this.eventRangesToEventFootprints(peerEventRanges);var constraintVal=eventDef.getConstraint();var overlapVal=eventDef.getOverlap();var eventAllowFunc=this.opt('eventAllow');for(i=0;i<eventFootprints.length;i++){if(!this.isFootprintAllowed(eventFootprints[i].componentFootprint,peerEventFootprints,constraintVal,overlapVal,eventFootprints[i].eventInstance)){return false;}}if(eventAllowFunc){for(i=0;i<eventFootprints.length;i++){if(eventAllowFunc(eventFootprints[i].componentFootprint.toLegacy(this._calendar),eventFootprints[i].getEventLegacy())===false){return false;}}}return true;};Constraints.prototype.getPeerEventInstances=function(eventDef){return this.eventManager.getEventInstancesWithoutId(eventDef.id);};Constraints.prototype.isSelectionFootprintAllowed=function(componentFootprint){var peerEventInstances=this.eventManager.getEventInstances();var peerEventRanges=peerEventInstances.map(util_1.eventInstanceToEventRange);var peerEventFootprints=this.eventRangesToEventFootprints(peerEventRanges);var selectAllowFunc;if(this.isFootprintAllowed(componentFootprint,peerEventFootprints,this.opt('selectConstraint'),this.opt('selectOverlap'))){selectAllowFunc=this.opt('selectAllow');if(selectAllowFunc){return selectAllowFunc(componentFootprint.toLegacy(this._calendar))!==false;}else{return true;}}return false;};Constraints.prototype.isFootprintAllowed=function(componentFootprint,peerEventFootprints,constraintVal,overlapVal,subjectEventInstance// optional
@@ -37163,25 +37168,25 @@ map[propName]===true// false means "copy verbatim"
 };/*
     TODO: why is this a method when defineStandardProps is static
     */ParsableModelMixin.prototype.isStandardProp=function(propName){return propName in this.standardPropMap;};return ParsableModelMixin;}(Mixin_1.default);exports.default=ParsableModelMixin;ParsableModelMixin.prototype.standardPropMap={};// will be cloned by defineStandardProps
-/***/},/* 209 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});var EventInstance=/** @class */function(){function EventInstance(def,dateProfile){this.def=def;this.dateProfile=dateProfile;}EventInstance.prototype.toLegacy=function(){var dateProfile=this.dateProfile;var obj=this.def.toLegacy();obj.start=dateProfile.start.clone();obj.end=dateProfile.end?dateProfile.end.clone():null;return obj;};return EventInstance;}();exports.default=EventInstance;/***/},/* 210 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var EventDef_1=__webpack_require__(34);var EventInstance_1=__webpack_require__(209);var EventDateProfile_1=__webpack_require__(17);var RecurringEventDef=/** @class */function(_super){tslib_1.__extends(RecurringEventDef,_super);function RecurringEventDef(){return _super!==null&&_super.apply(this,arguments)||this;}RecurringEventDef.prototype.isAllDay=function(){return!this.startTime&&!this.endTime;};RecurringEventDef.prototype.buildInstances=function(unzonedRange){var calendar=this.source.calendar;var unzonedDate=unzonedRange.getStart();var unzonedEnd=unzonedRange.getEnd();var zonedDayStart;var instanceStart;var instanceEnd;var instances=[];while(unzonedDate.isBefore(unzonedEnd)){// if everyday, or this particular day-of-week
+/***/},/* 209 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});var EventInstance=/** @class */function(){function EventInstance(def,dateProfile){this.def=def;this.dateProfile=dateProfile;}EventInstance.prototype.toLegacy=function(){var dateProfile=this.dateProfile;var obj=this.def.toLegacy();obj.start=dateProfile.start.clone();obj.end=dateProfile.end?dateProfile.end.clone():null;return obj;};return EventInstance;}();exports.default=EventInstance;/***/},/* 210 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var EventDef_1=__webpack_require__(33);var EventInstance_1=__webpack_require__(209);var EventDateProfile_1=__webpack_require__(17);var RecurringEventDef=/** @class */function(_super){tslib_1.__extends(RecurringEventDef,_super);function RecurringEventDef(){return _super!==null&&_super.apply(this,arguments)||this;}RecurringEventDef.prototype.isAllDay=function(){return!this.startTime&&!this.endTime;};RecurringEventDef.prototype.buildInstances=function(unzonedRange){var calendar=this.source.calendar;var unzonedDate=unzonedRange.getStart();var unzonedEnd=unzonedRange.getEnd();var zonedDayStart;var instanceStart;var instanceEnd;var instances=[];while(unzonedDate.isBefore(unzonedEnd)){// if everyday, or this particular day-of-week
 if(!this.dowHash||this.dowHash[unzonedDate.day()]){zonedDayStart=calendar.applyTimezone(unzonedDate);instanceStart=zonedDayStart.clone();instanceEnd=null;if(this.startTime){instanceStart.time(this.startTime);}else{instanceStart.stripTime();}if(this.endTime){instanceEnd=zonedDayStart.clone().time(this.endTime);}instances.push(new EventInstance_1.default(this,// definition
 new EventDateProfile_1.default(instanceStart,instanceEnd,calendar)));}unzonedDate.add(1,'days');}return instances;};RecurringEventDef.prototype.setDow=function(dowNumbers){if(!this.dowHash){this.dowHash={};}for(var i=0;i<dowNumbers.length;i++){this.dowHash[dowNumbers[i]]=true;}};RecurringEventDef.prototype.clone=function(){var def=_super.prototype.clone.call(this);if(def.startTime){def.startTime=moment.duration(this.startTime);}if(def.endTime){def.endTime=moment.duration(this.endTime);}if(this.dowHash){def.dowHash=$.extend({},this.dowHash);}return def;};return RecurringEventDef;}(EventDef_1.default);exports.default=RecurringEventDef;/*
 HACK to work with TypeScript mixins
 NOTE: if super-method fails, should still attempt to apply
 */RecurringEventDef.prototype.applyProps=function(rawProps){var superSuccess=EventDef_1.default.prototype.applyProps.call(this,rawProps);if(rawProps.start){this.startTime=moment.duration(rawProps.start);}if(rawProps.end){this.endTime=moment.duration(rawProps.end);}if(rawProps.dow){this.setDow(rawProps.dow);}return superSuccess;};// Parsing
 // ---------------------------------------------------------------------------------------------------------------------
-RecurringEventDef.defineStandardProps({start:false,end:false,dow:false});/***/},/* 211 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});var EventRange=/** @class */function(){function EventRange(unzonedRange,eventDef,eventInstance){this.unzonedRange=unzonedRange;this.eventDef=eventDef;if(eventInstance){this.eventInstance=eventInstance;}}return EventRange;}();exports.default=EventRange;/***/},/* 212 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(35);var EventInstanceGroup_1=__webpack_require__(18);var RecurringEventDef_1=__webpack_require__(210);var EventSource_1=__webpack_require__(6);var BUSINESS_HOUR_EVENT_DEFAULTS={start:'09:00',end:'17:00',dow:[1,2,3,4,5],rendering:'inverse-background'// classNames are defined in businessHoursSegClasses
+RecurringEventDef.defineStandardProps({start:false,end:false,dow:false});/***/},/* 211 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});var EventRange=/** @class */function(){function EventRange(unzonedRange,eventDef,eventInstance){this.unzonedRange=unzonedRange;this.eventDef=eventDef;if(eventInstance){this.eventInstance=eventInstance;}}return EventRange;}();exports.default=EventRange;/***/},/* 212 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(34);var EventInstanceGroup_1=__webpack_require__(18);var RecurringEventDef_1=__webpack_require__(210);var EventSource_1=__webpack_require__(6);var BUSINESS_HOUR_EVENT_DEFAULTS={start:'09:00',end:'17:00',dow:[1,2,3,4,5],rendering:'inverse-background'// classNames are defined in businessHoursSegClasses
 };var BusinessHourGenerator=/** @class */function(){function BusinessHourGenerator(rawComplexDef,calendar){this.rawComplexDef=rawComplexDef;this.calendar=calendar;}BusinessHourGenerator.prototype.buildEventInstanceGroup=function(isAllDay,unzonedRange){var eventDefs=this.buildEventDefs(isAllDay);var eventInstanceGroup;if(eventDefs.length){eventInstanceGroup=new EventInstanceGroup_1.default(util_1.eventDefsToEventInstances(eventDefs,unzonedRange));// so that inverse-background rendering can happen even when no eventRanges in view
 eventInstanceGroup.explicitEventDef=eventDefs[0];return eventInstanceGroup;}};BusinessHourGenerator.prototype.buildEventDefs=function(isAllDay){var rawComplexDef=this.rawComplexDef;var rawDefs=[];var requireDow=false;var i;var defs=[];if(rawComplexDef===true){rawDefs=[{}];// will get BUSINESS_HOUR_EVENT_DEFAULTS verbatim
 }else if($.isPlainObject(rawComplexDef)){rawDefs=[rawComplexDef];}else if($.isArray(rawComplexDef)){rawDefs=rawComplexDef;requireDow=true;// every sub-definition NEEDS a day-of-week
 }for(i=0;i<rawDefs.length;i++){if(!requireDow||rawDefs[i].dow){defs.push(this.buildEventDef(isAllDay,rawDefs[i]));}}return defs;};BusinessHourGenerator.prototype.buildEventDef=function(isAllDay,rawDef){var fullRawDef=$.extend({},BUSINESS_HOUR_EVENT_DEFAULTS,rawDef);if(isAllDay){fullRawDef.start=null;fullRawDef.end=null;}return RecurringEventDef_1.default.parse(fullRawDef,new EventSource_1.default(this.calendar)// dummy source
-);};return BusinessHourGenerator;}();exports.default=BusinessHourGenerator;/***/},/* 213 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Theme_1=__webpack_require__(19);var StandardTheme=/** @class */function(_super){tslib_1.__extends(StandardTheme,_super);function StandardTheme(){return _super!==null&&_super.apply(this,arguments)||this;}return StandardTheme;}(Theme_1.default);exports.default=StandardTheme;StandardTheme.prototype.classes={widget:'fc-unthemed',widgetHeader:'fc-widget-header',widgetContent:'fc-widget-content',buttonGroup:'fc-button-group',button:'fc-button',cornerLeft:'fc-corner-left',cornerRight:'fc-corner-right',stateDefault:'fc-state-default',stateActive:'fc-state-active',stateDisabled:'fc-state-disabled',stateHover:'fc-state-hover',stateDown:'fc-state-down',popoverHeader:'fc-widget-header',popoverContent:'fc-widget-content',// day grid
+);};return BusinessHourGenerator;}();exports.default=BusinessHourGenerator;/***/},/* 213 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Theme_1=__webpack_require__(38);var StandardTheme=/** @class */function(_super){tslib_1.__extends(StandardTheme,_super);function StandardTheme(){return _super!==null&&_super.apply(this,arguments)||this;}return StandardTheme;}(Theme_1.default);exports.default=StandardTheme;StandardTheme.prototype.classes={widget:'fc-unthemed',widgetHeader:'fc-widget-header',widgetContent:'fc-widget-content',buttonGroup:'fc-button-group',button:'fc-button',cornerLeft:'fc-corner-left',cornerRight:'fc-corner-right',stateDefault:'fc-state-default',stateActive:'fc-state-active',stateDisabled:'fc-state-disabled',stateHover:'fc-state-hover',stateDown:'fc-state-down',popoverHeader:'fc-widget-header',popoverContent:'fc-widget-content',// day grid
 headerRow:'fc-widget-header',dayRow:'fc-widget-content',// list view
-listView:'fc-widget-content'};StandardTheme.prototype.baseIconClass='fc-icon';StandardTheme.prototype.iconClasses={close:'fc-icon-x',prev:'fc-icon-left-single-arrow',next:'fc-icon-right-single-arrow',prevYear:'fc-icon-left-double-arrow',nextYear:'fc-icon-right-double-arrow'};StandardTheme.prototype.iconOverrideOption='buttonIcons';StandardTheme.prototype.iconOverrideCustomButtonOption='icon';StandardTheme.prototype.iconOverridePrefix='fc-icon-';/***/},/* 214 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Theme_1=__webpack_require__(19);var JqueryUiTheme=/** @class */function(_super){tslib_1.__extends(JqueryUiTheme,_super);function JqueryUiTheme(){return _super!==null&&_super.apply(this,arguments)||this;}return JqueryUiTheme;}(Theme_1.default);exports.default=JqueryUiTheme;JqueryUiTheme.prototype.classes={widget:'ui-widget',widgetHeader:'ui-widget-header',widgetContent:'ui-widget-content',buttonGroup:'fc-button-group',button:'ui-button',cornerLeft:'ui-corner-left',cornerRight:'ui-corner-right',stateDefault:'ui-state-default',stateActive:'ui-state-active',stateDisabled:'ui-state-disabled',stateHover:'ui-state-hover',stateDown:'ui-state-down',today:'ui-state-highlight',popoverHeader:'ui-widget-header',popoverContent:'ui-widget-content',// day grid
+listView:'fc-widget-content'};StandardTheme.prototype.baseIconClass='fc-icon';StandardTheme.prototype.iconClasses={close:'fc-icon-x',prev:'fc-icon-left-single-arrow',next:'fc-icon-right-single-arrow',prevYear:'fc-icon-left-double-arrow',nextYear:'fc-icon-right-double-arrow'};StandardTheme.prototype.iconOverrideOption='buttonIcons';StandardTheme.prototype.iconOverrideCustomButtonOption='icon';StandardTheme.prototype.iconOverridePrefix='fc-icon-';/***/},/* 214 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Theme_1=__webpack_require__(38);var JqueryUiTheme=/** @class */function(_super){tslib_1.__extends(JqueryUiTheme,_super);function JqueryUiTheme(){return _super!==null&&_super.apply(this,arguments)||this;}return JqueryUiTheme;}(Theme_1.default);exports.default=JqueryUiTheme;JqueryUiTheme.prototype.classes={widget:'ui-widget',widgetHeader:'ui-widget-header',widgetContent:'ui-widget-content',buttonGroup:'fc-button-group',button:'ui-button',cornerLeft:'ui-corner-left',cornerRight:'ui-corner-right',stateDefault:'ui-state-default',stateActive:'ui-state-active',stateDisabled:'ui-state-disabled',stateHover:'ui-state-hover',stateDown:'ui-state-down',today:'ui-state-highlight',popoverHeader:'ui-widget-header',popoverContent:'ui-widget-content',// day grid
 headerRow:'ui-widget-header',dayRow:'ui-widget-content',// list view
-listView:'ui-widget-content'};JqueryUiTheme.prototype.baseIconClass='ui-icon';JqueryUiTheme.prototype.iconClasses={close:'ui-icon-closethick',prev:'ui-icon-circle-triangle-w',next:'ui-icon-circle-triangle-e',prevYear:'ui-icon-seek-prev',nextYear:'ui-icon-seek-next'};JqueryUiTheme.prototype.iconOverrideOption='themeButtonIcons';JqueryUiTheme.prototype.iconOverrideCustomButtonOption='themeIcon';JqueryUiTheme.prototype.iconOverridePrefix='ui-icon-';/***/},/* 215 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var Promise_1=__webpack_require__(20);var EventSource_1=__webpack_require__(6);var FuncEventSource=/** @class */function(_super){tslib_1.__extends(FuncEventSource,_super);function FuncEventSource(){return _super!==null&&_super.apply(this,arguments)||this;}FuncEventSource.parse=function(rawInput,calendar){var rawProps;// normalize raw input
+listView:'ui-widget-content'};JqueryUiTheme.prototype.baseIconClass='ui-icon';JqueryUiTheme.prototype.iconClasses={close:'ui-icon-closethick',prev:'ui-icon-circle-triangle-w',next:'ui-icon-circle-triangle-e',prevYear:'ui-icon-seek-prev',nextYear:'ui-icon-seek-next'};JqueryUiTheme.prototype.iconOverrideOption='themeButtonIcons';JqueryUiTheme.prototype.iconOverrideCustomButtonOption='themeIcon';JqueryUiTheme.prototype.iconOverridePrefix='ui-icon-';/***/},/* 215 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var Promise_1=__webpack_require__(19);var EventSource_1=__webpack_require__(6);var FuncEventSource=/** @class */function(_super){tslib_1.__extends(FuncEventSource,_super);function FuncEventSource(){return _super!==null&&_super.apply(this,arguments)||this;}FuncEventSource.parse=function(rawInput,calendar){var rawProps;// normalize raw input
 if($.isFunction(rawInput.events)){rawProps=rawInput;}else if($.isFunction(rawInput)){rawProps={events:rawInput};}if(rawProps){return EventSource_1.default.parse.call(this,rawProps,calendar);}return false;};FuncEventSource.prototype.fetch=function(start,end,timezone){var _this=this;this.calendar.pushLoading();return Promise_1.default.construct(function(onResolve){_this.func.call(_this.calendar,start.clone(),end.clone(),timezone,function(rawEventDefs){_this.calendar.popLoading();onResolve(_this.parseEventDefs(rawEventDefs));});});};FuncEventSource.prototype.getPrimitive=function(){return this.func;};FuncEventSource.prototype.applyManualStandardProps=function(rawProps){var superSuccess=_super.prototype.applyManualStandardProps.call(this,rawProps);this.func=rawProps.events;return superSuccess;};return FuncEventSource;}(EventSource_1.default);exports.default=FuncEventSource;FuncEventSource.defineStandardProps({events:false// don't automatically transfer
-});/***/},/* 216 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Promise_1=__webpack_require__(20);var EventSource_1=__webpack_require__(6);var JsonFeedEventSource=/** @class */function(_super){tslib_1.__extends(JsonFeedEventSource,_super);function JsonFeedEventSource(){return _super!==null&&_super.apply(this,arguments)||this;}JsonFeedEventSource.parse=function(rawInput,calendar){var rawProps;// normalize raw input
+});/***/},/* 216 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Promise_1=__webpack_require__(19);var EventSource_1=__webpack_require__(6);var JsonFeedEventSource=/** @class */function(_super){tslib_1.__extends(JsonFeedEventSource,_super);function JsonFeedEventSource(){return _super!==null&&_super.apply(this,arguments)||this;}JsonFeedEventSource.parse=function(rawInput,calendar){var rawProps;// normalize raw input
 if(typeof rawInput.url==='string'){rawProps=rawInput;}else if(typeof rawInput==='string'){rawProps={url:rawInput};}if(rawProps){return EventSource_1.default.parse.call(this,rawProps,calendar);}return false;};JsonFeedEventSource.prototype.fetch=function(start,end,timezone){var _this=this;var ajaxSettings=this.ajaxSettings;var onSuccess=ajaxSettings.success;var onError=ajaxSettings.error;var requestParams=this.buildRequestParams(start,end,timezone);// todo: eventually handle the promise's then,
 // don't intercept success/error
 // tho will be a breaking API change
@@ -37206,7 +37211,7 @@ for(var i=0;i<q.length;i++){if(q[i].namespace!==this.waitNamespace){return true;
 }}return false;}return true;};RenderQueue.prototype.runTask=function(task){task.func();};RenderQueue.prototype.compoundTask=function(newTask){var q=this.q;var shouldAppend=true;var i;var task;if(newTask.namespace&&newTask.type==='destroy'){// remove all init/add/remove ops with same namespace, regardless of order
 for(i=q.length-1;i>=0;i--){task=q[i];switch(task.type){case'init':shouldAppend=false;// the latest destroy is cancelled out by not doing the init
 /* falls through */case'add':/* falls through */case'remove':q.splice(i,1);// remove task
-}}}if(shouldAppend){q.push(newTask);}return shouldAppend;};return RenderQueue;}(TaskQueue_1.default);exports.default=RenderQueue;/***/},/* 219 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var util_1=__webpack_require__(4);var moment_ext_1=__webpack_require__(10);var date_formatting_1=__webpack_require__(47);var Component_1=__webpack_require__(237);var util_2=__webpack_require__(35);var DateComponent=/** @class */function(_super){tslib_1.__extends(DateComponent,_super);function DateComponent(_view,_options){var _this=_super.call(this)||this;_this.isRTL=false;// frequently accessed options
+}}}if(shouldAppend){q.push(newTask);}return shouldAppend;};return RenderQueue;}(TaskQueue_1.default);exports.default=RenderQueue;/***/},/* 219 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var util_1=__webpack_require__(4);var moment_ext_1=__webpack_require__(10);var date_formatting_1=__webpack_require__(47);var Component_1=__webpack_require__(237);var util_2=__webpack_require__(34);var DateComponent=/** @class */function(_super){tslib_1.__extends(DateComponent,_super);function DateComponent(_view,_options){var _this=_super.call(this)||this;_this.isRTL=false;// frequently accessed options
 _this.hitsNeededDepth=0;// necessary because multiple callers might need the same hits
 _this.hasAllDayBusinessHours=false;// TODO: unify with largeUnit and isTimeScale?
 _this.isDatesRendered=false;// hack to set options prior to the this.opt calls
@@ -37317,7 +37322,7 @@ if(endTimeMS&&endTimeMS>=this.nextDayThreshold){endDay.add(1,'days');}// If end 
 if(endDay<=startDay){endDay=startDay.clone().add(1,'days');}return{start:startDay,end:endDay};};// Does the given range visually appear to occupy more than one day?
 DateComponent.prototype.isMultiDayRange=function(unzonedRange){var dayRange=this.computeDayRange(unzonedRange);return dayRange.end.diff(dayRange.start,'days')>1;};DateComponent.guid=0;// TODO: better system for this?
 return DateComponent;}(Component_1.default);exports.default=DateComponent;// legacy
-function convertEventsPayloadToLegacyArray(eventsPayload){var eventDefId;var eventInstances;var legacyEvents=[];var i;for(eventDefId in eventsPayload){eventInstances=eventsPayload[eventDefId].eventInstances;for(i=0;i<eventInstances.length;i++){legacyEvents.push(eventInstances[i].toLegacy());}}return legacyEvents;}/***/},/* 220 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var moment=__webpack_require__(0);var util_1=__webpack_require__(4);var options_1=__webpack_require__(32);var Iterator_1=__webpack_require__(238);var GlobalEmitter_1=__webpack_require__(21);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);var Toolbar_1=__webpack_require__(239);var OptionsManager_1=__webpack_require__(240);var ViewSpecManager_1=__webpack_require__(241);var Constraints_1=__webpack_require__(207);var locale_1=__webpack_require__(31);var moment_ext_1=__webpack_require__(10);var UnzonedRange_1=__webpack_require__(5);var ComponentFootprint_1=__webpack_require__(12);var EventDateProfile_1=__webpack_require__(17);var EventManager_1=__webpack_require__(242);var BusinessHourGenerator_1=__webpack_require__(212);var EventSourceParser_1=__webpack_require__(38);var EventDefParser_1=__webpack_require__(49);var SingleEventDef_1=__webpack_require__(13);var EventDefMutation_1=__webpack_require__(37);var EventSource_1=__webpack_require__(6);var ThemeRegistry_1=__webpack_require__(51);var Calendar=/** @class */function(){function Calendar(el,overrides){this.loadingLevel=0;// number of simultaneous loading tasks
+function convertEventsPayloadToLegacyArray(eventsPayload){var eventDefId;var eventInstances;var legacyEvents=[];var i;for(eventDefId in eventsPayload){eventInstances=eventsPayload[eventDefId].eventInstances;for(i=0;i<eventInstances.length;i++){legacyEvents.push(eventInstances[i].toLegacy());}}return legacyEvents;}/***/},/* 220 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var moment=__webpack_require__(0);var util_1=__webpack_require__(4);var options_1=__webpack_require__(31);var Iterator_1=__webpack_require__(238);var GlobalEmitter_1=__webpack_require__(20);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);var Toolbar_1=__webpack_require__(239);var OptionsManager_1=__webpack_require__(240);var ViewSpecManager_1=__webpack_require__(241);var Constraints_1=__webpack_require__(207);var locale_1=__webpack_require__(30);var moment_ext_1=__webpack_require__(10);var UnzonedRange_1=__webpack_require__(5);var ComponentFootprint_1=__webpack_require__(12);var EventDateProfile_1=__webpack_require__(17);var EventManager_1=__webpack_require__(242);var BusinessHourGenerator_1=__webpack_require__(212);var EventSourceParser_1=__webpack_require__(37);var EventDefParser_1=__webpack_require__(49);var SingleEventDef_1=__webpack_require__(13);var EventDefMutation_1=__webpack_require__(36);var EventSource_1=__webpack_require__(6);var ThemeRegistry_1=__webpack_require__(51);var Calendar=/** @class */function(){function Calendar(el,overrides){this.loadingLevel=0;// number of simultaneous loading tasks
 this.ignoreUpdateViewSize=0;this.freezeContentHeightDepth=0;// declare the current calendar instance relies on GlobalEmitter. needed for garbage collection.
 // unneeded() is called in destroy.
 GlobalEmitter_1.default.needed();this.el=el;this.viewsByType={};this.optionsManager=new OptionsManager_1.default(this,overrides);this.viewSpecManager=new ViewSpecManager_1.default(this.optionsManager,this);this.initMomentInternals();// needs to happen after options hash initialized
@@ -37508,7 +37513,7 @@ DateProfileGenerator.prototype.buildCustomVisibleRange=function(date){var visibl
 // not responsible for trimming hidden days.
 DateProfileGenerator.prototype.buildRenderRange=function(currentUnzonedRange,currentRangeUnit,isRangeAllDay){return currentUnzonedRange.clone();};// Compute the duration value that should be added/substracted to the current date
 // when a prev/next operation happens.
-DateProfileGenerator.prototype.buildDateIncrement=function(fallback){var dateIncrementInput=this.opt('dateIncrement');var customAlignment;if(dateIncrementInput){return moment.duration(dateIncrementInput);}else if(customAlignment=this.opt('dateAlignment')){return moment.duration(1,customAlignment);}else if(fallback){return fallback;}else{return moment.duration({days:1});}};return DateProfileGenerator;}();exports.default=DateProfileGenerator;/***/},/* 222 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var exportHooks=__webpack_require__(16);var util_1=__webpack_require__(4);var moment_ext_1=__webpack_require__(10);var ListenerMixin_1=__webpack_require__(7);var HitDragListener_1=__webpack_require__(23);var SingleEventDef_1=__webpack_require__(13);var EventInstanceGroup_1=__webpack_require__(18);var EventSource_1=__webpack_require__(6);var Interaction_1=__webpack_require__(15);var ExternalDropping=/** @class */function(_super){tslib_1.__extends(ExternalDropping,_super);function ExternalDropping(){var _this=_super!==null&&_super.apply(this,arguments)||this;_this.isDragging=false;// jqui-dragging an external element? boolean
+DateProfileGenerator.prototype.buildDateIncrement=function(fallback){var dateIncrementInput=this.opt('dateIncrement');var customAlignment;if(dateIncrementInput){return moment.duration(dateIncrementInput);}else if(customAlignment=this.opt('dateAlignment')){return moment.duration(1,customAlignment);}else if(fallback){return fallback;}else{return moment.duration({days:1});}};return DateProfileGenerator;}();exports.default=DateProfileGenerator;/***/},/* 222 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var moment=__webpack_require__(0);var exportHooks=__webpack_require__(16);var util_1=__webpack_require__(4);var moment_ext_1=__webpack_require__(10);var ListenerMixin_1=__webpack_require__(7);var HitDragListener_1=__webpack_require__(22);var SingleEventDef_1=__webpack_require__(13);var EventInstanceGroup_1=__webpack_require__(18);var EventSource_1=__webpack_require__(6);var Interaction_1=__webpack_require__(15);var ExternalDropping=/** @class */function(_super){tslib_1.__extends(ExternalDropping,_super);function ExternalDropping(){var _this=_super!==null&&_super.apply(this,arguments)||this;_this.isDragging=false;// jqui-dragging an external element? boolean
 return _this;}/*
     component impements:
       - eventRangesToEventFootprints
@@ -37551,7 +37556,7 @@ startTime=eventProps.start;if(startTime==null){startTime=eventProps.time;}// acc
 duration=eventProps.duration;stick=eventProps.stick;delete eventProps.start;delete eventProps.time;delete eventProps.duration;delete eventProps.stick;}// fallback to standalone attribute values for each of the date/time properties
 if(startTime==null){startTime=el.data(prefix+'start');}if(startTime==null){startTime=el.data(prefix+'time');}// accept 'time' as well
 if(duration==null){duration=el.data(prefix+'duration');}if(stick==null){stick=el.data(prefix+'stick');}// massage into correct data types
-startTime=startTime!=null?moment.duration(startTime):null;duration=duration!=null?moment.duration(duration):null;stick=Boolean(stick);return{eventProps:eventProps,startTime:startTime,duration:duration,stick:stick};}/***/},/* 223 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var EventDefMutation_1=__webpack_require__(37);var EventDefDateMutation_1=__webpack_require__(50);var HitDragListener_1=__webpack_require__(23);var Interaction_1=__webpack_require__(15);var EventResizing=/** @class */function(_super){tslib_1.__extends(EventResizing,_super);/*
+startTime=startTime!=null?moment.duration(startTime):null;duration=duration!=null?moment.duration(duration):null;stick=Boolean(stick);return{eventProps:eventProps,startTime:startTime,duration:duration,stick:stick};}/***/},/* 223 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var EventDefMutation_1=__webpack_require__(36);var EventDefDateMutation_1=__webpack_require__(50);var HitDragListener_1=__webpack_require__(22);var Interaction_1=__webpack_require__(15);var EventResizing=/** @class */function(_super){tslib_1.__extends(EventResizing,_super);/*
     component impements:
       - bindSegHandlerToEl
       - publiclyTrigger
@@ -37570,7 +37575,7 @@ view.reportEventResize(eventInstance,resizeMutation,el,ev);}_this.dragListener=n
 EventResizing.prototype.segResizeStart=function(seg,ev){this.isResizing=true;this.component.publiclyTrigger('eventResizeStart',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev,{},this.view]});};// Called after event segment resizing stops
 EventResizing.prototype.segResizeStop=function(seg,ev){this.isResizing=false;this.component.publiclyTrigger('eventResizeStop',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev,{},this.view]});};// Returns new date-information for an event segment being resized from its start
 EventResizing.prototype.computeEventStartResizeMutation=function(startFootprint,endFootprint,origEventFootprint){var origRange=origEventFootprint.componentFootprint.unzonedRange;var startDelta=this.component.diffDates(endFootprint.unzonedRange.getStart(),startFootprint.unzonedRange.getStart());var dateMutation;var eventDefMutation;if(origRange.getStart().add(startDelta)<origRange.getEnd()){dateMutation=new EventDefDateMutation_1.default();dateMutation.setStartDelta(startDelta);eventDefMutation=new EventDefMutation_1.default();eventDefMutation.setDateMutation(dateMutation);return eventDefMutation;}return false;};// Returns new date-information for an event segment being resized from its end
-EventResizing.prototype.computeEventEndResizeMutation=function(startFootprint,endFootprint,origEventFootprint){var origRange=origEventFootprint.componentFootprint.unzonedRange;var endDelta=this.component.diffDates(endFootprint.unzonedRange.getEnd(),startFootprint.unzonedRange.getEnd());var dateMutation;var eventDefMutation;if(origRange.getEnd().add(endDelta)>origRange.getStart()){dateMutation=new EventDefDateMutation_1.default();dateMutation.setEndDelta(endDelta);eventDefMutation=new EventDefMutation_1.default();eventDefMutation.setDateMutation(dateMutation);return eventDefMutation;}return false;};return EventResizing;}(Interaction_1.default);exports.default=EventResizing;/***/},/* 224 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);var EventDefMutation_1=__webpack_require__(37);var EventDefDateMutation_1=__webpack_require__(50);var DragListener_1=__webpack_require__(54);var HitDragListener_1=__webpack_require__(23);var MouseFollower_1=__webpack_require__(244);var Interaction_1=__webpack_require__(15);var EventDragging=/** @class */function(_super){tslib_1.__extends(EventDragging,_super);/*
+EventResizing.prototype.computeEventEndResizeMutation=function(startFootprint,endFootprint,origEventFootprint){var origRange=origEventFootprint.componentFootprint.unzonedRange;var endDelta=this.component.diffDates(endFootprint.unzonedRange.getEnd(),startFootprint.unzonedRange.getEnd());var dateMutation;var eventDefMutation;if(origRange.getEnd().add(endDelta)>origRange.getStart()){dateMutation=new EventDefDateMutation_1.default();dateMutation.setEndDelta(endDelta);eventDefMutation=new EventDefMutation_1.default();eventDefMutation.setDateMutation(dateMutation);return eventDefMutation;}return false;};return EventResizing;}(Interaction_1.default);exports.default=EventResizing;/***/},/* 224 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);var EventDefMutation_1=__webpack_require__(36);var EventDefDateMutation_1=__webpack_require__(50);var DragListener_1=__webpack_require__(54);var HitDragListener_1=__webpack_require__(22);var MouseFollower_1=__webpack_require__(244);var Interaction_1=__webpack_require__(15);var EventDragging=/** @class */function(_super){tslib_1.__extends(EventDragging,_super);/*
     component implements:
       - bindSegHandlerToEl
       - publiclyTrigger
@@ -37611,7 +37616,7 @@ mouseFollower.stop(!eventDefMutation,function(){if(isDragging){view.unrenderDrag
 view.reportEventDrop(eventInstance,eventDefMutation,el,ev);}});_this.dragListener=null;}});return dragListener;};// Called before event segment dragging starts
 EventDragging.prototype.segDragStart=function(seg,ev){this.isDragging=true;this.component.publiclyTrigger('eventDragStart',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev,{},this.view]});};// Called after event segment dragging stops
 EventDragging.prototype.segDragStop=function(seg,ev){this.isDragging=false;this.component.publiclyTrigger('eventDragStop',{context:seg.el[0],args:[seg.footprint.getEventLegacy(),ev,{},this.view]});};// DOES NOT consider overlap/constraint
-EventDragging.prototype.computeEventDropMutation=function(startFootprint,endFootprint,eventDef){var eventDefMutation=new EventDefMutation_1.default();eventDefMutation.setDateMutation(this.computeEventDateMutation(startFootprint,endFootprint));return eventDefMutation;};EventDragging.prototype.computeEventDateMutation=function(startFootprint,endFootprint){var date0=startFootprint.unzonedRange.getStart();var date1=endFootprint.unzonedRange.getStart();var clearEnd=false;var forceTimed=false;var forceAllDay=false;var dateDelta;var dateMutation;if(startFootprint.isAllDay!==endFootprint.isAllDay){clearEnd=true;if(endFootprint.isAllDay){forceAllDay=true;date0.stripTime();}else{forceTimed=true;}}dateDelta=this.component.diffDates(date1,date0);dateMutation=new EventDefDateMutation_1.default();dateMutation.clearEnd=clearEnd;dateMutation.forceTimed=forceTimed;dateMutation.forceAllDay=forceAllDay;dateMutation.setDateDelta(dateDelta);return dateMutation;};return EventDragging;}(Interaction_1.default);exports.default=EventDragging;/***/},/* 225 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);var HitDragListener_1=__webpack_require__(23);var ComponentFootprint_1=__webpack_require__(12);var UnzonedRange_1=__webpack_require__(5);var Interaction_1=__webpack_require__(15);var DateSelecting=/** @class */function(_super){tslib_1.__extends(DateSelecting,_super);/*
+EventDragging.prototype.computeEventDropMutation=function(startFootprint,endFootprint,eventDef){var eventDefMutation=new EventDefMutation_1.default();eventDefMutation.setDateMutation(this.computeEventDateMutation(startFootprint,endFootprint));return eventDefMutation;};EventDragging.prototype.computeEventDateMutation=function(startFootprint,endFootprint){var date0=startFootprint.unzonedRange.getStart();var date1=endFootprint.unzonedRange.getStart();var clearEnd=false;var forceTimed=false;var forceAllDay=false;var dateDelta;var dateMutation;if(startFootprint.isAllDay!==endFootprint.isAllDay){clearEnd=true;if(endFootprint.isAllDay){forceAllDay=true;date0.stripTime();}else{forceTimed=true;}}dateDelta=this.component.diffDates(date1,date0);dateMutation=new EventDefDateMutation_1.default();dateMutation.clearEnd=clearEnd;dateMutation.forceTimed=forceTimed;dateMutation.forceAllDay=forceAllDay;dateMutation.setDateDelta(dateDelta);return dateMutation;};return EventDragging;}(Interaction_1.default);exports.default=EventDragging;/***/},/* 225 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var util_1=__webpack_require__(4);var HitDragListener_1=__webpack_require__(22);var ComponentFootprint_1=__webpack_require__(12);var UnzonedRange_1=__webpack_require__(5);var Interaction_1=__webpack_require__(15);var DateSelecting=/** @class */function(_super){tslib_1.__extends(DateSelecting,_super);/*
     component must implement:
       - bindDateHandlerToEl
       - getSafeHitFootprint
@@ -37781,8 +37786,7 @@ Responsible for the scroller, and forwarding event-related actions into the "gri
 */var ListView=/** @class */function(_super){tslib_1.__extends(ListView,_super);function ListView(calendar,viewSpec){var _this=_super.call(this,calendar,viewSpec)||this;_this.segSelector='.fc-list-item';// which elements accept event actions
 _this.scroller=new Scroller_1.default({overflowX:'hidden',overflowY:'auto'});return _this;}ListView.prototype.renderSkeleton=function(){this.el.addClass('fc-list-view '+this.calendar.theme.getClass('listView'));this.scroller.render();this.scroller.el.appendTo(this.el);this.contentEl=this.scroller.scrollEl;// shortcut
 };ListView.prototype.unrenderSkeleton=function(){this.scroller.destroy();// will remove the Grid too
-};ListView.prototype.updateSize=function(totalHeight,isAuto,isResize){_super.prototype.updateSize.call(this,totalHeight,isAuto,isResize);this.scroller.clear();// sets height to 'auto' and clears overflow
-if(!isAuto){this.scroller.setHeight(this.computeScrollerHeight(totalHeight));}};ListView.prototype.computeScrollerHeight=function(totalHeight){return totalHeight-util_1.subtractInnerElHeight(this.el,this.scroller.el);// everything that's NOT the scroller
+};ListView.prototype.updateSize=function(totalHeight,isAuto,isResize){this.scroller.setHeight(this.computeScrollerHeight(totalHeight));};ListView.prototype.computeScrollerHeight=function(totalHeight){return totalHeight-util_1.subtractInnerElHeight(this.el,this.scroller.el);// everything that's NOT the scroller
 };ListView.prototype.renderDates=function(dateProfile){var calendar=this.calendar;var dayStart=calendar.msToUtcMoment(dateProfile.renderUnzonedRange.startMs,true);var viewEnd=calendar.msToUtcMoment(dateProfile.renderUnzonedRange.endMs,true);var dayDates=[];var dayRanges=[];while(dayStart<viewEnd){dayDates.push(dayStart.clone());dayRanges.push(new UnzonedRange_1.default(dayStart,dayStart.clone().add(1,'day')));dayStart.add(1,'day');}this.dayDates=dayDates;this.dayRanges=dayRanges;// all real rendering happens in EventRenderer
 };// slices by day
 ListView.prototype.componentFootprintToSegs=function(footprint){var dayRanges=this.dayRanges;var dayIndex;var segRange;var seg;var segs=[];for(dayIndex=0;dayIndex<dayRanges.length;dayIndex++){segRange=footprint.unzonedRange.intersect(dayRanges[dayIndex]);if(segRange){seg={startMs:segRange.startMs,endMs:segRange.endMs,isStart:segRange.isStart,isEnd:segRange.isEnd,dayIndex:dayIndex};segs.push(seg);// detect when footprint won't go fully into the next day,
@@ -37795,10 +37799,10 @@ tbodyEl.append(this.dayHeaderHtml(this.dayDates[dayIndex]));this.eventRenderer.s
 }}}this.contentEl.empty().append(tableEl);};// Returns a sparse array of arrays, segs grouped by their dayIndex
 ListView.prototype.groupSegsByDay=function(segs){var segsByDay=[];// sparse array
 var i;var seg;for(i=0;i<segs.length;i++){seg=segs[i];(segsByDay[seg.dayIndex]||(segsByDay[seg.dayIndex]=[])).push(seg);}return segsByDay;};// generates the HTML for the day headers that live amongst the event rows
-ListView.prototype.dayHeaderHtml=function(dayDate){var mainFormat=this.opt('listDayFormat');var altFormat=this.opt('listDayAltFormat');return'<tr class="fc-list-heading" data-date="'+dayDate.format('YYYY-MM-DD')+'">'+'<td class="'+(this.calendar.theme.getClass('tableListHeading')||this.calendar.theme.getClass('widgetHeader'))+'" colspan="3">'+(mainFormat?this.buildGotoAnchorHtml(dayDate,{'class':'fc-list-heading-main'},util_1.htmlEscape(dayDate.format(mainFormat))// inner HTML
+ListView.prototype.dayHeaderHtml=function(dayDate){var mainFormat=this.opt('listDayFormat');var altFormat=this.opt('listDayAltFormat');return'<tr class="fc-list-heading" data-date="'+dayDate.format('YYYY-MM-DD')+'">'+'<td class="'+this.calendar.theme.getClass('widgetHeader')+'" colspan="3">'+(mainFormat?this.buildGotoAnchorHtml(dayDate,{'class':'fc-list-heading-main'},util_1.htmlEscape(dayDate.format(mainFormat))// inner HTML
 ):'')+(altFormat?this.buildGotoAnchorHtml(dayDate,{'class':'fc-list-heading-alt'},util_1.htmlEscape(dayDate.format(altFormat))// inner HTML
 ):'')+'</td>'+'</tr>';};return ListView;}(View_1.default);exports.default=ListView;ListView.prototype.eventRendererClass=ListEventRenderer_1.default;ListView.prototype.eventPointingClass=ListEventPointing_1.default;/***/},,,,,,/* 231 *//* 232 *//* 233 *//* 234 *//* 235 *//* 236 *//***/function(module,exports,__webpack_require__){var $=__webpack_require__(3);var exportHooks=__webpack_require__(16);var util_1=__webpack_require__(4);var Calendar_1=__webpack_require__(220);// for intentional side-effects
-__webpack_require__(10);__webpack_require__(47);__webpack_require__(256);__webpack_require__(257);__webpack_require__(260);__webpack_require__(261);__webpack_require__(262);__webpack_require__(263);$.fullCalendar=exportHooks;$.fn.fullCalendar=function(options){var args=Array.prototype.slice.call(arguments,1);// for a possible method call
+__webpack_require__(10);__webpack_require__(47);__webpack_require__(256);__webpack_require__(257);__webpack_require__(259);__webpack_require__(260);__webpack_require__(261);__webpack_require__(262);$.fullCalendar=exportHooks;$.fn.fullCalendar=function(options){var args=Array.prototype.slice.call(arguments,1);// for a possible method call
 var res=this;// what this function will return (this jQuery object by default)
 this.each(function(i,_element){var element=$(_element);var calendar=element.data('fullCalendar');// get the existing calendar object (if any)
 var singleRes;// the returned value of this single method call
@@ -37835,7 +37839,7 @@ buttonEl.removeClass(theme.getClass('stateDown'));}).hover(function(){// the *ho
 buttonEl.not('.'+theme.getClass('stateActive')).not('.'+theme.getClass('stateDisabled')).addClass(theme.getClass('stateHover'));},function(){// undo the *hover* effect
 buttonEl.removeClass(theme.getClass('stateHover')).removeClass(theme.getClass('stateDown'));// if mouseleave happens before mouseup
 });groupChildren=groupChildren.add(buttonEl);}}});if(isOnlyButtons){groupChildren.first().addClass(theme.getClass('cornerLeft')).end().last().addClass(theme.getClass('cornerRight')).end();}if(groupChildren.length>1){groupEl=$('<div/>');if(isOnlyButtons){groupEl.addClass(theme.getClass('buttonGroup'));}groupEl.append(groupChildren);sectionEl.append(groupEl);}else{sectionEl.append(groupChildren);// 1 or 0 children
-}});}return sectionEl;};Toolbar.prototype.updateTitle=function(text){if(this.el){this.el.find('h2').text(text);}};Toolbar.prototype.activateButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').addClass(this.calendar.theme.getClass('stateActive'));}};Toolbar.prototype.deactivateButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').removeClass(this.calendar.theme.getClass('stateActive'));}};Toolbar.prototype.disableButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').prop('disabled',true).addClass(this.calendar.theme.getClass('stateDisabled'));}};Toolbar.prototype.enableButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').prop('disabled',false).removeClass(this.calendar.theme.getClass('stateDisabled'));}};Toolbar.prototype.getViewsWithButtons=function(){return this.viewsWithButtons;};return Toolbar;}();exports.default=Toolbar;/***/},/* 240 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var options_1=__webpack_require__(32);var locale_1=__webpack_require__(31);var Model_1=__webpack_require__(48);var OptionsManager=/** @class */function(_super){tslib_1.__extends(OptionsManager,_super);function OptionsManager(_calendar,overrides){var _this=_super.call(this)||this;_this._calendar=_calendar;_this.overrides=$.extend({},overrides);// make a copy
+}});}return sectionEl;};Toolbar.prototype.updateTitle=function(text){if(this.el){this.el.find('h2').text(text);}};Toolbar.prototype.activateButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').addClass(this.calendar.theme.getClass('stateActive'));}};Toolbar.prototype.deactivateButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').removeClass(this.calendar.theme.getClass('stateActive'));}};Toolbar.prototype.disableButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').prop('disabled',true).addClass(this.calendar.theme.getClass('stateDisabled'));}};Toolbar.prototype.enableButton=function(buttonName){if(this.el){this.el.find('.fc-'+buttonName+'-button').prop('disabled',false).removeClass(this.calendar.theme.getClass('stateDisabled'));}};Toolbar.prototype.getViewsWithButtons=function(){return this.viewsWithButtons;};return Toolbar;}();exports.default=Toolbar;/***/},/* 240 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var $=__webpack_require__(3);var util_1=__webpack_require__(4);var options_1=__webpack_require__(31);var locale_1=__webpack_require__(30);var Model_1=__webpack_require__(48);var OptionsManager=/** @class */function(_super){tslib_1.__extends(OptionsManager,_super);function OptionsManager(_calendar,overrides){var _this=_super.call(this)||this;_this._calendar=_calendar;_this.overrides=$.extend({},overrides);// make a copy
 _this.dynamicOverrides={};_this.compute();return _this;}OptionsManager.prototype.add=function(newOptionHash){var optionCnt=0;var optionName;this.recordOverrides(newOptionHash);// will trigger this model's watchers
 for(optionName in newOptionHash){optionCnt++;}// special-case handling of single option change.
 // if only one option change, `optionName` will be its name.
@@ -37854,7 +37858,7 @@ this.dynamicOverrides.isRTL,this.overrides.isRTL,localeDefaults.isRTL,options_1.
 this.reset(rawOptions);};// stores the new options internally, but does not rerender anything.
 OptionsManager.prototype.recordOverrides=function(newOptionHash){var optionName;for(optionName in newOptionHash){this.dynamicOverrides[optionName]=newOptionHash[optionName];}this._calendar.viewSpecManager.clearCache();// the dynamic override invalidates the options in this cache, so just clear it
 this.compute();// this.options needs to be recomputed after the dynamic override
-};return OptionsManager;}(Model_1.default);exports.default=OptionsManager;/***/},/* 241 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var moment=__webpack_require__(0);var $=__webpack_require__(3);var ViewRegistry_1=__webpack_require__(22);var util_1=__webpack_require__(4);var options_1=__webpack_require__(32);var locale_1=__webpack_require__(31);var ViewSpecManager=/** @class */function(){function ViewSpecManager(optionsManager,_calendar){this.optionsManager=optionsManager;this._calendar=_calendar;this.clearCache();}ViewSpecManager.prototype.clearCache=function(){this.viewSpecCache={};};// Gets information about how to create a view. Will use a cache.
+};return OptionsManager;}(Model_1.default);exports.default=OptionsManager;/***/},/* 241 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var moment=__webpack_require__(0);var $=__webpack_require__(3);var ViewRegistry_1=__webpack_require__(21);var util_1=__webpack_require__(4);var options_1=__webpack_require__(31);var locale_1=__webpack_require__(30);var ViewSpecManager=/** @class */function(){function ViewSpecManager(optionsManager,_calendar){this.optionsManager=optionsManager;this._calendar=_calendar;this.clearCache();}ViewSpecManager.prototype.clearCache=function(){this.viewSpecCache={};};// Gets information about how to create a view. Will use a cache.
 ViewSpecManager.prototype.getViewSpec=function(viewType){var cache=this.viewSpecCache;return cache[viewType]||(cache[viewType]=this.buildViewSpec(viewType));};// Given a duration singular unit, like "week" or "day", finds a matching view spec.
 // Preference is given to views that have corresponding buttons.
 ViewSpecManager.prototype.getUnitViewSpec=function(unit){var viewTypes;var i;var spec;if($.inArray(unit,util_1.unitsDesc)!==-1){// put views that have buttons first. there will be duplicates, but oh well
@@ -37885,7 +37889,7 @@ spec.overrides.buttonText;// `buttonText` for view-specific options is a string
 spec.buttonTextDefault=queryButtonText(optionsManager.localeDefaults)||queryButtonText(optionsManager.dirDefaults)||spec.defaults.buttonText||// a single string. from ViewSubclass.defaults
 queryButtonText(options_1.globalDefaults)||(spec.duration?this._calendar.humanizeDuration(spec.duration):null)||// like "3 days"
 requestedViewType;// fall back to given view name
-};return ViewSpecManager;}();exports.default=ViewSpecManager;/***/},/* 242 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(4);var EventPeriod_1=__webpack_require__(243);var ArrayEventSource_1=__webpack_require__(52);var EventSource_1=__webpack_require__(6);var EventSourceParser_1=__webpack_require__(38);var SingleEventDef_1=__webpack_require__(13);var EventInstanceGroup_1=__webpack_require__(18);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);var EventManager=/** @class */function(){function EventManager(calendar){this.calendar=calendar;this.stickySource=new ArrayEventSource_1.default(calendar);this.otherSources=[];}EventManager.prototype.requestEvents=function(start,end,timezone,force){if(force||!this.currentPeriod||!this.currentPeriod.isWithinRange(start,end)||timezone!==this.currentPeriod.timezone){this.setPeriod(// will change this.currentPeriod
+};return ViewSpecManager;}();exports.default=ViewSpecManager;/***/},/* 242 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(4);var EventPeriod_1=__webpack_require__(243);var ArrayEventSource_1=__webpack_require__(52);var EventSource_1=__webpack_require__(6);var EventSourceParser_1=__webpack_require__(37);var SingleEventDef_1=__webpack_require__(13);var EventInstanceGroup_1=__webpack_require__(18);var EmitterMixin_1=__webpack_require__(11);var ListenerMixin_1=__webpack_require__(7);var EventManager=/** @class */function(){function EventManager(calendar){this.calendar=calendar;this.stickySource=new ArrayEventSource_1.default(calendar);this.otherSources=[];}EventManager.prototype.requestEvents=function(start,end,timezone,force){if(force||!this.currentPeriod||!this.currentPeriod.isWithinRange(start,end)||timezone!==this.currentPeriod.timezone){this.setPeriod(// will change this.currentPeriod
 new EventPeriod_1.default(start,end,timezone));}return this.currentPeriod.whenReleased();};// Source Adding/Removing
 // -----------------------------------------------------------------------------------------------------------------
 EventManager.prototype.addSource=function(eventSource){this.otherSources.push(eventSource);if(this.currentPeriod){this.currentPeriod.requestSource(eventSource);// might release
@@ -37923,7 +37927,7 @@ currentPeriod.removeEventDef(eventDef);undoFuncs.push(eventDefMutation.mutateSin
 defCopy.buildInstances());}}return new EventInstanceGroup_1.default(allInstances);};// Freezing
 // -----------------------------------------------------------------------------------------------------------------
 EventManager.prototype.freeze=function(){if(this.currentPeriod){this.currentPeriod.freeze();}};EventManager.prototype.thaw=function(){if(this.currentPeriod){this.currentPeriod.thaw();}};// methods that simply forward to EventPeriod
-EventManager.prototype.getEventDefsById=function(eventDefId){return this.currentPeriod.getEventDefsById(eventDefId);};EventManager.prototype.getEventInstances=function(){return this.currentPeriod.getEventInstances();};EventManager.prototype.getEventInstancesWithId=function(eventDefId){return this.currentPeriod.getEventInstancesWithId(eventDefId);};EventManager.prototype.getEventInstancesWithoutId=function(eventDefId){return this.currentPeriod.getEventInstancesWithoutId(eventDefId);};return EventManager;}();exports.default=EventManager;EmitterMixin_1.default.mixInto(EventManager);ListenerMixin_1.default.mixInto(EventManager);function isSourcesEquivalent(source0,source1){return source0.getPrimitive()===source1.getPrimitive();}/***/},/* 243 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Promise_1=__webpack_require__(20);var EmitterMixin_1=__webpack_require__(11);var UnzonedRange_1=__webpack_require__(5);var EventInstanceGroup_1=__webpack_require__(18);var EventPeriod=/** @class */function(){function EventPeriod(start,end,timezone){this.pendingCnt=0;this.freezeDepth=0;this.stuntedReleaseCnt=0;this.releaseCnt=0;this.start=start;this.end=end;this.timezone=timezone;this.unzonedRange=new UnzonedRange_1.default(start.clone().stripZone(),end.clone().stripZone());this.requestsByUid={};this.eventDefsByUid={};this.eventDefsById={};this.eventInstanceGroupsById={};}EventPeriod.prototype.isWithinRange=function(start,end){// TODO: use a range util function?
+EventManager.prototype.getEventDefsById=function(eventDefId){return this.currentPeriod.getEventDefsById(eventDefId);};EventManager.prototype.getEventInstances=function(){return this.currentPeriod.getEventInstances();};EventManager.prototype.getEventInstancesWithId=function(eventDefId){return this.currentPeriod.getEventInstancesWithId(eventDefId);};EventManager.prototype.getEventInstancesWithoutId=function(eventDefId){return this.currentPeriod.getEventInstancesWithoutId(eventDefId);};return EventManager;}();exports.default=EventManager;EmitterMixin_1.default.mixInto(EventManager);ListenerMixin_1.default.mixInto(EventManager);function isSourcesEquivalent(source0,source1){return source0.getPrimitive()===source1.getPrimitive();}/***/},/* 243 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var $=__webpack_require__(3);var util_1=__webpack_require__(4);var Promise_1=__webpack_require__(19);var EmitterMixin_1=__webpack_require__(11);var UnzonedRange_1=__webpack_require__(5);var EventInstanceGroup_1=__webpack_require__(18);var EventPeriod=/** @class */function(){function EventPeriod(start,end,timezone){this.pendingCnt=0;this.freezeDepth=0;this.stuntedReleaseCnt=0;this.releaseCnt=0;this.start=start;this.end=end;this.timezone=timezone;this.unzonedRange=new UnzonedRange_1.default(start.clone().stripZone(),end.clone().stripZone());this.requestsByUid={};this.eventDefsByUid={};this.eventDefsById={};this.eventInstanceGroupsById={};}EventPeriod.prototype.isWithinRange=function(start,end){// TODO: use a range util function?
 return!start.isBefore(this.start)&&!end.isAfter(this.end);};// Requesting and Purging
 // -----------------------------------------------------------------------------------------------------------------
 EventPeriod.prototype.requestSources=function(sources){this.freeze();for(var i=0;i<sources.length;i++){this.requestSource(sources[i]);}this.thaw();};EventPeriod.prototype.requestSource=function(source){var _this=this;var request={source:source,status:'pending',eventDefs:null};this.requestsByUid[source.uid]=request;this.pendingCnt+=1;source.fetch(this.start,this.end,this.timezone).then(function(eventDefs){if(request.status!=='cancelled'){request.status='completed';request.eventDefs=eventDefs;_this.addEventDefs(eventDefs);_this.pendingCnt--;_this.tryRelease();}},function(){if(request.status!=='cancelled'){request.status='failed';_this.pendingCnt--;_this.tryRelease();}});};EventPeriod.prototype.purgeSource=function(source){var request=this.requestsByUid[source.uid];if(request){delete this.requestsByUid[source.uid];if(request.status==='pending'){request.status='cancelled';this.pendingCnt--;this.tryRelease();}else if(request.status==='completed'){request.eventDefs.forEach(this.removeEventDef.bind(this));}}};EventPeriod.prototype.purgeAllSources=function(){var requestsByUid=this.requestsByUid;var uid;var request;var completedCnt=0;for(uid in requestsByUid){request=requestsByUid[uid];if(request.status==='pending'){request.status='cancelled';}else if(request.status==='completed'){completedCnt++;}}this.requestsByUid={};this.pendingCnt=0;if(completedCnt){this.removeAllEventDefs();// might release
@@ -37954,7 +37958,7 @@ MouseFollower.prototype.updatePosition=function(){var sourceOffset;var origin;th
 if(this.top0==null){sourceOffset=this.sourceEl.offset();origin=this.el.offsetParent().offset();this.top0=sourceOffset.top-origin.top;this.left0=sourceOffset.left-origin.left;}this.el.css({top:this.top0+this.topDelta,left:this.left0+this.leftDelta});};// Gets called when the user moves the mouse
 MouseFollower.prototype.handleMove=function(ev){this.topDelta=util_1.getEvY(ev)-this.y0;this.leftDelta=util_1.getEvX(ev)-this.x0;if(!this.isHidden){this.updatePosition();}};// Temporarily makes the tracking element invisible. Can be called before following starts
 MouseFollower.prototype.hide=function(){if(!this.isHidden){this.isHidden=true;if(this.el){this.el.hide();}}};// Show the tracking element after it has been temporarily hidden
-MouseFollower.prototype.show=function(){if(this.isHidden){this.isHidden=false;this.updatePosition();this.getEl().show();}};return MouseFollower;}();exports.default=MouseFollower;ListenerMixin_1.default.mixInto(MouseFollower);/***/},/* 245 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var HitDragListener_1=__webpack_require__(23);var Interaction_1=__webpack_require__(15);var DateClicking=/** @class */function(_super){tslib_1.__extends(DateClicking,_super);/*
+MouseFollower.prototype.show=function(){if(this.isHidden){this.isHidden=false;this.updatePosition();this.getEl().show();}};return MouseFollower;}();exports.default=MouseFollower;ListenerMixin_1.default.mixInto(MouseFollower);/***/},/* 245 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var HitDragListener_1=__webpack_require__(22);var Interaction_1=__webpack_require__(15);var DateClicking=/** @class */function(_super){tslib_1.__extends(DateClicking,_super);/*
     component must implement:
       - bindDateHandlerToEl
       - getSafeHitFootprint
@@ -38144,29 +38148,23 @@ ListEventRenderer.prototype.computeEventTimeFormat=function(){return this.opt('m
 ListEventPointing.prototype.handleClick=function(seg,ev){var url;_super.prototype.handleClick.call(this,seg,ev);// might prevent the default action
 // not clicking on or within an <a> with an href
 if(!$(ev.target).closest('a[href]').length){url=seg.footprint.eventDef.url;if(url&&!ev.isDefaultPrevented()){window.location.href=url;// simulate link click
-}}};return ListEventPointing;}(EventPointing_1.default);exports.default=ListEventPointing;/***/},/* 256 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var EventSourceParser_1=__webpack_require__(38);var ArrayEventSource_1=__webpack_require__(52);var FuncEventSource_1=__webpack_require__(215);var JsonFeedEventSource_1=__webpack_require__(216);EventSourceParser_1.default.registerClass(ArrayEventSource_1.default);EventSourceParser_1.default.registerClass(FuncEventSource_1.default);EventSourceParser_1.default.registerClass(JsonFeedEventSource_1.default);/***/},/* 257 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ThemeRegistry_1=__webpack_require__(51);var StandardTheme_1=__webpack_require__(213);var JqueryUiTheme_1=__webpack_require__(214);var Bootstrap3Theme_1=__webpack_require__(258);var Bootstrap4Theme_1=__webpack_require__(259);ThemeRegistry_1.defineThemeSystem('standard',StandardTheme_1.default);ThemeRegistry_1.defineThemeSystem('jquery-ui',JqueryUiTheme_1.default);ThemeRegistry_1.defineThemeSystem('bootstrap3',Bootstrap3Theme_1.default);ThemeRegistry_1.defineThemeSystem('bootstrap4',Bootstrap4Theme_1.default);/***/},/* 258 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Theme_1=__webpack_require__(19);var Bootstrap3Theme=/** @class */function(_super){tslib_1.__extends(Bootstrap3Theme,_super);function Bootstrap3Theme(){return _super!==null&&_super.apply(this,arguments)||this;}return Bootstrap3Theme;}(Theme_1.default);exports.default=Bootstrap3Theme;Bootstrap3Theme.prototype.classes={widget:'fc-bootstrap3',tableGrid:'table-bordered',tableList:'table',tableListHeading:'active',buttonGroup:'btn-group',button:'btn btn-default',stateActive:'active',stateDisabled:'disabled',today:'alert alert-info',popover:'panel panel-default',popoverHeader:'panel-heading',popoverContent:'panel-body',// day grid
-// for left/right border color when border is inset from edges (all-day in agenda view)
-// avoid `panel` class b/c don't want margins/radius. only border color.
+}}};return ListEventPointing;}(EventPointing_1.default);exports.default=ListEventPointing;/***/},/* 256 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var EventSourceParser_1=__webpack_require__(37);var ArrayEventSource_1=__webpack_require__(52);var FuncEventSource_1=__webpack_require__(215);var JsonFeedEventSource_1=__webpack_require__(216);EventSourceParser_1.default.registerClass(ArrayEventSource_1.default);EventSourceParser_1.default.registerClass(FuncEventSource_1.default);EventSourceParser_1.default.registerClass(JsonFeedEventSource_1.default);/***/},/* 257 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ThemeRegistry_1=__webpack_require__(51);var StandardTheme_1=__webpack_require__(213);var JqueryUiTheme_1=__webpack_require__(214);var BootstrapTheme_1=__webpack_require__(258);ThemeRegistry_1.defineThemeSystem('standard',StandardTheme_1.default);ThemeRegistry_1.defineThemeSystem('jquery-ui',JqueryUiTheme_1.default);ThemeRegistry_1.defineThemeSystem('bootstrap3',BootstrapTheme_1.default);/***/},/* 258 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Theme_1=__webpack_require__(38);var BootstrapTheme=/** @class */function(_super){tslib_1.__extends(BootstrapTheme,_super);function BootstrapTheme(){return _super!==null&&_super.apply(this,arguments)||this;}return BootstrapTheme;}(Theme_1.default);exports.default=BootstrapTheme;BootstrapTheme.prototype.classes={widget:'fc-bootstrap3',tableGrid:'table-bordered',tableList:'table table-striped',buttonGroup:'btn-group',button:'btn btn-default',stateActive:'active',stateDisabled:'disabled',today:'alert alert-info',popover:'panel panel-default',popoverHeader:'panel-heading',popoverContent:'panel-body',// day grid
 headerRow:'panel-default',dayRow:'panel-default',// list view
-listView:'panel panel-default'};Bootstrap3Theme.prototype.baseIconClass='glyphicon';Bootstrap3Theme.prototype.iconClasses={close:'glyphicon-remove',prev:'glyphicon-chevron-left',next:'glyphicon-chevron-right',prevYear:'glyphicon-backward',nextYear:'glyphicon-forward'};Bootstrap3Theme.prototype.iconOverrideOption='bootstrapGlyphicons';Bootstrap3Theme.prototype.iconOverrideCustomButtonOption='bootstrapGlyphicon';Bootstrap3Theme.prototype.iconOverridePrefix='glyphicon-';/***/},/* 259 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var tslib_1=__webpack_require__(2);var Theme_1=__webpack_require__(19);var Bootstrap4Theme=/** @class */function(_super){tslib_1.__extends(Bootstrap4Theme,_super);function Bootstrap4Theme(){return _super!==null&&_super.apply(this,arguments)||this;}return Bootstrap4Theme;}(Theme_1.default);exports.default=Bootstrap4Theme;Bootstrap4Theme.prototype.classes={widget:'fc-bootstrap4',tableGrid:'table-bordered',tableList:'table',tableListHeading:'table-active',buttonGroup:'btn-group',button:'btn btn-primary',stateActive:'active',stateDisabled:'disabled',today:'alert alert-info',popover:'card card-primary',popoverHeader:'card-header',popoverContent:'card-body',// day grid
-// for left/right border color when border is inset from edges (all-day in agenda view)
-// avoid `table` class b/c don't want margins/padding/structure. only border color.
-headerRow:'table-bordered',dayRow:'table-bordered',// list view
-listView:'card card-primary'};Bootstrap4Theme.prototype.baseIconClass='fa';Bootstrap4Theme.prototype.iconClasses={close:'fa-times',prev:'fa-chevron-left',next:'fa-chevron-right',prevYear:'fa-angle-double-left',nextYear:'fa-angle-double-right'};Bootstrap4Theme.prototype.iconOverrideOption='bootstrapFontAwesome';Bootstrap4Theme.prototype.iconOverrideCustomButtonOption='bootstrapFontAwesome';Bootstrap4Theme.prototype.iconOverridePrefix='fa-';/***/},/* 260 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ViewRegistry_1=__webpack_require__(22);var BasicView_1=__webpack_require__(62);var MonthView_1=__webpack_require__(229);ViewRegistry_1.defineView('basic',{'class':BasicView_1.default});ViewRegistry_1.defineView('basicDay',{type:'basic',duration:{days:1}});ViewRegistry_1.defineView('basicWeek',{type:'basic',duration:{weeks:1}});ViewRegistry_1.defineView('month',{'class':MonthView_1.default,duration:{months:1},defaults:{fixedWeekCount:true}});/***/},/* 261 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ViewRegistry_1=__webpack_require__(22);var AgendaView_1=__webpack_require__(226);ViewRegistry_1.defineView('agenda',{'class':AgendaView_1.default,defaults:{allDaySlot:true,slotDuration:'00:30:00',slotEventOverlap:true// a bad name. confused with overlap/constraint system
-}});ViewRegistry_1.defineView('agendaDay',{type:'agenda',duration:{days:1}});ViewRegistry_1.defineView('agendaWeek',{type:'agenda',duration:{weeks:1}});/***/},/* 262 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ViewRegistry_1=__webpack_require__(22);var ListView_1=__webpack_require__(230);ViewRegistry_1.defineView('list',{'class':ListView_1.default,buttonTextKey:'list',defaults:{buttonText:'list',listDayFormat:'LL',noEventsMessage:'No events to display'}});ViewRegistry_1.defineView('listDay',{type:'list',duration:{days:1},defaults:{listDayFormat:'dddd'// day-of-week is all we need. full date is probably in header
+listView:'panel panel-default'};BootstrapTheme.prototype.baseIconClass='glyphicon';BootstrapTheme.prototype.iconClasses={close:'glyphicon-remove',prev:'glyphicon-chevron-left',next:'glyphicon-chevron-right',prevYear:'glyphicon-backward',nextYear:'glyphicon-forward'};BootstrapTheme.prototype.iconOverrideOption='bootstrapGlyphicons';BootstrapTheme.prototype.iconOverrideCustomButtonOption='bootstrapGlyphicon';BootstrapTheme.prototype.iconOverridePrefix='glyphicon-';/***/},/* 259 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ViewRegistry_1=__webpack_require__(21);var BasicView_1=__webpack_require__(62);var MonthView_1=__webpack_require__(229);ViewRegistry_1.defineView('basic',{'class':BasicView_1.default});ViewRegistry_1.defineView('basicDay',{type:'basic',duration:{days:1}});ViewRegistry_1.defineView('basicWeek',{type:'basic',duration:{weeks:1}});ViewRegistry_1.defineView('month',{'class':MonthView_1.default,duration:{months:1},defaults:{fixedWeekCount:true}});/***/},/* 260 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ViewRegistry_1=__webpack_require__(21);var AgendaView_1=__webpack_require__(226);ViewRegistry_1.defineView('agenda',{'class':AgendaView_1.default,defaults:{allDaySlot:true,slotDuration:'00:30:00',slotEventOverlap:true// a bad name. confused with overlap/constraint system
+}});ViewRegistry_1.defineView('agendaDay',{type:'agenda',duration:{days:1}});ViewRegistry_1.defineView('agendaWeek',{type:'agenda',duration:{weeks:1}});/***/},/* 261 *//***/function(module,exports,__webpack_require__){Object.defineProperty(exports,"__esModule",{value:true});var ViewRegistry_1=__webpack_require__(21);var ListView_1=__webpack_require__(230);ViewRegistry_1.defineView('list',{'class':ListView_1.default,buttonTextKey:'list',defaults:{buttonText:'list',listDayFormat:'LL',noEventsMessage:'No events to display'}});ViewRegistry_1.defineView('listDay',{type:'list',duration:{days:1},defaults:{listDayFormat:'dddd'// day-of-week is all we need. full date is probably in header
 }});ViewRegistry_1.defineView('listWeek',{type:'list',duration:{weeks:1},defaults:{listDayFormat:'dddd',listDayAltFormat:'LL'}});ViewRegistry_1.defineView('listMonth',{type:'list',duration:{month:1},defaults:{listDayAltFormat:'dddd'// day-of-week is nice-to-have
 }});ViewRegistry_1.defineView('listYear',{type:'list',duration:{year:1},defaults:{listDayAltFormat:'dddd'// day-of-week is nice-to-have
-}});/***/},/* 263 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});/***/}]/******/));});
+}});/***/},/* 262 *//***/function(module,exports){Object.defineProperty(exports,"__esModule",{value:true});/***/}]/******/));});
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38176,7 +38174,2404 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _axios = __webpack_require__(145);
+var _bootstrapDatepicker = __webpack_require__(7);
+
+var _bootstrapDatepicker2 = _interopRequireDefault(_bootstrapDatepicker);
+
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var init = function init() {
+  $('.datepicker').datepicker({
+    daysOfWeekDisabled: [0, 7],
+    format: 'mm/dd/yyyy',
+    language: 'en',
+    startDate: 0,
+    startView: 'days',
+    todayHighlight: true
+  });
+
+  $('.input-daterange').each(function () {
+    var range = $(this);
+    var inputBegin = range.find('[name="date_begin"]');
+    var inputEnd = range.find('[name="date_end"]');
+
+    range.datepicker({
+      inputs: range.find('input'),
+      startDate: (0, _moment2.default)().format('MM/DD/YYYY')
+    });
+
+    inputBegin.datepicker().on('changeDate', function (e) {
+      inputEnd.datepicker('setStartDate', e.date);
+      inputEnd.datepicker('setDate', e.date);
+      $(this).datepicker('hide');
+      inputEnd.datepicker('show');
+    });
+  });
+};
+
+exports.default = init;
+
+/***/ }),
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _sortablejs = __webpack_require__(147);
+
+var _sortablejs2 = _interopRequireDefault(_sortablejs);
+
+var _axios = __webpack_require__(130);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function sortable() {
+  $('.table-sortable').each(function () {
+    var table = $(this);
+    var url = table.data('sortable-url') || null;
+    var group = table.data('sortable-group') || 'default';
+
+    if (url === null) {
+      return;
+    }
+
+    _sortablejs2.default.create(this.querySelector('tbody'), {
+      group: group,
+      handle: '.sortable-handle',
+      animation: 150,
+      store: {
+        get: function get(sortable) {
+          return [];
+        },
+        set: function set(sortable) {
+          var order = sortable.toArray();
+          sortable.option('disabled', true);
+
+          _axios2.default.post(url, {
+            order: order
+          }).then(function (response) {
+            sortable.option('disabled', false);
+          }).catch(function (error) {
+            console.error(error);
+            sortable.option('disabled', false);
+          });
+        }
+      }
+    });
+  });
+}
+
+exports.default = sortable;
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**!
+ * Sortable
+ * @author	RubaXa   <trash@rubaxa.org>
+ * @license MIT
+ */
+
+(function sortableModule(factory) {
+	"use strict";
+
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if (typeof module != "undefined" && typeof module.exports != "undefined") {
+		module.exports = factory();
+	} else {
+		/* jshint sub:true */
+		window["Sortable"] = factory();
+	}
+})(function sortableFactory() {
+	"use strict";
+
+	if (typeof window === "undefined" || !window.document) {
+		return function sortableError() {
+			throw new Error("Sortable.js requires a window with a document");
+		};
+	}
+
+	var dragEl,
+	    parentEl,
+	    ghostEl,
+	    cloneEl,
+	    rootEl,
+	    nextEl,
+	    lastDownEl,
+	    scrollEl,
+	    scrollParentEl,
+	    scrollCustomFn,
+	    lastEl,
+	    lastCSS,
+	    lastParentCSS,
+	    oldIndex,
+	    newIndex,
+	    activeGroup,
+	    putSortable,
+	    autoScroll = {},
+	    tapEvt,
+	    touchEvt,
+	    moved,
+
+
+	/** @const */
+	R_SPACE = /\s+/g,
+	    R_FLOAT = /left|right|inline/,
+	    expando = 'Sortable' + new Date().getTime(),
+	    win = window,
+	    document = win.document,
+	    parseInt = win.parseInt,
+	    setTimeout = win.setTimeout,
+	    $ = win.jQuery || win.Zepto,
+	    Polymer = win.Polymer,
+	    captureMode = false,
+	    passiveMode = false,
+	    supportDraggable = 'draggable' in document.createElement('div'),
+	    supportCssPointerEvents = function (el) {
+		// false when IE11
+		if (!!navigator.userAgent.match(/(?:Trident.*rv[ :]?11\.|msie)/i)) {
+			return false;
+		}
+		el = document.createElement('x');
+		el.style.cssText = 'pointer-events:auto';
+		return el.style.pointerEvents === 'auto';
+	}(),
+	    _silent = false,
+	    abs = Math.abs,
+	    min = Math.min,
+	    savedInputChecked = [],
+	    touchDragOverListeners = [],
+	    _autoScroll = _throttle(function ( /**Event*/evt, /**Object*/options, /**HTMLElement*/rootEl) {
+		// Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=505521
+		if (rootEl && options.scroll) {
+			var _this = rootEl[expando],
+			    el,
+			    rect,
+			    sens = options.scrollSensitivity,
+			    speed = options.scrollSpeed,
+			    x = evt.clientX,
+			    y = evt.clientY,
+			    winWidth = window.innerWidth,
+			    winHeight = window.innerHeight,
+			    vx,
+			    vy,
+			    scrollOffsetX,
+			    scrollOffsetY;
+
+			// Delect scrollEl
+			if (scrollParentEl !== rootEl) {
+				scrollEl = options.scroll;
+				scrollParentEl = rootEl;
+				scrollCustomFn = options.scrollFn;
+
+				if (scrollEl === true) {
+					scrollEl = rootEl;
+
+					do {
+						if (scrollEl.offsetWidth < scrollEl.scrollWidth || scrollEl.offsetHeight < scrollEl.scrollHeight) {
+							break;
+						}
+						/* jshint boss:true */
+					} while (scrollEl = scrollEl.parentNode);
+				}
+			}
+
+			if (scrollEl) {
+				el = scrollEl;
+				rect = scrollEl.getBoundingClientRect();
+				vx = (abs(rect.right - x) <= sens) - (abs(rect.left - x) <= sens);
+				vy = (abs(rect.bottom - y) <= sens) - (abs(rect.top - y) <= sens);
+			}
+
+			if (!(vx || vy)) {
+				vx = (winWidth - x <= sens) - (x <= sens);
+				vy = (winHeight - y <= sens) - (y <= sens);
+
+				/* jshint expr:true */
+				(vx || vy) && (el = win);
+			}
+
+			if (autoScroll.vx !== vx || autoScroll.vy !== vy || autoScroll.el !== el) {
+				autoScroll.el = el;
+				autoScroll.vx = vx;
+				autoScroll.vy = vy;
+
+				clearInterval(autoScroll.pid);
+
+				if (el) {
+					autoScroll.pid = setInterval(function () {
+						scrollOffsetY = vy ? vy * speed : 0;
+						scrollOffsetX = vx ? vx * speed : 0;
+
+						if ('function' === typeof scrollCustomFn) {
+							return scrollCustomFn.call(_this, scrollOffsetX, scrollOffsetY, evt);
+						}
+
+						if (el === win) {
+							win.scrollTo(win.pageXOffset + scrollOffsetX, win.pageYOffset + scrollOffsetY);
+						} else {
+							el.scrollTop += scrollOffsetY;
+							el.scrollLeft += scrollOffsetX;
+						}
+					}, 24);
+				}
+			}
+		}
+	}, 30),
+	    _prepareGroup = function _prepareGroup(options) {
+		function toFn(value, pull) {
+			if (value === void 0 || value === true) {
+				value = group.name;
+			}
+
+			if (typeof value === 'function') {
+				return value;
+			} else {
+				return function (to, from) {
+					var fromGroup = from.options.group.name;
+
+					return pull ? value : value && (value.join ? value.indexOf(fromGroup) > -1 : fromGroup == value);
+				};
+			}
+		}
+
+		var group = {};
+		var originalGroup = options.group;
+
+		if (!originalGroup || (typeof originalGroup === "undefined" ? "undefined" : _typeof(originalGroup)) != 'object') {
+			originalGroup = { name: originalGroup };
+		}
+
+		group.name = originalGroup.name;
+		group.checkPull = toFn(originalGroup.pull, true);
+		group.checkPut = toFn(originalGroup.put);
+		group.revertClone = originalGroup.revertClone;
+
+		options.group = group;
+	};
+
+	// Detect support a passive mode
+	try {
+		window.addEventListener('test', null, Object.defineProperty({}, 'passive', {
+			get: function get() {
+				// `false`, because everything starts to work incorrectly and instead of d'n'd,
+				// begins the page has scrolled.
+				passiveMode = false;
+				captureMode = {
+					capture: false,
+					passive: passiveMode
+				};
+			}
+		}));
+	} catch (err) {}
+
+	/**
+  * @class  Sortable
+  * @param  {HTMLElement}  el
+  * @param  {Object}       [options]
+  */
+	function Sortable(el, options) {
+		if (!(el && el.nodeType && el.nodeType === 1)) {
+			throw 'Sortable: `el` must be HTMLElement, and not ' + {}.toString.call(el);
+		}
+
+		this.el = el; // root element
+		this.options = options = _extend({}, options);
+
+		// Export instance
+		el[expando] = this;
+
+		// Default options
+		var defaults = {
+			group: Math.random(),
+			sort: true,
+			disabled: false,
+			store: null,
+			handle: null,
+			scroll: true,
+			scrollSensitivity: 30,
+			scrollSpeed: 10,
+			draggable: /[uo]l/i.test(el.nodeName) ? 'li' : '>*',
+			ghostClass: 'sortable-ghost',
+			chosenClass: 'sortable-chosen',
+			dragClass: 'sortable-drag',
+			ignore: 'a, img',
+			filter: null,
+			preventOnFilter: true,
+			animation: 0,
+			setData: function setData(dataTransfer, dragEl) {
+				dataTransfer.setData('Text', dragEl.textContent);
+			},
+			dropBubble: false,
+			dragoverBubble: false,
+			dataIdAttr: 'data-id',
+			delay: 0,
+			forceFallback: false,
+			fallbackClass: 'sortable-fallback',
+			fallbackOnBody: false,
+			fallbackTolerance: 0,
+			fallbackOffset: { x: 0, y: 0 },
+			supportPointer: Sortable.supportPointer !== false
+		};
+
+		// Set default options
+		for (var name in defaults) {
+			!(name in options) && (options[name] = defaults[name]);
+		}
+
+		_prepareGroup(options);
+
+		// Bind all private methods
+		for (var fn in this) {
+			if (fn.charAt(0) === '_' && typeof this[fn] === 'function') {
+				this[fn] = this[fn].bind(this);
+			}
+		}
+
+		// Setup drag mode
+		this.nativeDraggable = options.forceFallback ? false : supportDraggable;
+
+		// Bind events
+		_on(el, 'mousedown', this._onTapStart);
+		_on(el, 'touchstart', this._onTapStart);
+		options.supportPointer && _on(el, 'pointerdown', this._onTapStart);
+
+		if (this.nativeDraggable) {
+			_on(el, 'dragover', this);
+			_on(el, 'dragenter', this);
+		}
+
+		touchDragOverListeners.push(this._onDragOver);
+
+		// Restore sorting
+		options.store && this.sort(options.store.get(this));
+	}
+
+	Sortable.prototype = /** @lends Sortable.prototype */{
+		constructor: Sortable,
+
+		_onTapStart: function _onTapStart( /** Event|TouchEvent */evt) {
+			var _this = this,
+			    el = this.el,
+			    options = this.options,
+			    preventOnFilter = options.preventOnFilter,
+			    type = evt.type,
+			    touch = evt.touches && evt.touches[0],
+			    target = (touch || evt).target,
+			    originalTarget = evt.target.shadowRoot && evt.path && evt.path[0] || target,
+			    filter = options.filter,
+			    startIndex;
+
+			_saveInputCheckedState(el);
+
+			// Don't trigger start event when an element is been dragged, otherwise the evt.oldindex always wrong when set option.group.
+			if (dragEl) {
+				return;
+			}
+
+			if (/mousedown|pointerdown/.test(type) && evt.button !== 0 || options.disabled) {
+				return; // only left button or enabled
+			}
+
+			// cancel dnd if original target is content editable
+			if (originalTarget.isContentEditable) {
+				return;
+			}
+
+			target = _closest(target, options.draggable, el);
+
+			if (!target) {
+				return;
+			}
+
+			if (lastDownEl === target) {
+				// Ignoring duplicate `down`
+				return;
+			}
+
+			// Get the index of the dragged element within its parent
+			startIndex = _index(target, options.draggable);
+
+			// Check filter
+			if (typeof filter === 'function') {
+				if (filter.call(this, evt, target, this)) {
+					_dispatchEvent(_this, originalTarget, 'filter', target, el, el, startIndex);
+					preventOnFilter && evt.preventDefault();
+					return; // cancel dnd
+				}
+			} else if (filter) {
+				filter = filter.split(',').some(function (criteria) {
+					criteria = _closest(originalTarget, criteria.trim(), el);
+
+					if (criteria) {
+						_dispatchEvent(_this, criteria, 'filter', target, el, el, startIndex);
+						return true;
+					}
+				});
+
+				if (filter) {
+					preventOnFilter && evt.preventDefault();
+					return; // cancel dnd
+				}
+			}
+
+			if (options.handle && !_closest(originalTarget, options.handle, el)) {
+				return;
+			}
+
+			// Prepare `dragstart`
+			this._prepareDragStart(evt, touch, target, startIndex);
+		},
+
+		_prepareDragStart: function _prepareDragStart( /** Event */evt, /** Touch */touch, /** HTMLElement */target, /** Number */startIndex) {
+			var _this = this,
+			    el = _this.el,
+			    options = _this.options,
+			    ownerDocument = el.ownerDocument,
+			    dragStartFn;
+
+			if (target && !dragEl && target.parentNode === el) {
+				tapEvt = evt;
+
+				rootEl = el;
+				dragEl = target;
+				parentEl = dragEl.parentNode;
+				nextEl = dragEl.nextSibling;
+				lastDownEl = target;
+				activeGroup = options.group;
+				oldIndex = startIndex;
+
+				this._lastX = (touch || evt).clientX;
+				this._lastY = (touch || evt).clientY;
+
+				dragEl.style['will-change'] = 'all';
+
+				dragStartFn = function dragStartFn() {
+					// Delayed drag has been triggered
+					// we can re-enable the events: touchmove/mousemove
+					_this._disableDelayedDrag();
+
+					// Make the element draggable
+					dragEl.draggable = _this.nativeDraggable;
+
+					// Chosen item
+					_toggleClass(dragEl, options.chosenClass, true);
+
+					// Bind the events: dragstart/dragend
+					_this._triggerDragStart(evt, touch);
+
+					// Drag start event
+					_dispatchEvent(_this, rootEl, 'choose', dragEl, rootEl, rootEl, oldIndex);
+				};
+
+				// Disable "draggable"
+				options.ignore.split(',').forEach(function (criteria) {
+					_find(dragEl, criteria.trim(), _disableDraggable);
+				});
+
+				_on(ownerDocument, 'mouseup', _this._onDrop);
+				_on(ownerDocument, 'touchend', _this._onDrop);
+				_on(ownerDocument, 'touchcancel', _this._onDrop);
+				_on(ownerDocument, 'selectstart', _this);
+				options.supportPointer && _on(ownerDocument, 'pointercancel', _this._onDrop);
+
+				if (options.delay) {
+					// If the user moves the pointer or let go the click or touch
+					// before the delay has been reached:
+					// disable the delayed drag
+					_on(ownerDocument, 'mouseup', _this._disableDelayedDrag);
+					_on(ownerDocument, 'touchend', _this._disableDelayedDrag);
+					_on(ownerDocument, 'touchcancel', _this._disableDelayedDrag);
+					_on(ownerDocument, 'mousemove', _this._disableDelayedDrag);
+					_on(ownerDocument, 'touchmove', _this._disableDelayedDrag);
+					options.supportPointer && _on(ownerDocument, 'pointermove', _this._disableDelayedDrag);
+
+					_this._dragStartTimer = setTimeout(dragStartFn, options.delay);
+				} else {
+					dragStartFn();
+				}
+			}
+		},
+
+		_disableDelayedDrag: function _disableDelayedDrag() {
+			var ownerDocument = this.el.ownerDocument;
+
+			clearTimeout(this._dragStartTimer);
+			_off(ownerDocument, 'mouseup', this._disableDelayedDrag);
+			_off(ownerDocument, 'touchend', this._disableDelayedDrag);
+			_off(ownerDocument, 'touchcancel', this._disableDelayedDrag);
+			_off(ownerDocument, 'mousemove', this._disableDelayedDrag);
+			_off(ownerDocument, 'touchmove', this._disableDelayedDrag);
+			_off(ownerDocument, 'pointermove', this._disableDelayedDrag);
+		},
+
+		_triggerDragStart: function _triggerDragStart( /** Event */evt, /** Touch */touch) {
+			touch = touch || (evt.pointerType == 'touch' ? evt : null);
+
+			if (touch) {
+				// Touch device support
+				tapEvt = {
+					target: dragEl,
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				};
+
+				this._onDragStart(tapEvt, 'touch');
+			} else if (!this.nativeDraggable) {
+				this._onDragStart(tapEvt, true);
+			} else {
+				_on(dragEl, 'dragend', this);
+				_on(rootEl, 'dragstart', this._onDragStart);
+			}
+
+			try {
+				if (document.selection) {
+					// Timeout neccessary for IE9
+					_nextTick(function () {
+						document.selection.empty();
+					});
+				} else {
+					window.getSelection().removeAllRanges();
+				}
+			} catch (err) {}
+		},
+
+		_dragStarted: function _dragStarted() {
+			if (rootEl && dragEl) {
+				var options = this.options;
+
+				// Apply effect
+				_toggleClass(dragEl, options.ghostClass, true);
+				_toggleClass(dragEl, options.dragClass, false);
+
+				Sortable.active = this;
+
+				// Drag start event
+				_dispatchEvent(this, rootEl, 'start', dragEl, rootEl, rootEl, oldIndex);
+			} else {
+				this._nulling();
+			}
+		},
+
+		_emulateDragOver: function _emulateDragOver() {
+			if (touchEvt) {
+				if (this._lastX === touchEvt.clientX && this._lastY === touchEvt.clientY) {
+					return;
+				}
+
+				this._lastX = touchEvt.clientX;
+				this._lastY = touchEvt.clientY;
+
+				if (!supportCssPointerEvents) {
+					_css(ghostEl, 'display', 'none');
+				}
+
+				var target = document.elementFromPoint(touchEvt.clientX, touchEvt.clientY);
+				var parent = target;
+				var i = touchDragOverListeners.length;
+
+				if (target && target.shadowRoot) {
+					target = target.shadowRoot.elementFromPoint(touchEvt.clientX, touchEvt.clientY);
+					parent = target;
+				}
+
+				if (parent) {
+					do {
+						if (parent[expando]) {
+							while (i--) {
+								touchDragOverListeners[i]({
+									clientX: touchEvt.clientX,
+									clientY: touchEvt.clientY,
+									target: target,
+									rootEl: parent
+								});
+							}
+
+							break;
+						}
+
+						target = parent; // store last element
+					}
+					/* jshint boss:true */
+					while (parent = parent.parentNode);
+				}
+
+				if (!supportCssPointerEvents) {
+					_css(ghostEl, 'display', '');
+				}
+			}
+		},
+
+		_onTouchMove: function _onTouchMove( /**TouchEvent*/evt) {
+			if (tapEvt) {
+				var options = this.options,
+				    fallbackTolerance = options.fallbackTolerance,
+				    fallbackOffset = options.fallbackOffset,
+				    touch = evt.touches ? evt.touches[0] : evt,
+				    dx = touch.clientX - tapEvt.clientX + fallbackOffset.x,
+				    dy = touch.clientY - tapEvt.clientY + fallbackOffset.y,
+				    translate3d = evt.touches ? 'translate3d(' + dx + 'px,' + dy + 'px,0)' : 'translate(' + dx + 'px,' + dy + 'px)';
+
+				// only set the status to dragging, when we are actually dragging
+				if (!Sortable.active) {
+					if (fallbackTolerance && min(abs(touch.clientX - this._lastX), abs(touch.clientY - this._lastY)) < fallbackTolerance) {
+						return;
+					}
+
+					this._dragStarted();
+				}
+
+				// as well as creating the ghost element on the document body
+				this._appendGhost();
+
+				moved = true;
+				touchEvt = touch;
+
+				_css(ghostEl, 'webkitTransform', translate3d);
+				_css(ghostEl, 'mozTransform', translate3d);
+				_css(ghostEl, 'msTransform', translate3d);
+				_css(ghostEl, 'transform', translate3d);
+
+				evt.preventDefault();
+			}
+		},
+
+		_appendGhost: function _appendGhost() {
+			if (!ghostEl) {
+				var rect = dragEl.getBoundingClientRect(),
+				    css = _css(dragEl),
+				    options = this.options,
+				    ghostRect;
+
+				ghostEl = dragEl.cloneNode(true);
+
+				_toggleClass(ghostEl, options.ghostClass, false);
+				_toggleClass(ghostEl, options.fallbackClass, true);
+				_toggleClass(ghostEl, options.dragClass, true);
+
+				_css(ghostEl, 'top', rect.top - parseInt(css.marginTop, 10));
+				_css(ghostEl, 'left', rect.left - parseInt(css.marginLeft, 10));
+				_css(ghostEl, 'width', rect.width);
+				_css(ghostEl, 'height', rect.height);
+				_css(ghostEl, 'opacity', '0.8');
+				_css(ghostEl, 'position', 'fixed');
+				_css(ghostEl, 'zIndex', '100000');
+				_css(ghostEl, 'pointerEvents', 'none');
+
+				options.fallbackOnBody && document.body.appendChild(ghostEl) || rootEl.appendChild(ghostEl);
+
+				// Fixing dimensions.
+				ghostRect = ghostEl.getBoundingClientRect();
+				_css(ghostEl, 'width', rect.width * 2 - ghostRect.width);
+				_css(ghostEl, 'height', rect.height * 2 - ghostRect.height);
+			}
+		},
+
+		_onDragStart: function _onDragStart( /**Event*/evt, /**boolean*/useFallback) {
+			var _this = this;
+			var dataTransfer = evt.dataTransfer;
+			var options = _this.options;
+
+			_this._offUpEvents();
+
+			if (activeGroup.checkPull(_this, _this, dragEl, evt)) {
+				cloneEl = _clone(dragEl);
+
+				cloneEl.draggable = false;
+				cloneEl.style['will-change'] = '';
+
+				_css(cloneEl, 'display', 'none');
+				_toggleClass(cloneEl, _this.options.chosenClass, false);
+
+				// #1143: IFrame support workaround
+				_this._cloneId = _nextTick(function () {
+					rootEl.insertBefore(cloneEl, dragEl);
+					_dispatchEvent(_this, rootEl, 'clone', dragEl);
+				});
+			}
+
+			_toggleClass(dragEl, options.dragClass, true);
+
+			if (useFallback) {
+				if (useFallback === 'touch') {
+					// Bind touch events
+					_on(document, 'touchmove', _this._onTouchMove);
+					_on(document, 'touchend', _this._onDrop);
+					_on(document, 'touchcancel', _this._onDrop);
+
+					if (options.supportPointer) {
+						_on(document, 'pointermove', _this._onTouchMove);
+						_on(document, 'pointerup', _this._onDrop);
+					}
+				} else {
+					// Old brwoser
+					_on(document, 'mousemove', _this._onTouchMove);
+					_on(document, 'mouseup', _this._onDrop);
+				}
+
+				_this._loopId = setInterval(_this._emulateDragOver, 50);
+			} else {
+				if (dataTransfer) {
+					dataTransfer.effectAllowed = 'move';
+					options.setData && options.setData.call(_this, dataTransfer, dragEl);
+				}
+
+				_on(document, 'drop', _this);
+
+				// #1143: Бывает элемент с IFrame внутри блокирует `drop`,
+				// поэтому если вызвался `mouseover`, значит надо отменять весь d'n'd.
+				// Breaking Chrome 62+
+				// _on(document, 'mouseover', _this);
+
+				_this._dragStartId = _nextTick(_this._dragStarted);
+			}
+		},
+
+		_onDragOver: function _onDragOver( /**Event*/evt) {
+			var el = this.el,
+			    target,
+			    dragRect,
+			    targetRect,
+			    revert,
+			    options = this.options,
+			    group = options.group,
+			    activeSortable = Sortable.active,
+			    isOwner = activeGroup === group,
+			    isMovingBetweenSortable = false,
+			    canSort = options.sort;
+
+			if (evt.preventDefault !== void 0) {
+				evt.preventDefault();
+				!options.dragoverBubble && evt.stopPropagation();
+			}
+
+			if (dragEl.animated) {
+				return;
+			}
+
+			moved = true;
+
+			if (activeSortable && !options.disabled && (isOwner ? canSort || (revert = !rootEl.contains(dragEl)) // Reverting item into the original list
+			: putSortable === this || (activeSortable.lastPullMode = activeGroup.checkPull(this, activeSortable, dragEl, evt)) && group.checkPut(this, activeSortable, dragEl, evt)) && (evt.rootEl === void 0 || evt.rootEl === this.el) // touch fallback
+			) {
+					// Smart auto-scrolling
+					_autoScroll(evt, options, this.el);
+
+					if (_silent) {
+						return;
+					}
+
+					target = _closest(evt.target, options.draggable, el);
+					dragRect = dragEl.getBoundingClientRect();
+
+					if (putSortable !== this) {
+						putSortable = this;
+						isMovingBetweenSortable = true;
+					}
+
+					if (revert) {
+						_cloneHide(activeSortable, true);
+						parentEl = rootEl; // actualization
+
+						if (cloneEl || nextEl) {
+							rootEl.insertBefore(dragEl, cloneEl || nextEl);
+						} else if (!canSort) {
+							rootEl.appendChild(dragEl);
+						}
+
+						return;
+					}
+
+					if (el.children.length === 0 || el.children[0] === ghostEl || el === evt.target && _ghostIsLast(el, evt)) {
+						//assign target only if condition is true
+						if (el.children.length !== 0 && el.children[0] !== ghostEl && el === evt.target) {
+							target = el.lastElementChild;
+						}
+
+						if (target) {
+							if (target.animated) {
+								return;
+							}
+
+							targetRect = target.getBoundingClientRect();
+						}
+
+						_cloneHide(activeSortable, isOwner);
+
+						if (_onMove(rootEl, el, dragEl, dragRect, target, targetRect, evt) !== false) {
+							if (!dragEl.contains(el)) {
+								el.appendChild(dragEl);
+								parentEl = el; // actualization
+							}
+
+							this._animate(dragRect, dragEl);
+							target && this._animate(targetRect, target);
+						}
+					} else if (target && !target.animated && target !== dragEl && target.parentNode[expando] !== void 0) {
+						if (lastEl !== target) {
+							lastEl = target;
+							lastCSS = _css(target);
+							lastParentCSS = _css(target.parentNode);
+						}
+
+						targetRect = target.getBoundingClientRect();
+
+						var width = targetRect.right - targetRect.left,
+						    height = targetRect.bottom - targetRect.top,
+						    floating = R_FLOAT.test(lastCSS.cssFloat + lastCSS.display) || lastParentCSS.display == 'flex' && lastParentCSS['flex-direction'].indexOf('row') === 0,
+						    isWide = target.offsetWidth > dragEl.offsetWidth,
+						    isLong = target.offsetHeight > dragEl.offsetHeight,
+						    halfway = (floating ? (evt.clientX - targetRect.left) / width : (evt.clientY - targetRect.top) / height) > 0.5,
+						    nextSibling = target.nextElementSibling,
+						    after = false;
+
+						if (floating) {
+							var elTop = dragEl.offsetTop,
+							    tgTop = target.offsetTop;
+
+							if (elTop === tgTop) {
+								after = target.previousElementSibling === dragEl && !isWide || halfway && isWide;
+							} else if (target.previousElementSibling === dragEl || dragEl.previousElementSibling === target) {
+								after = (evt.clientY - targetRect.top) / height > 0.5;
+							} else {
+								after = tgTop > elTop;
+							}
+						} else if (!isMovingBetweenSortable) {
+							after = nextSibling !== dragEl && !isLong || halfway && isLong;
+						}
+
+						var moveVector = _onMove(rootEl, el, dragEl, dragRect, target, targetRect, evt, after);
+
+						if (moveVector !== false) {
+							if (moveVector === 1 || moveVector === -1) {
+								after = moveVector === 1;
+							}
+
+							_silent = true;
+							setTimeout(_unsilent, 30);
+
+							_cloneHide(activeSortable, isOwner);
+
+							if (!dragEl.contains(el)) {
+								if (after && !nextSibling) {
+									el.appendChild(dragEl);
+								} else {
+									target.parentNode.insertBefore(dragEl, after ? nextSibling : target);
+								}
+							}
+
+							parentEl = dragEl.parentNode; // actualization
+
+							this._animate(dragRect, dragEl);
+							this._animate(targetRect, target);
+						}
+					}
+				}
+		},
+
+		_animate: function _animate(prevRect, target) {
+			var ms = this.options.animation;
+
+			if (ms) {
+				var currentRect = target.getBoundingClientRect();
+
+				if (prevRect.nodeType === 1) {
+					prevRect = prevRect.getBoundingClientRect();
+				}
+
+				_css(target, 'transition', 'none');
+				_css(target, 'transform', 'translate3d(' + (prevRect.left - currentRect.left) + 'px,' + (prevRect.top - currentRect.top) + 'px,0)');
+
+				target.offsetWidth; // repaint
+
+				_css(target, 'transition', 'all ' + ms + 'ms');
+				_css(target, 'transform', 'translate3d(0,0,0)');
+
+				clearTimeout(target.animated);
+				target.animated = setTimeout(function () {
+					_css(target, 'transition', '');
+					_css(target, 'transform', '');
+					target.animated = false;
+				}, ms);
+			}
+		},
+
+		_offUpEvents: function _offUpEvents() {
+			var ownerDocument = this.el.ownerDocument;
+
+			_off(document, 'touchmove', this._onTouchMove);
+			_off(document, 'pointermove', this._onTouchMove);
+			_off(ownerDocument, 'mouseup', this._onDrop);
+			_off(ownerDocument, 'touchend', this._onDrop);
+			_off(ownerDocument, 'pointerup', this._onDrop);
+			_off(ownerDocument, 'touchcancel', this._onDrop);
+			_off(ownerDocument, 'pointercancel', this._onDrop);
+			_off(ownerDocument, 'selectstart', this);
+		},
+
+		_onDrop: function _onDrop( /**Event*/evt) {
+			var el = this.el,
+			    options = this.options;
+
+			clearInterval(this._loopId);
+			clearInterval(autoScroll.pid);
+			clearTimeout(this._dragStartTimer);
+
+			_cancelNextTick(this._cloneId);
+			_cancelNextTick(this._dragStartId);
+
+			// Unbind events
+			_off(document, 'mouseover', this);
+			_off(document, 'mousemove', this._onTouchMove);
+
+			if (this.nativeDraggable) {
+				_off(document, 'drop', this);
+				_off(el, 'dragstart', this._onDragStart);
+			}
+
+			this._offUpEvents();
+
+			if (evt) {
+				if (moved) {
+					evt.preventDefault();
+					!options.dropBubble && evt.stopPropagation();
+				}
+
+				ghostEl && ghostEl.parentNode && ghostEl.parentNode.removeChild(ghostEl);
+
+				if (rootEl === parentEl || Sortable.active.lastPullMode !== 'clone') {
+					// Remove clone
+					cloneEl && cloneEl.parentNode && cloneEl.parentNode.removeChild(cloneEl);
+				}
+
+				if (dragEl) {
+					if (this.nativeDraggable) {
+						_off(dragEl, 'dragend', this);
+					}
+
+					_disableDraggable(dragEl);
+					dragEl.style['will-change'] = '';
+
+					// Remove class's
+					_toggleClass(dragEl, this.options.ghostClass, false);
+					_toggleClass(dragEl, this.options.chosenClass, false);
+
+					// Drag stop event
+					_dispatchEvent(this, rootEl, 'unchoose', dragEl, parentEl, rootEl, oldIndex);
+
+					if (rootEl !== parentEl) {
+						newIndex = _index(dragEl, options.draggable);
+
+						if (newIndex >= 0) {
+							// Add event
+							_dispatchEvent(null, parentEl, 'add', dragEl, parentEl, rootEl, oldIndex, newIndex);
+
+							// Remove event
+							_dispatchEvent(this, rootEl, 'remove', dragEl, parentEl, rootEl, oldIndex, newIndex);
+
+							// drag from one list and drop into another
+							_dispatchEvent(null, parentEl, 'sort', dragEl, parentEl, rootEl, oldIndex, newIndex);
+							_dispatchEvent(this, rootEl, 'sort', dragEl, parentEl, rootEl, oldIndex, newIndex);
+						}
+					} else {
+						if (dragEl.nextSibling !== nextEl) {
+							// Get the index of the dragged element within its parent
+							newIndex = _index(dragEl, options.draggable);
+
+							if (newIndex >= 0) {
+								// drag & drop within the same list
+								_dispatchEvent(this, rootEl, 'update', dragEl, parentEl, rootEl, oldIndex, newIndex);
+								_dispatchEvent(this, rootEl, 'sort', dragEl, parentEl, rootEl, oldIndex, newIndex);
+							}
+						}
+					}
+
+					if (Sortable.active) {
+						/* jshint eqnull:true */
+						if (newIndex == null || newIndex === -1) {
+							newIndex = oldIndex;
+						}
+
+						_dispatchEvent(this, rootEl, 'end', dragEl, parentEl, rootEl, oldIndex, newIndex);
+
+						// Save sorting
+						this.save();
+					}
+				}
+			}
+
+			this._nulling();
+		},
+
+		_nulling: function _nulling() {
+			rootEl = dragEl = parentEl = ghostEl = nextEl = cloneEl = lastDownEl = scrollEl = scrollParentEl = tapEvt = touchEvt = moved = newIndex = lastEl = lastCSS = putSortable = activeGroup = Sortable.active = null;
+
+			savedInputChecked.forEach(function (el) {
+				el.checked = true;
+			});
+			savedInputChecked.length = 0;
+		},
+
+		handleEvent: function handleEvent( /**Event*/evt) {
+			switch (evt.type) {
+				case 'drop':
+				case 'dragend':
+					this._onDrop(evt);
+					break;
+
+				case 'dragover':
+				case 'dragenter':
+					if (dragEl) {
+						this._onDragOver(evt);
+						_globalDragOver(evt);
+					}
+					break;
+
+				case 'mouseover':
+					this._onDrop(evt);
+					break;
+
+				case 'selectstart':
+					evt.preventDefault();
+					break;
+			}
+		},
+
+		/**
+   * Serializes the item into an array of string.
+   * @returns {String[]}
+   */
+		toArray: function toArray() {
+			var order = [],
+			    el,
+			    children = this.el.children,
+			    i = 0,
+			    n = children.length,
+			    options = this.options;
+
+			for (; i < n; i++) {
+				el = children[i];
+				if (_closest(el, options.draggable, this.el)) {
+					order.push(el.getAttribute(options.dataIdAttr) || _generateId(el));
+				}
+			}
+
+			return order;
+		},
+
+		/**
+   * Sorts the elements according to the array.
+   * @param  {String[]}  order  order of the items
+   */
+		sort: function sort(order) {
+			var items = {},
+			    rootEl = this.el;
+
+			this.toArray().forEach(function (id, i) {
+				var el = rootEl.children[i];
+
+				if (_closest(el, this.options.draggable, rootEl)) {
+					items[id] = el;
+				}
+			}, this);
+
+			order.forEach(function (id) {
+				if (items[id]) {
+					rootEl.removeChild(items[id]);
+					rootEl.appendChild(items[id]);
+				}
+			});
+		},
+
+		/**
+   * Save the current sorting
+   */
+		save: function save() {
+			var store = this.options.store;
+			store && store.set(this);
+		},
+
+		/**
+   * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+   * @param   {HTMLElement}  el
+   * @param   {String}       [selector]  default: `options.draggable`
+   * @returns {HTMLElement|null}
+   */
+		closest: function closest(el, selector) {
+			return _closest(el, selector || this.options.draggable, this.el);
+		},
+
+		/**
+   * Set/get option
+   * @param   {string} name
+   * @param   {*}      [value]
+   * @returns {*}
+   */
+		option: function option(name, value) {
+			var options = this.options;
+
+			if (value === void 0) {
+				return options[name];
+			} else {
+				options[name] = value;
+
+				if (name === 'group') {
+					_prepareGroup(options);
+				}
+			}
+		},
+
+		/**
+   * Destroy
+   */
+		destroy: function destroy() {
+			var el = this.el;
+
+			el[expando] = null;
+
+			_off(el, 'mousedown', this._onTapStart);
+			_off(el, 'touchstart', this._onTapStart);
+			_off(el, 'pointerdown', this._onTapStart);
+
+			if (this.nativeDraggable) {
+				_off(el, 'dragover', this);
+				_off(el, 'dragenter', this);
+			}
+
+			// Remove draggable attributes
+			Array.prototype.forEach.call(el.querySelectorAll('[draggable]'), function (el) {
+				el.removeAttribute('draggable');
+			});
+
+			touchDragOverListeners.splice(touchDragOverListeners.indexOf(this._onDragOver), 1);
+
+			this._onDrop();
+
+			this.el = el = null;
+		}
+	};
+
+	function _cloneHide(sortable, state) {
+		if (sortable.lastPullMode !== 'clone') {
+			state = true;
+		}
+
+		if (cloneEl && cloneEl.state !== state) {
+			_css(cloneEl, 'display', state ? 'none' : '');
+
+			if (!state) {
+				if (cloneEl.state) {
+					if (sortable.options.group.revertClone) {
+						rootEl.insertBefore(cloneEl, nextEl);
+						sortable._animate(dragEl, cloneEl);
+					} else {
+						rootEl.insertBefore(cloneEl, dragEl);
+					}
+				}
+			}
+
+			cloneEl.state = state;
+		}
+	}
+
+	function _closest( /**HTMLElement*/el, /**String*/selector, /**HTMLElement*/ctx) {
+		if (el) {
+			ctx = ctx || document;
+
+			do {
+				if (selector === '>*' && el.parentNode === ctx || _matches(el, selector)) {
+					return el;
+				}
+				/* jshint boss:true */
+			} while (el = _getParentOrHost(el));
+		}
+
+		return null;
+	}
+
+	function _getParentOrHost(el) {
+		var parent = el.host;
+
+		return parent && parent.nodeType ? parent : el.parentNode;
+	}
+
+	function _globalDragOver( /**Event*/evt) {
+		if (evt.dataTransfer) {
+			evt.dataTransfer.dropEffect = 'move';
+		}
+		evt.preventDefault();
+	}
+
+	function _on(el, event, fn) {
+		el.addEventListener(event, fn, captureMode);
+	}
+
+	function _off(el, event, fn) {
+		el.removeEventListener(event, fn, captureMode);
+	}
+
+	function _toggleClass(el, name, state) {
+		if (el) {
+			if (el.classList) {
+				el.classList[state ? 'add' : 'remove'](name);
+			} else {
+				var className = (' ' + el.className + ' ').replace(R_SPACE, ' ').replace(' ' + name + ' ', ' ');
+				el.className = (className + (state ? ' ' + name : '')).replace(R_SPACE, ' ');
+			}
+		}
+	}
+
+	function _css(el, prop, val) {
+		var style = el && el.style;
+
+		if (style) {
+			if (val === void 0) {
+				if (document.defaultView && document.defaultView.getComputedStyle) {
+					val = document.defaultView.getComputedStyle(el, '');
+				} else if (el.currentStyle) {
+					val = el.currentStyle;
+				}
+
+				return prop === void 0 ? val : val[prop];
+			} else {
+				if (!(prop in style)) {
+					prop = '-webkit-' + prop;
+				}
+
+				style[prop] = val + (typeof val === 'string' ? '' : 'px');
+			}
+		}
+	}
+
+	function _find(ctx, tagName, iterator) {
+		if (ctx) {
+			var list = ctx.getElementsByTagName(tagName),
+			    i = 0,
+			    n = list.length;
+
+			if (iterator) {
+				for (; i < n; i++) {
+					iterator(list[i], i);
+				}
+			}
+
+			return list;
+		}
+
+		return [];
+	}
+
+	function _dispatchEvent(sortable, rootEl, name, targetEl, toEl, fromEl, startIndex, newIndex) {
+		sortable = sortable || rootEl[expando];
+
+		var evt = document.createEvent('Event'),
+		    options = sortable.options,
+		    onName = 'on' + name.charAt(0).toUpperCase() + name.substr(1);
+
+		evt.initEvent(name, true, true);
+
+		evt.to = toEl || rootEl;
+		evt.from = fromEl || rootEl;
+		evt.item = targetEl || rootEl;
+		evt.clone = cloneEl;
+
+		evt.oldIndex = startIndex;
+		evt.newIndex = newIndex;
+
+		rootEl.dispatchEvent(evt);
+
+		if (options[onName]) {
+			options[onName].call(sortable, evt);
+		}
+	}
+
+	function _onMove(fromEl, toEl, dragEl, dragRect, targetEl, targetRect, originalEvt, willInsertAfter) {
+		var evt,
+		    sortable = fromEl[expando],
+		    onMoveFn = sortable.options.onMove,
+		    retVal;
+
+		evt = document.createEvent('Event');
+		evt.initEvent('move', true, true);
+
+		evt.to = toEl;
+		evt.from = fromEl;
+		evt.dragged = dragEl;
+		evt.draggedRect = dragRect;
+		evt.related = targetEl || toEl;
+		evt.relatedRect = targetRect || toEl.getBoundingClientRect();
+		evt.willInsertAfter = willInsertAfter;
+
+		fromEl.dispatchEvent(evt);
+
+		if (onMoveFn) {
+			retVal = onMoveFn.call(sortable, evt, originalEvt);
+		}
+
+		return retVal;
+	}
+
+	function _disableDraggable(el) {
+		el.draggable = false;
+	}
+
+	function _unsilent() {
+		_silent = false;
+	}
+
+	/** @returns {HTMLElement|false} */
+	function _ghostIsLast(el, evt) {
+		var lastEl = el.lastElementChild,
+		    rect = lastEl.getBoundingClientRect();
+
+		// 5 — min delta
+		// abs — нельзя добавлять, а то глюки при наведении сверху
+		return evt.clientY - (rect.top + rect.height) > 5 || evt.clientX - (rect.left + rect.width) > 5;
+	}
+
+	/**
+  * Generate id
+  * @param   {HTMLElement} el
+  * @returns {String}
+  * @private
+  */
+	function _generateId(el) {
+		var str = el.tagName + el.className + el.src + el.href + el.textContent,
+		    i = str.length,
+		    sum = 0;
+
+		while (i--) {
+			sum += str.charCodeAt(i);
+		}
+
+		return sum.toString(36);
+	}
+
+	/**
+  * Returns the index of an element within its parent for a selected set of
+  * elements
+  * @param  {HTMLElement} el
+  * @param  {selector} selector
+  * @return {number}
+  */
+	function _index(el, selector) {
+		var index = 0;
+
+		if (!el || !el.parentNode) {
+			return -1;
+		}
+
+		while (el && (el = el.previousElementSibling)) {
+			if (el.nodeName.toUpperCase() !== 'TEMPLATE' && (selector === '>*' || _matches(el, selector))) {
+				index++;
+			}
+		}
+
+		return index;
+	}
+
+	function _matches( /**HTMLElement*/el, /**String*/selector) {
+		if (el) {
+			selector = selector.split('.');
+
+			var tag = selector.shift().toUpperCase(),
+			    re = new RegExp('\\s(' + selector.join('|') + ')(?=\\s)', 'g');
+
+			return (tag === '' || el.nodeName.toUpperCase() == tag) && (!selector.length || ((' ' + el.className + ' ').match(re) || []).length == selector.length);
+		}
+
+		return false;
+	}
+
+	function _throttle(callback, ms) {
+		var args, _this;
+
+		return function () {
+			if (args === void 0) {
+				args = arguments;
+				_this = this;
+
+				setTimeout(function () {
+					if (args.length === 1) {
+						callback.call(_this, args[0]);
+					} else {
+						callback.apply(_this, args);
+					}
+
+					args = void 0;
+				}, ms);
+			}
+		};
+	}
+
+	function _extend(dst, src) {
+		if (dst && src) {
+			for (var key in src) {
+				if (src.hasOwnProperty(key)) {
+					dst[key] = src[key];
+				}
+			}
+		}
+
+		return dst;
+	}
+
+	function _clone(el) {
+		if (Polymer && Polymer.dom) {
+			return Polymer.dom(el).cloneNode(true);
+		} else if ($) {
+			return $(el).clone(true)[0];
+		} else {
+			return el.cloneNode(true);
+		}
+	}
+
+	function _saveInputCheckedState(root) {
+		var inputs = root.getElementsByTagName('input');
+		var idx = inputs.length;
+
+		while (idx--) {
+			var el = inputs[idx];
+			el.checked && savedInputChecked.push(el);
+		}
+	}
+
+	function _nextTick(fn) {
+		return setTimeout(fn, 0);
+	}
+
+	function _cancelNextTick(id) {
+		return clearTimeout(id);
+	}
+
+	// Fixed #973:
+	_on(document, 'touchmove', function (evt) {
+		if (Sortable.active) {
+			evt.preventDefault();
+		}
+	});
+
+	// Export utils
+	Sortable.utils = {
+		on: _on,
+		off: _off,
+		css: _css,
+		find: _find,
+		is: function is(el, selector) {
+			return !!_closest(el, selector, el);
+		},
+		extend: _extend,
+		throttle: _throttle,
+		closest: _closest,
+		toggleClass: _toggleClass,
+		clone: _clone,
+		index: _index,
+		nextTick: _nextTick,
+		cancelNextTick: _cancelNextTick
+	};
+
+	/**
+  * Create sortable instance
+  * @param {HTMLElement}  el
+  * @param {Object}      [options]
+  */
+	Sortable.create = function (el, options) {
+		return new Sortable(el, options);
+	};
+
+	// Export
+	Sortable.version = '1.7.0';
+	return Sortable;
+});
+
+/***/ }),
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+var bind = __webpack_require__(131);
+var Axios = __webpack_require__(150);
+var defaults = __webpack_require__(5);
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Factory for creating new instances
+axios.create = function create(instanceConfig) {
+  return createInstance(utils.merge(defaults, instanceConfig));
+};
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(136);
+axios.CancelToken = __webpack_require__(164);
+axios.isCancel = __webpack_require__(135);
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(165);
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+/***/ }),
+/* 149 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
+};
+
+function isBuffer(obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj);
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer(obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0));
+}
+
+/***/ }),
+/* 150 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defaults = __webpack_require__(5);
+var utils = __webpack_require__(1);
+var InterceptorManager = __webpack_require__(159);
+var dispatchRequest = __webpack_require__(160);
+
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = utils.merge({
+      url: arguments[0]
+    }, arguments[1]);
+  }
+
+  config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
+  config.method = config.method.toLowerCase();
+
+  // Hook up interceptors middleware
+  var chain = [dispatchRequest, undefined];
+  var promise = Promise.resolve(config);
+
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    chain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function (url, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function (url, data, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+/***/ }),
+/* 151 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+/***/ }),
+/* 152 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createError = __webpack_require__(134);
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  // Note: status is not exposed by XDomainRequest
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError('Request failed with status code ' + response.status, response.config, null, response.request, response));
+  }
+};
+
+/***/ }),
+/* 153 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+  error.request = request;
+  error.response = response;
+  return error;
+};
+
+/***/ }),
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+
+function encode(val) {
+  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      }
+
+      if (!utils.isArray(val)) {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 155 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = ['age', 'authorization', 'content-length', 'content-type', 'etag', 'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since', 'last-modified', 'location', 'max-forwards', 'proxy-authorization', 'referer', 'retry-after', 'user-agent'];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) {
+    return parsed;
+  }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+/***/ }),
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+
+module.exports = utils.isStandardBrowserEnv() ?
+
+// Standard browser envs have full support of the APIs needed to test
+// whether the request URL is of the same origin as current location.
+function standardBrowserEnv() {
+  var msie = /(msie|trident)/i.test(navigator.userAgent);
+  var urlParsingNode = document.createElement('a');
+  var originURL;
+
+  /**
+  * Parse a URL to discover it's components
+  *
+  * @param {String} url The URL to be parsed
+  * @returns {Object}
+  */
+  function resolveURL(url) {
+    var href = url;
+
+    if (msie) {
+      // IE needs attribute set twice to normalize properties
+      urlParsingNode.setAttribute('href', href);
+      href = urlParsingNode.href;
+    }
+
+    urlParsingNode.setAttribute('href', href);
+
+    // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+    return {
+      href: urlParsingNode.href,
+      protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+      host: urlParsingNode.host,
+      search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+      hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+      hostname: urlParsingNode.hostname,
+      port: urlParsingNode.port,
+      pathname: urlParsingNode.pathname.charAt(0) === '/' ? urlParsingNode.pathname : '/' + urlParsingNode.pathname
+    };
+  }
+
+  originURL = resolveURL(window.location.href);
+
+  /**
+  * Determine if a URL shares the same origin as the current location
+  *
+  * @param {String} requestURL The URL to test
+  * @returns {boolean} True if URL shares the same origin, otherwise false
+  */
+  return function isURLSameOrigin(requestURL) {
+    var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
+    return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
+  };
+}() :
+
+// Non standard browser envs (web workers, react-native) lack needed support.
+function nonStandardBrowserEnv() {
+  return function isURLSameOrigin() {
+    return true;
+  };
+}();
+
+/***/ }),
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+function E() {
+  this.message = 'String contains an invalid character';
+}
+E.prototype = new Error();
+E.prototype.code = 5;
+E.prototype.name = 'InvalidCharacterError';
+
+function btoa(input) {
+  var str = String(input);
+  var output = '';
+  for (
+  // initialize result and counter
+  var block, charCode, idx = 0, map = chars;
+  // if the next str index does not exist:
+  //   change the mapping table to "="
+  //   check if d has no fractional digits
+  str.charAt(idx | 0) || (map = '=', idx % 1);
+  // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+  output += map.charAt(63 & block >> 8 - idx % 1 * 8)) {
+    charCode = str.charCodeAt(idx += 3 / 4);
+    if (charCode > 0xFF) {
+      throw new E();
+    }
+    block = block << 8 | charCode;
+  }
+  return output;
+}
+
+module.exports = btoa;
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+
+module.exports = utils.isStandardBrowserEnv() ?
+
+// Standard browser envs support document.cookie
+function standardBrowserEnv() {
+  return {
+    write: function write(name, value, expires, path, domain, secure) {
+      var cookie = [];
+      cookie.push(name + '=' + encodeURIComponent(value));
+
+      if (utils.isNumber(expires)) {
+        cookie.push('expires=' + new Date(expires).toGMTString());
+      }
+
+      if (utils.isString(path)) {
+        cookie.push('path=' + path);
+      }
+
+      if (utils.isString(domain)) {
+        cookie.push('domain=' + domain);
+      }
+
+      if (secure === true) {
+        cookie.push('secure');
+      }
+
+      document.cookie = cookie.join('; ');
+    },
+
+    read: function read(name) {
+      var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+      return match ? decodeURIComponent(match[3]) : null;
+    },
+
+    remove: function remove(name) {
+      this.write(name, '', Date.now() - 86400000);
+    }
+  };
+}() :
+
+// Non standard browser env (web workers, react-native) lack needed support.
+function nonStandardBrowserEnv() {
+  return {
+    write: function write() {},
+    read: function read() {
+      return null;
+    },
+    remove: function remove() {}
+  };
+}();
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+/***/ }),
+/* 160 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+var transformData = __webpack_require__(161);
+var isCancel = __webpack_require__(135);
+var defaults = __webpack_require__(5);
+var isAbsoluteURL = __webpack_require__(162);
+var combineURLs = __webpack_require__(163);
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Support baseURL config
+  if (config.baseURL && !isAbsoluteURL(config.url)) {
+    config.url = combineURLs(config.baseURL, config.url);
+  }
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData(config.data, config.headers, config.transformRequest);
+
+  // Flatten headers
+  config.headers = utils.merge(config.headers.common || {}, config.headers[config.method] || {}, config.headers || {});
+
+  utils.forEach(['delete', 'get', 'head', 'post', 'put', 'patch', 'common'], function cleanHeaderConfig(method) {
+    delete config.headers[method];
+  });
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(response.data, response.headers, config.transformResponse);
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData(reason.response.data, reason.response.headers, config.transformResponse);
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+/***/ }),
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(1);
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn(data, headers);
+  });
+
+  return data;
+};
+
+/***/ }),
+/* 162 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return (/^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
+  );
+};
+
+/***/ }),
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '') : baseURL;
+};
+
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cancel = __webpack_require__(136);
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function showFileNames() {
+  document.querySelectorAll('.filename-button').forEach(function (item) {
+    var input = item.querySelector('input');
+    var button = item.querySelector('button');
+
+    input.addEventListener('change', function (e) {
+      button.innerText = this.value.replace(/^.*\\/, "");
+    });
+  });
+}
+
+exports.default = showFileNames;
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _axios = __webpack_require__(130);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -38217,7 +40612,7 @@ function loadToDoList() {
 }
 
 function buildToDoListItem(todo) {
-  return '\n  <div class="lists-container container p-0 px-2" data-id="' + todo._id + '">\n    <button class="btn btn-sm p-0 mr-2" type="button" id="move-todolist">\n      <i class="fa fa-arrows" aria-hidden="true"></i>\n    </button>\n    <div class="custom-control custom-checkbox d-inline-flex">\n      <input class="custom-control-input checkbox" value="1" id="todo-' + todo._id + '" type="checkbox" ' + (todo.done ? 'checked' : '') + '>\n      <label class="custom-control-label ' + (todo.done ? 'done' : '') + '" for="todo-' + todo._id + '">' + todo.item + '</label>\n    </div>\n    <i class="icon-remove fa fa-remove my-auto float-right"></i>\n  </div>\n  ';
+  return '\n  <tr class="lists-container" data-id="' + todo._id + '">\n    <td>\n      <i class="fa fa-arrows sortable-handle" aria-hidden="true"></i>\n    </td>\n    <td class="col-1 text-left">\n      <div class="custom-control custom-checkbox text-left">\n        <input class="custom-control-input checkbox" value="1" id="todo-' + todo._id + '" type="checkbox" ' + (todo.done ? 'checked' : '') + '>\n        <label class="custom-control-label ' + (todo.done ? 'done' : '') + '" for="todo-' + todo._id + '">' + todo.item + '</label>\n      </div>\n    </td>\n    <td class="text-right">\n      <i class="icon-remove fa fa-remove"></i>\n    </td>\n  </tr>\n  ';
 }
 
 function buildToDoList(todos) {
@@ -38299,7 +40694,6 @@ function initToDoList() {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    console.log('submitted', input.value);
 
     addToDo({
       'item': input.value.trim(),
@@ -38309,954 +40703,6 @@ function initToDoList() {
 }
 
 exports.default = initToDoList;
-
-/***/ }),
-/* 145 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(146);
-
-/***/ }),
-/* 146 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-var bind = __webpack_require__(130);
-var Axios = __webpack_require__(148);
-var defaults = __webpack_require__(5);
-
-/**
- * Create an instance of Axios
- *
- * @param {Object} defaultConfig The default config for the instance
- * @return {Axios} A new instance of Axios
- */
-function createInstance(defaultConfig) {
-  var context = new Axios(defaultConfig);
-  var instance = bind(Axios.prototype.request, context);
-
-  // Copy axios.prototype to instance
-  utils.extend(instance, Axios.prototype, context);
-
-  // Copy context to instance
-  utils.extend(instance, context);
-
-  return instance;
-}
-
-// Create the default instance to be exported
-var axios = createInstance(defaults);
-
-// Expose Axios class to allow class inheritance
-axios.Axios = Axios;
-
-// Factory for creating new instances
-axios.create = function create(instanceConfig) {
-  return createInstance(utils.merge(defaults, instanceConfig));
-};
-
-// Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(135);
-axios.CancelToken = __webpack_require__(162);
-axios.isCancel = __webpack_require__(134);
-
-// Expose all/spread
-axios.all = function all(promises) {
-  return Promise.all(promises);
-};
-axios.spread = __webpack_require__(163);
-
-module.exports = axios;
-
-// Allow use of default import syntax in TypeScript
-module.exports.default = axios;
-
-/***/ }),
-/* 147 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-// The _isBuffer check is for Safari 5-7 support, because it's missing
-// Object.prototype.constructor. Remove this eventually
-module.exports = function (obj) {
-  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
-};
-
-function isBuffer(obj) {
-  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj);
-}
-
-// For Node v0.10 support. Remove this eventually.
-function isSlowBuffer(obj) {
-  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0));
-}
-
-/***/ }),
-/* 148 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var defaults = __webpack_require__(5);
-var utils = __webpack_require__(1);
-var InterceptorManager = __webpack_require__(157);
-var dispatchRequest = __webpack_require__(158);
-
-/**
- * Create a new instance of Axios
- *
- * @param {Object} instanceConfig The default config for the instance
- */
-function Axios(instanceConfig) {
-  this.defaults = instanceConfig;
-  this.interceptors = {
-    request: new InterceptorManager(),
-    response: new InterceptorManager()
-  };
-}
-
-/**
- * Dispatch a request
- *
- * @param {Object} config The config specific for this request (merged with this.defaults)
- */
-Axios.prototype.request = function request(config) {
-  /*eslint no-param-reassign:0*/
-  // Allow for axios('example/url'[, config]) a la fetch API
-  if (typeof config === 'string') {
-    config = utils.merge({
-      url: arguments[0]
-    }, arguments[1]);
-  }
-
-  config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
-  config.method = config.method.toLowerCase();
-
-  // Hook up interceptors middleware
-  var chain = [dispatchRequest, undefined];
-  var promise = Promise.resolve(config);
-
-  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
-    chain.unshift(interceptor.fulfilled, interceptor.rejected);
-  });
-
-  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
-    chain.push(interceptor.fulfilled, interceptor.rejected);
-  });
-
-  while (chain.length) {
-    promise = promise.then(chain.shift(), chain.shift());
-  }
-
-  return promise;
-};
-
-// Provide aliases for supported request methods
-utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function (url, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url
-    }));
-  };
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function (url, data, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url,
-      data: data
-    }));
-  };
-});
-
-module.exports = Axios;
-
-/***/ }),
-/* 149 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-
-module.exports = function normalizeHeaderName(headers, normalizedName) {
-  utils.forEach(headers, function processHeader(value, name) {
-    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
-      headers[normalizedName] = value;
-      delete headers[name];
-    }
-  });
-};
-
-/***/ }),
-/* 150 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var createError = __webpack_require__(133);
-
-/**
- * Resolve or reject a Promise based on response status.
- *
- * @param {Function} resolve A function that resolves the promise.
- * @param {Function} reject A function that rejects the promise.
- * @param {object} response The response.
- */
-module.exports = function settle(resolve, reject, response) {
-  var validateStatus = response.config.validateStatus;
-  // Note: status is not exposed by XDomainRequest
-  if (!response.status || !validateStatus || validateStatus(response.status)) {
-    resolve(response);
-  } else {
-    reject(createError('Request failed with status code ' + response.status, response.config, null, response.request, response));
-  }
-};
-
-/***/ }),
-/* 151 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Update an Error with the specified config, error code, and response.
- *
- * @param {Error} error The error to update.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The error.
- */
-
-module.exports = function enhanceError(error, config, code, request, response) {
-  error.config = config;
-  if (code) {
-    error.code = code;
-  }
-  error.request = request;
-  error.response = response;
-  return error;
-};
-
-/***/ }),
-/* 152 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-
-function encode(val) {
-  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
-}
-
-/**
- * Build a URL by appending params to the end
- *
- * @param {string} url The base of the url (e.g., http://www.google.com)
- * @param {object} [params] The params to be appended
- * @returns {string} The formatted url
- */
-module.exports = function buildURL(url, params, paramsSerializer) {
-  /*eslint no-param-reassign:0*/
-  if (!params) {
-    return url;
-  }
-
-  var serializedParams;
-  if (paramsSerializer) {
-    serializedParams = paramsSerializer(params);
-  } else if (utils.isURLSearchParams(params)) {
-    serializedParams = params.toString();
-  } else {
-    var parts = [];
-
-    utils.forEach(params, function serialize(val, key) {
-      if (val === null || typeof val === 'undefined') {
-        return;
-      }
-
-      if (utils.isArray(val)) {
-        key = key + '[]';
-      }
-
-      if (!utils.isArray(val)) {
-        val = [val];
-      }
-
-      utils.forEach(val, function parseValue(v) {
-        if (utils.isDate(v)) {
-          v = v.toISOString();
-        } else if (utils.isObject(v)) {
-          v = JSON.stringify(v);
-        }
-        parts.push(encode(key) + '=' + encode(v));
-      });
-    });
-
-    serializedParams = parts.join('&');
-  }
-
-  if (serializedParams) {
-    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
-  }
-
-  return url;
-};
-
-/***/ }),
-/* 153 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-
-// Headers whose duplicates are ignored by node
-// c.f. https://nodejs.org/api/http.html#http_message_headers
-var ignoreDuplicateOf = ['age', 'authorization', 'content-length', 'content-type', 'etag', 'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since', 'last-modified', 'location', 'max-forwards', 'proxy-authorization', 'referer', 'retry-after', 'user-agent'];
-
-/**
- * Parse headers into an object
- *
- * ```
- * Date: Wed, 27 Aug 2014 08:58:49 GMT
- * Content-Type: application/json
- * Connection: keep-alive
- * Transfer-Encoding: chunked
- * ```
- *
- * @param {String} headers Headers needing to be parsed
- * @returns {Object} Headers parsed into an object
- */
-module.exports = function parseHeaders(headers) {
-  var parsed = {};
-  var key;
-  var val;
-  var i;
-
-  if (!headers) {
-    return parsed;
-  }
-
-  utils.forEach(headers.split('\n'), function parser(line) {
-    i = line.indexOf(':');
-    key = utils.trim(line.substr(0, i)).toLowerCase();
-    val = utils.trim(line.substr(i + 1));
-
-    if (key) {
-      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
-        return;
-      }
-      if (key === 'set-cookie') {
-        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
-      } else {
-        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
-      }
-    }
-  });
-
-  return parsed;
-};
-
-/***/ }),
-/* 154 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-
-module.exports = utils.isStandardBrowserEnv() ?
-
-// Standard browser envs have full support of the APIs needed to test
-// whether the request URL is of the same origin as current location.
-function standardBrowserEnv() {
-  var msie = /(msie|trident)/i.test(navigator.userAgent);
-  var urlParsingNode = document.createElement('a');
-  var originURL;
-
-  /**
-  * Parse a URL to discover it's components
-  *
-  * @param {String} url The URL to be parsed
-  * @returns {Object}
-  */
-  function resolveURL(url) {
-    var href = url;
-
-    if (msie) {
-      // IE needs attribute set twice to normalize properties
-      urlParsingNode.setAttribute('href', href);
-      href = urlParsingNode.href;
-    }
-
-    urlParsingNode.setAttribute('href', href);
-
-    // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-    return {
-      href: urlParsingNode.href,
-      protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-      host: urlParsingNode.host,
-      search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-      hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-      hostname: urlParsingNode.hostname,
-      port: urlParsingNode.port,
-      pathname: urlParsingNode.pathname.charAt(0) === '/' ? urlParsingNode.pathname : '/' + urlParsingNode.pathname
-    };
-  }
-
-  originURL = resolveURL(window.location.href);
-
-  /**
-  * Determine if a URL shares the same origin as the current location
-  *
-  * @param {String} requestURL The URL to test
-  * @returns {boolean} True if URL shares the same origin, otherwise false
-  */
-  return function isURLSameOrigin(requestURL) {
-    var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
-    return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
-  };
-}() :
-
-// Non standard browser envs (web workers, react-native) lack needed support.
-function nonStandardBrowserEnv() {
-  return function isURLSameOrigin() {
-    return true;
-  };
-}();
-
-/***/ }),
-/* 155 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
-
-var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-
-function E() {
-  this.message = 'String contains an invalid character';
-}
-E.prototype = new Error();
-E.prototype.code = 5;
-E.prototype.name = 'InvalidCharacterError';
-
-function btoa(input) {
-  var str = String(input);
-  var output = '';
-  for (
-  // initialize result and counter
-  var block, charCode, idx = 0, map = chars;
-  // if the next str index does not exist:
-  //   change the mapping table to "="
-  //   check if d has no fractional digits
-  str.charAt(idx | 0) || (map = '=', idx % 1);
-  // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
-  output += map.charAt(63 & block >> 8 - idx % 1 * 8)) {
-    charCode = str.charCodeAt(idx += 3 / 4);
-    if (charCode > 0xFF) {
-      throw new E();
-    }
-    block = block << 8 | charCode;
-  }
-  return output;
-}
-
-module.exports = btoa;
-
-/***/ }),
-/* 156 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-
-module.exports = utils.isStandardBrowserEnv() ?
-
-// Standard browser envs support document.cookie
-function standardBrowserEnv() {
-  return {
-    write: function write(name, value, expires, path, domain, secure) {
-      var cookie = [];
-      cookie.push(name + '=' + encodeURIComponent(value));
-
-      if (utils.isNumber(expires)) {
-        cookie.push('expires=' + new Date(expires).toGMTString());
-      }
-
-      if (utils.isString(path)) {
-        cookie.push('path=' + path);
-      }
-
-      if (utils.isString(domain)) {
-        cookie.push('domain=' + domain);
-      }
-
-      if (secure === true) {
-        cookie.push('secure');
-      }
-
-      document.cookie = cookie.join('; ');
-    },
-
-    read: function read(name) {
-      var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-      return match ? decodeURIComponent(match[3]) : null;
-    },
-
-    remove: function remove(name) {
-      this.write(name, '', Date.now() - 86400000);
-    }
-  };
-}() :
-
-// Non standard browser env (web workers, react-native) lack needed support.
-function nonStandardBrowserEnv() {
-  return {
-    write: function write() {},
-    read: function read() {
-      return null;
-    },
-    remove: function remove() {}
-  };
-}();
-
-/***/ }),
-/* 157 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-
-function InterceptorManager() {
-  this.handlers = [];
-}
-
-/**
- * Add a new interceptor to the stack
- *
- * @param {Function} fulfilled The function to handle `then` for a `Promise`
- * @param {Function} rejected The function to handle `reject` for a `Promise`
- *
- * @return {Number} An ID used to remove interceptor later
- */
-InterceptorManager.prototype.use = function use(fulfilled, rejected) {
-  this.handlers.push({
-    fulfilled: fulfilled,
-    rejected: rejected
-  });
-  return this.handlers.length - 1;
-};
-
-/**
- * Remove an interceptor from the stack
- *
- * @param {Number} id The ID that was returned by `use`
- */
-InterceptorManager.prototype.eject = function eject(id) {
-  if (this.handlers[id]) {
-    this.handlers[id] = null;
-  }
-};
-
-/**
- * Iterate over all the registered interceptors
- *
- * This method is particularly useful for skipping over any
- * interceptors that may have become `null` calling `eject`.
- *
- * @param {Function} fn The function to call for each interceptor
- */
-InterceptorManager.prototype.forEach = function forEach(fn) {
-  utils.forEach(this.handlers, function forEachHandler(h) {
-    if (h !== null) {
-      fn(h);
-    }
-  });
-};
-
-module.exports = InterceptorManager;
-
-/***/ }),
-/* 158 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-var transformData = __webpack_require__(159);
-var isCancel = __webpack_require__(134);
-var defaults = __webpack_require__(5);
-var isAbsoluteURL = __webpack_require__(160);
-var combineURLs = __webpack_require__(161);
-
-/**
- * Throws a `Cancel` if cancellation has been requested.
- */
-function throwIfCancellationRequested(config) {
-  if (config.cancelToken) {
-    config.cancelToken.throwIfRequested();
-  }
-}
-
-/**
- * Dispatch a request to the server using the configured adapter.
- *
- * @param {object} config The config that is to be used for the request
- * @returns {Promise} The Promise to be fulfilled
- */
-module.exports = function dispatchRequest(config) {
-  throwIfCancellationRequested(config);
-
-  // Support baseURL config
-  if (config.baseURL && !isAbsoluteURL(config.url)) {
-    config.url = combineURLs(config.baseURL, config.url);
-  }
-
-  // Ensure headers exist
-  config.headers = config.headers || {};
-
-  // Transform request data
-  config.data = transformData(config.data, config.headers, config.transformRequest);
-
-  // Flatten headers
-  config.headers = utils.merge(config.headers.common || {}, config.headers[config.method] || {}, config.headers || {});
-
-  utils.forEach(['delete', 'get', 'head', 'post', 'put', 'patch', 'common'], function cleanHeaderConfig(method) {
-    delete config.headers[method];
-  });
-
-  var adapter = config.adapter || defaults.adapter;
-
-  return adapter(config).then(function onAdapterResolution(response) {
-    throwIfCancellationRequested(config);
-
-    // Transform response data
-    response.data = transformData(response.data, response.headers, config.transformResponse);
-
-    return response;
-  }, function onAdapterRejection(reason) {
-    if (!isCancel(reason)) {
-      throwIfCancellationRequested(config);
-
-      // Transform response data
-      if (reason && reason.response) {
-        reason.response.data = transformData(reason.response.data, reason.response.headers, config.transformResponse);
-      }
-    }
-
-    return Promise.reject(reason);
-  });
-};
-
-/***/ }),
-/* 159 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(1);
-
-/**
- * Transform the data for a request or a response
- *
- * @param {Object|String} data The data to be transformed
- * @param {Array} headers The headers for the request or response
- * @param {Array|Function} fns A single function or Array of functions
- * @returns {*} The resulting transformed data
- */
-module.exports = function transformData(data, headers, fns) {
-  /*eslint no-param-reassign:0*/
-  utils.forEach(fns, function transform(fn) {
-    data = fn(data, headers);
-  });
-
-  return data;
-};
-
-/***/ }),
-/* 160 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Determines whether the specified URL is absolute
- *
- * @param {string} url The URL to test
- * @returns {boolean} True if the specified URL is absolute, otherwise false
- */
-
-module.exports = function isAbsoluteURL(url) {
-  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
-  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
-  // by any combination of letters, digits, plus, period, or hyphen.
-  return (/^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
-  );
-};
-
-/***/ }),
-/* 161 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Creates a new URL by combining the specified URLs
- *
- * @param {string} baseURL The base URL
- * @param {string} relativeURL The relative URL
- * @returns {string} The combined URL
- */
-
-module.exports = function combineURLs(baseURL, relativeURL) {
-  return relativeURL ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '') : baseURL;
-};
-
-/***/ }),
-/* 162 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Cancel = __webpack_require__(135);
-
-/**
- * A `CancelToken` is an object that can be used to request cancellation of an operation.
- *
- * @class
- * @param {Function} executor The executor function.
- */
-function CancelToken(executor) {
-  if (typeof executor !== 'function') {
-    throw new TypeError('executor must be a function.');
-  }
-
-  var resolvePromise;
-  this.promise = new Promise(function promiseExecutor(resolve) {
-    resolvePromise = resolve;
-  });
-
-  var token = this;
-  executor(function cancel(message) {
-    if (token.reason) {
-      // Cancellation has already been requested
-      return;
-    }
-
-    token.reason = new Cancel(message);
-    resolvePromise(token.reason);
-  });
-}
-
-/**
- * Throws a `Cancel` if cancellation has been requested.
- */
-CancelToken.prototype.throwIfRequested = function throwIfRequested() {
-  if (this.reason) {
-    throw this.reason;
-  }
-};
-
-/**
- * Returns an object that contains a new `CancelToken` and a function that, when called,
- * cancels the `CancelToken`.
- */
-CancelToken.source = function source() {
-  var cancel;
-  var token = new CancelToken(function executor(c) {
-    cancel = c;
-  });
-  return {
-    token: token,
-    cancel: cancel
-  };
-};
-
-module.exports = CancelToken;
-
-/***/ }),
-/* 163 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Syntactic sugar for invoking a function and expanding an array for arguments.
- *
- * Common use case would be to use `Function.prototype.apply`.
- *
- *  ```js
- *  function f(x, y, z) {}
- *  var args = [1, 2, 3];
- *  f.apply(null, args);
- *  ```
- *
- * With `spread` this example can be re-written.
- *
- *  ```js
- *  spread(function(x, y, z) {})([1, 2, 3]);
- *  ```
- *
- * @param {Function} callback
- * @returns {Function}
- */
-
-module.exports = function spread(callback) {
-  return function wrap(arr) {
-    return callback.apply(null, arr);
-  };
-};
-
-/***/ }),
-/* 164 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _moment = __webpack_require__(0);
-
-function calenderFunction() {
-  $('.calendar').fullCalendar({
-    events: '/javascript/data/calendar.json',
-    contentHeight: 300,
-    handleWindowResize: true,
-    defaultView: 'listMonth',
-    header: {
-      left: 'promptResource prev,next,today',
-      center: 'title',
-      right: 'agendaWeek,listMonth'
-    },
-    navLinks: true,
-    weekends: true,
-    minTime: "09:00:00",
-    maxTime: "16:15:00",
-
-    eventClick: function eventClick(event, element) {
-
-      event.title = "CLICKED!";
-
-      $('.calendar').fullCalendar('updateEvent', event);
-    },
-
-    customButtons: {
-      promptResource: {
-        text: '+ Event',
-        click: function click() {
-          var title = prompt('Enter Event');
-          if (title) {
-            $('.calendar').fullCalendar('addResource', { title: title }, true // scroll to the new resource?
-            );
-          }
-        }
-      }
-    },
-    resourceLabelText: 'Events',
-    resources: [{ id: 'Event', title: 'Event 1' }]
-
-  });
-};
-
-exports.default = calenderFunction;
-
-/***/ }),
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _bootstrapDatepicker = __webpack_require__(7);
-
-var _bootstrapDatepicker2 = _interopRequireDefault(_bootstrapDatepicker);
-
-var _moment = __webpack_require__(0);
-
-var _moment2 = _interopRequireDefault(_moment);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var init = function init() {
-  $('.datepicker').datepicker({
-    daysOfWeekDisabled: [0, 7],
-    format: 'mm/dd/yyyy',
-    language: 'en',
-    startDate: 0,
-    startView: 'days',
-    todayHighlight: true
-  });
-
-  $('.input-daterange').each(function () {
-    var range = $(this);
-    var inputBegin = range.find('[name="date_begin"]');
-    var inputEnd = range.find('[name="date_end"]');
-
-    range.datepicker({
-      inputs: range.find('input'),
-      startDate: (0, _moment2.default)().format('MM/DD/YYYY')
-    });
-
-    inputBegin.datepicker().on('changeDate', function (e) {
-      inputEnd.datepicker('setStartDate', e.date);
-      inputEnd.datepicker('setDate', e.date);
-      $(this).datepicker('hide');
-      inputEnd.datepicker('show');
-    });
-  });
-};
-
-exports.default = init;
 
 /***/ })
 /******/ ]);

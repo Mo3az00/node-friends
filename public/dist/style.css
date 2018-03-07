@@ -475,7 +475,7 @@
   margin-right: -5px;
 }
 /*# sourceMappingURL=bootstrap-datepicker.css.map *//*!
- * FullCalendar v3.9.0
+ * FullCalendar v3.8.2
  * Docs & License: https://fullcalendar.io/
  * (c) 2018 Adam Shaw
  */
@@ -1229,40 +1229,12 @@ NOTE: use percentage font sizes or else old IE chokes
 /* Popover
 --------------------------------------------------------------------------------------------------*/
 .fc-bootstrap3 .fc-popover .panel-body {
-  padding: 0; }
+  padding: 0;
+  /* undo built-in padding */ }
 
 /* TimeGrid Slats (lines that run horizontally)
 --------------------------------------------------------------------------------------------------*/
 .fc-bootstrap3 .fc-time-grid .fc-slats table {
-  /* some themes have background color. see through to slats */
-  background: none; }
-
-.fc.fc-bootstrap4 a {
-  text-decoration: none; }
-
-.fc.fc-bootstrap4 a[data-goto]:hover {
-  text-decoration: underline; }
-
-.fc-bootstrap4 hr.fc-divider {
-  border-color: inherit; }
-
-.fc-bootstrap4 .fc-today.alert {
-  border-radius: 0; }
-
-.fc-bootstrap4 a.fc-event:not([href]):not([tabindex]) {
-  color: #fff; }
-
-.fc-bootstrap4 .fc-popover.card {
-  position: absolute; }
-
-/* Popover
---------------------------------------------------------------------------------------------------*/
-.fc-bootstrap4 .fc-popover .card-body {
-  padding: 0; }
-
-/* TimeGrid Slats (lines that run horizontally)
---------------------------------------------------------------------------------------------------*/
-.fc-bootstrap4 .fc-time-grid .fc-slats table {
   /* some themes have background color. see through to slats */
   background: none; }
 
@@ -1773,7 +1745,8 @@ be a descendant of the grid when it is being dragged.
   *
   *   1. Imports
   *   2. Global Styles
-  *   3. Datepicker Optimization
+  *   3. Datepicker
+  *   4. Sortable
   */
 /* 1. Imports
 -------------------------------------------*/
@@ -8793,13 +8766,11 @@ a.btn {
 
 /* Content
 ------------------------------------------------*/
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #E5E5E5; }
-
 #content {
   margin-top: 15px; }
+
+.bg-color {
+  background-color: #F2F2F2; }
 
 .main-todo button {
   color: #000;
@@ -8815,8 +8786,7 @@ body {
 
 .lists-container:hover {
   background-color: #E3E3E3;
-  border-left: 2px solid #000;
-  padding-right: 1rem; }
+  border-left: 3px solid #000; }
 
 .lists-container label.done {
   text-decoration: line-through; }
@@ -8828,6 +8798,25 @@ body {
   text-decoration: none; }
   .absence-reports-table a:hover {
     text-decoration: underline; }
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block; }
+
+.upload-button {
+  border: 1px solid gray;
+  color: gray;
+  background-color: white !important;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem; }
+
+.upload-btn-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0; }
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -11170,11 +11159,31 @@ body {
 h2.page-title {
   margin-bottom: 1rem; }
 
-/* 3. Datepicker Optimization
+.placeholder-image {
+  background-color: #e0e0e0;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }
+  .placeholder-image-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: #777; }
+
+/* 3. Datepicker
 -------------------------------------------*/
 .datepicker.datepicker-dropdown {
   padding: 0.5rem; }
   .datepicker.datepicker-dropdown .datepicker-days table tbody tr td.active {
     background: #eecc00; }
+
+/* 4. Sortable
+-------------------------------------------*/
+.sortable-handle {
+  cursor: move; }
+
+.sortable-ghost {
+  border-left: 3px solid #3D9970; }
 
 /*# sourceMappingURL=style.css.map*/

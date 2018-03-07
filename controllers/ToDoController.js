@@ -21,12 +21,54 @@ exports.createToDo = async (request, response) => {
 
 // Toggle the done status
 exports.updateDone = async (request, response) => {
-    const todo = await ToDo.findOneAndUpdate(
-        { _id: request.body.id },
-        { done: request.body.done }
-    )
+    const newOrder = {}
 
-    response.json(todo)
+  request.body.order.forEach((id, order) => {
+      newOrder[id] = order
+  })
+
+  // Get all favorites and their positions and build comparable object, too
+  const getOldOrder = await ToDo.find({user: request.user._id}).sort({'order': 1})
+  const oldOrders = {}
+
+  getOldOrder.forEach((todo) => {
+      oldOrders[todo._id.toString()] = todo.order
+  })
+
+  // Check which order values are changed, after sorting and only update those entries
+  const updates = []
+
+  for (id in oldOrders) {
+      if (oldOrders[id] !== newOrder[id]) {
+          updates.push({
+              id,
+              order: newOrder[id]
+          })
+      }
+  }
+
+  const updatePromises = []
+
+  updates.forEach((item) => {
+      // update in the database
+      updatePromises.push(
+          ToDo.update({_id: item.id}, {order: item.order})
+      )
+  })
+
+  Promise.all(updatePromises)
+    .then((data) => {
+      return response.json({
+        code: 200,
+        message: 'OK'
+      })
+    })
+    .catch((error) => {
+      return response.json({
+        code: 500,
+        error: error.response
+      })
+    })
 }
 
 // Delete a todo item and redirect

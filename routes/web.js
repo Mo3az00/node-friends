@@ -31,6 +31,9 @@ router.post('/admin/todos/add', catchErrors(ToDoController.createToDo))
 // Toggle done status of a todo item
 router.post('/admin/todos/update-done', catchErrors(ToDoController.updateDone))
 
+// Delete a todo item
+router.get('/admin/todos/:id/delete', catchErrors(ToDoController.deleteToDo))
+
 // USER CONTROLS
 
 // Authentication

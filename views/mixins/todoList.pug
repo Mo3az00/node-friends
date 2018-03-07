@@ -1,12 +1,12 @@
 mixin todoList(todos = {})
     
-    .main-todo.col-7.bg-light.p-3.mx-auto
-        h5 Tasks
+    .main-todo.col-7.bg-color.p-3.mx-auto
+        h3 Tasks
 
         #todo-list-error.alert.alert-danger.hidden.my-2
 
         form(action="/admin/todos" method="POST")#todo-form.input-group.my-3
-            input#todo-form.form-control(name="name" type='text' placeholder="Please add to-do item...")
+            input.form-control(name="name" type='text' placeholder="Please add to-do item...")
             .input-group-append
                 button.btn.btn-outline-secondary(type='submit')
                     i.fa.fa-plus(aria-hidden="true")  Add item
@@ -15,4 +15,15 @@ mixin todoList(todos = {})
             #todo-list-loading
                 i.fa.fa-spin.fa-spinner
                 | &nbsp; Loading ...
-            #todo-list
+
+            table.table.table-striped.table-sortable(
+                data-sortable-url="/admin/todos/update-done",
+                data-sortable-group="todos"
+            )
+                tbody#todo-list
+
+                    //- each todo in todos
+                    //-     tr(data-id=todo._id)
+                    //-         td.text-center
+                    //-             i.fa.fa-bars.sortable-handle
+                    //-         td= todo.item

@@ -42,16 +42,20 @@ function loadToDoList() {
 
 function buildToDoListItem(todo) {
   return `
-  <div class="lists-container container p-0 px-2" data-id="${todo._id}">
-    <button class="btn btn-sm p-0 mr-2" type="button" id="move-todolist">
-      <i class="fa fa-arrows" aria-hidden="true"></i>
-    </button>
-    <div class="custom-control custom-checkbox d-inline-flex">
-      <input class="custom-control-input checkbox" value="1" id="todo-${todo._id}" type="checkbox" ${todo.done ? 'checked' : ''}>
-      <label class="custom-control-label ${todo.done ? 'done' : ''}" for="todo-${todo._id}">${todo.item}</label>
-    </div>
-    <i class="icon-remove fa fa-remove my-auto float-right"></i>
-  </div>
+  <tr class="lists-container" data-id="${todo._id}">
+    <td>
+      <i class="fa fa-arrows sortable-handle" aria-hidden="true"></i>
+    </td>
+    <td class="col-1 text-left">
+      <div class="custom-control custom-checkbox text-left">
+        <input class="custom-control-input checkbox" value="1" id="todo-${todo._id}" type="checkbox" ${todo.done ? 'checked' : ''}>
+        <label class="custom-control-label ${todo.done ? 'done' : ''}" for="todo-${todo._id}">${todo.item}</label>
+      </div>
+    </td>
+    <td class="text-right">
+      <i class="icon-remove fa fa-remove"></i>
+    </td>
+  </tr>
   ` 
 }
 
@@ -138,7 +142,6 @@ function initToDoList() {
 
   form.addEventListener('submit', function(e) {
     e.preventDefault()
-    console.log('submitted', input.value)
 
     addToDo({
       'item': input.value.trim(),
