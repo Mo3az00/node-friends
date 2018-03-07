@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  .col-12.col-sm-10.col-md-9.col-lg-6
+    h2 #{title}
+    form#project-form.container(method='POST', enctype='multipart/form-data')
+      .form-group
+        label(for='title') Title
+        input#name.form-control(type='text', name='title',  id='title', required, value=(project.title || ''))
+
+      .form-group
+        label(for='link') Link
+        input#link.form-control(type='text', name='link',id='link', required, value=(project.link || ''))
+
+      .form-group
+        label(for='description') Description
+        textarea.form-control(name='description', id='description', rows='3', required)=(project.description || '')
+
+      .form-group
+        p
+          label(for='image')
+            | Upload an Image: &nbsp;
+            span.text-muted (max. 10 MB)
+        p
+          if project.image
+            img(src=`/uploads/projects/${project.image}`, alt=project.title, width=200, height=150)
+          else
+            != helpers.placeholderImage(250, 150, 'picture-o')
+        p
+          input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg")
+      .form-group
+        button.btn.btn-primary.btn-lg.btn-block(type='submit') Save
