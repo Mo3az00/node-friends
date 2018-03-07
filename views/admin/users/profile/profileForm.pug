@@ -1,0 +1,56 @@
+extends ../../layout
+
+block content
+	.col-12.col-sm-10.col-md-9.col-lg-8
+		h2= title
+		
+		form#project-form(method='POST', enctype="multipart/form-data")
+			.row
+				.col-12.col-lg-6
+					h4 Avatar Image
+					p
+						if profile.avatar
+							img(src=`/uploads/users/avatar/${profile.avatar}`, width=250)
+						else
+							!= helpers.placeholderImage(250, 150, 'user-circle-o')
+
+					.form-group.filename-button
+						label(for="avatar")
+						.upload-btn-wrapper 
+							button.upload-button Choose File
+							input(
+								type="file",
+								name="avatar",
+								id="avatar",
+								accept="image/gif, image/png, image/jpeg"
+							)
+
+				.col-12.col-lg-6
+					h4 Profile Image
+					p
+						if profile.photo
+							img(src=`/uploads/users/photo/${profile.photo || 'photo.png'}`, width=285)
+						else
+							!= helpers.placeholderImage(285, 197, 'image')
+
+					.form-group.filename-button
+						label(for="photo")
+						.upload-btn-wrapper 
+							button.upload-button Choose File
+							input(
+								type="file",
+								name="photo",
+								id="photo",
+								accept="image/gif, image/png, image/jpeg"
+							)
+
+			.form-group
+				label(for='webpage') Webpage
+				input#webpage.form-control(method='POST',type='text', name='webpage', value=(profile.webpage || ''))
+
+			.form-group
+				label(for='bio') Biography
+				textarea#exampleFormControlTextarea1.form-control(name='bio', rows='6')=(profile.bio || '')
+
+			.form-group
+				button.btn.btn-success.btn-block(type='submit') Update Profile

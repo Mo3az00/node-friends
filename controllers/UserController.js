@@ -9,27 +9,16 @@ exports.dashboard = (request, response) => {
   }
 
   response.render('admin/dashboard', {
-    title: 'Admin'
+    title: 'Admin Portal'
   })
 }
 
-
-// Profile
-exports.editProfile = (request, response) => {
-  response.render('admin/users/edit-profile', {
-    title: 'Edit your profile'
-  })
-}
-
-// Students
+// List of students
 exports.studentList = async (request, response) => {
-
   const students = await User.find({ role: 'student' }).sort({ first_name: 1 })
 
-  // response.json(students)
-
   response.render('admin/students', {
-    title: 'Student List',
+    title: 'Students',
     students
   })
 }

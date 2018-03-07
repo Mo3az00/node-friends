@@ -16,6 +16,9 @@ mongoose.connect(
 const User = require('../models/User')
 const users = JSON.parse(fs.readFileSync(__dirname + '/users.json', 'utf-8'))
 
+const UserProfile = require('../models/UserProfile')
+const userProfiles = JSON.parse(fs.readFileSync(__dirname + '/user-profiles.json', 'utf-8'))
+
 // import data
 async function loadData() {
   try {
@@ -28,6 +31,8 @@ async function loadData() {
 
     await User.insertMany(users)
     console.log('All users created!\n\n')
+    await UserProfile.insertMany(userProfiles)
+    console.log('All user profiles created!\n\n')
     process.exit()
   } catch(e) {
     console.log('\nError! The Error info is below.\n\n')
