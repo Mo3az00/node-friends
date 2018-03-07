@@ -1,0 +1,47 @@
+extends ../layout
+block content
+
+  h1= title
+  p 
+    a(href='/admin/homepage-technologies/add' class='btn btn-primary' role='button')
+      i.fa.fa-plus-circle
+      |  Add a Technology
+      
+  if technologies.length
+    table.table.table-striped.table-sortable(
+      data-sortable-url='/admin/homepage-technologies/update-order',
+      data-sortable-group='technologies'
+    )
+      thead
+        tr
+          th(scope='col' class='text-center') Sort
+          th(scope='col') Picture
+          th(scope='col') Title
+          th(scope='col') Description
+          th(scope='col') Options
+      tbody
+        each technology in technologies
+          tr(data-id=technology._id)
+            td.text-center
+              i.fa.fa-bars.sortable-handle
+            td
+              if technology.image
+                img(src=`/uploads/homepage-technologies/${technology.image}`, alt=technology.title  width=200 height=102)
+              else
+                != helpers.placeholderImage(200, 102, 'image')
+            td= technology.title
+            td= technology.description
+            td.actions
+              a(href=`/admin/homepage-technologies/${technology._id}/edit` 
+                class='btn btn-outline-primary' 
+                role='button')
+                i.fa.fa-cog 
+                |  Edit
+              | &nbsp;
+              a(href=`/admin/homepage-technologies/${technology._id}/delete` 
+                class='btn btn-outline-primary' 
+                role='button'
+                onclick="return confirm('Are you sure you want delete this technology?')"
+                )
+                i.fa.fa-remove
+                |  Delete

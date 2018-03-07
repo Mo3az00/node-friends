@@ -140,16 +140,32 @@ router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportControlle
 router.get('/admin/homepage-technologies', catchErrors(HomepageTechController.list))
 
 // Display the form to add a technology
-router.get('/admin/homepage-technologies/add', HomepageTechController.technologyForm)
+router.get('/admin/homepage-technologies/add', HomepageTechController.addForm)
 
 //  Validate data and saving the technology, if okay
-router.post('/admin/homepage-technologies/add', catchErrors(HomepageTechController.createTechnology))
+router.post('/admin/homepage-technologies/add', 
+    HomepageTechController.upload,
+    HomepageTechController.uploadError,
+    catchErrors(HomepageTechController.resize),
+    catchErrors(HomepageTechController.createTechnology)
+)
 
 // Display the form to edit a technology by ID
-router.get('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.technologyForm))
+router.get('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.editForm))
 
 // Validate data and update the technology, if okay
-router.post('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.updateTechnology))
+router.post('/admin/homepage-technologies/:id/edit', 
+  HomepageTechController.upload,
+  HomepageTechController.uploadError,
+  catchErrors(HomepageTechController.resize),
+  catchErrors(HomepageTechController.updateTechnology)
+)
+
+// Delete a Technology
+router.get('/admin/homepage-technologies/:id/delete', catchErrors(HomepageTechController.deleteTechnology))
+
+// Update tech favorites order
+router.post('/admin/homepage-technologies/update-order', catchErrors(HomepageTechController.updateSortOrder))
 
 
 // SETTINGS
