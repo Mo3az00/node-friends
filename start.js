@@ -23,17 +23,16 @@ mongoose.connect(
   `mongodb://${process.env.DATABASE_HOST || localhost}:${process.env.DATABASE_PORT || 27017}/${process.env.DATABASE_NAME || 'express-mongo-boilerplate'}`,
   mongooseOptions
 )
-.catch((error) => {
-  console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${error.message}`)
-  process.exit(1)
-})
+  .catch((error) => {
+    console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${error.message}`)
+    process.exit(1)
+  })
 
 // load all models
 require('./models/Settings')
 require('./models/HomepageTech')
 require('./models/ToDo')
 require('./models/User')
-require('./models/UserProfile')
 require('./models/UserProject')
 require('./models/UserTechFavorite')
 require('./models/AbsenceReport')

@@ -4,37 +4,45 @@ const mongodbErrorHandler = require('mongoose-mongodb-errors')
 const passportLocalMongoose = require('passport-local-mongoose')
 
 const userSchema = new mongoose.Schema({
-    first_name: {
-        type: String,
-        required: 'You must provide a first name'
-    },
-    last_name: {
-        type: String,
-        required: 'You must provide a last name'
-    },
-    role: {
-        type: String,
-        required: true
-    },
-    birthday: { type: Date },
-    phone: {
-        type: String,
-        trim: true
-    },
-    email: {
-        type: String,
-        unique: true,
-        lowercase: true,
-        trim: true,
-        validate: [validator.isEmail, 'Invalid email address'],
-        required: 'Please supply an email address'
-    },
-    website: {
-        type: String,
-        trim: true
-    },
-    resetPasswordToken: String,
-    resetPasswordExpires: Date
+  first_name: {
+    type: String,
+    required: 'You must provide a first name'
+  },
+  last_name: {
+    type: String,
+    required: 'You must provide a last name'
+  },
+  role: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    unique: true,
+    lowercase: true,
+    trim: true,
+    validate: [validator.isEmail, 'Invalid email address'],
+    required: 'Please supply an email address'
+  },
+  bio: {
+    type: String,
+    trim: true
+  },
+  birthday: { type: Date },
+  phone: {
+    type: String,
+    trim: true
+  },
+  website: {
+    type: String,
+    trim: true,
+    validate: [validator.isURL, 'Please supply a valid URL for your website!'],
+  },
+  avatar: String,
+  photo: String,
+  slug: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 })
 
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email' })
