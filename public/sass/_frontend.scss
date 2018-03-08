@@ -2,6 +2,8 @@
 
 #frontnav {
   background-color: transparent;
+  font-size: 1.2rem;
+  height: 60px;
 
   .container {
     width: 70%;
@@ -13,7 +15,7 @@
 
   .navbar-brand {
     img {
-      height: 35px;
+      height: 45px;
       width: auto;
     }
   }
@@ -25,10 +27,8 @@
   
   li {
     color: #fff;
-    font-weight: 400;
     margin: .3rem .8rem;
     transition: 2s;
-    text-shadow: 2px 2px 4px black;
     
     &::after {
       content: '';
@@ -37,7 +37,6 @@
       height: 1px;
       background: #fff;
       transition: width .3s ease-in;
-      box-shadow: 0 0 2px black;
     }
 
     &:hover::after {
@@ -60,12 +59,12 @@
 .scrolled {
   #frontnav {
     background-color: white;
+    box-shadow: 2px 2px 2px  rgba(77, 75, 75, 0.349);
 
     #frontnavlinks {
       li {
         color: #8b8b8b;
         transition: 2s;
-        text-shadow: 0 0 1px grey;
         
         &::after {
           content: '';
@@ -94,18 +93,19 @@
 // MAIN
 
 #bg-main {
-  background-image: url(https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
+  background-image: url(/images/main-bg.jpg);
   padding-top: 56.25%;
   background-size: cover;
   margin-top: -16px;
 
   .jumbotron {
     color: #fff;
-    background-color: rgba(255,255,255,0.3);
+    font-weight: 700;
+    background-color: transparent;
     width: 47%;
     position: absolute;
     top: 35%;
-    right: 10%;
+    right: 5%;
     border-radius: 1.2rem; 
     text-shadow: 2px 2px 5px #000;
   }
@@ -131,18 +131,19 @@
   }
 
   .card {
-    margin: 1.3rem;
+    padding: .5rem;
     border-radius: .3rem;
     box-shadow: 0 0 10px rgb(91, 92, 92);
 
       h5 {
         color: black;
         font-weight: 600;
+        font-size: 1.5rem;
       }
   
       p {
         color: grey;
-        font-size: .85rem;
+        // font-size: 1.2rem;
       }
 
     &:hover {
@@ -168,7 +169,8 @@
   }
 
   h2 {
-    margin: 3rem;
+    // margin: 3rem;
+    font-weight: 700;
   }
 
   img {
@@ -219,6 +221,7 @@
 
   h2, .h2 {
     margin: 3rem 0 2rem 0;
+    font-weight: 700;
   }
 
   .card {
@@ -280,6 +283,7 @@
 
   h2 {
     margin: 3rem 0 2rem 0;
+    font-weight: 700;
   }
 
   p {
@@ -317,6 +321,7 @@
 
   h2 {
     margin: 3rem 0 0 0;
+    font-weight: 700;
   }
 
   p {

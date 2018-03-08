@@ -1,22 +1,28 @@
 //- THIS WILL NEED TO LOOP OVER THE DATABASE OF TECH
-.container.d-flex.justify-content-space-around#favourite-tech
-  .row
-    .card(style="width: 18rem")
-      .card-body.row
-        i.fa.fa-pencil.fa-2x.col-2
-        h5.card-title.col-10 HTML and CSS
-        p.card-text.col-12.text-justify Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-    .card(style="width: 18rem")
-      .card-body.row
-        i.fa.fa-pencil.fa-2x.col-2
-        h5.card-title.col-10 JS and jQuery
-        p.card-text.col-12.text-justify Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-    .card(style="width: 18rem")
-      .card-body.row
-        i.fa.fa-pencil.fa-2x.col-2
-        h5.card-title.col-10 React.js
-        p.card-text.col-12.text-justify Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-        
-      
+.container.d-flex#favourite-tech
+  .row.justify-content-around
+    .col-12.col-lg-4
+      .card
+        .card-body.row
+          i.fa.fa-desktop.fa-3x.col-3.text-right
+          .col-9
+            h5 Frontend
+            p Home of the visible parts
+          p.card-text.col-12.text-justify We build flexible frontends using Bootstrap 4 and modern responsive design techniques.
+   
+    .col-12.col-lg-4
+      .card
+        .card-body.row
+          i.fa.fa-database.fa-3x.col-3
+          .col-9
+            h5 Backend
+            p Home of the business logic
+          p.card-text.col-12.text-justify We build modern applications using node.js, Express and MongoDB, that are secured and reliable.
+    .col-12.col-lg-4
+      .card
+        .card-body.row
+          i.fa.fa-tasks.fa-3x.col-3
+          .col-9
+            h5 Infrastructure
+            p Home of the services
+          p.card-text.col-12.text-justify We setup secure servers that handle the load of our applications and are running on cloud-based services.
