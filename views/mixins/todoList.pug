@@ -1,5 +1,5 @@
 mixin todoList(todos = {})
-    
+
     .main-todo.col-7.bg-color.p-3.mx-auto
         h3 Tasks
 
@@ -9,7 +9,8 @@ mixin todoList(todos = {})
             input.form-control(name="name" type='text' placeholder="Please add to-do item...")
             .input-group-append
                 button.btn.btn-outline-secondary(type='submit')
-                    i.fa.fa-plus(aria-hidden="true")  Add item
+                    i.fa.fa-plus(aria-hidden="true")
+                    | Add item
 
         if (todos)
             #todo-list-loading
@@ -21,9 +22,3 @@ mixin todoList(todos = {})
                 data-sortable-group="todos"
             )
                 tbody#todo-list
-
-                    //- each todo in todos
-                    //-     tr(data-id=todo._id)
-                    //-         td.text-center
-                    //-             i.fa.fa-bars.sortable-handle
-                    //-         td= todo.item

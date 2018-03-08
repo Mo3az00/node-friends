@@ -2,7 +2,6 @@
   background-color: #F2F2F2;
 }
 
-
 .main-todo button {
   color: #000;
   background-color: transparent;
@@ -23,12 +22,7 @@
 }
 
 .lists-container {
-  &:hover {
-    background-color: #E3E3E3;
-    border-left: 3px solid #000;
-  }
-
-  label.done {
+label.done {
     text-decoration: line-through;
   }
 }

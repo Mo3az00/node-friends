@@ -21,7 +21,7 @@ function addToDo (todo) {
       todoList.innerHTML += buildToDoListItem(response.data)
       registerListEvents()
       input.value = ''
-      
+
     })
     .catch((error) => {
       console.error(error)
@@ -44,7 +44,7 @@ function buildToDoListItem(todo) {
   return `
   <tr class="lists-container" data-id="${todo._id}">
     <td>
-      <i class="fa fa-arrows sortable-handle" aria-hidden="true"></i>
+      <i class="fa fa-bars sortable-handle" aria-hidden="true"></i>
     </td>
     <td class="col-1 text-left">
       <div class="custom-control custom-checkbox text-left">
@@ -56,7 +56,7 @@ function buildToDoListItem(todo) {
       <i class="icon-remove fa fa-remove"></i>
     </td>
   </tr>
-  ` 
+  `
 }
 
 function buildToDoList(todos) {

@@ -23,9 +23,9 @@ function calendarFunction () {
     eventClick: function(event, element) {
 
       event.title = "CLICKED!";
-  
+
       $('.calendar').fullCalendar('updateEvent', event);
-  
+
     },
       customButtons: {
         promptResource: {
@@ -42,10 +42,6 @@ function calendarFunction () {
         }
       }
     })
-    // resourceLabelText: 'Events',
-    // resources: [
-    //   { id: 'Event', title: 'Event 1' },
-    // ]
-  
+
 }
 export default calendarFunction
