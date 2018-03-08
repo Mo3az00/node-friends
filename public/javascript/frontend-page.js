@@ -3,9 +3,11 @@
 window.addEventListener('scroll', function () {
     if (window.scrollY > window.innerHeight / 2) {
       $('body').addClass('scrolled')
-      $('#logo-image').attr('src', '/images/node-friends-logo.png')
+      $('#logo-image-white').addClass('hidden')
+      $('#logo-image-green').removeClass('hidden')
     } else {
       $('body').removeClass('scrolled')
-      $('#logo-image').attr('src', '/images/node-friends-logo-white.png')
+      $('#logo-image-white').removeClass('hidden')
+      $('#logo-image-green').addClass('hidden')
     }
 });

@@ -30,7 +30,7 @@ html(lang='en')
         if user
           .user-dropdown.dropdown
             a#userDropdownButton.dropdown-toggle(data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-              img.user-avatar(src=user.photo || 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX24426960.jpg', height="30")
+              img.user-avatar(src=`/uploads/users/avatar/${user.avatar}` || 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX24426960.jpg', height="30")
               | #{user.first_name} #{user.last_name}
             .dropdown-menu(aria-labelledby="userDropdownButton")
               a.dropdown-item(href="/admin/profile/edit")

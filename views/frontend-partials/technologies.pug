@@ -1,10 +1,10 @@
-#technologies
-  h2 Technologies
-  .container-fluid.d-flex
-    .container.mx-auto.justify-content-center
-      .row
+.container
+  #technologies
+    h2.dash Technologies
+    .container-fluid.d-flex
+      .row.justify-content-center
         each technology in technologies
           .card.col-6.col-lg-3
             img.img-fluid.rounded(src=`/uploads/homepage-technologies/${technology.image}`)
-            h5= technology.name
+            h5= technology.title
             p= technology.description

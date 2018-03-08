@@ -1,3 +1,14 @@
+.dash:after {
+  content: '';
+  border-top: 3px dashed $primary;
+  width: 3.5rem;
+  display: block;
+}
+
+.hide {
+  display: hidden;
+}
+
 // NAVBAR
 
 #frontnav {
@@ -157,19 +168,14 @@
 }
 
 #about-us {
-  width: 80%;
   margin: 0 auto;
-  
-  >.row {
-    margin: 2rem auto;
-  }
 
   ul {
     list-style-type: circle;
   }
 
   h2 {
-    // margin: 3rem;
+    margin-top: 2rem;
     font-weight: 700;
   }
 
@@ -177,12 +183,13 @@
     margin-bottom: 2rem;
   }
 
-  a.btn.btn-success {
-    background-color: $primary;
-    color: white;
+  a.btn.btn-outline-success {
+    border-color: $primary;
+    color: $primary;
 
     &:hover {
-      color: black;
+      background-color: $primary;
+      color: white;
     }
   }
   margin-bottom: 4rem;
@@ -212,15 +219,9 @@
 }
 
 #technologies {
-  width: 80%;
-  margin: 4rem auto 6rem auto;
-
-  >.row {
-    margin: 5rem auto 2rem auto;
-  }
-
-  h2, .h2 {
-    margin: 3rem 0 2rem 0;
+  
+  h2 {
+    margin-top: 2rem;
     font-weight: 700;
   }
 
@@ -241,6 +242,7 @@
       font-size: .85rem;
     }
   }
+  margin-bottom: 2rem;
 }
 
 #becomestudent {
@@ -248,7 +250,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   margin-bottom: 2rem;
-
+  
   .row { 
 
     h4, h6 {
@@ -264,28 +266,22 @@
     color: #fff;
     width: 70%;
     background-color: transparent;
-    text-shadow: 0px 0px 15px black;
+    text-shadow: 2px 2px 2px #000;
     margin-bottom: .5rem;
 
     .lead {
-      text-shadow: 0px 0px 15px black;
+      text-shadow: 2px 2px 2px #000;
     }
   }
 }
 
 #the-team {
-  width: 80%;
-  margin: 4rem auto 6rem auto;
-
-  >.row {
-    margin: 5rem auto 2rem auto;
-  }
 
   h2 {
-    margin: 3rem 0 2rem 0;
+    margin: 2rem 0;
     font-weight: 700;
   }
-
+  
   p {
     font-size: .9rem;
     color: grey;
@@ -308,20 +304,14 @@
 }
 
 #contact {
-  width: 80%;
-  margin: 4rem auto 2rem auto;
-
-  >.row {
-    margin: 5rem auto 2rem auto;
-  }
-
-  .col-12 {
-    margin-bottom: 1.4rem;
-  }
 
   h2 {
-    margin: 3rem 0 0 0;
+    margin-top: 2rem;
     font-weight: 700;
+  }
+  
+  .col-12 {
+    margin-bottom: 1.4rem;
   }
 
   p {
@@ -344,11 +334,6 @@
   color: white;
   margin: 0 auto;
 
-  .row {
-    width: 85%;
-    margin: 0 auto;
-  }
-
   a {
     margin-left: 2rem;
     color: white;
@@ -359,10 +344,6 @@
 
 .section {
   margin-bottom: 2rem;
-
-  >.row {
-    margin: 5rem auto 2rem auto;
-  }
 
   h2 {
     margin-bottom: 1rem;
@@ -412,8 +393,11 @@
 
 // MEDIA QUERIES
 
-@media (max-width: 1081px) {
+@include media-breakpoint-down(lg) {
+
   #frontnav {
+    background-color: white;
+    box-shadow: 2px 2px 2px  rgba(77, 75, 75, 0.349);
     
     .container {
       width: 100%;
@@ -421,6 +405,33 @@
 
     .navbar {
       height: auto;
+    }
+    
+    #frontnavlinks {
+      li {
+        color: #8b8b8b;
+        transition: 2s;
+        
+        &::after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 1px;
+          background:#3e863d;
+          transition: width .3s ease-in;
+          box-shadow: 0 0 1px grey;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        a:hover {
+          color: #3e863d;
+          text-decoration: none;
+          font-weight: 400;
+        }
+      }
     }
   }
   
@@ -430,20 +441,31 @@
     
     .jumbotron {
       color: #fff;
-      background-color: rgba(255,255,255,0.3);
+      font-size: 1rem;
       width: 80%;
       position: absolute;
       top: 38%;
       right: 10%;
       border-radius: 1.2rem; 
       text-shadow: 2px 2px 5px #000;
+
+      .display-3 {
+        font-size: 2.25rem;
+      }
     }
   }
 }
 
-@media (max-width: 991px) {
+@include media-breakpoint-down(md) {
   #frontnav {
-    background-color: rgba(255,255,255,0.5);
+    
+    #logo-image-white {
+      display: none;
+    }
+
+    #logo-image-green {
+      display: inline !important;
+    }
 
     &.navbar {
       height: auto;
@@ -452,9 +474,10 @@
 
   #bg-main {
     padding-top: 80%;
+    position: relative;
 
     .jumbotron {
-      top: 22%;
+      bottom: 40%;
       right: 10%;
       border-radius: 1.2rem; 
       text-shadow: 2px 2px 5px #000;
