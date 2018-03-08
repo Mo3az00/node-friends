@@ -1,22 +1,24 @@
-mixin todoList(todos)
-    #todo-list
-        p
-            button.btn.btn-success.button-add-todo
-                i.fa.fa-plus
-                | &nbsp; Add item
+mixin todoList(todos = {})
 
-        .todo-error.alert.alert-danger.hidden
+    .main-todo.col-7.bg-color.p-3.mx-auto
+        h3 Tasks
 
-        form.todo-form-new(action="#")
-            p
-                input.form-control(type="text", name="text", required)
-            p
-                button.btn.btn-primary(type="submit")
-                    i.fa.fa-save
-                    | &nbsp; save new item
+        #todo-list-error.alert.alert-danger.hidden.my-2
 
-        #todo-list-loading
-            i.fa.fa-spin.fa-spinner
-            span Loading ...
+        form(action="/admin/todos" method="POST")#todo-form.input-group.my-3
+            input.form-control(name="name" type='text' placeholder="Please add to-do item...")
+            .input-group-append
+                button.btn.btn-outline-secondary(type='submit')
+                    i.fa.fa-plus(aria-hidden="true")
+                    | Add item
 
-        #todo-list-display.list-group
+        if (todos)
+            #todo-list-loading
+                i.fa.fa-spin.fa-spinner
+                | &nbsp; Loading ...
+
+            table.table.table-striped.table-sortable(
+                data-sortable-url="/admin/todos/update-done",
+                data-sortable-group="todos"
+            )
+                tbody#todo-list

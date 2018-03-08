@@ -1,4 +1,15 @@
 extends ./layout
 
+include ../mixins/todoList
+include ../mixins/calendar
+include ../mixins/studentList
+
 block content
-    p Admin Dashboard => Coming soon!
+    h2 Dashboard
+
+    .main-dashboard
+        .row
+            +calendar().widget
+            +todoList().widget
+        .row.p-3
+            +studentList(students).widget
