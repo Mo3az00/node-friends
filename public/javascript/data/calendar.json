@@ -1,26 +1,30 @@
 [
   {
     "title": "Event 1",
-    "start": "2018-03-11",
+    "start": "2018-03-15",
     "backgroundColor": "yellow",
     "borderColor": "yellow",
-    "textColor": "black",
-    "duration": "3:20:00"
+    "textColor": "black"
   },
   {
     "title": "Event 2",
-    "start": "2018-03-07",
+    "start": "2018-03-11",
     "backgroundColor": "yellow",
     "borderColor": "yellow",
-    "textColor": "black",
-    "duration": "2:00:00"
+    "textColor": "black"
   },
   {
     "title": "Event 3",
+    "start": "2018-03-07",
+    "backgroundColor": "yellow",
+    "borderColor": "yellow",
+    "textColor": "black"
+  },
+  {
+    "title": "Event 4",
     "start": "2018-03-01",
     "backgroundColor": "yellow",
     "borderColor": "yellow",
-    "textColor": "black",
-    "duration": "00:30:00"
+    "textColor": "black"
   }
 ]
