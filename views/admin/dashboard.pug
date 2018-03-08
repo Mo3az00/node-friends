@@ -5,14 +5,11 @@ include ../mixins/calendar
 include ../mixins/studentList
 
 block content
-    .main-dashboard.container-fluid.mx-0.mb-2.p-2
+    h2 Dashboard
+
+    .main-dashboard
         .row
-            .col-12.mx-0.p-3
-                h2 Dashboard
-        .row.my-3
-            .container-fluid.mx-0
-                .row
-                    +calendar().widget
-                    +todoList().widget
-                .row.p-3
-                    +studentList(students).widget
+            +calendar().widget
+            +todoList().widget
+        .row.p-3
+            +studentList(students).widget
