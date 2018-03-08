@@ -16,13 +16,17 @@
 @import "~fullcalendar/dist/fullcalendar.css";
 @import "dashboard-main";
 @import 'todo-list';
+@import "frontend";
 @import "absence-reports";
 @import "update-profile";
+@import "projects";
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
 
-/* 2. Global Styles
+
+
+/* 2. Starter Template
 -------------------------------------------*/
 
 .hidden {

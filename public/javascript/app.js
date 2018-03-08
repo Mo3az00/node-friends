@@ -8,6 +8,7 @@ import initToDoList from './modules/todoList'
 initToDoList()
 
 // Enable boostrap dropdowns
+$('[data-toggle="tooltip"]').tooltip()
 $('.dropdown-toggle').dropdown()
 datepicker()
 sortable()

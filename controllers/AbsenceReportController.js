@@ -6,6 +6,8 @@ const jimp = require('jimp')
 const uuid = require('uuid')
 const moment = require('moment')
 const fs = require('fs')
+const axios = require('axios')
+const slack = require('slack')
 
 // Display the list of the reports
 exports.list = async (request, response) => {
@@ -120,29 +122,34 @@ exports.createReport = async (request, response, next) => {
   try {
     const dateNow = moment().format('YYYY-MM-DD HH:mm')
     let attachmentUrl = null
-    
+    const token='xoxp-242558289728-242558289904-326634294867-e5ac14a23ba47a472656e86b986e95f1'
+    const channel='U74GE8HSL'
+
     if (report.attachment) {
       attachmentUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}/uploads/absence-reports/${report.attachment.filename}`
     }
 
-    await mail.send({
-      filename: 'absence-report',
-      subject: `Absence Report of ${request.user.first_name} ${request.user.last_name} - ${dateNow}`,
-      to: [
-        'dominik.hanke@devugees.org',
-        'carl.neuberger@devugees.org'
-      ],
-      report,
-      attachmentUrl,
-      user: request.user,
-      moment
-    });
+    const slackMessage = axios.post(`https://slack.com/api/chat.postMessage?token=${token}&channel=${channel}&text=${request.body.message}&username=${request.user.first_name}&pretty=1`)
+
+    const sendMail = mail.send({
+                      filename: 'absence-report',
+                      subject: `Absence Report of ${request.user.first_name} ${request.user.last_name} - ${dateNow}`,
+                      to: ['dominik.hanke@devugees.org', 'carl.neuberger@devugees.org'],
+                      report, attachmentUrl, user: request.user, moment
+                    })
+    
+    Promise.all([sendMail, slackMessage])
+      .catch((error) => {
+        console.log(error)
+        throw error
+      })
+
   } catch (error) {
     report.remove()
     request.flash('danger', 'The report could not be send. Please try again later.')
     return response.redirect('back')
   }
-
+  
   request.flash('success', `Successfully send your report.`);
   return response.redirect(`/admin/absence-reports/`);
 }

@@ -34,8 +34,8 @@ require('./models/HomepageTech')
 require('./models/ToDo')
 require('./models/User')
 require('./models/UserProfile')
-require('./models/UserProjects')
-require('./models/UserTechFavorites')
+require('./models/UserProject')
+require('./models/UserTechFavorite')
 require('./models/AbsenceReport')
 
 

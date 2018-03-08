@@ -21733,6 +21733,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 // import './todo-list'
+$('[data-toggle="tooltip"]').tooltip();
 $('.dropdown-toggle').dropdown();
 (0, _datepicker2.default)();
 (0, _sortable2.default)();

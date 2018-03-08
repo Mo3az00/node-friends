@@ -12,12 +12,8 @@ const HomepageTechController = require('../controllers/HomepageTechController')
 const AuthController = require('../controllers/AuthController')
 
 // The main route
-router.get('/', (request, response) => {
-  response.render('home', {
-    title: 'Home',
-    description: 'My lovely first website with Node.js'
-  })
-})
+router.get('/', catchErrors(UserController.frontendPage))
+router.get('/profile', catchErrors(UserController.studentProfile))
 
 // Admin
 router.get('/admin', UserController.dashboard)
@@ -76,13 +72,30 @@ router.get('/admin/projects', catchErrors(UserProjectsController.list))
 router.get('/admin/projects/add', UserProjectsController.projectForm)
 
 // Validate data and save project, if okay
-router.post('/admin/projects/add', catchErrors(UserProjectsController.createProject))
+router.post('/admin/projects/add',
+  UserProjectsController.upload,
+  UserProjectsController.uploadError,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.createProject)
+)
 
 //Display the form for editing a project by ID
-router.get('/admin/projects/:id/edit', catchErrors(UserProjectsController.projectForm))
+router.get('/admin/projects/:id/edit', UserProjectsController.editForm)
 
 //Validating data and updating the profile, if okay
-router.post('/admin/projects/:id/edit', catchErrors(UserProjectsController.updateProject))
+router.post('/admin/projects/:id/edit',
+  UserProjectsController.upload,
+  UserProjectsController.uploadError,
+  catchErrors(UserProjectsController.resize),
+  catchErrors(UserProjectsController.updateProject)
+)
+
+// deleting a project
+router.get('/admin/projects/:id/delete', catchErrors(UserProjectsController.deleteProject))
+
+// Update Projects order
+router.post('/admin/projects/update-order', catchErrors(UserProjectsController.updateSortOrder))
+
 
 // TECH FAVORITES
 // Display the list of the User's favorite technologies
@@ -99,6 +112,9 @@ router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesContro
 
 // Validate data and updating the profile, if okay
 router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))
+
+// Delete a Technology
+router.get('/admin/homepage-technologies/:id/delete', catchErrors(UserTechFavoritesController.deleteTechFavorite))
 
 // Update tech favorites order
 router.post('/admin/tech-favorites/update-order', catchErrors(UserTechFavoritesController.updateSortOrder))
@@ -126,26 +142,40 @@ router.get('/admin/absence-reports/:id/edit', catchErrors(AbsenceReportControlle
 router.get('/admin/homepage-technologies', catchErrors(HomepageTechController.list))
 
 // Display the form to add a technology
-router.get('/admin/homepage-technologies/add', HomepageTechController.technologyForm)
+router.get('/admin/homepage-technologies/add', HomepageTechController.addForm)
 
 //  Validate data and saving the technology, if okay
-router.post('/admin/homepage-technologies/add', catchErrors(HomepageTechController.createTechnology))
+router.post('/admin/homepage-technologies/add', 
+    HomepageTechController.upload,
+    HomepageTechController.uploadError,
+    catchErrors(HomepageTechController.resize),
+    catchErrors(HomepageTechController.createTechnology)
+)
 
 // Display the form to edit a technology by ID
-router.get('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.technologyForm))
+router.get('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.editForm))
 
 // Validate data and update the technology, if okay
-router.post('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.updateTechnology))
+router.post('/admin/homepage-technologies/:id/edit', 
+  HomepageTechController.upload,
+  HomepageTechController.uploadError,
+  catchErrors(HomepageTechController.resize),
+  catchErrors(HomepageTechController.updateTechnology)
+)
+
+// Delete a Technology
+router.get('/admin/homepage-technologies/:id/delete', catchErrors(HomepageTechController.deleteTechnology))
+
+// Update tech favorites order
+router.post('/admin/homepage-technologies/update-order', catchErrors(HomepageTechController.updateSortOrder))
 
 
 // SETTINGS
 
 // edit settings
-
 router.get('/admin/settings', catchErrors(SettingsController.form))
 
 // submit edited settings
-
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
 

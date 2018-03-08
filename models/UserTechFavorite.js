@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const userProjectsSchema = new mongoose.Schema({
+const userTechSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
@@ -10,6 +10,11 @@ const userProjectsSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: 'You must supply a title'
+  },
+  subtitle: {
+    type: String,
+    trim: true,
+    required: 'You must supply a subtitle'
   },
   icon: {
     type: String,
@@ -27,5 +32,4 @@ const userProjectsSchema = new mongoose.Schema({
   }
 })
 
-
-module.exports = mongoose.model('UserProjects', userProjectsSchema)
+module.exports = mongoose.model('UserTechFavorite', userTechSchema)
