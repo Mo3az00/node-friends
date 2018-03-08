@@ -33,7 +33,7 @@ exports.frontendPage = async (request, response) => {
   const courseStart = moment([2017, 9, 4])
   const daysLearned = now.diff(courseStart, 'days')
 
-  response.render('layout', {
+  response.render('home', {
     title: 'Main',
     daysLearned,
     daysLeft
