@@ -45,10 +45,10 @@ exports.resizeImages = async (request, response, next) => {
 
     switch (file.fieldname) {
       case 'avatar':
-        await image.cover(250, 150)
+        await image.cover(247, 247)
         break
       case 'photo':
-        await image.cover(285, 197)
+        await image.cover(530, 350)
         break
     }
 

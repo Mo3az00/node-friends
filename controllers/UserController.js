@@ -37,7 +37,7 @@ exports.frontendPage = async (request, response) => {
 
   // Loading data
   const technologies = await HomepageTech.find().sort({ 'order': 1 })
-  const students = await User.find().sort({ 'first_name': 1 })
+  const students = await User.find({'role': 'student' }).sort({ 'first_name': 1 })
 
   response.render('home', {
     title: 'We build your next big thing',
