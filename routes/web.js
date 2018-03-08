@@ -13,7 +13,7 @@ const AuthController = require('../controllers/AuthController')
 
 // The main route
 router.get('/', catchErrors(UserController.frontendPage))
-router.get('/profile', catchErrors(UserController.studentProfile))
+router.get('/profile/:slug', catchErrors(UserController.studentProfile))
 
 // Admin
 router.get('/admin', UserController.dashboard)
@@ -125,10 +125,10 @@ router.get('/admin/absence-reports/add', AbsenceReportController.reportForm)
 
 // Validating data and saving the report, if okay
 router.post('/admin/absence-reports/add',
-    AbsenceReportController.upload,
-    AbsenceReportController.uploadError,
-    AbsenceReportController.uploadSuccess,
-    catchErrors(AbsenceReportController.createReport)
+  AbsenceReportController.upload,
+  AbsenceReportController.uploadError,
+  AbsenceReportController.uploadSuccess,
+  catchErrors(AbsenceReportController.createReport)
 )
 
 // Display a form to edit a report by ID
@@ -142,18 +142,18 @@ router.get('/admin/homepage-technologies', catchErrors(HomepageTechController.li
 router.get('/admin/homepage-technologies/add', HomepageTechController.addForm)
 
 //  Validate data and saving the technology, if okay
-router.post('/admin/homepage-technologies/add', 
-    HomepageTechController.upload,
-    HomepageTechController.uploadError,
-    catchErrors(HomepageTechController.resize),
-    catchErrors(HomepageTechController.createTechnology)
+router.post('/admin/homepage-technologies/add',
+  HomepageTechController.upload,
+  HomepageTechController.uploadError,
+  catchErrors(HomepageTechController.resize),
+  catchErrors(HomepageTechController.createTechnology)
 )
 
 // Display the form to edit a technology by ID
 router.get('/admin/homepage-technologies/:id/edit', catchErrors(HomepageTechController.editForm))
 
 // Validate data and update the technology, if okay
-router.post('/admin/homepage-technologies/:id/edit', 
+router.post('/admin/homepage-technologies/:id/edit',
   HomepageTechController.upload,
   HomepageTechController.uploadError,
   catchErrors(HomepageTechController.resize),

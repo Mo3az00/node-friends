@@ -1,20 +1,12 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
-const UserProfile = mongoose.model('UserProfile')
 const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
 
 // Edit profile form
 exports.profileForm = async (request, response) => {
-  let profile = await UserProfile.findOne({ user: request.user._id })
-    .populate('user')
-
-  if (!profile) {
-    profile = await (new UserProfile({
-      user: request.user._id
-    })).save()
-  }
+  let profile = await User.findOne({ _id: request.user._id })
 
   response.render('admin/users/profile/profileForm', {
     title: `Edit Your Profile`,
@@ -33,10 +25,10 @@ exports.uploadImages = multer({
     }
   }
 })
-.fields([
-  { name: 'avatar', maxCount: 1 },
-  { name: 'photo', maxCount: 1 }
-])
+  .fields([
+    { name: 'avatar', maxCount: 1 },
+    { name: 'photo', maxCount: 1 }
+  ])
 
 exports.resizeImages = async (request, response, next) => {
   if (Object.keys(request.files).length === 0) {
@@ -68,15 +60,15 @@ exports.resizeImages = async (request, response, next) => {
 
 // Update profile
 exports.updateProfile = async (request, response) => {
-  const profile = await UserProfile.findOneAndUpdate(
-    { user: request.user._id },
+  const profile = await User.findOneAndUpdate(
+    { _id: request.user._id },
     request.body,
     {
       new: true,
       runValidators: true
     }
   )
-  .exec()
+    .exec()
 
   request.flash('success', `Successfully updated your profile.`)
   response.redirect('/admin/profile/edit')
