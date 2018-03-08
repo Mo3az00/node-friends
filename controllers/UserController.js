@@ -38,7 +38,7 @@ exports.frontendPage = async (request, response) => {
   const technologies = await HomepageTech.find().sort({ 'order': 1 })
   const students = await UserProfile.find().populate('user').sort({ 'first_name': 1 })
 
-  response.render('layout', {
+  response.render('home', {
     title: 'We build your next big thing',
     daysLearned,
     daysLeft,
