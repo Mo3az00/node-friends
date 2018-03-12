@@ -1,36 +1,39 @@
 extends ../layout
+
 block content
+  .container-fluid
+    .row
+      .col-12.col-sm-10.col-md-9.col-lg-6
+        h2.page-title= title
 
-  h1= title
+        form.favorite-technologies(method='POST' enctype="multipart/form-data")
+          .form-group
+            label(for='title') Title
+            input(type='text' class='form-control' 
+                  placeholder='technology name' 
+                  name='title'
+                  id='title' 
+                  value=(technology.title || '')
+                  )
 
-  form.favorite-technologies(method='POST' enctype="multipart/form-data")
-    .form-group
-      label(for='title') Title
-      input(type='text' class='form-control' 
-            placeholder='technology name' 
-            name='title'
-            id='title' 
-            value=(technology.title || '')
-            )
+          .form-group
+            label(for='description') Description
+            textarea( class='form-control' 
+                      rows='3' 
+                      placeholder='what you like about this technology / how do you use this technology' 
+                      name='description'
+                      id='description'
+                      )=(technology.description || '')
 
-    .form-group
-      label(for='description') Description
-      textarea( class='form-control' 
-                rows='3' 
-                placeholder='what you like about this technology / how do you use this technology' 
-                name='description'
-                id='description'
-                )=(technology.description || '')
+          .form-group
+            label(for='image')
+              | Upload an Image:
+              if technology.image
+                img(src=`/uploads/homepage-technologies/${technology.image}`, alt=technology.title  width=200 height=102)
+              else
+                != helpers.placeholderImage(200, 102, 'image')
 
-    .form-group
-      label(for='image')
-        | Upload an Image:
-        if technology.image
-          img(src=`/uploads/homepage-technologies/${technology.image}`, alt=technology.title  width=200 height=102)
-        else
-          != helpers.placeholderImage(200, 102, 'image')
+              input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg, image/jpg")
 
-        input.form-control(type='file', name='image', id='image', accept="image/gif, image/png, image/jpeg, image/jpg")
-
-    .form-group
-      button(type='submit' class='btn btn-primary') Save
+          .form-group
+            button(type='submit' class='btn btn-primary') Save

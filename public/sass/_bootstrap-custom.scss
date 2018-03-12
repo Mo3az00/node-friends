@@ -6,3 +6,9 @@ $link-color:                #777;
 $link-decoration:           underline;
 $link-hover-color:          darken($link-color, 15%);
 $link-hover-decoration:     underline;
+
+$tooltip-max-width: 400px;
+
+.tooltip-inner {
+  text-align: left !important;
+}

@@ -16,6 +16,7 @@ exports.dashboard = async (request, response) => {
 
   response.render('admin/dashboard', {
     title: 'Dashboard',
+    bodyClass: 'dashboard',
     students
   })
 }
@@ -24,7 +25,7 @@ exports.dashboard = async (request, response) => {
 exports.studentList = async (request, response) => {
   const students = await User.find({ role: 'student' }).sort({ first_name: 1 })
 
-  response.render('admin/students', {
+  response.render('admin/students/studentList', {
     title: 'Students',
     students
   })

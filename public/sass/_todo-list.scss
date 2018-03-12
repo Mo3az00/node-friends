@@ -12,6 +12,11 @@
 }
 
 #todo-list {
+  .custom-control-label,
+  .custom-control-input {
+    cursor: pointer;
+  }
+
   .icon-remove {
     cursor: pointer;
 
@@ -22,7 +27,9 @@
 }
 
 .lists-container {
-label.done {
+  background: #ffffff;
+
+  label.done {
     text-decoration: line-through;
   }
 }

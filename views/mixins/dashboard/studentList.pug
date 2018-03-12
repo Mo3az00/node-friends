@@ -1,9 +1,8 @@
-extends ./layout
+mixin studentList()
+  h3 Students
 
-block content
-  .container-fluid.mt-3
-    h2.page-title Students
-    table.table.table-bordered.table-striped.table-hover
+  .dashboard-container-white
+    table.table.table-striped.table-hover
       thead
         tr
           th(scope='col') #

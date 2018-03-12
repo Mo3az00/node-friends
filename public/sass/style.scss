@@ -3,8 +3,7 @@
   *
   *   1. Imports
   *   2. Global Styles
-  *   3. Datepicker
-  *   4. Sortable
+  *   3. Navigation
   */
 
 /* 1. Imports
@@ -12,15 +11,8 @@
 
 @import "bootstrap-custom";
 @import "~bootstrap/scss/bootstrap";
-@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
-@import "~fullcalendar/dist/fullcalendar.css";
-@import "dashboard-main";
-@import 'todo-list';
 @import "frontend";
-@import "absence-reports";
-@import "update-profile";
-@import "projects";
-@import "profile";
+@import "admin/style.scss";
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
@@ -36,8 +28,9 @@ $fa-font-path: "~font-awesome/fonts";
   margin-top: 1rem;
 }
 
-h2.page-title {
-  margin-bottom: 1rem;
+h2 {
+  margin: 2rem 0;
+  font-weight: 700;
 }
 
 .placeholder-image {
@@ -55,32 +48,36 @@ h2.page-title {
   }
 }
 
-/* 3. Datepicker
+a.btn {
+  text-decoration: none;
+}
+
+.student-photo {
+  margin-left: -15px;
+}
+
+/* 3. Navigation
 -------------------------------------------*/
 
-.datepicker.datepicker-dropdown {
-  padding: 0.5rem;
+/* Navbar with background */
 
-  .datepicker-days {
-    table {
-      tbody {
-        tr {
-          td.active {
-            background: #eecc00;
-          }
-        }
-      }
+.navbar {
+  background-color: #3D9970;
+  color: white;
+  font-weight: 300;
+  height: 50px;
+
+  .user-avatar {
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+  }
+
+  .user-dropdown {
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
     }
   }
-}
-
-/* 4. Sortable
--------------------------------------------*/
-
-.sortable-handle {
-  cursor: move;
-}
-
-.sortable-ghost {
-  border-left: 3px solid $primary;
 }

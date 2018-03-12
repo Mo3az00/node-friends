@@ -8,40 +8,35 @@ function calendarFunction () {
     defaultView: 'listMonth',
     titleFormat: 'MMM YYYY',
     header: {
-      left: 'addEventButton, prev,next,today',
+      left: 'prev,next,today',
       center: '',
       right: 'title'
     },
     footer: {
-      right: 'agendaWeek,listMonth'
+      right: 'agendaWeek,month,listMonth'
     },
     navLinks: true,
     weekends: true,
     minTime: "09:00:00",
     maxTime: "16:15:00",
-
-    eventClick: function(event, element) {
-
-      event.title = "CLICKED!";
-
-      $('.calendar').fullCalendar('updateEvent', event);
-
-    },
-      customButtons: {
-        promptResource: {
-          text: '+ Event',
-          click: function() {
-            const title = prompt('Enter Event');
-            if (title) {
-              $('.calendar').fullCalendar('addEventSource',
-                { title: title },
-                true // scroll to the new resource?
-              );
-            }
-          }
-        }
+    eventBackgroundColor: '#D0E0E3',
+    eventRender: function(event, element) {
+      if (event.description) {
+        element
+        .attr('data-toggle', 'tooltip')
+        .attr('data-placement', 'top')
+        .attr('data-html', 'true')
+        .attr('data-container', 'body')
+        .attr('data-boundary', 'viewport')
+        .attr('data-title', event.description)
+        .tooltip()
       }
-    })
-
+    },
+    eventClick: function(event, element) {
+      console.log(event)
+      // event.title = "CLICKED!";
+      // $('.calendar').fullCalendar('updateEvent', event);
+    },
+  })
 }
 export default calendarFunction

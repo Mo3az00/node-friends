@@ -1,15 +1,20 @@
 extends ./layout
 
-include ../mixins/todoList
-include ../mixins/calendar
-include ../mixins/studentList
+include ../mixins/dashboard/todoList
+include ../mixins/dashboard/calendar
+include ../mixins/dashboard/studentList
 
 block content
-    h2 Dashboard
+  .container-fluid.main-dashboard
+    .row
+      .col-12.col-md-12.col-lg-4
+        .dashboard-widget
+          +calendar().widget
 
-    .main-dashboard
-        .row
-            +calendar().widget
-            +todoList().widget
-        .row.p-3
-            +studentList(students).widget
+      .col-12.col-md-12.col-lg-8
+        .dashboard-widget
+          +todoList().widget
+
+      .col-12.col-md-12.col-lg-12
+        .dashboard-widget
+          +studentList(students).widget

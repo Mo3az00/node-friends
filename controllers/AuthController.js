@@ -17,7 +17,7 @@ exports.login = passport.authenticate('local', {
     failureRedirect: '/admin/login',
     failureFlash: 'Failed Login!',
     successRedirect: '/admin',
-    successFlash: 'You are now logged in!'
+    successFlash: null
 })
 
 // Logout

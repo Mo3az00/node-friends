@@ -7,21 +7,28 @@ block main
       .container-fluid
         .row
           .col-12.col-lg-6
-            img.img-fluid(src=`/uploads/users/photo/${student.photo}`)
+            .student-photo
+              if (student.photo)
+                img.img-fluid(src=`/uploads/users/photo/${student.photo}`)
+              else
+                != helpers.placeholderImage(500, 260, 'user')
           .col-12.col-lg-5.text-justify
             p= student.bio
             a.btn.btn-success(href=student.website target="_blank") Visit My Portfolio
 
     .section
       h2 My Favourite Tech
-      .container-fluid
+      .container-fluid.d-flex
         .row
           each technology in technologies
-            .card(style="width: 18rem")
-              .card-body.row
-                  i(class=`fa fa-${technology.icon} fa-2x col-2`)
-                  h5.card-title.col-10= technology.name
-                  p.card-text.col-12.text-justify= technology.description
+            .col-8.col-lg-4
+              .card
+                .card-body.row
+                    i(class=`fa fa-${technology.icon} fa-2x col-2`)
+                    h5.card-title.col-10
+                      | #{technology.title}
+                      .card-subtitle= technology.subtitle
+                    p.card-text.col-12.text-justify= technology.description
 
     .section
       h2 My Projects
@@ -29,8 +36,9 @@ block main
         .container
           .row
             each project in projects
-              a(class= "card col-6 col-lg-3" href=project.link target="_blank")
-                .card
-                  img.img-fluid.rounded(src=`/uploads/projects/${project.image}`)
-                h5= project.title
-                p= project.description
+              .col-6.col-lg-3
+                a.card(href=project.link target="_blank")
+                  .card
+                    img.img-fluid.rounded(src=`/uploads/projects/${project.image}`)
+                  h5= project.title
+                  p= project.description

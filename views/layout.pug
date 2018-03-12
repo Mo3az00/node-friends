@@ -33,8 +33,9 @@ html(lang='en')
             - const categories = Object.keys(locals.flashes)
             each category in categories
               each message in flashes[category]
-                .flash(class=`alert alert-${category}`)
+                .flash(class=`alert alert-${category} ${category === 'error' ? 'alert-danger' : ''}`)
                   != message
+                  | foobar
                   button.close(type='button', data-dismiss='alert', aria-label='Close')
                     span(aria-hidden='true') ×
 
