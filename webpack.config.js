@@ -17,14 +17,20 @@ const postcss = {
   loader: 'postcss-loader',
   options: {
     sourceMap: true,
-    plugins() { return [autoprefixer({ browsers: 'last 3 versions' })]; }
+    plugins: (loader) => [
+      require('autoprefixer')({ browsers: 'last 3 versions' })
+    ]
   }
 };
 
 // sass/css loader
 const styles = {
   test: /\.(scss)$/,
-  use: ExtractTextPlugin.extract(['css-loader?sourceMap', postcss, 'sass-loader?sourceMap'])
+  use: ExtractTextPlugin.extract([
+    'css-loader?sourceMap&minimize=true',
+    postcss,
+    'sass-loader?sourceMap&minimize=true'
+  ])
 };
 
 // compress JS
@@ -74,9 +80,11 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
+    uglify
   ]
 };
 
+``
 process.noDeprecation = true;
 
 module.exports = config;
