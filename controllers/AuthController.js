@@ -64,7 +64,7 @@ exports.passwordResetMail = async (request, response) => {
     await mail.send({
         filename: 'password-reset',
         subject: 'Password Reset',
-        to: request.user.email,
+        to: request.body.email,
         user,
         resetURL
     })
