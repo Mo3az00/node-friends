@@ -10,4 +10,13 @@
                 img.img-fluid(src=`/uploads/users/avatar/${student.avatar}` width='247')
               else 
                 != helpers.placeholderImage(247, 247, 'user-circle-o')
-              p.text-center= student.first_name+' '+student.last_name
+              p.text-center= `${student.first_name} ${student.last_name}`
+
+        each teacher in teachers 
+          .col-6.col-md-3
+            a(href=`/profile/${teacher.slug}`)
+              if teacher.avatar
+                img.img-fluid(src=`/uploads/users/avatar/${teacher.avatar}` width='247')
+              else 
+                != helpers.placeholderImage(247, 247, 'user-circle-o')
+              p.text-center= `${teacher.first_name} ${teacher.last_name}`
