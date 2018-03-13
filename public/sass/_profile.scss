@@ -7,4 +7,34 @@
     color: #888;
     margin-top: 0.25rem;
   }
+
+  .favorite-tech {
+    .card {
+      margin: 0;
+    }
+  }
+
+  .projects {
+    .card {
+      margin: 0;
+      box-shadow: none;
+      border: none;
+      text-decoration: none;
+
+      img {
+        border: 1px solid #c0c0c0;
+        margin-bottom: 0.5rem;
+      }
+
+      &:hover {
+        img {
+          opacity: 0.75;
+        }
+      }
+
+      h5 {
+        padding: 0.5rem 0 0.25rem 0;
+      }
+    }
+  }
 }

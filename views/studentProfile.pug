@@ -20,7 +20,7 @@ block main
 
     .section
       h2 My Favourite Tech
-      .container-fluid.d-flex
+      .d-flex.favorite-tech
         .row
           each technology in technologies
             .col-8.col-lg-4
@@ -34,13 +34,11 @@ block main
 
     .section
       h2 My Projects
-      .container-fluid
-        .container
-          .row
-            each project in projects
-              .col-6.col-lg-3
-                a.card(href=project.link target="_blank")
-                  .card
-                    img.img-fluid.rounded(src=`/uploads/projects/${project.image}`)
-                  h5= project.title
-                  p= project.description
+      .projects
+        .row
+          each project in projects
+            .col-6.col-lg-3
+              a.card(href=project.link target="_blank", title="Click to open in a new tab!")
+                img.img-fluid.rounded(src=`/uploads/projects/${project.image}`)
+                h5= project.title
+                p= project.description
