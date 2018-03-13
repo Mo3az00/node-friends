@@ -1,5 +1,5 @@
 {
-  "name": "express-mongo-boilerplate",
+  "name": "node-friends",
   "version": "1.0.0",
   "description": "A simple boileplate for express websites with a mongodb database",
   "main": "start.js",
