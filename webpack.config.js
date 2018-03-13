@@ -6,6 +6,7 @@ const autoprefixer = require('autoprefixer');
 // JS file handler
 const javascript = {
   test: /\.(js)$/,
+  exclude: /fullcalendar/,
   use: [{
     loader: 'babel-loader',
     options: { presets: ['env'] }
@@ -35,6 +36,8 @@ const styles = {
 
 // compress JS
 const uglify = new webpack.optimize.UglifyJsPlugin({ // eslint-disable-line
+  test: /\.js($|\?)/i,
+  exclude: /fullcalendar/,
   compress: { warnings: false }
 });
 
