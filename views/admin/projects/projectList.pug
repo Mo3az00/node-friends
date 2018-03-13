@@ -15,6 +15,7 @@ block content
         thead
           tr
             th(scope='col' class='text-center') Sort
+            th(scope="col") Picture
             th(scope='col') Project Name
             th(scope='col') Link
             th(scope='col') Options
@@ -23,6 +24,11 @@ block content
             tr(data-id=project._id)
               td.text-center
                 i.fa.fa-bars.sortable-handle
+              td
+                if project.image
+                  img(src=`/uploads/projects/${project.image}`, alt=project.title  width=200 height=102)
+                else
+                  != helpers.placeholderImage(200, 102, "image")
               td= project.title
               td
                 a(href=`${project.link}` target="_blank") #{project.link}
