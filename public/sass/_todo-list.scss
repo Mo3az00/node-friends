@@ -2,9 +2,15 @@
   background-color: #F2F2F2;
 }
 
-.main-todo button {
-  color: #000;
-  background-color: transparent;
+.main-todo {
+  @include media-breakpoint-up(lg) {
+    min-height: 568px;
+  }
+
+  button {
+    color: #000;
+    background-color: transparent;
+  }
 }
 
 #todo-list-error {

@@ -3,7 +3,7 @@ import { duration } from "moment";
 function calendarFunction () {
   $('.calendar').fullCalendar({
     events: '/javascript/data/calendar.json',
-    contentHeight: 300,
+    contentHeight: 400,
     handleWindowResize: true,
     defaultView: 'listMonth',
     titleFormat: 'MMM YYYY',
