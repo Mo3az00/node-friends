@@ -14,7 +14,8 @@ block main
                 != helpers.placeholderImage(500, 260, 'user')
           .col-12.col-lg-5.text-justify
             p
-              != student.bio.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>')
+              if student.bio
+                != student.bio.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>')
             a.btn.btn-success(href=student.website target="_blank") Visit My Portfolio
 
     .section
