@@ -10,4 +10,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top#frontnav
       ul.navbar-nav.ml-auto
         each item in helpers.navigationMain
           li.nav-item
-            a.nav-link(href=`${item.href}`) #{item.name}
+            if (currentPath === '/')
+              a.nav-link(href=`${item.href}`) #{item.name}
+            else
+              a.nav-link(href=`${baseUrl}${item.href}`) #{item.name}
