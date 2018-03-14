@@ -108,17 +108,17 @@ router.get('/admin/tech-favorites', catchErrors(UserTechFavoritesController.list
 //  Displaying a form for adding a new favorite tech
 router.get('/admin/tech-favorites/add', UserTechFavoritesController.addForm)
 
-// Validate data and save project, if okay
+// Validate data and save new favorite tech, if okay
 router.post('/admin/tech-favorites/add', catchErrors(UserTechFavoritesController.createFavorite))
 
-// Display the form for editing a project by ID
+// Display the form for editing a favorite tech by ID
 router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.editForm))
 
-// Validate data and updating the profile, if okay
+// Validate data and updating the favorite tech, if okay
 router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))
 
-// Delete a Technology
-router.get('/admin/homepage-technologies/:id/delete', catchErrors(HomepageTechController.deleteTechnology))
+// Delete a favorite Technology
+router.get('/admin/tech-favorites/:id/delete', catchErrors(UserTechFavoritesController.deleteTechFavorite))
 
 // Update tech favorites order
 router.post('/admin/tech-favorites/update-order', catchErrors(UserTechFavoritesController.updateSortOrder))

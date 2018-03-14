@@ -32,6 +32,7 @@ exports.addForm = (request, response) => {
 exports.deleteTechFavorite = async (request, response) => {
   const techFavorite = await UserTechFavorite.findOne({'_id': request.params.id})
   request.flash('success', `Successfully deleted <strong>${techFavorite.title}</strong>` )
+  
   await techFavorite.remove()
   return response.redirect('/admin/tech-favorites')
 }
