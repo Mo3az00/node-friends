@@ -1,0 +1,13 @@
+extends email-layout
+block content
+  h2.admin-title Contact Form
+  
+  b From
+  p #{name} (#{email})
+    
+  b Subject
+  p #{subject}
+
+  b Message
+
+  pre #{message}
