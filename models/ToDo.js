@@ -3,10 +3,12 @@ const mongoose = require('mongoose')
 const toDoSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.ObjectId,
+        ref: 'User',
         required: 'Please Supply a user ID'
     },
     item: {
         type: String,
+        trim: true,
         required: 'Please give an item'
     },
     done: {

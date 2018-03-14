@@ -1,45 +1,10 @@
-#technologies
-  h2 Technologies
-  .container-fluid.d-flex
-    .container.mx-auto.justify-content-center
-      .row
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 HTML and CSS
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 JS and jQuery
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 React.js
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 React.js
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-      
-      .row
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 HTML and CSS
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 JS and jQuery
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 React.js
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-        .card.col-6.col-lg-3
-          img.img-fluid.rounded(src='https://38.media.tumblr.com/311ca98071991c5f1dc81542e5d8f363/tumblr_n2qmki26BX1s09zx8o3_r1_250.gif')
-          h5 React.js
-          p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
+.container
+  #technologies
+    h2.dash Technologies
+    .container-fluid.d-flex
+      .row.justify-content-center
+        each technology in technologies
+          .card.col-6.col-lg-3
+            img.img-fluid.rounded(src=`/uploads/homepage-technologies/${technology.image}`)
+            h5= technology.title
+            p= technology.description

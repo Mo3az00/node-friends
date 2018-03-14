@@ -1,115 +1,36 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset="utf-8")
+extends layout
 
-    title= `${title || 'Student Profile'} | Node Friends`
+block main
+  .container
+    .section
+      h2= student.first_name+' '+student.last_name
+      .container-fluid
+        .row
+          .col-12.col-lg-6
+            img.img-fluid(src=`/uploads/users/photo/${student.photo}`)
+          .col-12.col-lg-5.text-justify
+            p= student.bio
+            a.btn.btn-success(href=student.website target="_blank") Visit My Portfolio
 
-    //- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    .section
+      h2 My Favourite Tech
+      .container-fluid
+        .row
+          each technology in technologies
+            .card(style="width: 18rem")
+              .card-body.row
+                  i(class=`fa fa-${technology.icon} fa-2x col-2`)
+                  h5.card-title.col-10= technology.name
+                  p.card-text.col-12.text-justify= technology.description
 
-    //- Ensure proper rendering and zooming on touch devices
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-
-    //- Search Engine Optimization
-    meta(name="description", content=`${description  || 'Just a tiny little website of aspiring web developers'}`)
-    meta(name="robots", content=`${robots} || index, follow`)
-
-    //- Stylesheets
-    link(rel='stylesheet', href='/dist/style.css')
-
-    //- Google fonts
-    link(href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet")
-
-
-  body.scrolled.margin-top
-    nav.navbar.navbar-expand-lg.navbar-light.fixed-top#frontnav
-      .container
-        a.navbar-brand(href="/"): img#logo-image(src=`/images/node-friends-logo.png`)
-        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#frontnavlinks"  aria-expanded="false" aria-label="Toggle navigation")
-          span.navbar-toggler-icon
-        
-        .collapse.navbar-collapse#frontnavlinks
-          ul.navbar-nav.ml-auto
-            each item in helpers.navigationMain
-              li.nav-item
-                a.nav-link(href=`${item.href}`) #{item.name}
-
-    block messages
-      if locals.flashes
+    .section
+      h2 My Projects
+      .container-fluid
         .container
-          .flash-messages
-            - const categories = Object.keys(locals.flashes)
-            each category in categories
-              each message in flashes[category]
-                .flash(class=`alert alert-${category}`)
-                  != message
-                  button.close(type='button', data-dismiss='alert', aria-label='Close')
-                    span(aria-hidden='true') ×
-    .container
-      .section
-        h2 Student's name
-        .container-fluid.d-flex.justify-content-space-center
           .row
-            .col-12.col-lg-6
-              img.img-fluid(src='https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb')
-            .col-12.col-lg-5.text-justify
-              p My name is Jennifer,
-
-              p I am an old woman, coming from Japan and I want to become a web developer to build apps and applications that support the community and connect social aspects with technologies.
-              ul 
-              li I love to fiddle arround.
-              li I like stuff.
-
-              a.btn.btn-success Visit My Portfolio
-
-      .section
-        h2 My favourite Tech
-        .container-fluid.d-flex.justify-content-space-around
-          .row
-            .card(style="width: 18rem")
-              .card-body.row
-                  i.fa.fa-pencil.fa-2x.col-2
-                  h5.card-title.col-10 HTML and CSS
-                  p.card-text.col-12.text-justify Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-            .card(style="width: 18rem")
-              .card-body.row
-                  i.fa.fa-pencil.fa-2x.col-2
-                  h5.card-title.col-10 JS and jQuery
-                  p.card-text.col-12.text-justify Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-            .card(style="width: 18rem")
-              .card-body.row
-                  i.fa.fa-pencil.fa-2x.col-2
-                  h5.card-title.col-10 React.js
-                  p.card-text.col-12.text-justify Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-        
-      .section
-        h2 My Projects
-        .container-fluid.d-flex
-          .container.mx-auto.justify-content-center
-            .row
-              .card.col-6.col-lg-3
-                .card  
-                  img.img-fluid.rounded(src='https://upload.wikimedia.org/wikipedia/en/thumb/2/27/The_Project_Title_Card.jpg/250px-The_Project_Title_Card.jpg')
-                h5 React.js
-                p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-              .card.col-6.col-lg-3
-                .card  
-                  img.img-fluid.rounded(src='https://upload.wikimedia.org/wikipedia/en/thumb/2/27/The_Project_Title_Card.jpg/250px-The_Project_Title_Card.jpg')
-                h5 React.js
-                p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-
-              .card.col-6.col-lg-3
-                .card  
-                  img.img-fluid.rounded(src='https://upload.wikimedia.org/wikipedia/en/thumb/2/27/The_Project_Title_Card.jpg/250px-The_Project_Title_Card.jpg')
-                h5 React.js
-                p Some quick example text to build on the card title and make up the bulk of the card's content. Bla bla bla bla bla bla bla bla bla bla
-        
-    block footer
-      include frontend-partials/footer
-
-    block scripts
-      script(src="/dist/app.bundle.js")
+            each project in projects
+              a(class= "card col-6 col-lg-3" href=project.link target="_blank")
+                .card
+                  img.img-fluid.rounded(src=`/uploads/projects/${project.image}`)
+                h5= project.title
+                p= project.description

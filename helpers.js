@@ -26,7 +26,7 @@ exports.navigationMain = [
         href: '#about-us'
     },
     {
-        name: 'Tecnologies',
+        name: 'Technologies',
         href: '#technologies'
     },
     {

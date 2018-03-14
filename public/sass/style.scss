@@ -13,18 +13,19 @@
 @import "bootstrap-custom";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
+@import "~fullcalendar/dist/fullcalendar.css";
 @import "dashboard-main";
+@import 'todo-list';
 @import "frontend";
 @import "absence-reports";
 @import "update-profile";
 @import "projects";
+@import "profile";
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
 
-
-
-/* 2. Starter Template
+/* 2. Global Styles
 -------------------------------------------*/
 
 .hidden {
