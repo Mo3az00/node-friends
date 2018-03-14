@@ -21,13 +21,24 @@ exports.createToDo = async (request, response) => {
 
 // Toggle the done status
 exports.updateDone = async (request, response) => {
+  const todo = await ToDo.findOne({ _id: request.body.id })
+
+  todo.done = request.body.done
+  todo.save()
+
+  return response.json({
+    code: 200,
+    message: 'OK'
+  })
+}
+
+exports.updateOrder = async (request, response) => {
   const newOrder = {}
 
   request.body.order.forEach((id, order) => {
     newOrder[id] = order
   })
 
-  // Get all favorites and their positions and build comparable object, too
   const getOldOrder = await ToDo.find({ user: request.user._id }).sort({ 'order': 1 })
   const oldOrders = {}
 
@@ -37,7 +48,6 @@ exports.updateDone = async (request, response) => {
     })
   }
 
-  // Check which order values are changed, after sorting and only update those entries
   const updates = []
 
   for (id in oldOrders) {
