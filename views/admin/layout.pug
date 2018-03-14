@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html.admin(lang='en')
   head
     meta(charset="utf-8")
 
@@ -22,7 +22,7 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet')
     link(href="https://fonts.googleapis.com/css?family=Indie+Flower" rel='stylesheet')
 
-  body
+  body(class=(bodyClass || ''))
     nav.navbar.navbar-expand-lg
       a.navbar-brand(href='/admin')
         img(src="/images/node-friends-logo-white.png", height="35")
@@ -57,7 +57,7 @@ html(lang='en')
                 - const categories = Object.keys(locals.flashes)
                 each category in categories
                   each message in flashes[category]
-                    .alert.alert-dismissible.fade.show(class=`alert-${category}`)
+                    .alert.alert-dismissible.fade.show(class=`alert-${category} ${category === 'error' ? 'alert-danger' : ''}`)
                       !=message
                       button.close(type="button" data-dismiss="alert" aria-label="Close")
                         span(aria-hidden="true") | &times;

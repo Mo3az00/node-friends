@@ -13,7 +13,7 @@ html(lang='en')
 
     //- Search Engine Optimization
     meta(name="description", content=`${description  || 'Just a tiny little website of aspiring web developers'}`)
-    meta(name="robots", content=`${robots} || index, follow`)
+    meta(name="robots", content=`${robots || 'noindex, nofollow'}`)
 
     //- Stylesheets
     link(rel='stylesheet', href='/dist/style.css')
@@ -33,8 +33,9 @@ html(lang='en')
             - const categories = Object.keys(locals.flashes)
             each category in categories
               each message in flashes[category]
-                .flash(class=`alert alert-${category}`)
+                .flash(class=`alert alert-${category} ${category === 'error' ? 'alert-danger' : ''}`)
                   != message
+                  | foobar
                   button.close(type='button', data-dismiss='alert', aria-label='Close')
                     span(aria-hidden='true') ×
 
@@ -45,4 +46,3 @@ html(lang='en')
 
     block scripts
       script(src="/dist/app.bundle.js")
-      script(src="javascript/frontend-page.js")

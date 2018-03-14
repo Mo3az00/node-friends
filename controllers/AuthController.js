@@ -17,7 +17,7 @@ exports.login = passport.authenticate('local', {
     failureRedirect: '/admin/login',
     failureFlash: 'Failed Login!',
     successRedirect: '/admin',
-    successFlash: 'You are now logged in!'
+    successFlash: null
 })
 
 // Logout
@@ -64,7 +64,7 @@ exports.passwordResetMail = async (request, response) => {
     await mail.send({
         filename: 'password-reset',
         subject: 'Password Reset',
-        to: request.user.email,
+        to: request.body.email,
         user,
         resetURL
     })

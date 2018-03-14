@@ -6,4 +6,3 @@ import 'bootstrap-datepicker'
 import 'moment'
 import 'fullcalendar'
 import '../sass/style.scss'
-

@@ -72,6 +72,14 @@
     background-color: white;
     box-shadow: 2px 2px 2px  rgba(77, 75, 75, 0.349);
 
+    #logo-image-white {
+      display: none;
+    }
+
+    #logo-image-green {
+      display: inline !important;
+    }
+
     #frontnavlinks {
       li {
         color: #8b8b8b;
@@ -132,13 +140,9 @@
 
 // TECHNOLOGIES
 
-#favourite-tech {
+#themes {
   >.row {
     margin: 5rem auto 2rem auto;
-  }
-
-  h2 {
-    margin: 3rem;
   }
 
   .card {
@@ -172,11 +176,6 @@
 
   ul {
     list-style-type: circle;
-  }
-
-  h2 {
-    margin-top: 2rem;
-    font-weight: 700;
   }
 
   img {
@@ -214,17 +213,7 @@
   }
 }
 
-.h2 {
-  margin: 3rem 0 2rem 0;
-}
-
 #technologies {
-  
-  h2 {
-    margin-top: 2rem;
-    font-weight: 700;
-  }
-
   .card {
     border: none;
 
@@ -233,12 +222,12 @@
     }
 
     h5 {
-      color: $primary;
+      color: #555555;
       font-weight: 600;
     }
 
     p {
-      color: grey;
+      color: #808080;
       font-size: .85rem;
     }
   }
@@ -246,7 +235,7 @@
 }
 
 #becomestudent {
-  background-image: url(https://images.pexels.com/photos/330771/pexels-photo-330771.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
+  background-image: url('/images/bg-becomestudent.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   margin-bottom: 2rem;
@@ -275,13 +264,7 @@
   }
 }
 
-#the-team {
-
-  h2 {
-    margin: 2rem 0;
-    font-weight: 700;
-  }
-  
+#the-team { 
   p {
     font-size: .9rem;
     color: grey;
@@ -304,12 +287,6 @@
 }
 
 #contact {
-
-  h2 {
-    margin-top: 2rem;
-    font-weight: 700;
-  }
-  
   .col-12 {
     margin-bottom: 1.4rem;
   }
@@ -340,14 +317,13 @@
     font-size: 1rem; 
   }
 
+  .copyright {
+    line-height: 2.5;
+  }
 }
 
 .section {
   margin-bottom: 2rem;
-
-  h2 {
-    margin-bottom: 1rem;
-  }
 
   .card {
     margin: 1.3rem;
@@ -484,7 +460,7 @@
     }
   }
 
-  #favourite-tech {
+  #themes {
     .card {
       margin: 1.3rem auto;
     }

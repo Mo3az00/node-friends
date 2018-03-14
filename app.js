@@ -49,6 +49,7 @@ app.use(flash());
 app.use((request, response, next) => {
   response.locals.helpers = helpers
   response.locals.currentPath = request.path
+  response.locals.baseUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}` 
   response.locals.user = request.user || null
   response.locals.flashes = request.flash()
   next()

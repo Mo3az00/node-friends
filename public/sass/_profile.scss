@@ -1,3 +1,51 @@
 .profile {
   padding-top: 3.5rem;
+
+  .student-photo {
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #888;
+    margin-top: 0.25rem;
+  }
+
+  #favorite-tech {
+    margin-bottom: 0;
+
+    .card {
+      margin: 0 0 2rem 0;
+    }
+  }
+
+  #projects {
+    .card {
+      margin: 0;
+      box-shadow: none;
+      border: none;
+      text-decoration: none;
+
+      img {
+        border: 1px solid #c0c0c0;
+        margin-bottom: 0.5rem;
+        width: 100%;
+      }
+
+      &:hover {
+        img {
+          opacity: 0.75;
+        }
+      }
+
+      h5 {
+        padding: 0.5rem 0 0.25rem 0;
+      }
+    }
+  }
 }

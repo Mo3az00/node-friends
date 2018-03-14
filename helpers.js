@@ -17,26 +17,26 @@ exports.placeholderImage = function (width, height, icon) {
 
 // Main navigation (currently supports max. 1 sub-level)
 exports.navigationMain = [
-    {
-        name: 'Home',
-        href: '/'
-    },
-    {
-        name: 'About Us',
-        href: '#about-us'
-    },
-    {
-        name: 'Technologies',
-        href: '#technologies'
-    },
-    {
-        name: 'The Team',
-        href: '#the-team'
-    },
-    {
-        name: 'Contact',
-        href: '#contact'
-    }
+  {
+    name: 'Home',
+    href: '/'
+  },
+  {
+    name: 'About Us',
+    href: '#about-us'
+  },
+  {
+    name: 'Technologies',
+    href: '#technologies'
+  },
+  {
+    name: 'The Team',
+    href: '#the-team'
+  },
+  {
+    name: 'Contact',
+    href: '#contact'
+  }
 ]
 
 /*
@@ -44,26 +44,57 @@ exports.navigationMain = [
  */
 exports.adminSidebarNavigation = (user) => {
   if (!user) {
-      return [
-          {
-              href: '/admin/login',
-              icon: 'sign-in',
-              title: 'Please login'
-          }
-      ]
+    return [
+      {
+        href: '/admin/login',
+        icon: 'sign-in',
+        title: 'Please login'
+      }
+    ]
   }
 
   let navigation = [
+    {
+      href: '/admin',
+      icon: 'th-large',
+      title: 'Dashboard'
+    },
+    {
+      href: null
+    },  
+    {
+      href: '/admin/students',
+      icon: 'users',
+      title: 'Students'
+    },
+    {
+      href: '/admin/absence-reports',
+      icon: 'envelope',
+      title: 'Absence Reports'
+    },
+    {
+      href: '/admin/tech-favorites',
+      icon: 'list',
+      title: 'Tech Favorites'
+    },
+    {
+      href: '/admin/projects',
+      icon: 'code',
+      title: 'Projects'
+    },
+  ]
+
+  if (user.role === 'teacher') {
+    navigation = navigation.concat([
       {
-          href: '/admin',
-          icon: 'th-large',
-          title: 'Dashboard'
-      },
+        href: null
+      },  
       {
-          href: '/admin/students',
-          icon: 'users',
-          title: 'Students'
+        href: '/admin/homepage-technologies',
+        icon: 'code',
+        title: 'Homepage Tech'
       },
+<<<<<<< HEAD
       {
           href: '/admin/absence-reports',
           icon: 'envelope',
@@ -97,6 +128,14 @@ exports.adminSidebarNavigation = (user) => {
               title: 'Projects'
           },
       ])
+=======
+      // {
+      //   href: '#',
+      //   icon: 'cog',
+      //   title: 'Settings'
+      // },
+    ])
+>>>>>>> 57327dd3fc1d61d34b9bd0c9fdfe28fd4ebffb09
   }
 
   return navigation
