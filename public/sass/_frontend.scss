@@ -142,7 +142,7 @@
 
 #themes {
   >.row {
-    margin: 5rem auto 2rem auto;
+    margin: 5rem auto;
   }
 
   .card {
@@ -173,6 +173,7 @@
 
 #about-us {
   margin: 0 auto;
+  padding-top: 80px;
 
   ul {
     list-style-type: circle;
@@ -214,6 +215,10 @@
 }
 
 #technologies {
+  h2 {
+    padding-top: 70px;
+    padding-bottom: 20px;
+  }
   .card {
     border: none;
 
@@ -265,6 +270,11 @@
 }
 
 #the-team { 
+  h2 {
+    padding-top: 70px;
+    padding-bottom: 20px;
+  }
+
   p {
     font-size: .9rem;
     color: grey;
@@ -287,6 +297,11 @@
 }
 
 #contact {
+  h2 {
+    padding-top: 70px;
+    padding-bottom: 20px;
+  }
+
   .col-12 {
     margin-bottom: 1.4rem;
   }
@@ -464,6 +479,14 @@
     .card {
       margin: 1.3rem auto;
     }
+  }
+
+  #becomestudent {
+    height: 400px;
+  }
+
+  #footer {
+    font-size: .8rem;
   }
 }
 // Profile pic : 272px X 337px
