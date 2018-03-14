@@ -276,10 +276,14 @@
 
   .jumbotron {
     color: #fff;
-    width: 70%;
+    width: 90%;
     background-color: transparent;
     text-shadow: 2px 2px 2px #000;
     margin-bottom: .5rem;
+
+    @include media-breakpoint-up(md) {
+      width: 70%;
+    }
 
     .lead {
       text-shadow: 2px 2px 2px #000;
