@@ -25,6 +25,9 @@ router.get('/admin/todos', catchErrors(ToDoController.getToDoList))
 // Add a todo item
 router.post('/admin/todos/add', catchErrors(ToDoController.createToDo))
 
+// Update todo item order
+router.post('/admin/todos/update-order', catchErrors(ToDoController.updateOrder))
+
 // Toggle done status of a todo item
 router.post('/admin/todos/update-done', catchErrors(ToDoController.updateDone))
 
