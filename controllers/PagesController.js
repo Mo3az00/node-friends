@@ -4,6 +4,7 @@ const HomepageTech = mongoose.model('HomepageTech')
 const UserProject = mongoose.model('UserProject')
 const UserTechFavorite = mongoose.model('UserTechFavorite')
 const moment = require('moment')
+const mail = require('../handlers/mail')
 
 // Home Page
 
@@ -45,6 +46,30 @@ exports.studentProfile = async (request, response) => {
   })
 }
 
-exports.sendContactForm = (request, response) => {
-  
+exports.sendContactForm = async (request, response) => {
+  try {
+    const dateNow = moment().format('YYYY-MM-DD HH:mm')
+
+    await mail.send({
+      filename: 'contact-form',
+      subject: `Contact Form - ${dateNow}`,
+      to: [
+        'info@node-friends.com'
+      ],
+      name: request.body.name,
+      email: request.body.email,
+      message: request.body.message
+    });
+  } catch (error) {
+    return response.json({
+      code: 500,
+      error: error.message,
+      message: 'Something went wrong sending the email. Please try again later.'
+    })
+  }
+
+  return response.json({
+    code: 200,
+    message: 'OK'
+  })
 }

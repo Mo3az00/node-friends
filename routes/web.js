@@ -16,6 +16,9 @@ const PagesController = require('../controllers/PagesController')
 router.get('/', catchErrors(PagesController.home))
 router.get('/profile/:slug', catchErrors(PagesController.studentProfile))
 
+// Sending the contact form
+router.post('/contact', catchErrors(PagesController.sendContactForm))
+
 // Admin
 router.get('/admin', UserController.dashboard)
 
