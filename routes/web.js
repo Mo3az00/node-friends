@@ -10,10 +10,11 @@ const UserTechFavoritesController = require('../controllers/UserTechFavoritesCon
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
 const AuthController = require('../controllers/AuthController')
+const PagesController = require('../controllers/PagesController')
 
 // The main route
-router.get('/', catchErrors(UserController.frontendPage))
-router.get('/profile/:slug', catchErrors(UserController.studentProfile))
+router.get('/', catchErrors(PagesController.home))
+router.get('/profile/:slug', catchErrors(PagesController.studentProfile))
 
 // Admin
 router.get('/admin', UserController.dashboard)
@@ -114,7 +115,7 @@ router.get('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesContro
 router.post('/admin/tech-favorites/:id/edit', catchErrors(UserTechFavoritesController.updateFavorite))
 
 // Delete a Technology
-router.get('/admin/homepage-technologies/:id/delete', catchErrors(UserTechFavoritesController.deleteTechFavorite))
+router.get('/admin/homepage-technologies/:id/delete', catchErrors(HomepageTechController.deleteTechnology))
 
 // Update tech favorites order
 router.post('/admin/tech-favorites/update-order', catchErrors(UserTechFavoritesController.updateSortOrder))

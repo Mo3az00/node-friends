@@ -1,34 +1,13 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
+const HomepageTech = mongoose.model('HomepageTech')
+const UserProject = mongoose.model('UserProject')
+const UserTechFavorite = mongoose.model('UserTechFavorite')
+const moment = require('moment')
 
-// Dashboard
-exports.dashboard = async (request, response) => {
+// Home Page
 
-  if (!request.user) {
-    return response.redirect('/admin/login')
-  }
-
-  const students = await User.find({ role: 'student' }).sort({ first_name: 1 })
-
-  response.render('admin/dashboard', {
-    title: 'Dashboard',
-    bodyClass: 'dashboard',
-    students
-  })
-}
-
-// List of students
-exports.studentList = async (request, response) => {
-  const students = await User.find({ role: 'student' }).sort({ first_name: 1 })
-
-  response.render('admin/students/studentList', {
-    title: 'Students',
-    students
-  })
-}
-
-// Frontend Page 
-exports.frontendPage = async (request, response) => {
+exports.home = async (request, response) => {
   // Calculating days learned and days left
   const now = moment()
   const courseStart = moment([2017, 9, 4])
@@ -38,14 +17,16 @@ exports.frontendPage = async (request, response) => {
 
   // Loading data
   const technologies = await HomepageTech.find().sort({ 'order': 1 })
-  const students = await User.find({'role': 'student' }).sort({ 'first_name': 1 })
+  const students = await User.find({ role: 'student' }).sort({ 'first_name': 1 })
+  const teachers = await User.find({ role: 'teacher' }).sort({ 'first_name': 1 })
 
   response.render('home', {
     title: 'We build your next big thing',
     daysLearned,
     daysLeft,
     technologies,
-    students
+    students,
+    teachers
   })
 }
 

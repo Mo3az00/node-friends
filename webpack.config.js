@@ -6,6 +6,7 @@ const autoprefixer = require('autoprefixer');
 // JS file handler
 const javascript = {
   test: /\.(js)$/,
+  exclude: /fullcalendar/,
   use: [{
     loader: 'babel-loader',
     options: { presets: ['env'] }
@@ -17,18 +18,26 @@ const postcss = {
   loader: 'postcss-loader',
   options: {
     sourceMap: true,
-    plugins() { return [autoprefixer({ browsers: 'last 3 versions' })]; }
+    plugins: (loader) => [
+      require('autoprefixer')({ browsers: 'last 3 versions' })
+    ]
   }
 };
 
 // sass/css loader
 const styles = {
   test: /\.(scss)$/,
-  use: ExtractTextPlugin.extract(['css-loader?sourceMap', postcss, 'sass-loader?sourceMap'])
+  use: ExtractTextPlugin.extract([
+    'css-loader?sourceMap&minimize=true',
+    postcss,
+    'sass-loader?sourceMap&minimize=true'
+  ])
 };
 
 // compress JS
 const uglify = new webpack.optimize.UglifyJsPlugin({ // eslint-disable-line
+  test: /\.js($|\?)/i,
+  exclude: /fullcalendar/,
   compress: { warnings: false }
 });
 
@@ -74,9 +83,11 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
+    uglify
   ]
 };
 
+``
 process.noDeprecation = true;
 
 module.exports = config;

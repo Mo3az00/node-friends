@@ -7,6 +7,7 @@
         "first_name": "Dominik",
         "last_name": "Hanke",
         "role": "teacher",
+        "slug": "dominik-hanke",
         "phone": "0151 - 645 044 28",
         "website": "https://www.dominik-hanke.de"
     },
@@ -14,7 +15,7 @@
         "_id": "5a95ee9561ede91e5309cbf6",
         "salt": "cd029f824dd4933b61ad72e57ebc053a6c023ed3035ec182d30340bb2208f393",
         "hash": "a07f9d6229a0cd5042dd0a08bf76ea7a4b85f049bd9c0a2cbd1510eda59e04534917e25e35922a3a36f557bb5eb7d3352b98b4fef458a021bbbe76e1e4dc490a12949bfd42250f997b2d9dc44b7f7c16c186dae3247215bfaab5e83675d5fe06bd49207fcdf1c7cc0c24c371f9b974650e992883040cc8aa38c1a0fe7278f35e1067bf0d4f5ed2a07a5c0365d9e9cb68ef314d878a0108da066681b819c96ff9e0e62a23b7b2a0139285f7a7479c0e68b65594af4f0f0b572478bf74493b86363011c4b9e5ef771dc4f1e2f56547e2ab200c21adfbcf252fff10922ebd293afb287bd83f1746aaf32b9720eaaea666a89ff1375133d1a4a636f8da6ddfc3acae70b9c1efb4896ffa2b6b92cce7d0280dcddacb3fef4354accfe38825647f5069bce62d6daeeb0255eb8241d742f7285fe806a3702dbc96b1b19f6277b2f7e3de7790803869de47b1a8e924bca2943e578043fa264e119c13a90e01e538f525e3539edef3f723d11faa287f68fb9e31e571d3ce2bb2108795615d708dc2c2ecddbf70f1a4fc7ddd97fe148f4324e9df62067b37ceac0d5faf1d784fa442181aca84afec63100d4109af6f9a5978f94ecb40dde1d79412c69da97cf086e999f8f2b562148672fb2772d13684d0c97becc93f4348257d1680ae47a549808ab5174c0f4d4a44dc4adef6a88d4e8a86ff0eed2ea523591cba5236ac1baadc61d882b6",
-        "email": "bryesoerensen@gmail.com",
+        "email": "b.rye.soerensen@gmail.com",
         "first_name": "Bjarne",
         "last_name": "Sørensen",
         "role": "student",

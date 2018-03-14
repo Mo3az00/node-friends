@@ -21721,23 +21721,27 @@ var _showFileName = __webpack_require__(166);
 
 var _showFileName2 = _interopRequireDefault(_showFileName);
 
-var _todoList = __webpack_require__(167);
+var _calendar = __webpack_require__(167);
+
+var _calendar2 = _interopRequireDefault(_calendar);
+
+var _todoList = __webpack_require__(168);
 
 var _todoList2 = _interopRequireDefault(_todoList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+$('[data-toggle="tooltip"]').tooltip();
+// import './todo-list'
+
 (0, _todoList2.default)();
 
 // Enable boostrap dropdowns
-
-
-// import './todo-list'
-$('[data-toggle="tooltip"]').tooltip();
 $('.dropdown-toggle').dropdown();
 (0, _datepicker2.default)();
 (0, _sortable2.default)();
 (0, _showFileName2.default)();
+(0, _calendar2.default)();
 
 /***/ }),
 /* 138 */
@@ -40572,6 +40576,61 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _moment = __webpack_require__(0);
+
+function calendarFunction() {
+  $('.calendar').fullCalendar({
+    events: '/javascript/data/calendar.json',
+    contentHeight: 300,
+    handleWindowResize: true,
+    defaultView: 'listMonth',
+    titleFormat: 'MMM YYYY',
+    header: {
+      left: 'addEventButton, prev,next,today',
+      center: '',
+      right: 'title'
+    },
+    footer: {
+      right: 'agendaWeek,listMonth'
+    },
+    navLinks: true,
+    weekends: true,
+    minTime: "09:00:00",
+    maxTime: "16:15:00",
+
+    eventClick: function eventClick(event, element) {
+
+      event.title = "CLICKED!";
+
+      $('.calendar').fullCalendar('updateEvent', event);
+    },
+    customButtons: {
+      promptResource: {
+        text: '+ Event',
+        click: function click() {
+          var title = prompt('Enter Event');
+          if (title) {
+            $('.calendar').fullCalendar('addEventSource', { title: title }, true // scroll to the new resource?
+            );
+          }
+        }
+      }
+    }
+  });
+}
+exports.default = calendarFunction;
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _axios = __webpack_require__(130);
 
 var _axios2 = _interopRequireDefault(_axios);
@@ -40613,7 +40672,7 @@ function loadToDoList() {
 }
 
 function buildToDoListItem(todo) {
-  return '\n  <tr class="lists-container" data-id="' + todo._id + '">\n    <td>\n      <i class="fa fa-arrows sortable-handle" aria-hidden="true"></i>\n    </td>\n    <td class="col-1 text-left">\n      <div class="custom-control custom-checkbox text-left">\n        <input class="custom-control-input checkbox" value="1" id="todo-' + todo._id + '" type="checkbox" ' + (todo.done ? 'checked' : '') + '>\n        <label class="custom-control-label ' + (todo.done ? 'done' : '') + '" for="todo-' + todo._id + '">' + todo.item + '</label>\n      </div>\n    </td>\n    <td class="text-right">\n      <i class="icon-remove fa fa-remove"></i>\n    </td>\n  </tr>\n  ';
+  return '\n  <tr class="lists-container" data-id="' + todo._id + '">\n    <td>\n      <i class="fa fa-bars sortable-handle" aria-hidden="true"></i>\n    </td>\n    <td class="col-1 text-left">\n      <div class="custom-control custom-checkbox text-left">\n        <input class="custom-control-input checkbox" value="1" id="todo-' + todo._id + '" type="checkbox" ' + (todo.done ? 'checked' : '') + '>\n        <label class="custom-control-label ' + (todo.done ? 'done' : '') + '" for="todo-' + todo._id + '">' + todo.item + '</label>\n      </div>\n    </td>\n    <td class="text-right">\n      <i class="icon-remove fa fa-remove"></i>\n    </td>\n  </tr>\n  ';
 }
 
 function buildToDoList(todos) {

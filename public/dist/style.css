@@ -8787,21 +8787,28 @@ h2 {
   #todo-list .icon-remove:hover {
     color: red; }
 
-.lists-container:hover {
-  background-color: #E3E3E3;
-  border-left: 3px solid #000; }
-
 .lists-container label.done {
   text-decoration: line-through; }
 
+.dash:after {
+  content: '';
+  border-top: 3px dashed #3D9970;
+  width: 3.5rem;
+  display: block; }
+
+.hide {
+  display: hidden; }
+
 #frontnav {
-  background-color: transparent; }
+  background-color: transparent;
+  font-size: 1.2rem;
+  height: 60px; }
   #frontnav .container {
     width: 70%; }
   #frontnav .navbar-nav {
     margin-top: -5px; }
   #frontnav .navbar-brand img {
-    height: 35px;
+    height: 45px;
     width: auto; }
 
 #frontnavlinks {
@@ -8809,12 +8816,10 @@ h2 {
   list-style: none; }
   #frontnavlinks li {
     color: #fff;
-    font-weight: 400;
     margin: .3rem .8rem;
     -webkit-transition: 2s;
     -o-transition: 2s;
-    transition: 2s;
-    text-shadow: 2px 2px 4px black; }
+    transition: 2s; }
     #frontnavlinks li::after {
       content: '';
       display: block;
@@ -8823,9 +8828,7 @@ h2 {
       background: #fff;
       -webkit-transition: width .3s ease-in;
       -o-transition: width .3s ease-in;
-      transition: width .3s ease-in;
-      -webkit-box-shadow: 0 0 2px black;
-              box-shadow: 0 0 2px black; }
+      transition: width .3s ease-in; }
     #frontnavlinks li:hover::after {
       width: 100%; }
     #frontnavlinks li a {
@@ -8837,13 +8840,14 @@ h2 {
         font-weight: 400; }
 
 .scrolled #frontnav {
-  background-color: white; }
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 2px rgba(77, 75, 75, 0.349);
+          box-shadow: 2px 2px 2px rgba(77, 75, 75, 0.349); }
   .scrolled #frontnav #frontnavlinks li {
     color: #8b8b8b;
     -webkit-transition: 2s;
     -o-transition: 2s;
-    transition: 2s;
-    text-shadow: 0 0 1px grey; }
+    transition: 2s; }
     .scrolled #frontnav #frontnavlinks li::after {
       content: '';
       display: block;
@@ -8863,17 +8867,18 @@ h2 {
       font-weight: 400; }
 
 #bg-main {
-  background-image: url(https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
+  background-image: url(/images/main-bg.jpg);
   padding-top: 56.25%;
   background-size: cover;
   margin-top: -16px; }
   #bg-main .jumbotron {
     color: #fff;
-    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+    background-color: transparent;
     width: 47%;
     position: absolute;
     top: 35%;
-    right: 10%;
+    right: 5%;
     border-radius: 1.2rem;
     text-shadow: 2px 2px 5px #000; }
 
@@ -8891,16 +8896,16 @@ h2 {
   margin: 3rem; }
 
 #favourite-tech .card {
-  margin: 1.3rem;
+  padding: .5rem;
   border-radius: .3rem;
   -webkit-box-shadow: 0 0 10px #5b5c5c;
           box-shadow: 0 0 10px #5b5c5c; }
   #favourite-tech .card h5 {
     color: black;
-    font-weight: 600; }
+    font-weight: 600;
+    font-size: 1.5rem; }
   #favourite-tech .card p {
-    color: grey;
-    font-size: .85rem; }
+    color: grey; }
   #favourite-tech .card:hover {
     -webkit-box-shadow: 0 0 10px #3D9970;
             box-shadow: 0 0 10px #3D9970; }
@@ -8908,22 +8913,21 @@ h2 {
       color: #3D9970; }
 
 #about-us {
-  width: 80%;
   margin: 0 auto;
   margin-bottom: 4rem; }
-  #about-us > .row {
-    margin: 2rem auto; }
   #about-us ul {
     list-style-type: circle; }
   #about-us h2 {
-    margin: 3rem; }
+    margin-top: 2rem;
+    font-weight: 700; }
   #about-us img {
     margin-bottom: 2rem; }
-  #about-us a.btn.btn-success {
-    background-color: #3D9970;
-    color: white; }
-    #about-us a.btn.btn-success:hover {
-      color: black; }
+  #about-us a.btn.btn-outline-success {
+    border-color: #3D9970;
+    color: #3D9970; }
+    #about-us a.btn.btn-outline-success:hover {
+      background-color: #3D9970;
+      color: white; }
 
 #numbers {
   background-image: url(https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
@@ -8940,12 +8944,10 @@ h2 {
   margin: 3rem 0 2rem 0; }
 
 #technologies {
-  width: 80%;
-  margin: 4rem auto 6rem auto; }
-  #technologies > .row {
-    margin: 5rem auto 2rem auto; }
-  #technologies h2, #technologies .h2 {
-    margin: 3rem 0 2rem 0; }
+  margin-bottom: 2rem; }
+  #technologies h2 {
+    margin-top: 2rem;
+    font-weight: 700; }
   #technologies .card {
     border: none; }
     #technologies .card img {
@@ -8970,61 +8972,55 @@ h2 {
     color: #fff;
     width: 70%;
     background-color: transparent;
-    text-shadow: 0px 0px 15px black;
+    text-shadow: 2px 2px 2px #000;
     margin-bottom: .5rem; }
     #becomestudent .jumbotron .lead {
-      text-shadow: 0px 0px 15px black; }
+      text-shadow: 2px 2px 2px #000; }
 
-#the-team {
-  width: 80%;
-  margin: 4rem auto 6rem auto; }
-  #the-team > .row {
-    margin: 5rem auto 2rem auto; }
-  #the-team h2 {
-    margin: 3rem 0 2rem 0; }
-  #the-team p {
-    font-size: .9rem;
-    color: grey;
-    margin-top: 1rem; }
-  #the-team a {
-    text-decoration: none; }
-    #the-team a img {
-      -webkit-transition: -webkit-transform .2s ease-in-out;
-      transition: -webkit-transform .2s ease-in-out;
-      -o-transition: transform .2s ease-in-out;
-      transition: transform .2s ease-in-out;
-      transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out; }
-    #the-team a:hover img {
-      -webkit-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-              transform: scale(1.1); }
+#the-team h2 {
+  margin: 2rem 0;
+  font-weight: 700; }
 
-#contact {
-  width: 80%;
-  margin: 4rem auto 2rem auto; }
-  #contact > .row {
-    margin: 5rem auto 2rem auto; }
-  #contact .col-12 {
-    margin-bottom: 1.4rem; }
-  #contact h2 {
-    margin: 3rem 0 0 0; }
-  #contact p {
-    font-size: .9rem;
-    color: grey;
-    margin-bottom: 2rem;
-    padding: 1rem; }
-  #contact .btn.btn-success {
-    background-color: #3D9970;
-    color: white; }
+#the-team p {
+  font-size: .9rem;
+  color: grey;
+  margin-top: 1rem; }
+
+#the-team a {
+  text-decoration: none; }
+  #the-team a img {
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: -webkit-transform .2s ease-in-out;
+    -o-transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out; }
+  #the-team a:hover img {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); }
+
+#contact h2 {
+  margin-top: 2rem;
+  font-weight: 700; }
+
+#contact .col-12 {
+  margin-bottom: 1.4rem; }
+
+#contact p {
+  font-size: .9rem;
+  color: grey;
+  margin-bottom: 2rem;
+  padding: 1rem; }
+
+#contact .btn.btn-success {
+  background-color: #3D9970;
+  color: white; }
 
 #footer {
   background-color: #3D9970;
   padding: 1rem;
   color: white;
   margin: 0 auto; }
-  #footer .row {
-    width: 85%;
-    margin: 0 auto; }
   #footer a {
     margin-left: 2rem;
     color: white;
@@ -9032,8 +9028,6 @@ h2 {
 
 .section {
   margin-bottom: 2rem; }
-  .section > .row {
-    margin: 5rem auto 2rem auto; }
   .section h2 {
     margin-bottom: 1rem; }
   .section .card {
@@ -9063,33 +9057,64 @@ h2 {
 .margin-top {
   margin-top: 60px; }
 
-@media (max-width: 1081px) {
-  #frontnav .container {
-    width: 100%; }
-  #frontnav .navbar {
-    height: auto; }
+@media (max-width: 1199.98px) {
+  #frontnav {
+    background-color: white;
+    -webkit-box-shadow: 2px 2px 2px rgba(77, 75, 75, 0.349);
+            box-shadow: 2px 2px 2px rgba(77, 75, 75, 0.349); }
+    #frontnav .container {
+      width: 100%; }
+    #frontnav .navbar {
+      height: auto; }
+    #frontnav #frontnavlinks li {
+      color: #8b8b8b;
+      -webkit-transition: 2s;
+      -o-transition: 2s;
+      transition: 2s; }
+      #frontnav #frontnavlinks li::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 1px;
+        background: #3e863d;
+        -webkit-transition: width .3s ease-in;
+        -o-transition: width .3s ease-in;
+        transition: width .3s ease-in;
+        -webkit-box-shadow: 0 0 1px grey;
+                box-shadow: 0 0 1px grey; }
+      #frontnav #frontnavlinks li:hover::after {
+        width: 100%; }
+      #frontnav #frontnavlinks li a:hover {
+        color: #3e863d;
+        text-decoration: none;
+        font-weight: 400; }
   #bg-main {
     padding-top: 80%;
     background-size: cover; }
     #bg-main .jumbotron {
       color: #fff;
-      background-color: rgba(255, 255, 255, 0.3);
+      font-size: 1rem;
       width: 80%;
       position: absolute;
       top: 38%;
       right: 10%;
       border-radius: 1.2rem;
-      text-shadow: 2px 2px 5px #000; } }
+      text-shadow: 2px 2px 5px #000; }
+      #bg-main .jumbotron .display-3 {
+        font-size: 2.25rem; } }
 
-@media (max-width: 991px) {
-  #frontnav {
-    background-color: rgba(255, 255, 255, 0.5); }
-    #frontnav.navbar {
-      height: auto; }
+@media (max-width: 991.98px) {
+  #frontnav #logo-image-white {
+    display: none; }
+  #frontnav #logo-image-green {
+    display: inline !important; }
+  #frontnav.navbar {
+    height: auto; }
   #bg-main {
-    padding-top: 80%; }
+    padding-top: 80%;
+    position: relative; }
     #bg-main .jumbotron {
-      top: 22%;
+      bottom: 40%;
       right: 10%;
       border-radius: 1.2rem;
       text-shadow: 2px 2px 5px #000; }
@@ -9125,6 +9150,9 @@ h2 {
 
 td.actions a {
   margin-left: 0.5rem; }
+
+.profile {
+  padding-top: 3.5rem; }
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -11456,7 +11484,7 @@ td.actions a {
   overflow: visible;
   clip: auto; }
 
-/* 2. Starter Template
+/* 2. Global Styles
 -------------------------------------------*/
 .hidden {
   display: none; }

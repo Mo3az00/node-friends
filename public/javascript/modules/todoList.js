@@ -1,10 +1,12 @@
 import axios from 'axios'
 
-const todoList = document.querySelector('#todo-list')
-const loading = document.querySelector('#todo-list-loading')
-const form = document.querySelector('#todo-form')
-const error = document.querySelector('#todo-list-error')
-const input = form.querySelector('input')
+const elements = {
+  todoList: document.querySelector('#todo-list'),
+  loading: null,
+  form: null,
+  error: null,
+  input: null
+}
 
 function addToDo (todo) {
   if (todo.item.length === 0) {
@@ -12,15 +14,15 @@ function addToDo (todo) {
     return
   }
 
-  error.classList.add('hidden')
+  elements.error.classList.add('hidden')
 
   axios
     .post('/admin/todos/add', todo)
     .then((response) => {
       removeListEvents()
-      todoList.innerHTML += buildToDoListItem(response.data)
+      elements.todoList.innerHTML += buildToDoListItem(response.data)
       registerListEvents()
-      input.value = ''
+      elements.input.value = ''
 
     })
     .catch((error) => {
@@ -68,7 +70,7 @@ function buildToDoList(todos) {
       }).join('')
   }
 
-  todoList.innerHTML = markup
+  elements.todoList.innerHTML = markup
   registerListEvents()
 }
 
@@ -80,7 +82,7 @@ function removeItem(e) {
   if (confirmed) {
       axios.get(`/admin/todos/${toDoId}/delete/`)
           .then(function (response) {
-              todoList.removeChild(toDoItem)
+              elements.todoList.removeChild(toDoItem)
           })
           .catch(function (error) {
               todoError(error.message)
@@ -113,38 +115,50 @@ function toggleDone(e) {
 }
 
 function registerListEvents() {
-  todoList.querySelectorAll('.lists-container .icon-remove').forEach(function(item) {
+  elements.todoList.querySelectorAll('.lists-container .icon-remove').forEach(function(item) {
       item.addEventListener('click', removeItem)
   })
 
-  todoList.querySelectorAll('.lists-container .checkbox').forEach(function(item) {
+  elements.todoList.querySelectorAll('.lists-container .checkbox').forEach(function(item) {
     item.addEventListener('click', toggleDone)
   })
 }
 
 function removeListEvents() {
-  todoList.querySelectorAll('.lists-container .icon-remove').forEach(function(item) {
+  elements.todoList.querySelectorAll('.lists-container .icon-remove').forEach(function(item) {
       item.removeEventListener('click', removeItem)
   })
 }
 
 function toggleLoading() {
-  loading.classList.toggle('hidden')
+  elements.loading.classList.toggle('hidden')
 }
 
 function todoError(message) {
-  error.innerHTML = message
-  error.classList.remove('hidden')
+  elements.error.innerHTML = message
+  elements.error.classList.remove('hidden')
+}
+
+function getElements() {
+  elements.loading = document.querySelector('#todo-list-loading')
+  elements.form = document.querySelector('#todo-form')
+  elements.error = document.querySelector('#todo-list-error')
+  elements.input = elements.form.querySelector('input')
 }
 
 function initToDoList() {
+  if (!elements.todoList) {
+    return false
+  }
+
+  getElements()
   loadToDoList()
 
-  form.addEventListener('submit', function(e) {
+  elements.form.addEventListener('submit', function(e) {
     e.preventDefault()
 
     addToDo({
-      'item': input.value.trim(),
+      'item': elements.input.value.trim(),
       'done': false,
     })
   })
