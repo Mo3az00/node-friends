@@ -19,9 +19,17 @@ $('a[href^="#"]').click(function(e) {
     const navbarHeight = $('.navbar').outerHeight()
     const newPosition = $(href).offset().top - navbarHeight - 10
 
+    if(history.pushState) {
+        history.pushState(null, null, href);
+    }
+
     $root.animate({
         scrollTop: newPosition
-    }, 1000);
+    }, 1000, function() {
+        if(!history.pushState) {
+            location.hash = `/${href}`;
+        }
+    });
 
     return false;
 });
