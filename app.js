@@ -51,6 +51,7 @@ app.use((request, response, next) => {
   response.locals.currentPath = request.path
   response.locals.baseUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}` 
   response.locals.user = request.user || null
+  response.locals.demo = process.env.DEMO_MODE || false
   response.locals.flashes = request.flash()
   next()
 })
