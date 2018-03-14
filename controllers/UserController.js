@@ -31,15 +31,9 @@ exports.studentList = async (request, response) => {
   })
 }
 
-<<<<<<< HEAD
 //Frontend Page
 exports.frontendPage = async (request, response) => {
 
-=======
-// Frontend Page 
-exports.frontendPage = async (request, response) => {
-  // Calculating days learned and days left
->>>>>>> 0a750e4248e0771ec45ffd070a9d39e2e91f128e
   const now = moment()
   const courseStart = moment([2017, 9, 4])
   const courseEnd = moment([2018, 8, 16])

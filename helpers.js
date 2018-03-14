@@ -61,7 +61,7 @@ exports.adminSidebarNavigation = (user) => {
     },
     {
       href: null
-    },  
+    },
     {
       href: '/admin/students',
       icon: 'users',
@@ -88,13 +88,12 @@ exports.adminSidebarNavigation = (user) => {
     navigation = navigation.concat([
       {
         href: null
-      },  
+      },
       {
         href: '/admin/homepage-technologies',
         icon: 'code',
         title: 'Homepage Tech'
       },
-<<<<<<< HEAD
       {
           href: '/admin/absence-reports',
           icon: 'envelope',
@@ -128,14 +127,6 @@ exports.adminSidebarNavigation = (user) => {
               title: 'Projects'
           },
       ])
-=======
-      // {
-      //   href: '#',
-      //   icon: 'cog',
-      //   title: 'Settings'
-      // },
-    ])
->>>>>>> 57327dd3fc1d61d34b9bd0c9fdfe28fd4ebffb09
   }
 
   return navigation
