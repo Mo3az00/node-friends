@@ -8,7 +8,8 @@ const promisify = require('es6-promisify')
 // Login form
 exports.loginForm = (request, response) => {
     response.render('admin/users/login', {
-        title: 'Login'
+        title: 'Login',
+        bodyClass: 'login'
     })
 }
 
