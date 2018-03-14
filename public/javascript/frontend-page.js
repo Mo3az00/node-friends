@@ -12,14 +12,16 @@ window.addEventListener('scroll', function () {
 
 const $root = $('html, body');
 
-$('a[href^="#"]').click(function() {
+$('a[href^="#"]').click(function(e) {
+    e.preventDefault()
+
     let href = $.attr(this, 'href');
+    const navbarHeight = $('.navbar').outerHeight()
+    const newPosition = $(href).offset().top - navbarHeight - 10
 
     $root.animate({
-        scrollTop: $(href).offset().top
-    }, 1000, function () {
-        window.location.hash = href;
-    });
+        scrollTop: newPosition
+    }, 1000);
 
     return false;
 });

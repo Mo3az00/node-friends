@@ -124,7 +124,7 @@
     width: 47%;
     position: absolute;
     top: 35%;
-    right: 5%;
+    right: 10%;
     border-radius: 1.2rem; 
     text-shadow: 2px 2px 5px #000;
   }
@@ -142,11 +142,19 @@
 
 #themes {
   >.row {
-    margin: 5rem auto;
+    margin-top: 1rem;
+
+    @include media-breakpoint-up(md) {
+      margin: 1rem auto 2rem auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin: 5rem auto 2rem auto;
+    }
   }
 
   .card {
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: .3rem;
     box-shadow: 0 0 10px rgb(91, 92, 92);
 
@@ -158,7 +166,11 @@
   
       p {
         color: grey;
-        // font-size: 1.2rem;
+        padding: 0;
+      }
+
+      .theme-title {
+        padding-left: .75rem;
       }
 
     &:hover {
@@ -173,7 +185,6 @@
 
 #about-us {
   margin: 0 auto;
-  padding-top: 80px;
 
   ul {
     list-style-type: circle;
@@ -199,11 +210,14 @@
   background-image: url(https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 180px;
+  height: 200px;
   margin-bottom: 2rem;
 
-  .row { 
+  @include media-breakpoint-up(md) {
+    height: 180px;
+  }
 
+  .row { 
     h4, h6 {
       font-weight: 900;
     }
@@ -211,14 +225,18 @@
     h6 {
       color: $primary;
     }
+
+    .number {
+      margin-bottom: 0.75rem;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
 #technologies {
-  h2 {
-    padding-top: 70px;
-    padding-bottom: 20px;
-  }
   .card {
     border: none;
 
@@ -242,7 +260,7 @@
 #becomestudent {
   background-image: url('/images/bg-becomestudent.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   margin-bottom: 2rem;
   
   .row { 
@@ -270,11 +288,6 @@
 }
 
 #the-team { 
-  h2 {
-    padding-top: 70px;
-    padding-bottom: 20px;
-  }
-
   p {
     font-size: .9rem;
     color: grey;
@@ -297,11 +310,6 @@
 }
 
 #contact {
-  h2 {
-    padding-top: 70px;
-    padding-bottom: 20px;
-  }
-
   .col-12 {
     margin-bottom: 1.4rem;
   }
@@ -310,7 +318,7 @@
     font-size: .9rem;
     color: grey;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
   .btn.btn-success {
@@ -441,7 +449,7 @@
       text-shadow: 2px 2px 5px #000;
 
       .display-3 {
-        font-size: 2.25rem;
+        font-size: 2.75rem;
       }
     }
   }
@@ -472,6 +480,10 @@
       right: 10%;
       border-radius: 1.2rem; 
       text-shadow: 2px 2px 5px #000;
+
+      .display-3 {
+        font-size: 2.25rem;
+      }
     }
   }
 
@@ -487,6 +499,29 @@
 
   #footer {
     font-size: .8rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #bg-main {
+    padding-top: 70%;
+
+    .jumbotron {
+      right: 10%;
+      top: 20%;
+      
+      .display-3 {
+        font-size: 2rem;
+      }
+
+      .lead {
+        font-size: 1.25rem;
+      }
+    }
+
+    #jumbotron-footer {
+      font-size: 1rem;
+    }
   }
 }
 // Profile pic : 272px X 337px

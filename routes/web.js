@@ -10,10 +10,11 @@ const UserTechFavoritesController = require('../controllers/UserTechFavoritesCon
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
 const AuthController = require('../controllers/AuthController')
+const PagesController = require('../controllers/PagesController')
 
 // The main route
-router.get('/', catchErrors(UserController.frontendPage))
-router.get('/profile/:slug', catchErrors(UserController.studentProfile))
+router.get('/', catchErrors(PagesController.home))
+router.get('/profile/:slug', catchErrors(PagesController.studentProfile))
 
 // Admin
 router.get('/admin', UserController.dashboard)

@@ -19,7 +19,7 @@ exports.placeholderImage = function (width, height, icon) {
 exports.navigationMain = [
   {
     name: 'Home',
-    href: '/'
+    href: '#home'
   },
   {
     name: 'About Us',
