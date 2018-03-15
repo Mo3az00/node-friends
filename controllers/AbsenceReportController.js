@@ -122,14 +122,18 @@ exports.createReport = async (request, response, next) => {
   try {
     const dateNow = moment().format('YYYY-MM-DD HH:mm')
     let attachmentUrl = null
-    const token='xoxp-242558289728-242558289904-326634294867-e5ac14a23ba47a472656e86b986e95f1'
-    const channel='U74GE8HSL'
 
     if (report.attachment) {
       attachmentUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}/uploads/absence-reports/${report.attachment.filename}`
     }
 
-    const slackMessage = axios.post(`https://slack.com/api/chat.postMessage?token=${token}&channel=${channel}&text=${request.body.message}&username=${request.user.first_name}&pretty=1`)
+    const slackMessage =  axios.post('https://slack.com/api/chat.postMessage', {
+                            token: process.env.SLACK_TOKEN,
+                            channel: process.env.SLACK_CHANNEL,
+                            text: request.body.message,
+                            username: request.user.first_name,
+                            pretty: 1
+                          })
 
     const sendMail = mail.send({
                       filename: 'absence-report',
