@@ -27,6 +27,7 @@ exports.send = async (options) => {
     const html = generateHTML(options.filename, options)
     const text = htmlToText.fromString(html)
 
+
     const mailOptions = {
         from: 'Node Friends <noreply@node-friends.com>',
         to: options.to,

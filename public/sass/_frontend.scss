@@ -320,7 +320,7 @@
 
 #contact {
   .col-12 {
-    margin-bottom: 1.4rem;
+    margin-bottom: 2rem;
   }
 
   p {
@@ -334,6 +334,9 @@
     background-color: $primary;
     color: white;
 
+    i.fa {
+      margin-right: 1rem;
+    }
   }
 }
 
