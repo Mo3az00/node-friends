@@ -1,18 +1,24 @@
 .container
   h2.dash Contact
-  .container-fluid 
+  
+  #contact-success.alert.alert-success.hidden
+    | Your message was send. We'll get back to you as soon as possible.
+    br
+  
+  #contact-error.alert.alert-danger.hidden
+
+  form#contact-form(action="/contact" method="POST").container-fluid 
     #contact
-      p If you want to get more info, ping us now
       .row
         .col-12.col-lg-4
-          input.form-control(type="text" id="name" placeholder="Name")
+          input.form-control(type="text" id="name" name="name" placeholder="Name")
         .col-12.col-lg-4
-          input.form-control(type="email" id="email" placeholder="Email")
+          input.form-control(type="email" id="email" name="email" placeholder="Email")
         .col-12.col-lg-4
-          input.form-control(type="text" id="subject" placeholder="Subject")
+          input.form-control(type="text" id="subject" name="subject" placeholder="Subject")
       .row
         .col-12.col-md-12
-          textarea.form-control(rows="4" placeholder="Message")
+          textarea.form-control(name="message" id="message" rows="4" placeholder="Message")
       .row
         .col-12.text-center
           button.btn.btn-success(type="submit")
