@@ -19,9 +19,6 @@ $fa-font-path: "~font-awesome/fonts";
 
 /* 2. Global Styles
 -------------------------------------------*/
-.active {
-  font-weight: 700!important;
-}
 
 .hidden {
   display: none;
@@ -70,6 +67,12 @@ a.btn {
     display: inline-block;
     border-radius: 50%;
     margin: 0 0.5rem;
+  }
+
+  .navbar-nav {
+    .nav-link.active {
+      font-weight: 700;
+    }
   }
 
   .user-dropdown {
