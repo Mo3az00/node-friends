@@ -77,3 +77,31 @@ a.btn {
     }
   }
 }
+
+/* 404 page */
+
+  #content {
+
+    margin-top: 1vh;
+    height: 80vh;
+    text-align: center;
+
+      h2 {
+        color:lightblue;
+        margin-top: 0;
+      }
+
+      h1 {
+        padding-top: 2vh;
+        font-weight: 600;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      p {
+        font-size: .5rem;
+        text-align: left;
+      }
+  }
