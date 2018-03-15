@@ -22,7 +22,7 @@ html(lang='en')
     link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
 
 
-  body(class=(bodyClass || ''))
+  body(class=(bodyClass || '') data-spy='scroll', data-target='frontnav' )
     block header
       include frontend-partials/navbar
 
