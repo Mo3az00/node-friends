@@ -33,7 +33,7 @@ html.admin(lang='en')
               if user.avatar
                 img.user-avatar(src=`/uploads/users/avatar/${user.avatar}`, height="30")
               else
-                img.userr-avatar(src='/images/avatar.png', height=30)
+                img.user-avatar(src='/images/avatar.png', height=30)
               | #{user.first_name} #{user.last_name}
             .dropdown-menu(aria-labelledby="userDropdownButton")
               a.dropdown-item(href="/admin/profile/edit")
