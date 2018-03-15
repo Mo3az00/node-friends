@@ -212,7 +212,7 @@ exports.resize = async (request, response, next) => {
   request.body.image = `${uuid.v4()}.${extension}`
 
   const image = await jimp.read(request.file.path)
-  await image.cover(245, 130)
+  await image.cover(248, 130)
   await image.write(`./public/uploads/homepage-technologies/${request.body.image}`)
   fs.unlinkSync(request.file.path)
 
