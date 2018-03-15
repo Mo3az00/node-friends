@@ -22,7 +22,8 @@ exports.home = async (request, response) => {
   const teachers = await User.find({ role: 'teacher' }).sort({ 'first_name': 1 })
 
   response.render('home', {
-    title: 'We build your next big thing',
+    title: 'Junior Web Developers in Berlin',
+    description: 'Node friends is a team project by DCI\'s 5th web development course in Berlin. We used modern frontend and backend technologies such as Bootstrap, JavaScript, Node.js, Express and MongoDB to build a website and a members area. We\'re available for hire!',
     daysLearned,
     daysLeft,
     technologies,
@@ -38,7 +39,8 @@ exports.studentProfile = async (request, response) => {
   const technologies = await UserTechFavorite.find({ user: student._id })
 
   response.render('studentProfile', {
-    title: `Profile: ${student.first_name} ${student.last_name}`,
+    title: `${student.first_name} ${student.last_name}`,
+    description: `Hello, I'm ${student.first_name}, a ${student.role} at the Digital Career Institute in Berlin. I'm available for hire, if you're looking for a motivated Junior Web Developer.`,
     bodyClass: 'scrolled profile',
     student,
     projects,
