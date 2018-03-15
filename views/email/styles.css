@@ -31,9 +31,37 @@ img {
       BODY & CONTAINER
   ------------------------------------- */
   
+  .body-bg {
+    background-color: white;
+    background: linear-gradient(139deg, #0d795d, #005792);
+    background-size: 400% 400%;
+    
+    -webkit-animation: bg 12s ease infinite;
+    -moz-animation: bg 12s ease infinite;
+    animation: bg 12s ease infinite;
+  }
+
+  @-webkit-keyframes bg {
+      0%{background-position:4% 0%}
+      50%{background-position:60% 60%}
+      100%{background-position:4% 0%}
+  }
+  @-moz-keyframes bg {
+      0%{background-position:4% 0%}
+      50%{background-position:60% 60%}
+      100%{background-position:4% 0%}
+  }
+  @keyframes bg { 
+      0%{background-position:4% 0%}
+      50%{background-position:60% 60%}
+      100%{background-position:4% 0%}
+  }
+  
+
   .body {
     width: 100%;
-    }
+  }
+
   
   /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
   .container {
@@ -42,40 +70,47 @@ img {
     /* makes it centered */
     max-width: 580px;
     padding: 10px;
-    width: 580px; }
+    width: 580px; 
+  }
   
   /* This should also be a block element, so that it will fill 100% of the .container */
   .content {
     box-sizing: border-box;
     display: block;
-    Margin: 0 auto;
+    margin: 2rem auto;
     max-width: 580px;
-    padding: 10px; }
+    padding: 10px; 
+  }
   
   /* -------------------------------------
       HEADER, FOOTER, MAIN
   ------------------------------------- */
   .main {
     background: #fff;
-    border-top:20px solid #3D9970;
-    width: 100%; }
+    width: 100%;
+    box-shadow: 2px 2px 14px white;
+    border-radius: 10px;
+  }
   
   .wrapper {
     box-sizing: border-box;
-    padding: 20px; }
+    padding: 20px; 
+  }
   
   .footer {
     clear: both;
     padding-top: 10px;
     text-align: center;
-    width: 100%; }
+    width: 100%; 
+  }
     .footer td,
     .footer p,
     .footer span,
     .footer a {
       color: #999999;
       font-size: 12px;
-      text-align: center; }
+      text-align: center; 
+    }
   
   /* -------------------------------------
       TYPOGRAPHY
@@ -95,7 +130,14 @@ img {
     font-size: 35px;
     font-weight: 300;
     text-align: center;
-    text-transform: capitalize; }
+    text-transform: capitalize; 
+  }
+
+  h2 {
+    color: #3D9970;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
   
   p,
   ul,
@@ -120,7 +162,9 @@ img {
   ------------------------------------- */
   .btn {
     box-sizing: border-box;
-    width: 100%; }
+    width: 100%; 
+    margin: 2rem 0 1rem 0;
+  }
     .btn > tbody > tr > td {
       padding-bottom: 15px; }
     .btn table {
