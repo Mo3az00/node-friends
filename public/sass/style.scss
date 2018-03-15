@@ -19,6 +19,9 @@ $fa-font-path: "~font-awesome/fonts";
 
 /* 2. Global Styles
 -------------------------------------------*/
+.active {
+  font-weight: 700!important;
+}
 
 .hidden {
   display: none;

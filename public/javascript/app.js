@@ -5,18 +5,20 @@ import datepicker from './modules/datepicker'
 import sortable from './modules/sortable'
 import showFileNames from './modules/showFileName'
 import calendar from './modules/calendar'
+import scrollSpy from './modules/scrollSpy'
 
 contactForm()
+scrollSpy()
 
 if (window.location.href.includes('admin')) {
   $('[data-toggle="tooltip"]').tooltip()
 
   initToDoList()
-  
+
   // Enable boostrap dropdowns
   $('.dropdown-toggle').dropdown()
   datepicker()
   sortable()
   showFileNames()
-  calendar() 
+  calendar()
 }
