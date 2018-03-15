@@ -35,29 +35,15 @@ img {
     background-color: white;
     background: linear-gradient(139deg, #0d795d, #005792);
     background-size: 400% 400%;
-    
-    -webkit-animation: bg 12s ease infinite;
-    -moz-animation: bg 12s ease infinite;
     animation: bg 12s ease infinite;
   }
 
-  @-webkit-keyframes bg {
-      0%{background-position:4% 0%}
-      50%{background-position:60% 60%}
-      100%{background-position:4% 0%}
-  }
-  @-moz-keyframes bg {
-      0%{background-position:4% 0%}
-      50%{background-position:60% 60%}
-      100%{background-position:4% 0%}
-  }
   @keyframes bg { 
       0%{background-position:4% 0%}
       50%{background-position:60% 60%}
       100%{background-position:4% 0%}
   }
   
-
   .body {
     width: 100%;
   }
