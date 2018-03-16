@@ -5,6 +5,7 @@ const UserProject = mongoose.model('UserProject')
 const UserTechFavorite = mongoose.model('UserTechFavorite')
 const moment = require('moment')
 const mail = require('../handlers/mail')
+const { body, custom, validationResult } = require('express-validator/check');
 
 // Home Page
 
@@ -48,6 +49,36 @@ exports.studentProfile = async (request, response) => {
   })
 }
 
+exports.contactFormValidation = [
+  body(['name', 'email', 'subject', 'message'], 'Please fill this field.').isLength({ min: 1 }),
+  body('email', 'Please supply a valid email address.').isEmail(),
+  body('subject', 'Please supply a meaningful subject.').isLength({ min: 5 }),
+  body('message', 'Please supply a meaningful message.').isLength({ min: 10 }),
+  body('message').custom((value) => {
+    return new Promise((resolve, reject) => {
+      if (/\[[^\]]+\]/g.test(value)) {
+        reject(Error('BB Code is not allowed'))
+      }
+
+      resolve()
+    })
+  })
+]
+
+exports.contactFormErrorHandling = (request, response, next) => {
+  const errors = validationResult(request);
+  
+  if (!errors.isEmpty()) {
+    return response.status(422).json({
+      code: 422,
+      message: 'Your message could not be send! Please check your data.',
+      errors: errors.mapped()
+    })
+  }
+
+  next()
+}
+
 exports.sendContactForm = async (request, response) => {
   try {
     const dateNow = moment().format('YYYY-MM-DD HH:mm')
@@ -55,9 +86,7 @@ exports.sendContactForm = async (request, response) => {
     await mail.send({
       filename: 'contact-form',
       subject: `Contact Form - ${dateNow}`,
-      to: [
-        'info@node-friends.com'
-      ],
+      replyTo: request.body.email,
       name: request.body.name,
       email: request.body.email,
       message: request.body.message
