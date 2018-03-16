@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
 const HomepageTech = mongoose.model('HomepageTech')
-const UserProject = mongoose.model('UserProject')
-const UserTechFavorite = mongoose.model('UserTechFavorite')
 const moment = require('moment')
 
 // Home Page
@@ -28,21 +26,5 @@ exports.home = async (request, response) => {
     technologies,
     students,
     teachers
-  })
-}
-
-// Single student profile
-exports.studentProfile = async (request, response) => {
-  const student = await User.findOne({ slug: request.params.slug })
-  const projects = await UserProject.find({ user: student._id })
-  const technologies = await UserTechFavorite.find({ user: student._id })
-
-  response.render('studentProfile', {
-    title: `${student.first_name} ${student.last_name}`,
-    description: `Hello, I'm ${student.first_name}, a ${student.role} at the Digital Career Institute in Berlin. I'm available for hire, if you're looking for a motivated Junior Web Developer.`,
-    bodyClass: 'scrolled profile',
-    student,
-    projects,
-    technologies
   })
 }
