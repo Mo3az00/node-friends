@@ -9,6 +9,7 @@ const SettingsController = require('../controllers/SettingsController')
 const UserTechFavoritesController = require('../controllers/UserTechFavoritesController')
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
+const ContactFormController = require('../controllers/ContactFormController')
 const AuthController = require('../controllers/AuthController')
 const PagesController = require('../controllers/PagesController')
 
@@ -18,9 +19,9 @@ router.get('/profile/:slug', catchErrors(PagesController.studentProfile))
 
 // Sending the contact form
 router.post('/contact',
-  PagesController.contactFormValidation,
-  PagesController.contactFormErrorHandling,
-  catchErrors(PagesController.sendContactForm)
+  ContactFormController.validationRules,
+  ContactFormController.errorHandling,
+  catchErrors(ContactFormController.sendMail)
 )
 
 // Admin
