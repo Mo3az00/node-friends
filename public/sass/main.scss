@@ -1,0 +1,275 @@
+/**
+  * Contents
+  *
+  *   1. Imports
+  *   2. Global Styles
+  *   3. Navigation
+  *   4. Content Blocks
+  *   5. Profile
+  *
+  * Images
+  *
+  *   Profile:     272px X 337px
+  *   Technology:  245px X 130px
+  */
+
+/* 1. Imports
+-------------------------------------------*/
+
+@import "bootstrap-custom";
+@import "~bootstrap/scss/bootstrap";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
+
+/* 2. Global Styles
+-------------------------------------------*/
+
+.hidden,
+.hide {
+  display: none;
+}
+
+.flash-messages {
+  margin-top: 1rem;
+}
+
+h2 {
+  margin: 2rem 0;
+  font-weight: 700;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.dash:after {
+  content: '';
+  display: block;
+  border-top: 3px dashed $primary;
+  width: 3.5rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+
+  .card {
+    margin: 1.3rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 10px rgb(91, 92, 92);
+
+      h5 {
+        color: black;
+        font-weight: 600;
+      }
+  
+      p {
+        color: grey;
+        font-size: 1rem;
+      }
+
+    &:hover {
+      box-shadow: 0 0 10px $primary;
+      
+      h5 {
+        color: $primary;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+
+  a.btn.btn-success {
+    background-color: $primary;
+    color: white;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.margin-top {
+  margin-top: 60px;
+}
+
+.placeholder-image {
+  background-color: #e0e0e0;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+
+  &-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: #777;
+  }
+}
+
+/* 3. Navigation
+-------------------------------------------*/
+
+.navbar {
+  background-color: transparent;
+  font-size: 1.2rem;
+  height: 60px;
+
+  @include media-breakpoint-down(lg) {
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(77, 75, 75, 0.349);
+  }
+
+  @include media-breakpoint-down(md) {
+    height: auto;
+    
+    #logo-image-white {
+      display: none;
+    }
+
+    #logo-image-green {
+      display: inline !important;
+    }
+  }
+
+  .container {
+    width: 70%;
+
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+    }
+  }
+
+  .navbar-brand {
+    img {
+      height: 45px;
+      width: auto;
+    }
+  }
+
+  .navbar-nav {
+    margin-top: -5px;
+    padding-top: .5rem;
+    list-style: none;
+    
+    .nav-item {
+      color: #fff;
+      margin: .3rem .8rem;
+      transition: 2s;
+
+      @include media-breakpoint-down(lg) {
+        color: #8b8b8b;
+        transition: 2s;
+      }
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 1px;
+        background: #fff;
+        transition: width .3s ease-in;
+      }
+
+      @include media-breakpoint-down(lg) {
+        &::after {
+          background:#3e863d;
+          box-shadow: 0 0 1px grey;
+        }
+      }
+  
+      &:hover::after {
+        width: 100%;
+      }
+  
+      a {
+        color: inherit;
+        display: block;
+        text-decoration: none;
+  
+        &:hover {
+          font-weight: 400;
+
+          @include media-breakpoint-down(lg) {
+            color: #3e863d;
+          }
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        &.active {
+          color: inherit;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.scrolled {
+  .navbar {
+    background-color: white;
+    box-shadow: 2px 2px 2px  rgba(77, 75, 75, 0.349);
+
+    #logo-image-white {
+      display: none;
+    }
+
+    #logo-image-green {
+      display: inline !important;
+    }
+
+    .navbar-nav {
+      li {
+        color: #8b8b8b;
+        transition: 2s;
+        
+        &::after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 1px;
+          background:#3e863d;
+          transition: width .3s ease-in;
+          box-shadow: 0 0 1px grey;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        a:hover {
+          color: #3e863d;
+          text-decoration: none;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+/* 4. Content Blocks
+-------------------------------------------*/
+
+@import "./content-blocks/001-header";
+@import "./content-blocks/002-themes";
+@import "./content-blocks/003-about-us";
+@import "./content-blocks/004-numbers";
+@import "./content-blocks/005-technologies";
+@import "./content-blocks/006-become-a-student";
+@import "./content-blocks/007-the-team";
+@import "./content-blocks/008-contact";
+@import "./content-blocks/009-footer";
+
+/* 5. Profile
+-------------------------------------------*/
+
+@import "profile";

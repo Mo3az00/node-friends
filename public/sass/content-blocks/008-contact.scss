@@ -1,0 +1,18 @@
+#contact {
+  .col-12 {
+    margin-bottom: 1.4rem;
+  }
+
+  p {
+    font-size: .9rem;
+    color: grey;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+  }
+
+  .btn.btn-success {
+    background-color: $primary;
+    color: white;
+
+  }
+}

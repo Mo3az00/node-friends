@@ -1,0 +1,22 @@
+#about-us {
+  margin: 0 auto;
+
+  ul {
+    list-style-type: circle;
+  }
+
+  img {
+    margin-bottom: 2rem;
+  }
+
+  a.btn.btn-outline-success {
+    border-color: $primary;
+    color: $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: white;
+    }
+  }
+  margin-bottom: 4rem;
+}

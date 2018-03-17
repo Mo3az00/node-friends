@@ -1,0 +1,37 @@
+#becomestudent {
+  background-image: url('/images/bg-becomestudent.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-down(md) {
+    height: 400px;
+  }
+  
+  .row { 
+
+    h4, h6 {
+      font-weight: 900;
+    }
+  
+    h6 {
+      color: $primary;
+    }
+  }
+
+  .jumbotron {
+    color: #fff;
+    width: 90%;
+    background-color: transparent;
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: .5rem;
+
+    @include media-breakpoint-up(md) {
+      width: 70%;
+    }
+
+    .lead {
+      text-shadow: 2px 2px 2px #000;
+    }
+  }
+}

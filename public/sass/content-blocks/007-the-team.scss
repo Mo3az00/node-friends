@@ -1,0 +1,26 @@
+#the-team { 
+  p {
+    font-size: .9rem;
+    color: grey;
+    margin-top: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    
+    img {
+      transition: transform .2s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .frame {
+    padding: 1px;
+    border: 1px solid #c0c0c0;
+  }
+}

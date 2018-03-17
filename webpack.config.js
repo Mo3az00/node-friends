@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const merge = require("webpack-merge");
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // JS file handler
 const javascript = {
@@ -25,21 +26,33 @@ const postcss = {
 };
 
 // sass/css loader
-const styles = {
-  test: /\.(scss)$/,
-  use: ExtractTextPlugin.extract([
-    'css-loader?sourceMap&minimize=true',
-    postcss,
-    'sass-loader?sourceMap&minimize=true'
-  ])
-};
+const loadSass = ({ include, exclude, minimize } = {}) => {
+  const plugin = new ExtractTextPlugin({
+    allChunks: true,
+    filename: "[name].css"
+  });
 
-// compress JS
-const uglify = new webpack.optimize.UglifyJsPlugin({ // eslint-disable-line
-  test: /\.js($|\?)/i,
-  exclude: /fullcalendar/,
-  compress: { warnings: false }
-});
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.(scss)$/,
+          include,
+          exclude,
+          use: plugin.extract({
+            use: [
+              `css-loader?sourceMap${minimize ? '&minimize=true' : ''}`,
+              postcss,
+              `sass-loader?sourceMap${minimize ? '&minimize=true' : ''}`
+            ],
+            fallback: "style-loader"
+          }),
+        }
+      ]
+    },
+    plugins: [plugin]
+  }
+}
 
 // font awesome
 const fontAwesome =        {
@@ -68,26 +81,52 @@ const expose = {
   ]
 };
 
-// bundle everything
-const config = {
-  entry: {
-    app: './public/javascript/app.js'
-  },
-  devtool: 'source-map',
-  output: {
-    path: path.resolve(__dirname, 'public', 'dist'),
-    filename: '[name].bundle.js'
-  },
-  module: {
-    rules: [expose, javascript, styles, fontAwesome]
-  },
-  plugins: [
-    new ExtractTextPlugin('style.css'),
-    uglify
-  ]
+// JavaScript optimization
+const optimization = (optimize) => {
+  return {
+    optimization: {
+      minimize: (optimize === true) ? true : false
+    }
+  }
+}
+
+// all environment config
+const commonConfig = merge([
+  {
+    entry: {
+      index: './public/javascript/main.js',
+      admin: './public/javascript/admin/main.js',
+      dashboard: './public/javascript/admin/dashboard.js'
+    },
+    devtool: 'source-map',
+    output: {
+      path: path.resolve(__dirname, 'public', 'dist'),
+      filename: '[name].bundle.js'
+    },
+    module: {
+      rules: [expose, javascript, fontAwesome]
+    },
+    plugins: [
+    ]
+  }
+]);
+
+const productionConfig = merge([
+  optimization(true),
+  loadSass({ minimize: true })
+]);
+
+const developmentConfig = merge([
+  optimization(false),
+  loadSass()
+]);
+
+//process.noDeprecation = true;
+
+module.exports = mode => {
+  if (mode === "production") {
+    return merge(commonConfig, productionConfig, { mode });
+  }
+
+  return merge(commonConfig, developmentConfig, { mode });
 };
-
-``
-process.noDeprecation = true;
-
-module.exports = config;
