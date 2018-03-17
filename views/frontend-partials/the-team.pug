@@ -7,7 +7,7 @@
           .col-6.col-md-3
             a(href=`/profile/${student.slug}`)
               if student.avatar
-                img.frame.img-fluid(src=`/uploads/users/avatar/${student.avatar}` width='247')
+                img.frame.img-fluid(src=`/uploads/users/avatar/${student.avatar}` width='247' alt=`Photo: ${student.first_name} ${student.last_name} (Student)`)
               else 
                 != helpers.placeholderImage(247, 247, 'user-circle-o')
               p.text-center= `${student.first_name} ${student.last_name}`
@@ -16,7 +16,7 @@
           .col-6.col-md-3
             a(href=`/profile/${teacher.slug}`)
               if teacher.avatar
-                img.frame.img-fluid(src=`/uploads/users/avatar/${teacher.avatar}` width='247')
+                img.frame.img-fluid(src=`/uploads/users/avatar/${teacher.avatar}` width='247' alt=`Photo: ${teacher.first_name} ${teacher.last_name} (Coach)`)
               else 
                 != helpers.placeholderImage(247, 247, 'user-circle-o')
               p.text-center= `${teacher.first_name} ${teacher.last_name} (Coach)`
