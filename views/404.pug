@@ -1,0 +1,15 @@
+extends layout
+
+block main
+  .container(role="main")
+        .row
+          #error-404.col-12.text-center
+            img(src=`/images/notfound.png`)
+
+            if user
+              h1 OH NO! #{user.first_name.toUpperCase()} BROKE IT!
+            else
+              h1 OH NO! SOMETHING WENT WRONG!
+
+            h2 We couldn't find that page. Go back and try again.
+            p.text-center.text-muted Graphics by <a href="https://freepik.com">Freepik.com</a>
