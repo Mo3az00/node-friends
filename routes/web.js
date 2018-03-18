@@ -193,13 +193,5 @@ router.get('/admin/settings', catchErrors(SettingsController.form))
 // submit edited settings
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
-
-// TEST FOR EMAIL
-
-router.get('/emailSent', (request, response) => {
-  response.render('email/password-reset')
-})
-
-
 // Export our router
 module.exports = router;
