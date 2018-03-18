@@ -81,9 +81,7 @@ a.btn {
 /* 404 page */
 
   #error-404 {
-
-    margin-top: 3vh;
-    height: 80vh;
+    margin: 100px 0 50px 0;
     text-align: center;
 
       h2 {
@@ -97,7 +95,7 @@ a.btn {
       }
 
       img {
-        width: 100%;
+        max-width: 100%;
       }
 
       p {
