@@ -30,7 +30,7 @@ app.set('view engine', 'pug')
 
 // sessions allow us to store data on visitors from request to request
 // this can keep users logged in and allows us to send flash messages
-app.use(session({
+app.use('/admin', session({
   secret: process.env.SESSION_SECRET || 'notaverysecuresecret',
   key: process.env.SESSION_KEY || 'notaverysecurekey',
   resave: false,
@@ -38,12 +38,12 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-// // Passport JS is what we use to handle our logins
+// Passport JS is what we use to handle our logins
 app.use(passport.initialize());
 app.use(passport.session());
 
 // the flash middleware let's us use req.flash('error', 'Message'), which will then pass that message to the next page the user requests
-app.use(flash());
+app.use('/admin', flash());
 
 // pass variables to use in all requests + templates
 app.use((request, response, next) => {
@@ -52,7 +52,10 @@ app.use((request, response, next) => {
   response.locals.baseUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}` 
   response.locals.user = request.user || null
   response.locals.demo = process.env.DEMO_MODE || false
-  response.locals.flashes = request.flash()
+
+  if (request.path.includes('/admin')) {
+    response.locals.flashes = request.flash()
+  }
   next()
 })
 
