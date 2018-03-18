@@ -193,5 +193,6 @@ router.get('/admin/settings', catchErrors(SettingsController.form))
 // submit edited settings
 router.post('/admin/settings', catchErrors(SettingsController.updateSettings))
 
+
 // Export our router
 module.exports = router;
