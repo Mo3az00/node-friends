@@ -3,19 +3,19 @@ extends layout
 block main
   .container
     .section
-      h2= student.first_name+' '+student.last_name
+      h2= profile.first_name+' '+profile.last_name
       .row
         .col-12.col-lg-6
-          .student-photo
-            if (student.photo)
-              img.img-fluid(src=`/uploads/users/photo/${student.photo}`)
+          .profile-photo
+            if (profile.photo)
+              img.img-fluid(src=`/uploads/users/photo/${profile.photo}`)
             else
               != helpers.placeholderImage(500, 260, 'user')
         .col-12.col-lg-5.text-justify
           p
-            if student.bio
-              != student.bio.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>')
-          a.btn.btn-success(href=student.website target="_blank") Visit My Portfolio
+            if profile.bio
+              != profile.bio.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>')
+          a.btn.btn-success(href=profile.website target="_blank") Visit My Portfolio
 
     .section#favorite-tech
       h2 My Favourite Tech

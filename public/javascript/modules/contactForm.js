@@ -18,6 +18,7 @@ function contactForm() {
     }
   
     toggleLoading()
+    clearErrors()
 
     axios
       .post('/contact', data)
@@ -27,9 +28,19 @@ function contactForm() {
         formSuccess.classList.remove('hidden')
       })
       .catch((error) => {
+        const data = error.response.data
+
         this.classList.remove('hidden')
         formSuccess.classList.add('hidden')
-        formError.classList.remove('hidden')
+
+        if (data.errors) {
+          formErrors(data.errors)
+        } else {
+          formError.innerText = data.message
+          formError.classList.remove('hidden')
+        }
+
+        toggleLoading()
       })
   })
 }
@@ -51,6 +62,22 @@ const toggleLoading = function() {
     
     button.removeAttribute('disabled')
   }
+}
+
+const formErrors = function(errors) {
+  for (let fieldName in errors) {
+    const error = errors[fieldName]
+    const field = $(`#${fieldName}`)
+
+    field.addClass('is-invalid')
+    field.after(`<div class="invalid-feedback">${error.msg}</div>`)
+  }
+}
+
+const clearErrors = function() {
+  const form = $('#contact-form')
+  form.find('.is-invalid').removeClass('is-invalid')
+  form.find('.invalid-feedback').remove()
 }
 
 export default contactForm

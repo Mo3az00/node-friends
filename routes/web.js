@@ -9,15 +9,23 @@ const SettingsController = require('../controllers/SettingsController')
 const UserTechFavoritesController = require('../controllers/UserTechFavoritesController')
 const AbsenceReportController = require('../controllers/AbsenceReportController')
 const HomepageTechController = require('../controllers/HomepageTechController')
+const ContactFormController = require('../controllers/ContactFormController')
 const AuthController = require('../controllers/AuthController')
 const PagesController = require('../controllers/PagesController')
+const ProfileController = require('../controllers/ProfileController')
 
 // The main route
 router.get('/', catchErrors(PagesController.home))
-router.get('/profile/:slug', catchErrors(PagesController.studentProfile))
+
+// The profiles
+router.get('/profile/:slug', catchErrors(ProfileController.show))
 
 // Sending the contact form
-router.post('/contact', catchErrors(PagesController.sendContactForm))
+router.post('/contact',
+  ContactFormController.validationRules,
+  ContactFormController.errorHandling,
+  catchErrors(ContactFormController.sendMail)
+)
 
 // Admin
 router.get('/admin', UserController.dashboard)

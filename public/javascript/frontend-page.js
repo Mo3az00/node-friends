@@ -1,3 +1,6 @@
+// Get the height of the navbar
+const navbarHeight = $('.navbar').outerHeight()
+
 // Navbar transparency + change logo
 
 window.addEventListener('scroll', function () {
@@ -16,7 +19,6 @@ $('a[href^="#"]').click(function (e) {
   e.preventDefault()
 
   let href = $.attr(this, 'href');
-  const navbarHeight = $('.navbar').outerHeight()
   const newPosition = $(href).offset().top - navbarHeight - 10
 
   if (history.pushState) {
@@ -33,3 +35,18 @@ $('a[href^="#"]').click(function (e) {
 
   return false;
 });
+
+// Scroll spy
+
+const scrollspy = document.querySelector('#frontnav')
+
+if (scrollspy) {
+  $('body').scrollspy({
+    target: '#frontnav',
+    offset: navbarHeight + 11
+  })
+
+  $('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
+    $('nav-link').addClass('active')
+  })
+}

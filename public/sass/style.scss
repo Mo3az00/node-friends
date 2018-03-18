@@ -69,6 +69,12 @@ a.btn {
     margin: 0 0.5rem;
   }
 
+  .navbar-nav {
+    .nav-link.active {
+      font-weight: 700;
+    }
+  }
+
   .user-dropdown {
     cursor: pointer;
 
@@ -77,3 +83,29 @@ a.btn {
     }
   }
 }
+
+/* 404 page */
+
+  #error-404 {
+    margin: 100px 0 50px 0;
+    text-align: center;
+
+      h2 {
+        color:lightblue;
+        margin-top: 0;
+      }
+
+      h1 {
+        padding-top: 2vh;
+        font-weight: 600;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      p {
+        font-size: 1rem;
+        text-align: left;
+      }
+  }
