@@ -12,11 +12,11 @@ if (window.location.href.includes('admin')) {
   $('[data-toggle="tooltip"]').tooltip()
 
   initToDoList()
-  
+
   // Enable boostrap dropdowns
   $('.dropdown-toggle').dropdown()
   datepicker()
   sortable()
   showFileNames()
-  calendar() 
+  calendar()
 }

@@ -207,9 +207,8 @@
 }
 
 #numbers {
-  background-image: url(https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-image: url('/images/bg-numbers.jpg');
+  background-repeat: repeat;
   height: 200px;
   margin-bottom: 2rem;
 
@@ -239,6 +238,7 @@
 #technologies {
   .card {
     border: none;
+    margin-bottom: 1rem;
 
     img {
       margin-bottom: 1rem;
@@ -251,9 +251,10 @@
 
     p {
       color: #808080;
-      font-size: .85rem;
+      font-size: 1rem;
     }
   }
+
   margin-bottom: 2rem;
 }
 
@@ -372,7 +373,7 @@
   
       p {
         color: grey;
-        font-size: .85rem;
+        font-size: 1rem;
       }
 
     &:hover {
@@ -510,7 +511,7 @@
   }
 
   #footer {
-    font-size: .8rem;
+    font-size: 1rem;
   }
 }
 

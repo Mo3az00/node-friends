@@ -13,7 +13,7 @@ html(lang='en')
 
     //- Search Engine Optimization
     meta(name="description", content=`${description  || 'Just a tiny little website of aspiring web developers'}`)
-    meta(name="robots", content=`${robots || 'noindex, nofollow'}`)
+    meta(name="robots", content=`${robots || 'index, follow'}`)
 
     //- Stylesheets
     link(rel='stylesheet', href='/dist/style.css')
@@ -22,7 +22,7 @@ html(lang='en')
     link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
 
 
-  body(class=(bodyClass || ''))
+  body(class=(bodyClass || '') data-spy='scroll', data-target='frontnav' )
     block header
       include frontend-partials/navbar
 
