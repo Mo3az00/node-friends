@@ -7,7 +7,10 @@ img {
   max-width: 100%; }
 
 body {
-  background-color: #303030;
+  background-color: white;
+  background: linear-gradient(139deg, #0d795d, #005792);
+  background-size: 400% 400%;
+  animation: bg 12s ease infinite;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
@@ -15,7 +18,14 @@ body {
   margin: 0;
   padding: 0;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; }
+  -webkit-text-size-adjust: 100%;
+}
+
+@keyframes bg { 
+  0%{background-position:4% 0%}
+  50%{background-position:60% 60%}
+  100%{background-position:4% 0%}
+}
 
 table {
   border-collapse: separate;
@@ -25,14 +35,28 @@ table {
   table td {
     font-family: sans-serif;
     font-size: 14px;
-    vertical-align: top; }
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%; }
+  
+  table {
+    border-collapse: separate;
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+    width: 100%; }
+    table td {
+      font-family: sans-serif;
+      font-size: 14px;
+      vertical-align: top; }
+  
+  /* -------------------------------------
+      BODY & CONTAINER
+  ------------------------------------- */
 
-/* -------------------------------------
-    BODY & CONTAINER
-------------------------------------- */
-
-.body {
-  width: 100%;
+  .body {
+    width: 100%;
   }
 
 /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
@@ -49,7 +73,7 @@ table {
   box-sizing: border-box;
   display: block;
   Margin: 0 auto;
-  max-width: 580px;
+  max-width: 750px;
   padding: 10px; }
 
 /* -------------------------------------
@@ -57,12 +81,11 @@ table {
 ------------------------------------- */
 .main {
   background: #fff;
-  border-top:20px solid #3D9970;
   width: 100%; }
 
 .wrapper {
   box-sizing: border-box;
-  padding: 20px; }
+  padding: 30px; }
 
 .footer {
   clear: both;
