@@ -49,8 +49,12 @@ block content
 				input#website.form-control(method='POST',type='text', name='website', value=(profile.website || ''))
 
 			.form-group
+				label(for='phone') Phone Number
+				input#phone.form-control(method='POST',type='text', name='phone', value=(profile.phone || ''))
+
+			.form-group
 				label(for='bio') Biography
-				textarea#exampleFormControlTextarea1.form-control(name='bio', rows='6')=(profile.bio || '')
+				textarea#bio.form-control(name='bio', rows='6')=(profile.bio || '')
 
 			.form-group
 				button.btn.btn-success.btn-block(type='submit') Update Profile
