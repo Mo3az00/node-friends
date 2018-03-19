@@ -28,6 +28,10 @@ app.use(helmet())
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
+// serves up static files from the public folder. Anything in public/ will just be served up as the file it is
+app.use(express.static(path.join(__dirname, 'public')))
+app.use('/.well-known', express.static(path.join(__dirname, '.well-known'), {}))
+
 // sessions allow us to store data on visitors from request to request
 // this can keep users logged in and allows us to send flash messages
 app.use('/admin', session({
@@ -64,10 +68,6 @@ app.use((req, res, next) => {
   req.login = promisify(req.login, req);
   next();
 });
-
-// serves up static files from the public folder. Anything in public/ will just be served up as the file it is
-app.use(express.static(path.join(__dirname, 'public')))
-app.use('/.well-known', express.static(path.join(__dirname, '.well-known'), {}))
 
 // takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());

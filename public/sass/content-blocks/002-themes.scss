@@ -1,0 +1,46 @@
+#themes {
+  >.row {
+    margin-top: 1rem;
+
+    @include media-breakpoint-up(md) {
+      margin: 1rem auto 2rem auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin: 5rem auto 2rem auto;
+    }
+  }
+
+  .card {
+    padding: 0.5rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 10px rgb(91, 92, 92);
+
+    @include media-breakpoint-down(md) {
+      margin: 1.3rem auto;
+    }
+
+      h5 {
+        color: black;
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+  
+      p {
+        color: grey;
+        padding: 0;
+      }
+
+      .theme-title {
+        padding-left: .75rem;
+      }
+
+    &:hover {
+      box-shadow: 0 0 10px $primary;
+      
+      h5 {
+        color: $primary;
+      }
+    }
+  }
+}

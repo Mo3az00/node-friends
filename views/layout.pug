@@ -16,7 +16,7 @@ html(lang='en')
     meta(name="robots", content=`${robots || 'index, follow'}`)
 
     //- Stylesheets
-    link(rel='stylesheet', href='/dist/style.css')
+    link(rel='stylesheet', href='/dist/index.css')
 
     //- Google fonts
     link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
@@ -44,5 +44,7 @@ html(lang='en')
     block footer
       include frontend-partials/footer
 
+    script(src="/dist/index.bundle.js")
+
     block scripts
-      script(src="/dist/app.bundle.js")
+      // placeholder for additional scripts on other pages

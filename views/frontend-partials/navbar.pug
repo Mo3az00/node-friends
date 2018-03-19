@@ -1,12 +1,12 @@
-nav.navbar.navbar-expand-lg.navbar-light.fixed-top#frontnav
+nav#nav-main.navbar.navbar-expand-lg.navbar-light.fixed-top
   .container
     a.navbar-brand(href="/")
-      img#logo-image-white(src=`/images/node-friends-logo-white.png`)
-      img#logo-image-green.hidden(src=`/images/node-friends-logo.png`)
-    button.navbar-toggler(type="button" data-toggle="collapse" data-target="#frontnavlinks"  aria-expanded="false" aria-label="Toggle navigation")
+      img#logo-image-white(src=`/images/node-friends-logo-white.png` alt="Node Friends")
+      img#logo-image-green.hidden(src=`/images/node-friends-logo.png` alt="Node Friends")
+    button.navbar-toggler(type="button" data-toggle="collapse" data-target="#nav-main-content"  aria-expanded="false" aria-label="Toggle navigation")
       span.navbar-toggler-icon
     
-    .collapse.navbar-collapse#frontnavlinks
+    .collapse.navbar-collapse#nav-main-content
       ul.navbar-nav.ml-auto
         each item in helpers.navigationMain
           li.nav-item

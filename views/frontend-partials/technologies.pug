@@ -5,6 +5,6 @@
       .row.justify-content-center
         each technology in technologies
           .card.col-6.col-lg-3
-            img.img-fluid.rounded(src=`/uploads/homepage-technologies/${technology.image}`)
+            img.img-fluid.rounded(src=`/uploads/homepage-technologies/${technology.image}` alt="")
             h5= technology.title
             p= technology.description

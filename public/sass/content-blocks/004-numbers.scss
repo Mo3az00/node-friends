@@ -1,0 +1,28 @@
+#numbers {
+  background-image: url('/images/bg-numbers.jpg');
+  background-repeat: repeat;
+  height: 200px;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-up(md) {
+    height: 180px;
+  }
+
+  .row { 
+    h4, h6 {
+      font-weight: 900;
+    }
+  
+    h6 {
+      color: $primary;
+    }
+
+    .number {
+      margin-bottom: 0.75rem;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

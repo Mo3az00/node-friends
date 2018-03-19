@@ -45,7 +45,7 @@ exports.sendMail = async (request, response) => {
       message: request.body.message
     });
   } catch (error) {
-    return response.json({
+    return response.status(500).json({
       code: 500,
       error: error.message,
       message: 'Something went wrong sending the email. Please try again later.'

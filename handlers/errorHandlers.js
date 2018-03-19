@@ -20,7 +20,10 @@ exports.catchErrors = (fn) => {
 exports.notFound = (req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
-  res.render('404', { bodyClass: 'scrolled' });
+  res.render('404', {
+    title: 'Error 404',
+    bodyClass: 'scrolled'
+  });
 };
 
 /*

@@ -12,20 +12,19 @@ html.admin(lang='en')
     meta(name="viewport", content="width=device-width, initial-scale=1")
 
     //- // Search Engine Optimization
-    meta(name="description", content=`${description  || 'An admin panel for the students and teacher of FBW-V'}`)
+    meta(name="description", content=`${description  || 'An admin panel for the students and teachers of the course.'}`)
     meta(name="robots", content="noindex,nofollow")
 
     //- // Stylesheets
-    link(rel='stylesheet', href='/dist/style.css')
+    link(rel='stylesheet', href='/dist/admin.css')
 
     //- //Google Fonts
     link(href='https://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet')
-    link(href="https://fonts.googleapis.com/css?family=Indie+Flower" rel='stylesheet')
 
   body(class=(bodyClass || ''))
     nav.navbar.navbar-expand-lg
       a.navbar-brand(href='/admin')
-        img(src="/images/node-friends-logo-white.png", height="35")
+        img(src="/images/node-friends-logo-white.png", height="35", alt="Node Friends")
       .navbar.navbar-nav.ml-auto
         if user
           .user-dropdown.dropdown
@@ -69,4 +68,7 @@ html.admin(lang='en')
                         span(aria-hidden="true") | &times;
           block content
 
-    script(src="/dist/app.bundle.js")
+    script(src="/dist/admin.bundle.js")
+
+    block scripts
+      // placeholder for additional scripts per page

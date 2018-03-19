@@ -1,4 +1,5 @@
 import { duration } from "moment";
+import 'fullcalendar'
 
 function calendarFunction () {
   $('.calendar').fullCalendar({
@@ -33,9 +34,7 @@ function calendarFunction () {
       }
     },
     eventClick: function(event, element) {
-      console.log(event)
-      // event.title = "CLICKED!";
-      // $('.calendar').fullCalendar('updateEvent', event);
+      // console.log(event)
     },
   })
 }

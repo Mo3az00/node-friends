@@ -2,8 +2,10 @@
   h2.dash Contact
   
   #contact-success.alert.alert-success.hidden
-    | Your message was send. We'll get back to you as soon as possible.
-    br
+    p
+      strong Thanks for your message!
+      
+    p We'll get back to you as soon as possible.
   
   #contact-error.alert.alert-danger.hidden
 
@@ -11,14 +13,18 @@
     #contact
       .row
         .col-12.col-lg-4
+          label.sr-only(for="name") Name
           input.form-control(type="text" id="name" name="name" placeholder="Name" required)
         .col-12.col-lg-4
+          label.sr-only(for="email") Email
           input.form-control(type="email" id="email" name="email" placeholder="Email" required)
         .col-12.col-lg-4
+          label.sr-only(for="subject") Subject
           input.form-control(type="text" id="subject" name="subject" placeholder="Subject" required)
       .row
         .col-12.col-md-12
-          textarea.form-control(name="message" id="message" rows="4" placeholder="Message" required)
+          label.sr-only(for="message") Name
+          textarea.form-control(name="message" id="message" rows="4" placeholder="Message" requireds)
       .row
         .col-12.text-center
           button.btn.btn-success(type="submit")

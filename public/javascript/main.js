@@ -1,18 +1,27 @@
+// node modules
+import 'bootstrap'
+
+// styles
+import '../sass/main.scss'
+
+// own modules
+import contactForm from './modules/contactForm'
+
 // Get the height of the navbar
 const navbarHeight = $('.navbar').outerHeight()
 
-// Navbar transparency + change logo
+// Navbar change on scroll
+if (!$('body').hasClass('profile')) {
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > window.innerHeight / 2) {
+      $('body').addClass('scrolled')
+    } else {
+      $('body').removeClass('scrolled')
+    }
+  });
+}
 
-window.addEventListener('scroll', function () {
-  if (window.scrollY > window.innerHeight / 2) {
-    $('body').addClass('scrolled')
-  } else {
-    $('body').removeClass('scrolled')
-  }
-});
-
-// Smooth Scroll 
-
+// Smooth Scrolling for links
 const $root = $('html, body');
 
 $('a[href^="#"]').click(function (e) {
@@ -37,12 +46,11 @@ $('a[href^="#"]').click(function (e) {
 });
 
 // Scroll spy
-
-const scrollspy = document.querySelector('#frontnav')
+const scrollspy = document.querySelector('#nav-main')
 
 if (scrollspy) {
   $('body').scrollspy({
-    target: '#frontnav',
+    target: '#nav-main',
     offset: navbarHeight + 11
   })
 
@@ -50,3 +58,6 @@ if (scrollspy) {
     $('nav-link').addClass('active')
   })
 }
+
+// Contact Form
+contactForm()
