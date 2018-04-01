@@ -1,7 +1,7 @@
 import datepicker from 'bootstrap-datepicker'
 import moment from 'moment'
 
-const init = function() {
+const init = function () {
   $('.datepicker').datepicker({
     daysOfWeekDisabled: [0, 7],
     format: 'mm/dd/yyyy',
@@ -11,7 +11,7 @@ const init = function() {
     todayHighlight: true
   })
 
-  $('.input-daterange').each(function() {
+  $('.input-daterange').each(function () {
     const range = $(this)
     const inputBegin = range.find('[name="date_begin"]')
     const inputEnd = range.find('[name="date_end"]')
@@ -21,13 +21,13 @@ const init = function() {
       startDate: moment().format('MM/DD/YYYY')
     })
 
-    inputBegin.datepicker().on('changeDate', function(e) {
+    inputBegin.datepicker().on('changeDate', function (e) {
       inputEnd.datepicker('setStartDate', e.date)
       inputEnd.datepicker('setDate', e.date)
       $(this).datepicker('hide')
       inputEnd.datepicker('show')
     })
-  });
+  })
 }
 
 export default init

@@ -23,26 +23,25 @@ function addToDo (todo) {
       elements.todoList.innerHTML += buildToDoListItem(response.data)
       registerListEvents()
       elements.input.value = ''
-
     })
     .catch((error) => {
       console.error(error)
     })
 }
 
-function loadToDoList() {
+function loadToDoList () {
   axios.get('/admin/todos')
-      .then(function (response) {
-          buildToDoList(response.data)
-          toggleLoading()
-      })
-      .catch(function (error) {
-          console.log(error.message)
-          toggleLoading()
-      })
+    .then(function (response) {
+      buildToDoList(response.data)
+      toggleLoading()
+    })
+    .catch(function (error) {
+      console.log(error.message)
+      toggleLoading()
+    })
 }
 
-function buildToDoListItem(todo) {
+function buildToDoListItem (todo) {
   return `
   <tr class="lists-container" data-id="${todo._id}">
     <td>
@@ -61,43 +60,42 @@ function buildToDoListItem(todo) {
   `
 }
 
-function buildToDoList(todos) {
+function buildToDoList (todos) {
   let markup = ''
 
   if (todos.length !== 0) {
-      markup = todos.map((todo) => {
-          return buildToDoListItem(todo)
-      }).join('')
+    markup = todos.map((todo) => {
+      return buildToDoListItem(todo)
+    }).join('')
   }
 
   elements.todoList.innerHTML = markup
   registerListEvents()
 }
 
-function removeItem(e) {
+function removeItem (e) {
   const toDoItem = this.closest('.lists-container')
   const toDoId = toDoItem.dataset.id
-  const confirmed = confirm('Really delete this entry?')
+  const confirmed = window.confirm('Really delete this entry?')
 
   if (confirmed) {
-      axios.get(`/admin/todos/${toDoId}/delete/`)
-          .then(function (response) {
-              elements.todoList.removeChild(toDoItem)
-          })
-          .catch(function (error) {
-              todoError(error.message)
-          })
+    axios.get(`/admin/todos/${toDoId}/delete/`)
+      .then(function (response) {
+        elements.todoList.removeChild(toDoItem)
+      })
+      .catch(function (error) {
+        todoError(error.message)
+      })
   }
 }
 
-function toggleDone(e) {
+function toggleDone (e) {
   const toDoId = this.closest('.lists-container').getAttribute('data-id')
   this.setAttribute('disabled', 'disabled')
 
   if (this.checked) {
     this.parentElement.querySelector('label').classList.add('done')
-  }
-  else {
+  } else {
     this.parentElement.querySelector('label').classList.remove('done')
   }
 
@@ -109,44 +107,44 @@ function toggleDone(e) {
     .then((response) => {
       this.removeAttribute('disabled')
     })
-    .catch((error) => {
+    .catch(() => {
       this.removeAttribute('disabled')
     })
 }
 
-function registerListEvents() {
-  elements.todoList.querySelectorAll('.lists-container .icon-remove').forEach(function(item) {
-      item.addEventListener('click', removeItem)
+function registerListEvents () {
+  elements.todoList.querySelectorAll('.lists-container .icon-remove').forEach(function (item) {
+    item.addEventListener('click', removeItem)
   })
 
-  elements.todoList.querySelectorAll('.lists-container .checkbox').forEach(function(item) {
+  elements.todoList.querySelectorAll('.lists-container .checkbox').forEach(function (item) {
     item.addEventListener('click', toggleDone)
   })
 }
 
-function removeListEvents() {
-  elements.todoList.querySelectorAll('.lists-container .icon-remove').forEach(function(item) {
-      item.removeEventListener('click', removeItem)
+function removeListEvents () {
+  elements.todoList.querySelectorAll('.lists-container .icon-remove').forEach(function (item) {
+    item.removeEventListener('click', removeItem)
   })
 }
 
-function toggleLoading() {
+function toggleLoading () {
   elements.loading.classList.toggle('hidden')
 }
 
-function todoError(message) {
+function todoError (message) {
   elements.error.innerHTML = message
   elements.error.classList.remove('hidden')
 }
 
-function getElements() {
+function getElements () {
   elements.loading = document.querySelector('#todo-list-loading')
   elements.form = document.querySelector('#todo-form')
   elements.error = document.querySelector('#todo-list-error')
   elements.input = elements.form.querySelector('input')
 }
 
-function initToDoList() {
+function initToDoList () {
   if (!elements.todoList) {
     return false
   }
@@ -154,12 +152,12 @@ function initToDoList() {
   getElements()
   loadToDoList()
 
-  elements.form.addEventListener('submit', function(e) {
+  elements.form.addEventListener('submit', function (e) {
     e.preventDefault()
 
     addToDo({
       'item': elements.input.value.trim(),
-      'done': false,
+      'done': false
     })
   })
 }

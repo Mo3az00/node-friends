@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
 mongoose.Promise = global.Promise
 
 const homepageTechSchema = new mongoose.Schema({
@@ -19,7 +18,7 @@ const homepageTechSchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true,
-    required: 'You must supply a description',
+    required: 'You must supply a description'
   },
   order: {
     type: Number,

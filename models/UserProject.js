@@ -16,18 +16,18 @@ const userProjectSchema = new mongoose.Schema({
     required: 'Please upload an image',
     trim: true
   },
-  link:{
+  link: {
     type: String,
     required: 'Please enter a link',
-    trim: true,
+    trim: true
   },
   description: {
     type: String,
     trim: true,
-    required: 'You must supply a description',
+    required: 'You must supply a description'
   },
   order: {
-    type: Number,
+    type: Number
   }
 })
 

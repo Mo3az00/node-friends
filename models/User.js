@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
+
 const validator = require('validator')
 const mongodbErrorHandler = require('mongoose-mongodb-errors')
 const passportLocalMongoose = require('passport-local-mongoose')
@@ -34,7 +36,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
     validate: {
       validator: function (v) {
-        return /^[0-9\- +\(\)\/]{10,30}+$/.test(v)
+        return /^[0-9\- +()/]{10,30}$/.test(v)
       },
       message: 'Please supply a valid phone number!'
     }
@@ -42,7 +44,7 @@ const userSchema = new mongoose.Schema({
   website: {
     type: String,
     trim: true,
-    validate: [validator.isURL, 'Please supply a valid URL for your website!'],
+    validate: [validator.isURL, 'Please supply a valid URL for your website!']
   },
   avatar: String,
   photo: String,

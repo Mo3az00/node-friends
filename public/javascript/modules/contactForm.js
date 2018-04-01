@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function contactForm() {
+function contactForm () {
   $('#contact-form').submit(function (e) {
     e.preventDefault()
     const name = this.querySelector('#name').value
@@ -9,14 +9,14 @@ function contactForm() {
     const message = this.querySelector('#message').value
     const formSuccess = document.querySelector('#contact-success')
     const formError = document.querySelector('#contact-error')
-    
+
     const data = {
       name,
       email,
       subject,
       message
     }
-  
+
     toggleLoading()
     clearErrors()
 
@@ -45,7 +45,7 @@ function contactForm() {
   })
 }
 
-const toggleLoading = function() {
+const toggleLoading = function () {
   const button = document.querySelector('#contact-form button')
   const icon = button.querySelector('i')
 
@@ -53,18 +53,18 @@ const toggleLoading = function() {
     icon.classList.remove('fa-paper-plane-o')
     icon.classList.add('fa-spinner')
     icon.classList.add('fa-spin')
-    
+
     button.setAttribute('disabled', 'disabled')
   } else {
     icon.classList.remove('fa-spinner')
     icon.classList.remove('fa-spin')
     icon.classList.add('fa-paper-plane-o')
-    
+
     button.removeAttribute('disabled')
   }
 }
 
-const formErrors = function(errors) {
+const formErrors = function (errors) {
   for (let fieldName in errors) {
     const error = errors[fieldName]
     const field = $(`#${fieldName}`)
@@ -74,7 +74,7 @@ const formErrors = function(errors) {
   }
 }
 
-const clearErrors = function() {
+const clearErrors = function () {
   const form = $('#contact-form')
   form.find('.is-invalid').removeClass('is-invalid')
   form.find('.invalid-feedback').remove()

@@ -1,4 +1,3 @@
-import { duration } from "moment";
 import 'fullcalendar'
 
 function calendarFunction () {
@@ -18,24 +17,24 @@ function calendarFunction () {
     },
     navLinks: true,
     weekends: true,
-    minTime: "09:00:00",
-    maxTime: "16:15:00",
+    minTime: '09:00:00',
+    maxTime: '16:15:00',
     eventBackgroundColor: '#D0E0E3',
-    eventRender: function(event, element) {
+    eventRender: function (event, element) {
       if (event.description) {
         element
-        .attr('data-toggle', 'tooltip')
-        .attr('data-placement', 'top')
-        .attr('data-html', 'true')
-        .attr('data-container', 'body')
-        .attr('data-boundary', 'viewport')
-        .attr('data-title', event.description)
-        .tooltip()
+          .attr('data-toggle', 'tooltip')
+          .attr('data-placement', 'top')
+          .attr('data-html', 'true')
+          .attr('data-container', 'body')
+          .attr('data-boundary', 'viewport')
+          .attr('data-title', event.description)
+          .tooltip()
       }
     },
-    eventClick: function(event, element) {
+    eventClick: function (event, element) {
       // console.log(event)
-    },
+    }
   })
 }
 export default calendarFunction

@@ -2,9 +2,8 @@ const mongoose = require('mongoose')
 const User = mongoose.model('User')
 const multer = require('multer')
 const jimp = require('jimp')
-const uuid = require('uuid')
 
-// Edit profile form
+// Display the form for editing the profile of the logged-in user
 exports.profileForm = async (request, response) => {
   let profile = await User.findOne({ _id: request.user._id })
 
@@ -14,10 +13,11 @@ exports.profileForm = async (request, response) => {
   })
 }
 
-// Image upload
+// Handle the image upload and filter by type
 exports.uploadImages = multer({
   storage: multer.memoryStorage(),
-  fileFilter(req, file, next) {
+
+  fileFilter (req, file, next) {
     if (file.mimetype.startsWith('image/')) {
       next(null, true)
     } else {
@@ -30,13 +30,13 @@ exports.uploadImages = multer({
     { name: 'photo', maxCount: 1 }
   ])
 
+// Resize the images with different thumbnail sizes
 exports.resizeImages = async (request, response, next) => {
   if (Object.keys(request.files).length === 0) {
-    next()
-    return
+    return next()
   }
 
-  for (name in request.files) {
+  for (let name in request.files) {
     const file = request.files[name][0]
     const extension = file.mimetype.split('/')[1]
     request.body[file.fieldname] = `${request.user._id}.${extension}`
@@ -58,17 +58,16 @@ exports.resizeImages = async (request, response, next) => {
   next()
 }
 
-// Update profile
+// Validate profile data and save
 exports.updateProfile = async (request, response) => {
-  const profile = await User.findOneAndUpdate(
+  await User.findOneAndUpdate(
     { _id: request.user._id },
     request.body,
     {
       new: true,
       runValidators: true
     }
-  )
-    .exec()
+  ).exec()
 
   request.flash('success', `Successfully updated your profile.`)
   response.redirect('/admin/profile/edit')

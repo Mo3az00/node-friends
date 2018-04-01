@@ -39,9 +39,7 @@ exports.navigationMain = [
   }
 ]
 
-/*
- * DASHBOARD
- */
+// Admin navigation (currently does not support sub-levels)
 exports.adminSidebarNavigation = (user) => {
   if (!user) {
     return [
@@ -61,7 +59,7 @@ exports.adminSidebarNavigation = (user) => {
     },
     {
       href: null
-    },  
+    },
     {
       href: '/admin/students',
       icon: 'users',
@@ -81,24 +79,19 @@ exports.adminSidebarNavigation = (user) => {
       href: '/admin/projects',
       icon: 'code',
       title: 'Projects'
-    },
+    }
   ]
 
   if (user.role === 'teacher') {
     navigation = navigation.concat([
       {
         href: null
-      },  
+      },
       {
         href: '/admin/homepage-technologies',
         icon: 'code',
         title: 'Homepage Tech'
-      },
-      // {
-      //   href: '#',
-      //   icon: 'cog',
-      //   title: 'Settings'
-      // },
+      }
     ])
   }
 

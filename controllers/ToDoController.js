@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
 const ToDo = mongoose.model('ToDo')
 
-// Return the list of all todo items
+// Return all todo items
 exports.getToDoList = async (request, response) => {
   const todos = await ToDo.find({ user: request.user._id }).sort('order')
-
   response.json(todos)
 }
 
-// Store a new todo item and redirect
+// Store a new todo item
 exports.createToDo = async (request, response) => {
   request.body.user = request.user._id
   request.body.order = 0
@@ -26,10 +25,7 @@ exports.updateDone = async (request, response) => {
   todo.done = request.body.done
   todo.save()
 
-  return response.json({
-    code: 200,
-    message: 'OK'
-  })
+  return response.json(todo)
 }
 
 exports.updateOrder = async (request, response) => {
@@ -50,7 +46,7 @@ exports.updateOrder = async (request, response) => {
 
   const updates = []
 
-  for (id in oldOrders) {
+  for (let id in oldOrders) {
     if (oldOrders[id] !== newOrder[id]) {
       updates.push({
         id,
@@ -62,7 +58,6 @@ exports.updateOrder = async (request, response) => {
   const updatePromises = []
 
   updates.forEach((item) => {
-    // update in the database
     updatePromises.push(
       ToDo.update({ _id: item.id }, { order: item.order })
     )
@@ -86,9 +81,5 @@ exports.updateOrder = async (request, response) => {
 // Delete a todo item and redirect
 exports.deleteToDo = async (request, response) => {
   const todo = await ToDo.findOneAndRemove({ _id: request.params.id })
-
-  response.json({
-    'message': 'Successfully deleted the ToDo.'
-  })
+  response.json(todo)
 }
-

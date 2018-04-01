@@ -1,23 +1,22 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
+
 const UserTechFavorite = mongoose.model('UserTechFavorite')
 
-// Displaying the list of the user's favorite technologies
-
+// Display the list of all favorite technologies a user has
 exports.list = async (request, response) => {
   const techFavorites = await UserTechFavorite.find({ user: request.user._id }).sort({ order: 1 })
 
   response.render(
-    'admin/favorite-tech/techList', 
-    { 
+    'admin/favorite-tech/techList',
+    {
       title: 'Favorite Technologies',
       techFavorites
     }
   )
 }
 
-// Displaying a form for adding a new favorite technologies
-
+// Display the form to add a new favorite technology
 exports.addForm = (request, response) => {
   response.render(
     'admin/favorite-tech/techForm',
@@ -28,17 +27,7 @@ exports.addForm = (request, response) => {
   )
 }
 
-// Deleting a favorite
-exports.deleteTechFavorite = async (request, response) => {
-  const techFavorite = await UserTechFavorite.findOne({'_id': request.params.id})
-  request.flash('success', `Successfully deleted <strong>${techFavorite.title}</strong>` )
-  
-  await techFavorite.remove()
-  return response.redirect('/admin/tech-favorites')
-}
-
-// Validate data and save favorite technology, if okay
-
+// Validate data and save a new favorite technology
 exports.createFavorite = async (request, response) => {
   request.body.user = request.user._id
   const max = await UserTechFavorite.findOne().sort({ order: -1 }).limit(1)
@@ -49,23 +38,22 @@ exports.createFavorite = async (request, response) => {
   }
 
   request.body.order = order
-  const techFavorite = await (new UserTechFavorite(request.body)).save()
+  await (new UserTechFavorite(request.body)).save()
+
   request.flash('success', `Successfully added favorite technology: ${request.body.title}`)
-  response.redirect('/admin/tech-favorites')
-  return
+  return response.redirect('/admin/tech-favorites')
 }
 
-// Display the form for editing a favorite technology by ID
-
+// Verify the ownership of a favorite a user wants to edit
 const confirmOwner = (techFavorite, user) => {
   if (!techFavorite.user.equals(user._id)) {
     throw Error('You must own a tech favorite in order to edit it!')
   }
 }
 
+// Display the form to edit a favorite technology
 exports.editForm = async (request, response) => {
   const techFavorite = await UserTechFavorite.findOne({ _id: request.params.id })
- 
   confirmOwner(techFavorite, request.user)
 
   response.render(
@@ -76,30 +64,30 @@ exports.editForm = async (request, response) => {
   )
 }
 
-// Validating data and updating the profile, if okay
-
+// Validate form data and update a favorite technology
 exports.updateFavorite = async (request, response) => {
-    request.body.user = request.user._id
-    
-    const techFavorite = await UserTechFavorite.findOneAndUpdate(
-      { _id: request.params.id },
-      request.body,
-      {
-        new: true,
-        runValidators: true
-      }
-    ).exec()
+  request.body.user = request.user._id
 
-    request.flash('success', `Successfully updated <strong>${techFavorite.title}</strong>`)
-    response.redirect(`/admin/tech-favorites`)
+  const techFavorite = await UserTechFavorite.findOneAndUpdate(
+    { _id: request.params.id },
+    request.body,
+    {
+      new: true,
+      runValidators: true
+    }
+  ).exec()
+
+  request.flash('success', `Successfully updated <strong>${techFavorite.title}</strong>`)
+  response.redirect(`/admin/tech-favorites`)
 }
 
+// Update the order of favorite technologies
 exports.updateSortOrder = async (request, response) => {
   // Converting the new order to comparable format with the ID as property name
   const newOrder = {}
 
   request.body.order.forEach((id, order) => {
-      newOrder[id] = order
+    newOrder[id] = order
   })
 
   // Get all favorites and their positions and build comparable object, too
@@ -107,28 +95,28 @@ exports.updateSortOrder = async (request, response) => {
   const oldOrders = {}
 
   getOldOrder.forEach((favorite) => {
-      oldOrders[favorite._id.toString()] = favorite.order
+    oldOrders[favorite._id.toString()] = favorite.order
   })
 
   // Check which order values are changed, after sorting and only update those entries
   const updates = []
 
-  for (id in oldOrders) {
-      if (oldOrders[id] !== newOrder[id]) {
-          updates.push({
-              id,
-              order: newOrder[id]
-          })
-      }
+  for (let id in oldOrders) {
+    if (oldOrders[id] !== newOrder[id]) {
+      updates.push({
+        id,
+        order: newOrder[id]
+      })
+    }
   }
 
   const updatePromises = []
 
   updates.forEach((item) => {
-      // update in the database
-      updatePromises.push(
-          UserTechFavorite.update({_id: item.id}, {order: item.order})
-      )
+    // update in the database
+    updatePromises.push(
+      UserTechFavorite.update({_id: item.id}, {order: item.order})
+    )
   })
 
   Promise.all(updatePromises)
@@ -144,4 +132,13 @@ exports.updateSortOrder = async (request, response) => {
         error: error.response
       })
     })
+}
+
+// Delete a favorite technology
+exports.deleteTechFavorite = async (request, response) => {
+  const techFavorite = await UserTechFavorite.findOne({'_id': request.params.id})
+  await techFavorite.remove()
+
+  request.flash('success', `Successfully deleted <strong>${techFavorite.title}</strong>`)
+  return response.redirect('/admin/tech-favorites')
 }

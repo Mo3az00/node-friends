@@ -1,8 +1,8 @@
 import Sortable from 'sortablejs'
 import axios from 'axios'
 
-function sortable() {
-  $('.table-sortable').each(function() {
+function sortable () {
+  $('.table-sortable').each(function () {
     const table = $(this)
     const url = table.data('sortable-url') || null
     const group = table.data('sortable-group') || 'default'
@@ -22,7 +22,7 @@ function sortable() {
         set: function (sortable) {
           var order = sortable.toArray()
           sortable.option('disabled', true)
-  
+
           axios
             .post(url, {
               order
@@ -36,7 +36,7 @@ function sortable() {
             })
         }
       }
-    });
+    })
   })
 }
 

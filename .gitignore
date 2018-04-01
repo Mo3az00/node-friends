@@ -4,5 +4,4 @@
 .vscode
 public/dist
 node_modules
-variables.env
-variables.env.sample
+.env

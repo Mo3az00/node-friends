@@ -3,6 +3,7 @@ const User = mongoose.model('User')
 const UserProject = mongoose.model('UserProject')
 const UserTechFavorite = mongoose.model('UserTechFavorite')
 
+// Show a user profile (student or teacher)
 exports.show = async (request, response) => {
   const profile = await User.findOne({ slug: request.params.slug })
 
@@ -13,10 +14,16 @@ exports.show = async (request, response) => {
   const projects = await UserProject.find({ user: profile._id })
   const technologies = await UserTechFavorite.find({ user: profile._id })
 
-  let description = `Hello, I'm ${profile.first_name}, a student at the Digital Career Institute in Berlin. I'm available for hire, if you're looking for a motivated Junior Web Developer!`;
+  let description = `Hello, I'm ${profile.first_name}, from the Digital Career Institute in Berlin.`
 
-  if (profile.role !== 'student') {
-    description = `Hello, I'm ${profile.first_name}, a teacher at the Digital Career Institute in Berlin. I'm teaching motivated students to become web developers.`;
+  switch (profile.role) {
+    case 'student':
+      description = `Hello, I'm ${profile.first_name}, a student at the Digital Career Institute in Berlin. I'm available for hire, if you're looking for a motivated Junior Web Developer!`
+      break
+
+    case 'teacher':
+      description = `Hello, I'm ${profile.first_name}, a teacher at the Digital Career Institute in Berlin. I'm teaching motivated students to become web developers.`
+      break
   }
 
   response.render('profile', {

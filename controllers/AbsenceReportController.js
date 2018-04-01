@@ -2,16 +2,15 @@ const mongoose = require('mongoose')
 const AbsenceReport = mongoose.model('AbsenceReport')
 const mail = require('../handlers/mail')
 const multer = require('multer')
-const jimp = require('jimp')
 const uuid = require('uuid')
 const moment = require('moment')
 const fs = require('fs')
 
-// Display the list of the reports
+// Display the list of reports
 exports.list = async (request, response) => {
   let query = {}
 
-  if (request.user.role === 'student')  {
+  if (request.user.role === 'student') {
     query = {
       user: request.user._id
     }
@@ -25,7 +24,7 @@ exports.list = async (request, response) => {
     title: 'Absence Reports',
     reports
   })
- }
+}
 
 // Display the form to add a report
 exports.reportForm = async (request, response) => {
@@ -34,44 +33,44 @@ exports.reportForm = async (request, response) => {
   })
 }
 
-// Uploading attachment and filtering by type
+// Storage settings for attachments
 const storage = multer.diskStorage({
-  destination: function(request, file, next) {
+  destination: function (request, file, next) {
     next(null, './temp')
   },
-  filename: function(request, file, next) {
+  filename: function (request, file, next) {
     next(null, uuid(4))
   }
 })
 
+// Upload of an optional attachment, filtering by type
 exports.upload = multer({
   storage,
   limits: {
-    fileSize: 10000000, // 10 MB
+    fileSize: 10000000 // 10 MB
   },
-  fileFilter(request, file, next) {
-    if(file.mimetype.startsWith('image/') || file.mimetype.search('pdf') !== -1) {
+  fileFilter (request, file, next) {
+    if (file.mimetype.startsWith('image/') || file.mimetype.search('pdf') !== -1) {
       next(null, true)
     } else {
-      next({code: 'FILETYPE_NOT_ALLOWED', message: 'That filetype is not allowed!'}, false)
+      next({ code: 'FILETYPE_NOT_ALLOWED', message: 'That filetype is not allowed!' }, false)
     }
   }
-})
-.single('attachment')
+}).single('attachment')
 
 // Upload error handling
-exports.uploadError = function(error, request, response, next) {
+exports.uploadError = function (error, request, response, next) {
   if (error) {
     let message = 'Error during file upload. Please try again later.'
 
     switch (error.code) {
       case 'LIMIT_FILE_SIZE':
         message = 'The file is too large. Max. 10 MB allowed!'
-        break;
+        break
 
       case 'FILETYPE_NOT_ALLOWED':
         message = 'The file type is not allowed. Only images and PDF!'
-        break;
+        break
     }
 
     request.flash('danger', message)
@@ -82,7 +81,7 @@ exports.uploadError = function(error, request, response, next) {
 }
 
 // Successfull upload handling and file movement
-exports.uploadSuccess = function(request, response, next) {
+exports.uploadSuccess = function (request, response, next) {
   if (!request.file) {
     return next()
   }
@@ -102,25 +101,31 @@ exports.uploadSuccess = function(request, response, next) {
   } catch (error) {
     return next(new Error('The file upload failed!'))
   }
-  
+
   next()
 }
 
-// Validate data and save the report
+// Validate data and save report
 exports.createReport = async (request, response, next) => {
-  request.body.user = request.user._id;
+  if (!process.env.ABSENCE_REPORT_MAIL_TO) {
+    request.flash('danger', 'Missing absence report configuration in .env file.')
+    return response.redirect('back')
+  }
 
-  const report = await (new AbsenceReport(request.body)).save();
+  const recipients = process.env.ABSENCE_REPORT_MAIL_TO.split(',')
 
-  if(!report){
-    request.flash('danger', `The report could not be saved. Please try again later.`);
-    return response.redirect(`/admin/absence-reports/add`);
+  request.body.user = request.user._id
+  const report = await (new AbsenceReport(request.body)).save()
+
+  if (!report) {
+    request.flash('danger', `The report could not be saved. Please try again later.`)
+    return response.redirect(`/admin/absence-reports/add`)
   }
 
   try {
     const dateNow = moment().format('YYYY-MM-DD HH:mm')
     let attachmentUrl = null
-    
+
     if (report.attachment) {
       attachmentUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}/uploads/absence-reports/${report.attachment.filename}`
     }
@@ -128,23 +133,18 @@ exports.createReport = async (request, response, next) => {
     await mail.send({
       filename: 'absence-report',
       subject: `Absence Report of ${request.user.first_name} ${request.user.last_name} - ${dateNow}`,
-      to: [
-        'dominik.hanke@devugees.org',
-        'carl.neuberger@devugees.org'
-      ],
+      to: recipients,
       report,
       attachmentUrl,
       user: request.user,
       moment
-    });
+    })
   } catch (error) {
     report.remove()
     request.flash('danger', 'The report could not be send. Please try again later.')
     return response.redirect('back')
   }
 
-  request.flash('success', `Successfully send your report.`);
-  return response.redirect(`/admin/absence-reports/`);
+  request.flash('success', `Successfully send your report.`)
+  return response.redirect(`/admin/absence-reports/`)
 }
-
-

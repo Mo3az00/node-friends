@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
 
 const AbsenceReportSchema = new mongoose.Schema({
   user: {
@@ -7,12 +8,12 @@ const AbsenceReportSchema = new mongoose.Schema({
     required: 'You must supply a user!'
   },
   date_begin: {
-      type: Date,
-      require: 'You must supply a date of the end.'
+    type: Date,
+    require: 'You must supply a date of the end.'
   },
   date_end: {
-      type: Date,
-      require: 'You must supply a date of the begin.'
+    type: Date,
+    require: 'You must supply a date of the begin.'
   },
   date_created: {
     type: Date,

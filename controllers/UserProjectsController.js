@@ -1,50 +1,50 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
+
 const UserProject = mongoose.model('UserProject')
 const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
 const fs = require('fs')
 
-// uploading images and resizing
+// Storage settings for project images
 const storage = multer.diskStorage({
-  destination: function(request, file, next) {
+  destination: function (request, file, next) {
     next(null, './temp')
   },
-  filename: function(request, file, next) {
+  filename: function (request, file, next) {
     next(null, uuid(4))
   }
 })
 
+// Handle image uploads and filter by type
 exports.upload = multer({
   storage,
   limits: {
-    fileSize: 10000000, // 10 MB
+    fileSize: 10000000 // 10 MB
   },
-  fileFilter(request, file, next) {
-    const isImage = file.mimetype.startsWith('image/')
-    if(isImage) {
+  fileFilter (request, file, next) {
+    if (file.mimetype.startsWith('image/')) {
       next(null, true)
     } else {
-      next({ message: 'That filetype is not allowed!'}, false)
+      next({message: 'That filetype is not allowed!'}, false)
     }
   }
-})
-.single('image')
+}).single('image')
 
-// Upload error handling
-exports.uploadError = function(error, request, response, next) {
+// Handle upload errors
+exports.uploadError = function (error, request, response, next) {
   if (error) {
     let message = 'Error during file upload. Please try again later.'
 
     switch (error.code) {
       case 'LIMIT_FILE_SIZE':
         message = 'The file is too large. Max. 10 MB allowed!'
-        break;
+        break
 
       case 'FILETYPE_NOT_ALLOWED':
         message = 'The file type is not allowed. Only file types "JPEG, PNG, GIF" allowed!'
-        break;
+        break
     }
 
     request.flash('danger', message)
@@ -54,7 +54,7 @@ exports.uploadError = function(error, request, response, next) {
   next()
 }
 
-// resize an image
+// Resize the project image
 exports.resize = async (request, response, next) => {
   if (!request.file) {
     next()
@@ -72,16 +72,17 @@ exports.resize = async (request, response, next) => {
   next()
 }
 
-// Display the list of the User's projects
+// Display the list of projects the logged-in user has
 exports.list = async (request, response) => {
   const projects = await UserProject.find({ user: request.user._id }).sort({ order: 1 })
+
   response.render('admin/projects/projectList', {
     title: 'Projects',
     projects
   })
 }
 
-// Display a form for adding a new project
+// Display the form to add a new project
 exports.projectForm = (request, response) => {
   response.render('admin/projects/projectForm', {
     title: 'Add Project',
@@ -89,26 +90,25 @@ exports.projectForm = (request, response) => {
   })
 }
 
-// Validate data and save project, if okay
+// Validate form data and save new project
 exports.createProject = async (request, response) => {
   request.body.user = request.user._id
-
   const project = await (new UserProject(request.body)).save()
+
   request.flash('success', `Successfully created "${project.title}"`)
   response.redirect('/admin/projects')
 }
 
-// Display form for editing a project
-
+// Verify the ownership for the project a user wants to access
 const confirmOwner = (project, user) => {
   if (!project.user.equals(user._id)) {
     throw Error('You must own a project in order to edit it!')
   }
 }
 
+// Display the form to edit a project
 exports.editForm = async (request, response) => {
   const project = await UserProject.findOne({ '_id': request.params.id })
-
   confirmOwner(project, request.user)
 
   response.render('admin/projects/projectForm', {
@@ -117,7 +117,7 @@ exports.editForm = async (request, response) => {
   })
 }
 
-// Validate data and updating the profile, if okay
+// Validate data and update a profile
 exports.updateProject = async (request, response) => {
   const project = await UserProject.findOneAndUpdate(
     { _id: request.params.id },
@@ -125,20 +125,19 @@ exports.updateProject = async (request, response) => {
     { new: true, runValidators: true }
   ).exec()
 
-  request.flash('success', `Successfully updated "${project.title}"` )
+  request.flash('success', `Successfully updated "${project.title}"`)
   return response.redirect('/admin/projects')
 }
 
-// deleting a project
+// Delete a project
 exports.deleteProject = async (request, response) => {
-  const project = await UserProject.findOne({'_id': request.params.id}).remove()
+  await UserProject.findOne({'_id': request.params.id}).remove()
 
-  request.flash('success', `Successfully deleted` )
+  request.flash('success', `Successfully deleted`)
   return response.redirect('/admin/projects')
 }
 
-
-// make it sortable
+// Update the order of projects
 exports.updateSortOrder = async (request, response) => {
   // Converting the new order to comparable format with the ID as property name
   const newOrder = {}
@@ -158,7 +157,7 @@ exports.updateSortOrder = async (request, response) => {
   // Check which order values are changed, after sorting and only update those entries
   const updates = []
 
-  for (id in oldOrders) {
+  for (let id in oldOrders) {
     if (oldOrders[id] !== newOrder[id]) {
       updates.push({
         id,

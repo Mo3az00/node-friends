@@ -24,11 +24,11 @@ const userTechSchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true,
-    required: 'You must supply a description',
+    required: 'You must supply a description'
   },
   order: {
     type: Number,
-    required: 'Please provide a number'
+    required: 'Please provide an order number'
   }
 })
 

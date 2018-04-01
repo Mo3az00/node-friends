@@ -1,19 +1,19 @@
 const path = require('path')
-const fs = require('fs')
-const https = require('https')
 const helmet = require('helmet')
 const express = require('express')
 const session = require('express-session')
-const passport = require('passport');
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
+const passport = require('passport')
+const mongoose = require('mongoose')
+const MongoStore = require('connect-mongo')(session)
 const flash = require('connect-flash')
 const bodyParser = require('body-parser')
 const promisify = require('es6-promisify')
-const routes = require('./routes/web')
 const helpers = require('./helpers')
 const errorHandlers = require('./handlers/errorHandlers')
 const AuthController = require('./controllers/AuthController')
+
+const webRoutes = require('./routes/web')
+const adminRoutes = require('./routes/admin')
 
 // require passport
 require('./handlers/passport')
@@ -28,11 +28,11 @@ app.use(helmet())
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
-// serves up static files from the public folder. Anything in public/ will just be served up as the file it is
+// serve static files from the public folder
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/.well-known', express.static(path.join(__dirname, '.well-known'), {}))
 
-// sessions allow us to store data on visitors from request to request
+// enable sessions allow to store data on visitors from request to request
 // this can keep users logged in and allows us to send flash messages
 app.use('/admin', session({
   secret: process.env.SESSION_SECRET || 'notaverysecuresecret',
@@ -40,20 +40,21 @@ app.use('/admin', session({
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
+}))
 
-// Passport JS is what we use to handle our logins
-app.use(passport.initialize());
-app.use(passport.session());
+// handle user authentication using Passport
+app.use(passport.initialize())
+app.use(passport.session())
 
-// the flash middleware let's us use req.flash('error', 'Message'), which will then pass that message to the next page the user requests
-app.use('/admin', flash());
+// the flash middleware let's us use req.flash('error', 'Message'),
+// which will then pass that message to the next page the user requests
+app.use('/admin', flash())
 
 // pass variables to use in all requests + templates
 app.use((request, response, next) => {
   response.locals.helpers = helpers
   response.locals.currentPath = request.path
-  response.locals.baseUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}` 
+  response.locals.baseUrl = `${request.secure ? 'https://' : 'http://'}${request.headers.host}`
   response.locals.user = request.user || null
   response.locals.demo = process.env.DEMO_MODE || false
 
@@ -65,30 +66,32 @@ app.use((request, response, next) => {
 
 // promisify some callback based APIs
 app.use((req, res, next) => {
-  req.login = promisify(req.login, req);
-  next();
-});
+  req.login = promisify(req.login, req)
+  next()
+})
 
-// takes the raw requests and turns them into usable properties on req.body
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// take the raw requests and turn them into usable properties on req.body
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// load our defined routes and check for logged-in users in the admin area
+app.use('/', webRoutes)
 
 app.use(/\/admin\/((?!login|password-forgot|password-reset).)+/, AuthController.isLoggedIn)
-app.use('/', routes)
+app.use('/admin', adminRoutes)
 
-// if above routes didnt work, we 404 them and forward to error handler
+// if above routes didn't work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound)
 
-// one of our error handlers will see if these errors are just validation errors
+// handle validation errors
 app.use(errorHandlers.flashValidationErrors)
 
-// otherwise this was a really bad error we didn't expect!
+// print a stacktrace for errors in development environments
 if (app.get('env') === 'development') {
-  /* Development Error Handler - Prints stack trace */
   app.use(errorHandlers.developmentErrors)
 }
 
-// production error handler
+// handle uncatched errors in production
 app.use(errorHandlers.productionErrors)
 
 // export the app, that gets started by start.js

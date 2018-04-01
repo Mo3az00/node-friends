@@ -1,7 +1,8 @@
-const { body, custom, validationResult } = require('express-validator/check');
+const { body, validationResult } = require('express-validator/check')
 const moment = require('moment')
 const mail = require('../handlers/mail')
 
+// Validation rules are applied before any other middleware
 exports.validationRules = [
   body(['name', 'email', 'subject', 'message'], 'Please fill this field.').isLength({ min: 1 }),
   body('email', 'Please supply a valid email address.').isEmail(),
@@ -18,9 +19,10 @@ exports.validationRules = [
   })
 ]
 
+// Handling validation errors
 exports.errorHandling = (request, response, next) => {
-  const errors = validationResult(request);
-  
+  const errors = validationResult(request)
+
   if (!errors.isEmpty()) {
     return response.status(422).json({
       code: 422,
@@ -32,6 +34,7 @@ exports.errorHandling = (request, response, next) => {
   next()
 }
 
+// Sending the form data, after successful validation
 exports.sendMail = async (request, response) => {
   try {
     const dateNow = moment().format('YYYY-MM-DD HH:mm')
@@ -43,7 +46,7 @@ exports.sendMail = async (request, response) => {
       name: request.body.name,
       email: request.body.email,
       message: request.body.message
-    });
+    })
   } catch (error) {
     return response.status(500).json({
       code: 500,

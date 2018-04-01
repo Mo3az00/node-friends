@@ -1,13 +1,13 @@
-MIT License
+All Rights Reserved
 
-Copyright (c) 2018 Dominik Hanke
+Copyright (c) 2018 Digital Career Institute
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any course of the Digital
+Career Institute, obtaining a copy of this software and associated documentation
+files (the "Software").
+
+The permission is only granted, if the design (pug + stylesheet files) is changed
+and not used as is. This is to prevent multiple websites with the exact same design.
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
