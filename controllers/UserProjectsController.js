@@ -134,7 +134,7 @@ exports.updateProject = async (request, response) => {
 // Delete a project
 exports.deleteProject = async (request, response) => {
   const project = await UserProject.findOne({'_id': request.params.id})
-  fs.unlink(`${imageUploadDir}${project.image}`)
+  fs.unlinkSync(`${imageUploadDir}${project.image}`)
   project.remove()
 
   request.flash('success', `Successfully deleted`)
