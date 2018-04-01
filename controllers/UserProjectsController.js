@@ -7,6 +7,8 @@ const jimp = require('jimp')
 const uuid = require('uuid')
 const fs = require('fs')
 
+const imageUploadDir = './public/uploads/projects/'
+
 // Storage settings for project images
 const storage = multer.diskStorage({
   destination: function (request, file, next) {
@@ -66,7 +68,7 @@ exports.resize = async (request, response, next) => {
 
   const image = await jimp.read(request.file.path)
   await image.cover(350, 180)
-  await image.write(`./public/uploads/projects/${request.body.image}`)
+  await image.write(`${imageUploadDir}${request.body.image}`)
   fs.unlinkSync(request.file.path)
 
   next()
@@ -131,7 +133,9 @@ exports.updateProject = async (request, response) => {
 
 // Delete a project
 exports.deleteProject = async (request, response) => {
-  await UserProject.findOne({'_id': request.params.id}).remove()
+  const project = await UserProject.findOne({'_id': request.params.id})
+  fs.unlink(`${imageUploadDir}${project.image}`)
+  project.remove()
 
   request.flash('success', `Successfully deleted`)
   return response.redirect('/admin/projects')

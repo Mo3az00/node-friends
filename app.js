@@ -77,7 +77,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // load our defined routes and check for logged-in users in the admin area
 app.use('/', webRoutes)
 
-app.use(/\/admin\/((?!login|password-forgot|password-reset).)*/, AuthController.isLoggedIn)
+app.use(/\/admin\/?((?!login|password-forgot|password-reset).)*/, AuthController.isLoggedIn)
 app.use('/admin', adminRoutes)
 
 // if above routes didn't work, we 404 them and forward to error handler

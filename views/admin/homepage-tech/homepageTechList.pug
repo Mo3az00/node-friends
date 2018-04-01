@@ -34,16 +34,17 @@ block content
               td= technology.title
               td= technology.description
               td.actions
-                a(href=`/admin/homepage-technologies/${technology._id}/edit` 
-                  class="btn btn-outline-primary" 
-                  role="button")
-                  i.fa.fa-cog 
-                  |  Edit
-                | &nbsp;
-                a(href=`/admin/homepage-technologies/${technology._id}/delete` 
-                  class="btn btn-outline-primary"
-                  role="button"
-                  onclick="return confirm('Are you sure you want delete this technology?')"
-                  )
-                  i.fa.fa-remove
-                  |  Delete
+                nobr
+                  a(href=`/admin/homepage-technologies/${technology._id}/edit` 
+                    class="btn btn-outline-primary" 
+                    role="button")
+                    i.fa.fa-cog 
+                    |  Edit
+                  | &nbsp;
+                  a(href=`/admin/homepage-technologies/${technology._id}/delete` 
+                    class="btn btn-outline-primary"
+                    role="button"
+                    onclick="return confirm('Are you sure you want delete this technology?')"
+                    )
+                    i.fa.fa-remove
+                    |  Delete
